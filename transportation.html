@@ -38,10 +38,6 @@
       font-size: 14px;
     }
 
-    .back:hover {
-      color: #8a7055;
-    }
-
     .language {
       display: flex;
       align-items: center;
@@ -200,6 +196,16 @@
       font-weight: 600;
     }
 
+    .flight-number {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 4px 9px;
+      background: #eee9e2;
+      border-radius: 7px;
+      color: #777;
+      font-size: 11px;
+    }
+
     footer {
       border-top: 1px solid #e3ded7;
       color: #999;
@@ -276,20 +282,22 @@
   </section>
 
 
-  <!-- MADRID TO BARCELONA -->
+  <!-- FLIGHTS -->
 
   <section class="section container">
 
-    <div class="section-label" id="flightLabel">
-      Flight
+    <div class="section-label" id="flightsLabel">
+      Flights
     </div>
 
-    <div class="section-title" id="flightSectionTitle">
-      Madrid → Barcelona
+    <div class="section-title" id="flightsTitle">
+      Flights Between Cities
     </div>
-
 
     <div class="flight-list">
+
+
+      <!-- MADRID → BARCELONA -->
 
       <div class="flight">
 
@@ -299,9 +307,7 @@
 
           <div class="flight-main">
 
-            <div class="flight-icon">
-              ✈️
-            </div>
+            <div class="flight-icon">✈️</div>
 
             <div>
 
@@ -317,9 +323,7 @@
 
           </div>
 
-          <div class="flight-arrow">
-            ⌄
-          </div>
+          <div class="flight-arrow">⌄</div>
 
         </button>
 
@@ -329,80 +333,290 @@
           <div class="detail-grid">
 
             <div class="detail">
+              <small>Airline</small>
+              <strong>Iberia</strong>
+            </div>
 
-              <small id="airlineLabel">
-                Airline
-              </small>
+            <div class="detail">
+              <small>Flight</small>
+              <strong>IB421</strong>
+            </div>
 
-              <strong>
-                Iberia · IB421
-              </strong>
+            <div class="detail">
+              <small>Departure</small>
+              <strong>6:00 PM · Madrid (MAD)</strong>
+            </div>
+
+            <div class="detail">
+              <small>Arrival</small>
+              <strong>7:15 PM · Barcelona (BCN)</strong>
+            </div>
+
+            <div class="detail">
+              <small>Duration</small>
+              <strong>1 hour 15 minutes</strong>
+            </div>
+
+            <div class="detail">
+              <small>Route</small>
+              <strong>Direct · Economy</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- BARCELONA → PARIS -->
+
+      <div class="flight">
+
+        <button
+          class="flight-button"
+          onclick="toggleFlight(this)">
+
+          <div class="flight-main">
+
+            <div class="flight-icon">✈️</div>
+
+            <div>
+
+              <div class="flight-title">
+                Barcelona (BCN) → Paris (ORY)
+              </div>
+
+              <div class="flight-subtitle">
+                Thursday, October 22 · 9:50 AM–11:40 AM
+              </div>
 
             </div>
 
+          </div>
+
+          <div class="flight-arrow">⌄</div>
+
+        </button>
+
+
+        <div class="flight-details">
+
+          <div class="detail-grid">
 
             <div class="detail">
+              <small>Airline</small>
+              <strong>Vueling</strong>
+            </div>
 
-              <small id="departureLabel">
-                Departure
-              </small>
+            <div class="detail">
+              <small>Flight</small>
+              <strong>VY8004</strong>
+            </div>
 
-              <strong>
-                6:00 PM · Madrid (MAD)
-              </strong>
+            <div class="detail">
+              <small>Departure</small>
+              <strong>9:50 AM · Barcelona (BCN)</strong>
+            </div>
+
+            <div class="detail">
+              <small>Arrival</small>
+              <strong>11:40 AM · Paris (ORY)</strong>
+            </div>
+
+            <div class="detail">
+              <small>Duration</small>
+              <strong>1 hour 50 minutes</strong>
+            </div>
+
+            <div class="detail">
+              <small>Route</small>
+              <strong>Direct · Economy</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- BRUSSELS → FLORENCE -->
+
+      <div class="flight">
+
+        <button
+          class="flight-button"
+          onclick="toggleFlight(this)">
+
+          <div class="flight-main">
+
+            <div class="flight-icon">✈️</div>
+
+            <div>
+
+              <div class="flight-title">
+                Brussels (BRU) → Florence (FLR)
+              </div>
+
+              <div class="flight-subtitle">
+                Monday, October 26 · 9:15 AM–11:05 AM
+              </div>
 
             </div>
 
+          </div>
+
+          <div class="flight-arrow">⌄</div>
+
+        </button>
+
+
+        <div class="flight-details">
+
+          <div class="detail-grid">
 
             <div class="detail">
+              <small>Airline</small>
+              <strong>Brussels Airlines</strong>
+            </div>
 
-              <small id="arrivalLabel">
-                Arrival
-              </small>
+            <div class="detail">
+              <small>Flight</small>
+              <strong>SN3139</strong>
+            </div>
 
-              <strong>
-                7:15 PM · Barcelona (BCN)
-              </strong>
+            <div class="detail">
+              <small>Departure</small>
+              <strong>9:15 AM · Brussels (BRU)</strong>
+            </div>
+
+            <div class="detail">
+              <small>Arrival</small>
+              <strong>11:05 AM · Florence (FLR)</strong>
+            </div>
+
+            <div class="detail">
+              <small>Duration</small>
+              <strong>1 hour 50 minutes</strong>
+            </div>
+
+            <div class="detail">
+              <small>Route</small>
+              <strong>Direct · Economy</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ROME → MADRID -->
+
+      <div class="flight">
+
+        <button
+          class="flight-button"
+          onclick="toggleFlight(this)">
+
+          <div class="flight-main">
+
+            <div class="flight-icon">✈️</div>
+
+            <div>
+
+              <div class="flight-title">
+                Rome (FCO) → Madrid (MAD)
+              </div>
+
+              <div class="flight-subtitle">
+                Saturday, October 31 · 8:20 AM–10:50 AM
+              </div>
 
             </div>
 
+          </div>
+
+          <div class="flight-arrow">⌄</div>
+
+        </button>
+
+
+        <div class="flight-details">
+
+          <div class="detail-grid">
 
             <div class="detail">
-
-              <small id="durationLabel">
-                Duration
-              </small>
-
-              <strong>
-                1 hour 15 minutes
-              </strong>
-
+              <small>Airline</small>
+              <strong>ITA Airways</strong>
             </div>
 
-
             <div class="detail">
-
-              <small id="routeLabel">
-                Route
-              </small>
-
-              <strong>
-                Direct · Economy
-              </strong>
-
+              <small>Flight</small>
+              <strong>AZ58</strong>
             </div>
 
+            <div class="detail">
+              <small>Departure</small>
+              <strong>8:20 AM · Rome (FCO)</strong>
+            </div>
 
             <div class="detail">
+              <small>Arrival</small>
+              <strong>10:50 AM · Madrid (MAD)</strong>
+            </div>
 
-              <small id="dateLabel">
-                Date
-              </small>
+            <div class="detail">
+              <small>Duration</small>
+              <strong>2 hours 30 minutes</strong>
+            </div>
 
-              <strong>
-                Monday, October 19, 2026
-              </strong>
+            <div class="detail">
+              <small>Route</small>
+              <strong>Direct · Economy</strong>
+            </div>
 
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TRAINS WILL BE ADDED HERE LATER -->
+
+  <section class="section container">
+
+    <div class="section-label">
+      Trains
+    </div>
+
+    <div class="section-title">
+      Train Information
+    </div>
+
+    <div class="flight">
+
+      <div class="flight-button" style="cursor: default;">
+
+        <div class="flight-main">
+
+          <div class="flight-icon">🚆</div>
+
+          <div>
+
+            <div class="flight-title">
+              Train information coming soon
+            </div>
+
+            <div class="flight-subtitle">
+              We’ll add the train details once they’re booked.
             </div>
 
           </div>
@@ -453,29 +667,11 @@
         document.getElementById("mainSubtitle").textContent =
           "Vuelos y trenes entre nuestros destinos";
 
-        document.getElementById("flightLabel").textContent =
-          "Vuelo";
+        document.getElementById("flightsLabel").textContent =
+          "Vuelos";
 
-        document.getElementById("flightSectionTitle").textContent =
-          "Madrid → Barcelona";
-
-        document.getElementById("airlineLabel").textContent =
-          "Aerolínea";
-
-        document.getElementById("departureLabel").textContent =
-          "Salida";
-
-        document.getElementById("arrivalLabel").textContent =
-          "Llegada";
-
-        document.getElementById("durationLabel").textContent =
-          "Duración";
-
-        document.getElementById("routeLabel").textContent =
-          "Ruta";
-
-        document.getElementById("dateLabel").textContent =
-          "Fecha";
+        document.getElementById("flightsTitle").textContent =
+          "Vuelos entre ciudades";
 
         englishButton.classList.remove("active");
         spanishButton.classList.add("active");
@@ -496,29 +692,11 @@
         document.getElementById("mainSubtitle").textContent =
           "Flights and trains between our destinations";
 
-        document.getElementById("flightLabel").textContent =
-          "Flight";
+        document.getElementById("flightsLabel").textContent =
+          "Flights";
 
-        document.getElementById("flightSectionTitle").textContent =
-          "Madrid → Barcelona";
-
-        document.getElementById("airlineLabel").textContent =
-          "Airline";
-
-        document.getElementById("departureLabel").textContent =
-          "Departure";
-
-        document.getElementById("arrivalLabel").textContent =
-          "Arrival";
-
-        document.getElementById("durationLabel").textContent =
-          "Duration";
-
-        document.getElementById("routeLabel").textContent =
-          "Route";
-
-        document.getElementById("dateLabel").textContent =
-          "Date";
+        document.getElementById("flightsTitle").textContent =
+          "Flights Between Cities";
 
         englishButton.classList.add("active");
         spanishButton.classList.remove("active");
