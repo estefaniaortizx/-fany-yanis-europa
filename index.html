@@ -154,12 +154,6 @@
       font-weight: 500;
       letter-spacing: -3px;
       line-height: 1;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      color: #777;
-      font-size: 17px;
     }
 
     .section {
@@ -374,8 +368,6 @@
 
 <body>
 
-  <!-- PASSWORD -->
-
   <div id="passwordScreen">
 
     <div class="password-box">
@@ -410,8 +402,6 @@
 
   <div id="website">
 
-    <!-- NAVIGATION -->
-
     <nav class="container">
 
       <div class="logo">
@@ -440,8 +430,6 @@
     </nav>
 
 
-    <!-- HERO -->
-
     <section class="hero container">
 
       <div class="eyebrow">
@@ -452,14 +440,8 @@
         Europe Trip
       </h1>
 
-      <p id="mainSubtitle">
-        Fany & Yanis
-      </p>
-
     </section>
 
-
-    <!-- ARRIVAL FLIGHTS -->
 
     <section class="section container">
 
@@ -472,9 +454,6 @@
       </div>
 
       <div class="flight-list">
-
-
-        <!-- FANY ARRIVAL -->
 
         <div class="flight">
 
@@ -532,8 +511,6 @@
 
         </div>
 
-
-        <!-- YANIS ARRIVAL -->
 
         <div class="flight">
 
@@ -596,8 +573,6 @@
     </section>
 
 
-    <!-- RETURN FLIGHTS -->
-
     <section class="section container">
 
       <div class="section-label" id="returnLabel">
@@ -609,9 +584,6 @@
       </div>
 
       <div class="flight-list">
-
-
-        <!-- FANY RETURN -->
 
         <div class="flight">
 
@@ -658,14 +630,17 @@
                 <strong>3:50 PM · Philadelphia Terminal A</strong>
               </div>
 
+              <div class="detail">
+                <small>Duration</small>
+                <strong>8 hours 35 minutes</strong>
+              </div>
+
             </div>
 
           </div>
 
         </div>
 
-
-        <!-- YANIS RETURN -->
 
         <div class="flight">
 
@@ -728,8 +703,6 @@
     </section>
 
 
-    <!-- DESTINATIONS -->
-
     <section class="section container">
 
       <div class="trip-intro">
@@ -751,16 +724,12 @@
 
       <div class="city-grid">
 
-
-        <!-- BARCELONA -->
-
         <a href="barcelona.html" class="city">
 
           <div class="city-top">
             <div class="city-name" id="barcelonaName">
               🇪🇸 Barcelona
             </div>
-
             <div class="arrow">→</div>
           </div>
 
@@ -775,15 +744,12 @@
         </a>
 
 
-        <!-- PARIS -->
-
         <a href="paris.html" class="city">
 
           <div class="city-top">
             <div class="city-name" id="parisName">
               🇫🇷 Paris
             </div>
-
             <div class="arrow">→</div>
           </div>
 
@@ -798,15 +764,12 @@
         </a>
 
 
-        <!-- BRUGES -->
-
         <a href="bruges.html" class="city">
 
           <div class="city-top">
             <div class="city-name" id="brugesName">
               🇧🇪 Bruges
             </div>
-
             <div class="arrow">→</div>
           </div>
 
@@ -821,15 +784,12 @@
         </a>
 
 
-        <!-- FLORENCE -->
-
         <a href="florence.html" class="city">
 
           <div class="city-top">
             <div class="city-name" id="florenceName">
               🇮🇹 Florence
             </div>
-
             <div class="arrow">→</div>
           </div>
 
@@ -844,15 +804,12 @@
         </a>
 
 
-        <!-- VENICE -->
-
         <a href="venice.html" class="city">
 
           <div class="city-top">
             <div class="city-name" id="veniceName">
               🇮🇹 Venice
             </div>
-
             <div class="arrow">→</div>
           </div>
 
@@ -867,15 +824,12 @@
         </a>
 
 
-        <!-- ROME -->
-
         <a href="rome.html" class="city">
 
           <div class="city-top">
             <div class="city-name" id="romeName">
               🇮🇹 Rome
             </div>
-
             <div class="arrow">→</div>
           </div>
 
@@ -890,15 +844,12 @@
         </a>
 
 
-        <!-- MADRID -->
-
         <a href="madrid.html" class="city">
 
           <div class="city-top">
             <div class="city-name" id="madridName">
               🇪🇸 Madrid
             </div>
-
             <div class="arrow">→</div>
           </div>
 
@@ -964,9 +915,6 @@
 
         document.getElementById("mainTitle").textContent =
           "Viaje a Europa";
-
-        document.getElementById("mainSubtitle").textContent =
-          "Fany y Yanis";
 
         document.getElementById("arrivalLabel").textContent =
           "Llegada";
@@ -1050,16 +998,12 @@
         englishButton.classList.remove("active");
         spanishButton.classList.add("active");
 
-
       } else {
 
         document.documentElement.lang = "en";
 
         document.getElementById("mainTitle").textContent =
           "Europe Trip";
-
-        document.getElementById("mainSubtitle").textContent =
-          "Fany & Yanis";
 
         document.getElementById("arrivalLabel").textContent =
           "Getting There";
