@@ -1,8 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Fany & Yanis Europa</title>
 
   <style>
@@ -12,146 +14,351 @@
       padding: 0;
     }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f8f6f2;
-      color: #333;
-      line-height: 1.6;
+    :root {
+      --blue: #4f9fc4;
+      --dark-blue: #286b91;
+      --coral: #ef806f;
+      --pink: #e8a5b5;
+      --yellow: #f3c969;
+      --green: #8dbb9b;
+      --cream: #fffaf4;
+      --text: #273238;
+      --muted: #69777d;
+      --white: #ffffff;
     }
 
-    header {
-      background: #ffffff;
-      padding: 20px;
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 22px 25px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #e5e1da;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      justify-content: space-between;
     }
 
     .logo {
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
+      font-family: Georgia, serif;
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: var(--coral);
+    }
+
+    .language {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: white;
+      border: 1px solid #eee3d9;
+      padding: 5px;
+      border-radius: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
     }
 
     .language button {
-      border: 1px solid #ccc;
-      background: white;
+      border: none;
+      background: transparent;
       padding: 7px 10px;
       border-radius: 20px;
       cursor: pointer;
+      color: var(--muted);
       font-size: 13px;
     }
 
+    .language button.active {
+      background: var(--blue);
+      color: white;
+      font-weight: 600;
+    }
+
+    /* HERO */
+
     .hero {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 25px 55px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
       text-align: center;
-      padding: 70px 20px 55px;
-      background: #eee9e1;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: #f9df9a;
+      color: #735b21;
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
     }
 
     .hero h1 {
       font-family: Georgia, serif;
-      font-size: 48px;
-      font-weight: 500;
-      margin-bottom: 12px;
+      font-size: clamp(48px, 9vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -4px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 .pink {
+      color: var(--coral);
     }
 
     .hero p {
-      font-size: 17px;
-      color: #666;
-    }
-
-    .container {
-      max-width: 1000px;
+      max-width: 600px;
       margin: auto;
-      padding: 45px 20px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
     }
 
-    .section-title {
-      font-family: Georgia, serif;
-      font-size: 30px;
-      margin-bottom: 25px;
-      text-align: center;
+    .decor {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.7;
+    }
+
+    .decor.one {
+      width: 85px;
+      height: 85px;
+      background: var(--pink);
+      left: 3%;
+      top: 20px;
+    }
+
+    .decor.two {
+      width: 55px;
+      height: 55px;
+      background: var(--yellow);
+      right: 8%;
+      top: 80px;
+    }
+
+    .decor.three {
+      width: 42px;
+      height: 42px;
+      background: var(--green);
+      left: 12%;
+      bottom: 20px;
+    }
+
+    /* ARRIVAL */
+
+    .section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 25px 70px;
     }
 
     .arrival {
       background: white;
-      border-radius: 18px;
-      padding: 25px;
-      margin-bottom: 55px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-radius: 26px;
+      padding: 32px;
+      border: 1px solid #eee3d9;
+      box-shadow: 0 10px 35px rgba(44, 75, 85, 0.07);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .arrival::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 7px;
+      background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--pink),
+        var(--yellow),
+        var(--coral)
+      );
+    }
+
+    .section-label {
+      color: var(--dark-blue);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+      margin-top: 5px;
+    }
+
+    .arrival h2 {
+      font-family: Georgia, serif;
+      font-size: 31px;
+      margin-bottom: 25px;
     }
 
     .arrival-route {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      gap: 20px;
-      text-align: center;
+      gap: 25px;
     }
 
     .airport {
-      flex: 1;
+      padding: 22px;
+      border-radius: 18px;
+    }
+
+    .airport:first-child {
+      background: #e8f3f8;
+    }
+
+    .airport:last-child {
+      background: #fff0ec;
     }
 
     .airport h3 {
-      font-size: 22px;
-      margin-bottom: 5px;
+      font-family: Georgia, serif;
+      font-size: 25px;
+      margin-bottom: 3px;
     }
 
     .airport p {
-      color: #777;
+      color: var(--muted);
       font-size: 14px;
     }
 
-    .arrow {
-      font-size: 28px;
-      color: #999;
+    .flight-arrow {
+      width: 48px;
+      height: 48px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
     }
 
-    .arrival-info {
+    .arrival-details {
+      margin-top: 18px;
+      padding: 17px;
+      background: #f7f5f1;
+      border-radius: 14px;
+      color: var(--muted);
+      font-size: 14px;
       text-align: center;
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid #eee;
-      color: #666;
+    }
+
+    /* DESTINATIONS */
+
+    .heading {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .heading h2 {
+      font-family: Georgia, serif;
+      font-size: 38px;
+      margin-bottom: 7px;
+    }
+
+    .heading p {
+      color: var(--muted);
     }
 
     .destinations {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
 
     .destination {
-      background: white;
-      border-radius: 18px;
-      padding: 25px;
       text-decoration: none;
-      color: #333;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: block;
+      color: var(--text);
+      background: white;
+      border-radius: 22px;
+      padding: 26px;
+      border: 1px solid #eee3d9;
+      box-shadow: 0 6px 20px rgba(44, 75, 85, 0.05);
+      transition: transform .2s ease, box-shadow .2s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .destination:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.09);
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px rgba(44, 75, 85, 0.1);
     }
 
-    .destination h3 {
+    .destination::after {
+      content: "→";
+      position: absolute;
+      right: 24px;
+      top: 23px;
+      font-size: 22px;
+      color: var(--muted);
+    }
+
+    .destination:nth-child(1) {
+      border-top: 6px solid var(--coral);
+    }
+
+    .destination:nth-child(2) {
+      border-top: 6px solid var(--blue);
+    }
+
+    .destination:nth-child(3) {
+      border-top: 6px solid var(--pink);
+    }
+
+    .destination:nth-child(4) {
+      border-top: 6px solid var(--green);
+    }
+
+    .destination:nth-child(5) {
+      border-top: 6px solid var(--yellow);
+    }
+
+    .destination:nth-child(6) {
+      border-top: 6px solid var(--coral);
+    }
+
+    .destination:nth-child(7) {
+      border-top: 6px solid var(--blue);
+    }
+
+    .city {
       font-family: Georgia, serif;
-      font-size: 25px;
-      margin-bottom: 6px;
+      font-size: 28px;
+      margin-bottom: 5px;
     }
 
     .dates {
-      color: #888;
-      font-size: 14px;
-      margin-bottom: 15px;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 18px;
     }
 
     .tags {
@@ -161,213 +368,572 @@
     }
 
     .tag {
-      background: #f0ede8;
-      padding: 5px 10px;
+      padding: 6px 10px;
       border-radius: 20px;
-      font-size: 12px;
-      color: #666;
+      font-size: 11px;
+      font-weight: 500;
     }
 
+    .tag.hotel {
+      background: #e8f3f8;
+      color: #286b91;
+    }
+
+    .tag.plans {
+      background: #fde8e4;
+      color: #b85e50;
+    }
+
+    .tag.food {
+      background: #fff2ca;
+      color: #876c20;
+    }
+
+    /* FOOTER */
+
     footer {
+      margin-top: 20px;
+      border-top: 1px solid #e6ddd4;
+      padding: 30px 20px;
       text-align: center;
-      padding: 35px 20px;
-      color: #888;
+      color: #8a9498;
       font-size: 13px;
     }
 
-    @media (max-width: 600px) {
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      nav {
+        padding: 18px;
+      }
+
+      .hero {
+        padding: 45px 18px 55px;
+      }
+
       .hero h1 {
-        font-size: 38px;
+        letter-spacing: -2.5px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .decor.one {
+        width: 55px;
+        height: 55px;
+      }
+
+      .decor.two {
+        width: 40px;
+        height: 40px;
+      }
+
+      .section {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .arrival {
+        padding: 25px 20px;
       }
 
       .arrival-route {
-        flex-direction: column;
+        grid-template-columns: 1fr;
+        gap: 12px;
       }
 
-      .arrow {
+      .flight-arrow {
+        margin: auto;
         transform: rotate(90deg);
       }
+
+      .destinations {
+        grid-template-columns: 1fr;
+      }
+
+      .heading h2 {
+        font-size: 32px;
+      }
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <header>
-    <div class="logo">Fany & Yanis Europa</div>
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <div class="logo">
+      ✈️ Fany & Yanis <span>Europa</span>
+    </div>
 
     <div class="language">
-      <button onclick="setLanguage('en')">🇺🇸 English</button>
-      <button onclick="setLanguage('es')">🇲🇽 Español</button>
+
+      <button
+        id="englishButton"
+        class="active"
+        onclick="setLanguage('en')"
+      >
+        🇺🇸 EN
+      </button>
+
+      <button
+        id="spanishButton"
+        onclick="setLanguage('es')"
+      >
+        🇲🇽 ES
+      </button>
+
     </div>
-  </header>
+
+  </nav>
+
+
+  <!-- HERO -->
 
   <section class="hero">
-    <h1 id="hero-title">Europe Trip</h1>
-    <p id="hero-subtitle">Fany & Yanis' European adventure</p>
+
+    <div class="decor one"></div>
+    <div class="decor two"></div>
+    <div class="decor three"></div>
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        October 19 – November 2, 2026
+      </div>
+
+      <h1 id="heroTitle">
+        Our <span class="pink">Europe</span> Trip
+      </h1>
+
+      <p id="heroSubtitle">
+        Fany & Yanis' adventure through Spain, France, Belgium and Italy
+      </p>
+
+    </div>
+
   </section>
 
-  <main class="container">
 
-    <h2 class="section-title" id="arrival-title">Our Arrival</h2>
+  <!-- ARRIVAL -->
+
+  <section class="section">
 
     <div class="arrival">
+
+      <div
+        class="section-label"
+        id="arrivalLabel"
+      >
+        ✈️ Arrival
+      </div>
+
+      <h2 id="arrivalTitle">
+        Philadelphia → Madrid
+      </h2>
 
       <div class="arrival-route">
 
         <div class="airport">
+
           <h3>Philadelphia</h3>
+
           <p>PHL</p>
-          <p id="departure-date">October 18, 2026</p>
+
+          <p id="departureDate">
+            October 18, 2026
+          </p>
+
         </div>
 
-        <div class="arrow">→</div>
+
+        <div class="flight-arrow">
+          →
+        </div>
+
 
         <div class="airport">
+
           <h3>Madrid</h3>
-          <p>Madrid-Barajas</p>
-          <p id="arrival-date">October 19, 2026</p>
+
+          <p>MAD</p>
+
+          <p id="arrivalDate">
+            October 19, 2026
+          </p>
+
         </div>
 
       </div>
 
-      <div class="arrival-info" id="arrival-info">
-        Overnight flight from Philadelphia to Madrid
+
+      <div
+        class="arrival-details"
+        id="arrivalDetails"
+      >
+        Overnight flight · Arrival in Madrid
       </div>
 
     </div>
 
-    <h2 class="section-title" id="destinations-title">Our Destinations</h2>
+  </section>
+
+
+  <!-- DESTINATIONS -->
+
+  <section class="section">
+
+    <div class="heading">
+
+      <h2 id="destinationsTitle">
+        Where We're Going
+      </h2>
+
+      <p id="destinationsSubtitle">
+        Click a destination to see our plans
+      </p>
+
+    </div>
+
 
     <div class="destinations">
 
-      <a class="destination" href="madrid.html">
-        <h3>Madrid</h3>
-        <div class="dates">October 19–21</div>
+
+      <a
+        href="madrid.html"
+        class="destination"
+      >
+
+        <div class="city">
+          🇪🇸 Madrid
+        </div>
+
+        <div class="dates">
+          October 19–21
+        </div>
 
         <div class="tags">
-          <span class="tag">Hotel</span>
-          <span class="tag">Plans</span>
-          <span class="tag">Food</span>
+
+          <span class="tag hotel">
+            🏨 Hotel
+          </span>
+
+          <span class="tag plans">
+            📅 Plans
+          </span>
+
+          <span class="tag food">
+            🍴 Food
+          </span>
+
         </div>
+
       </a>
 
-      <a class="destination" href="barcelona.html">
-        <h3>Barcelona</h3>
-        <div class="dates">October 21–24</div>
+
+      <a
+        href="barcelona.html"
+        class="destination"
+      >
+
+        <div class="city">
+          🇪🇸 Barcelona
+        </div>
+
+        <div class="dates">
+          October 21–24
+        </div>
 
         <div class="tags">
-          <span class="tag">Hotel</span>
-          <span class="tag">Plans</span>
-          <span class="tag">Food</span>
+
+          <span class="tag hotel">
+            🏨 Hotel
+          </span>
+
+          <span class="tag plans">
+            📅 Plans
+          </span>
+
+          <span class="tag food">
+            🍴 Food
+          </span>
+
         </div>
+
       </a>
 
-      <a class="destination" href="paris.html">
-        <h3>Paris</h3>
-        <div class="dates">October 24–27</div>
+
+      <a
+        href="paris.html"
+        class="destination"
+      >
+
+        <div class="city">
+          🇫🇷 Paris
+        </div>
+
+        <div class="dates">
+          October 24–27
+        </div>
 
         <div class="tags">
-          <span class="tag">Hotel</span>
-          <span class="tag">Plans</span>
-          <span class="tag">Food</span>
+
+          <span class="tag hotel">
+            🏨 Hotel
+          </span>
+
+          <span class="tag plans">
+            📅 Plans
+          </span>
+
+          <span class="tag food">
+            🍴 Food
+          </span>
+
         </div>
+
       </a>
 
-      <a class="destination" href="bruges.html">
-        <h3>Bruges</h3>
-        <div class="dates">October 27–28</div>
+
+      <a
+        href="bruges.html"
+        class="destination"
+      >
+
+        <div class="city">
+          🇧🇪 Bruges
+        </div>
+
+        <div class="dates">
+          October 27–28
+        </div>
 
         <div class="tags">
-          <span class="tag">Hotel</span>
-          <span class="tag">Plans</span>
-          <span class="tag">Food</span>
+
+          <span class="tag hotel">
+            🏨 Hotel
+          </span>
+
+          <span class="tag plans">
+            📅 Plans
+          </span>
+
+          <span class="tag food">
+            🍴 Food
+          </span>
+
         </div>
+
       </a>
 
-      <a class="destination" href="florence.html">
-        <h3>Florence</h3>
-        <div class="dates">October 28–29</div>
+
+      <a
+        href="florence.html"
+        class="destination"
+      >
+
+        <div class="city">
+          🇮🇹 Florence
+        </div>
+
+        <div class="dates">
+          October 28–29
+        </div>
 
         <div class="tags">
-          <span class="tag">Hotel</span>
-          <span class="tag">Plans</span>
-          <span class="tag">Food</span>
+
+          <span class="tag hotel">
+            🏨 Hotel
+          </span>
+
+          <span class="tag plans">
+            📅 Plans
+          </span>
+
+          <span class="tag food">
+            🍴 Food
+          </span>
+
         </div>
+
       </a>
 
-      <a class="destination" href="rome.html">
-        <h3>Rome</h3>
-        <div class="dates">October 29–31</div>
+
+      <a
+        href="rome.html"
+        class="destination"
+      >
+
+        <div class="city">
+          🇮🇹 Rome
+        </div>
+
+        <div class="dates">
+          October 29–31
+        </div>
 
         <div class="tags">
-          <span class="tag">Hotel</span>
-          <span class="tag">Plans</span>
-          <span class="tag">Food</span>
+
+          <span class="tag hotel">
+            🏨 Hotel
+          </span>
+
+          <span class="tag plans">
+            📅 Plans
+          </span>
+
+          <span class="tag food">
+            🍴 Food
+          </span>
+
         </div>
+
       </a>
 
-      <a class="destination" href="madrid-final.html">
-        <h3>Madrid</h3>
-        <div class="dates">November 1–2</div>
+
+      <a
+        href="madrid-final.html"
+        class="destination"
+      >
+
+        <div class="city">
+          🇪🇸 Madrid
+        </div>
+
+        <div class="dates">
+          November 1–2
+        </div>
 
         <div class="tags">
-          <span class="tag">Final Days</span>
-          <span class="tag">Departure</span>
+
+          <span class="tag hotel">
+            🏨 Hotel
+          </span>
+
+          <span class="tag plans">
+            📅 Final plans
+          </span>
+
+          <span class="tag food">
+            ✈️ Departure
+          </span>
+
         </div>
+
       </a>
+
 
     </div>
 
-  </main>
+  </section>
+
+
+  <!-- FOOTER -->
 
   <footer>
-    Fany & Yanis Europa · 2026
+
+    <div id="footerText">
+      Fany & Yanis Europa · 2026
+    </div>
+
   </footer>
 
+
   <script>
+
     function setLanguage(language) {
+
+      const englishButton =
+        document.getElementById("englishButton");
+
+      const spanishButton =
+        document.getElementById("spanishButton");
+
 
       if (language === "es") {
 
         document.documentElement.lang = "es";
 
-        document.getElementById("hero-title").textContent =
-          "Viaje por Europa";
+        document.getElementById("heroTitle").innerHTML =
+          'Nuestro viaje por <span class="pink">Europa</span>';
 
-        document.getElementById("hero-subtitle").textContent =
-          "La aventura europea de Fany y Yanis";
+        document.getElementById("heroSubtitle").textContent =
+          "La aventura de Fany y Yanis por España, Francia, Bélgica e Italia";
 
-        document.getElementById("arrival-title").textContent =
-          "Nuestra llegada";
+        document.getElementById("arrivalLabel").textContent =
+          "✈️ Llegada";
 
-        document.getElementById("arrival-info").textContent =
-          "Vuelo nocturno de Filadelfia a Madrid";
+        document.getElementById("arrivalTitle").textContent =
+          "Filadelfia → Madrid";
 
-        document.getElementById("destinations-title").textContent =
-          "Nuestros destinos";
+        document.getElementById("departureDate").textContent =
+          "18 de octubre de 2026";
+
+        document.getElementById("arrivalDate").textContent =
+          "19 de octubre de 2026";
+
+        document.getElementById("arrivalDetails").textContent =
+          "Vuelo nocturno · Llegada a Madrid";
+
+        document.getElementById("destinationsTitle").textContent =
+          "A dónde vamos";
+
+        document.getElementById("destinationsSubtitle").textContent =
+          "Haz clic en un destino para ver nuestros planes";
+
+        document.getElementById("footerText").textContent =
+          "Fany y Yanis Europa · 2026";
+
+        englishButton.classList.remove("active");
+        spanishButton.classList.add("active");
 
       } else {
 
         document.documentElement.lang = "en";
 
-        document.getElementById("hero-title").textContent =
-          "Europe Trip";
+        document.getElementById("heroTitle").innerHTML =
+          'Our <span class="pink">Europe</span> Trip';
 
-        document.getElementById("hero-subtitle").textContent =
-          "Fany & Yanis' European adventure";
+        document.getElementById("heroSubtitle").textContent =
+          "Fany & Yanis' adventure through Spain, France, Belgium and Italy";
 
-        document.getElementById("arrival-title").textContent =
-          "Our Arrival";
+        document.getElementById("arrivalLabel").textContent =
+          "✈️ Arrival";
 
-        document.getElementById("arrival-info").textContent =
-          "Overnight flight from Philadelphia to Madrid";
+        document.getElementById("arrivalTitle").textContent =
+          "Philadelphia → Madrid";
 
-        document.getElementById("destinations-title").textContent =
-          "Our Destinations";
+        document.getElementById("departureDate").textContent =
+          "October 18, 2026";
+
+        document.getElementById("arrivalDate").textContent =
+          "October 19, 2026";
+
+        document.getElementById("arrivalDetails").textContent =
+          "Overnight flight · Arrival in Madrid";
+
+        document.getElementById("destinationsTitle").textContent =
+          "Where We're Going";
+
+        document.getElementById("destinationsSubtitle").textContent =
+          "Click a destination to see our plans";
+
+        document.getElementById("footerText").textContent =
+          "Fany & Yanis Europa · 2026";
+
+        englishButton.classList.add("active");
+        spanishButton.classList.remove("active");
       }
     }
+
   </script>
 
 </body>
 </html>
+```
