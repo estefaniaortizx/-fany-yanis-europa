@@ -38,6 +38,10 @@
       font-size: 14px;
     }
 
+    .back:hover {
+      color: #8a7055;
+    }
+
     .language {
       display: flex;
       align-items: center;
@@ -142,6 +146,7 @@
 
     .flight-icon {
       font-size: 22px;
+      flex-shrink: 0;
     }
 
     .flight-title {
@@ -159,6 +164,8 @@
       color: #999;
       font-size: 20px;
       transition: transform 0.2s;
+      flex-shrink: 0;
+      margin-left: 15px;
     }
 
     .flight.open .flight-arrow {
@@ -196,14 +203,13 @@
       font-weight: 600;
     }
 
-    .flight-number {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 4px 9px;
-      background: #eee9e2;
-      border-radius: 7px;
-      color: #777;
-      font-size: 11px;
+    .empty-trains {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 18px;
+      padding: 25px;
+      color: #888;
+      font-size: 14px;
     }
 
     footer {
@@ -294,10 +300,11 @@
       Flights Between Cities
     </div>
 
+
     <div class="flight-list">
 
 
-      <!-- MADRID → BARCELONA -->
+      <!-- OCTOBER 19: MADRID → BARCELONA -->
 
       <div class="flight">
 
@@ -316,7 +323,7 @@
               </div>
 
               <div class="flight-subtitle">
-                Monday, October 19 · 6:00 PM–7:15 PM
+                Monday, October 19 · 6:00 PM – 7:15 PM
               </div>
 
             </div>
@@ -369,7 +376,7 @@
       </div>
 
 
-      <!-- BARCELONA → PARIS -->
+      <!-- OCTOBER 22: BARCELONA → PARIS -->
 
       <div class="flight">
 
@@ -388,7 +395,7 @@
               </div>
 
               <div class="flight-subtitle">
-                Thursday, October 22 · 9:50 AM–11:40 AM
+                Thursday, October 22 · 9:50 AM – 11:40 AM
               </div>
 
             </div>
@@ -441,7 +448,7 @@
       </div>
 
 
-      <!-- BRUSSELS → FLORENCE -->
+      <!-- OCTOBER 26: BRUSSELS → FLORENCE -->
 
       <div class="flight">
 
@@ -460,7 +467,7 @@
               </div>
 
               <div class="flight-subtitle">
-                Monday, October 26 · 9:15 AM–11:05 AM
+                Monday, October 26 · 9:15 AM – 11:05 AM
               </div>
 
             </div>
@@ -513,7 +520,7 @@
       </div>
 
 
-      <!-- ROME → MADRID -->
+      <!-- OCTOBER 31: ROME → MADRID -->
 
       <div class="flight">
 
@@ -532,7 +539,7 @@
               </div>
 
               <div class="flight-subtitle">
-                Saturday, October 31 · 8:20 AM–10:50 AM
+                Saturday, October 31 · 8:20 AM – 10:50 AM
               </div>
 
             </div>
@@ -584,47 +591,26 @@
 
       </div>
 
+
     </div>
 
   </section>
 
 
-  <!-- TRAINS WILL BE ADDED HERE LATER -->
+  <!-- TRAINS -->
 
   <section class="section container">
 
-    <div class="section-label">
+    <div class="section-label" id="trainsLabel">
       Trains
     </div>
 
-    <div class="section-title">
+    <div class="section-title" id="trainsTitle">
       Train Information
     </div>
 
-    <div class="flight">
-
-      <div class="flight-button" style="cursor: default;">
-
-        <div class="flight-main">
-
-          <div class="flight-icon">🚆</div>
-
-          <div>
-
-            <div class="flight-title">
-              Train information coming soon
-            </div>
-
-            <div class="flight-subtitle">
-              We’ll add the train details once they’re booked.
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
+    <div class="empty-trains" id="trainsText">
+      Train information will be added once the tickets are booked.
     </div>
 
   </section>
@@ -673,6 +659,15 @@
         document.getElementById("flightsTitle").textContent =
           "Vuelos entre ciudades";
 
+        document.getElementById("trainsLabel").textContent =
+          "Trenes";
+
+        document.getElementById("trainsTitle").textContent =
+          "Información de trenes";
+
+        document.getElementById("trainsText").textContent =
+          "La información de los trenes se agregará cuando se compren los boletos.";
+
         englishButton.classList.remove("active");
         spanishButton.classList.add("active");
 
@@ -697,6 +692,15 @@
 
         document.getElementById("flightsTitle").textContent =
           "Flights Between Cities";
+
+        document.getElementById("trainsLabel").textContent =
+          "Trains";
+
+        document.getElementById("trainsTitle").textContent =
+          "Train Information";
+
+        document.getElementById("trainsText").textContent =
+          "Train information will be added once the tickets are booked.";
 
         englishButton.classList.add("active");
         spanishButton.classList.remove("active");
