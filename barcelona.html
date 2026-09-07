@@ -64,7 +64,7 @@
 
     .hero {
       text-align: center;
-      padding: 65px 20px 60px;
+      padding: 65px 20px 55px;
     }
 
     .eyebrow {
@@ -108,26 +108,6 @@
       font-size: 34px;
       font-weight: 500;
       margin-bottom: 25px;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid #e5dfd7;
-      border-radius: 18px;
-      padding: 25px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      font-family: Georgia, serif;
-      font-size: 23px;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      color: #777;
-      font-size: 14px;
     }
 
     .flight {
@@ -215,6 +195,13 @@
       font-weight: 600;
     }
 
+    .hotel {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 18px;
+      padding: 25px;
+    }
+
     .hotel-icon {
       font-size: 25px;
       margin-bottom: 10px;
@@ -223,12 +210,18 @@
     .hotel-name {
       font-family: Georgia, serif;
       font-size: 24px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
-    .hotel-address {
+    .hotel-address a {
       color: #777;
+      text-decoration: none;
       font-size: 14px;
+    }
+
+    .hotel-address a:hover {
+      color: #8a7055;
+      text-decoration: underline;
     }
 
     .hotel-city {
@@ -237,14 +230,36 @@
       margin-top: 10px;
     }
 
-    .empty-card {
+    .day-list {
+      display: grid;
+      gap: 15px;
+    }
+
+    .day {
       background: white;
       border: 1px solid #e5dfd7;
       border-radius: 18px;
-      padding: 30px 25px;
-      color: #999;
+      padding: 25px;
+    }
+
+    .day-date {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .day-title {
+      font-family: Georgia, serif;
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .day-details {
+      color: #777;
       font-size: 14px;
-      text-align: center;
     }
 
     footer {
@@ -335,7 +350,6 @@
       Our Flight
     </div>
 
-
     <div class="flight">
 
       <button
@@ -355,7 +369,7 @@
             </div>
 
             <div class="flight-subtitle">
-              Monday, October 19 · 6:00 PM
+              Monday, October 19 · 6:00 PM–7:15 PM
             </div>
 
           </div>
@@ -377,75 +391,42 @@
             <small id="flightNumberLabel">
               Flight
             </small>
-
-            <strong>
-              IB421
-            </strong>
+            <strong>IB421</strong>
           </div>
 
-
           <div class="detail">
-
             <small id="departureLabel">
               Departure
             </small>
-
-            <strong>
-              6:00 PM · Madrid (MAD)
-            </strong>
-
+            <strong>6:00 PM · Madrid (MAD)</strong>
           </div>
 
-
           <div class="detail">
-
             <small id="arrivalLabel">
               Arrival
             </small>
-
-            <strong>
-              7:15 PM · Barcelona (BCN)
-            </strong>
-
+            <strong>7:15 PM · Barcelona (BCN)</strong>
           </div>
 
-
           <div class="detail">
-
             <small id="durationLabel">
               Duration
             </small>
-
-            <strong>
-              1 hour 15 minutes
-            </strong>
-
+            <strong>1 hour 15 minutes</strong>
           </div>
 
-
           <div class="detail">
-
             <small id="routeLabel">
               Route
             </small>
-
-            <strong>
-              Direct · Economy
-            </strong>
-
+            <strong>Direct · Economy</strong>
           </div>
 
-
           <div class="detail">
-
             <small id="airlineLabel">
               Airline
             </small>
-
-            <strong>
-              Iberia
-            </strong>
-
+            <strong>Iberia · IB421</strong>
           </div>
 
         </div>
@@ -469,8 +450,7 @@
       Barcelona Hotel
     </div>
 
-
-    <div class="card">
+    <div class="hotel">
 
       <div class="hotel-icon">
         🏨
@@ -481,12 +461,20 @@
       </div>
 
       <div class="hotel-address">
-        Carrer Creu Coberta, 20–22
-        <br>
-        Sants-Montjuïc, 08014 Barcelona, Spain
+
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Occidental+Barcelona+1929%2C+Carrer+Creu+Coberta+20-22%2C+Barcelona%2C+Spain"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Carrer Creu Coberta, 20–22
+          <br>
+          Sants-Montjuïc, 08014 Barcelona, Spain
+        </a>
+
       </div>
 
-      <div class="hotel-city">
+      <div class="hotel-city" id="hotelCity">
         Barcelona, Spain
       </div>
 
@@ -495,21 +483,95 @@
   </section>
 
 
-  <!-- ACTIVITIES -->
+  <!-- DAY BY DAY -->
 
   <section class="section container">
 
-    <div class="section-label" id="activitiesLabel">
-      Plans
+    <div class="section-label" id="itineraryLabel">
+      Day by Day
     </div>
 
-    <div class="section-title" id="activitiesTitle">
-      What We're Doing
+    <div class="section-title" id="itineraryTitle">
+      Our Barcelona Plans
     </div>
 
+    <div class="day-list">
 
-    <div class="empty-card" id="activitiesEmpty">
-      Activities and excursions will be added here.
+      <!-- OCTOBER 19 -->
+
+      <div class="day">
+
+        <div class="day-date">
+          Monday, October 19
+        </div>
+
+        <div class="day-title" id="day19Title">
+          Arrival in Barcelona
+        </div>
+
+        <div class="day-details" id="day19Details">
+          Arrive in Barcelona from Madrid and check in at Occidental Barcelona 1929.
+        </div>
+
+      </div>
+
+
+      <!-- OCTOBER 20 -->
+
+      <div class="day">
+
+        <div class="day-date">
+          Tuesday, October 20
+        </div>
+
+        <div class="day-title" id="day20Title">
+          Activities
+        </div>
+
+        <div class="day-details" id="day20Details">
+          Activities and excursions to be added.
+        </div>
+
+      </div>
+
+
+      <!-- OCTOBER 21 -->
+
+      <div class="day">
+
+        <div class="day-date">
+          Wednesday, October 21
+        </div>
+
+        <div class="day-title" id="day21Title">
+          Activities
+        </div>
+
+        <div class="day-details" id="day21Details">
+          Activities and excursions to be added.
+        </div>
+
+      </div>
+
+
+      <!-- OCTOBER 22 -->
+
+      <div class="day">
+
+        <div class="day-date">
+          Thursday, October 22
+        </div>
+
+        <div class="day-title" id="day22Title">
+          Leaving Barcelona
+        </div>
+
+        <div class="day-details" id="day22Details">
+          Depart Barcelona for Paris.
+        </div>
+
+      </div>
+
     </div>
 
   </section>
@@ -539,7 +601,6 @@
       if (language === "es") {
 
         document.documentElement.lang = "es";
-
 
         document.getElementById("backButton").textContent =
           "← Volver al viaje";
@@ -580,24 +641,45 @@
         document.getElementById("hotelSectionTitle").textContent =
           "Hotel en Barcelona";
 
-        document.getElementById("activitiesLabel").textContent =
-          "Planes";
+        document.getElementById("hotelCity").textContent =
+          "Barcelona, España";
 
-        document.getElementById("activitiesTitle").textContent =
-          "Lo que vamos a hacer";
+        document.getElementById("itineraryLabel").textContent =
+          "Día por día";
 
-        document.getElementById("activitiesEmpty").textContent =
+        document.getElementById("itineraryTitle").textContent =
+          "Nuestros planes en Barcelona";
+
+        document.getElementById("day19Title").textContent =
+          "Llegada a Barcelona";
+
+        document.getElementById("day19Details").textContent =
+          "Llegamos a Barcelona desde Madrid y nos hospedamos en Occidental Barcelona 1929.";
+
+        document.getElementById("day20Title").textContent =
+          "Actividades";
+
+        document.getElementById("day20Details").textContent =
           "Aquí agregaremos las actividades y excursiones.";
 
+        document.getElementById("day21Title").textContent =
+          "Actividades";
+
+        document.getElementById("day21Details").textContent =
+          "Aquí agregaremos las actividades y excursiones.";
+
+        document.getElementById("day22Title").textContent =
+          "Salida de Barcelona";
+
+        document.getElementById("day22Details").textContent =
+          "Salimos de Barcelona hacia París.";
 
         englishButton.classList.remove("active");
         spanishButton.classList.add("active");
 
-
       } else {
 
         document.documentElement.lang = "en";
-
 
         document.getElementById("backButton").textContent =
           "← Back to trip";
@@ -638,15 +720,38 @@
         document.getElementById("hotelSectionTitle").textContent =
           "Barcelona Hotel";
 
-        document.getElementById("activitiesLabel").textContent =
-          "Plans";
+        document.getElementById("hotelCity").textContent =
+          "Barcelona, Spain";
 
-        document.getElementById("activitiesTitle").textContent =
-          "What We're Doing";
+        document.getElementById("itineraryLabel").textContent =
+          "Day by Day";
 
-        document.getElementById("activitiesEmpty").textContent =
-          "Activities and excursions will be added here.";
+        document.getElementById("itineraryTitle").textContent =
+          "Our Barcelona Plans";
 
+        document.getElementById("day19Title").textContent =
+          "Arrival in Barcelona";
+
+        document.getElementById("day19Details").textContent =
+          "Arrive in Barcelona from Madrid and check in at Occidental Barcelona 1929.";
+
+        document.getElementById("day20Title").textContent =
+          "Activities";
+
+        document.getElementById("day20Details").textContent =
+          "Activities and excursions to be added.";
+
+        document.getElementById("day21Title").textContent =
+          "Activities";
+
+        document.getElementById("day21Details").textContent =
+          "Activities and excursions to be added.";
+
+        document.getElementById("day22Title").textContent =
+          "Leaving Barcelona";
+
+        document.getElementById("day22Details").textContent =
+          "Depart Barcelona for Paris.";
 
         englishButton.classList.add("active");
         spanishButton.classList.remove("active");
