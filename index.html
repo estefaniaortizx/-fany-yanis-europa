@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fany & Yanis Europa</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8f6f2;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e1da;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .language button {
+      border: 1px solid #ccc;
+      background: white;
+      padding: 7px 10px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 70px 20px 55px;
+      background: #eee9e1;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: 48px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: #666;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .arrival {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 55px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .arrival-route {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .airport {
+      flex: 1;
+    }
+
+    .airport h3 {
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+
+    .airport p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .arrow {
+      font-size: 28px;
+      color: #999;
+    }
+
+    .arrival-info {
+      text-align: center;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      color: #666;
+    }
+
+    .destinations {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .destination {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      text-decoration: none;
+      color: #333;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: block;
+    }
+
+    .destination:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.09);
+    }
+
+    .destination h3 {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      margin-bottom: 6px;
+    }
+
+    .dates {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      background: #f0ede8;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: #666;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      color: #888;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .arrival-route {
+        flex-direction: column;
+      }
+
+      .arrow {
+        transform: rotate(90deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Fany & Yanis Europa</div>
+
+    <div class="language">
+      <button onclick="setLanguage('en')">🇺🇸 English</button>
+      <button onclick="setLanguage('es')">🇲🇽 Español</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1 id="hero-title">Europe Trip</h1>
+    <p id="hero-subtitle">Fany & Yanis' European adventure</p>
+  </section>
+
+  <main class="container">
+
+    <h2 class="section-title" id="arrival-title">Our Arrival</h2>
+
+    <div class="arrival">
+
+      <div class="arrival-route">
+
+        <div class="airport">
+          <h3>Philadelphia</h3>
+          <p>PHL</p>
+          <p id="departure-date">October 18, 2026</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="airport">
+          <h3>Madrid</h3>
+          <p>Madrid-Barajas</p>
+          <p id="arrival-date">October 19, 2026</p>
+        </div>
+
+      </div>
+
+      <div class="arrival-info" id="arrival-info">
+        Overnight flight from Philadelphia to Madrid
+      </div>
+
+    </div>
+
+    <h2 class="section-title" id="destinations-title">Our Destinations</h2>
+
+    <div class="destinations">
+
+      <a class="destination" href="madrid.html">
+        <h3>Madrid</h3>
+        <div class="dates">October 19–21</div>
+
+        <div class="tags">
+          <span class="tag">Hotel</span>
+          <span class="tag">Plans</span>
+          <span class="tag">Food</span>
+        </div>
+      </a>
+
+      <a class="destination" href="barcelona.html">
+        <h3>Barcelona</h3>
+        <div class="dates">October 21–24</div>
+
+        <div class="tags">
+          <span class="tag">Hotel</span>
+          <span class="tag">Plans</span>
+          <span class="tag">Food</span>
+        </div>
+      </a>
+
+      <a class="destination" href="paris.html">
+        <h3>Paris</h3>
+        <div class="dates">October 24–27</div>
+
+        <div class="tags">
+          <span class="tag">Hotel</span>
+          <span class="tag">Plans</span>
+          <span class="tag">Food</span>
+        </div>
+      </a>
+
+      <a class="destination" href="bruges.html">
+        <h3>Bruges</h3>
+        <div class="dates">October 27–28</div>
+
+        <div class="tags">
+          <span class="tag">Hotel</span>
+          <span class="tag">Plans</span>
+          <span class="tag">Food</span>
+        </div>
+      </a>
+
+      <a class="destination" href="florence.html">
+        <h3>Florence</h3>
+        <div class="dates">October 28–29</div>
+
+        <div class="tags">
+          <span class="tag">Hotel</span>
+          <span class="tag">Plans</span>
+          <span class="tag">Food</span>
+        </div>
+      </a>
+
+      <a class="destination" href="rome.html">
+        <h3>Rome</h3>
+        <div class="dates">October 29–31</div>
+
+        <div class="tags">
+          <span class="tag">Hotel</span>
+          <span class="tag">Plans</span>
+          <span class="tag">Food</span>
+        </div>
+      </a>
+
+      <a class="destination" href="madrid-final.html">
+        <h3>Madrid</h3>
+        <div class="dates">November 1–2</div>
+
+        <div class="tags">
+          <span class="tag">Final Days</span>
+          <span class="tag">Departure</span>
+        </div>
+      </a>
+
+    </div>
+
+  </main>
+
+  <footer>
+    Fany & Yanis Europa · 2026
+  </footer>
+
+  <script>
+    function setLanguage(language) {
+
+      if (language === "es") {
+
+        document.documentElement.lang = "es";
+
+        document.getElementById("hero-title").textContent =
+          "Viaje por Europa";
+
+        document.getElementById("hero-subtitle").textContent =
+          "La aventura europea de Fany y Yanis";
+
+        document.getElementById("arrival-title").textContent =
+          "Nuestra llegada";
+
+        document.getElementById("arrival-info").textContent =
+          "Vuelo nocturno de Filadelfia a Madrid";
+
+        document.getElementById("destinations-title").textContent =
+          "Nuestros destinos";
+
+      } else {
+
+        document.documentElement.lang = "en";
+
+        document.getElementById("hero-title").textContent =
+          "Europe Trip";
+
+        document.getElementById("hero-subtitle").textContent =
+          "Fany & Yanis' European adventure";
+
+        document.getElementById("arrival-title").textContent =
+          "Our Arrival";
+
+        document.getElementById("arrival-info").textContent =
+          "Overnight flight from Philadelphia to Madrid";
+
+        document.getElementById("destinations-title").textContent =
+          "Our Destinations";
+      }
+    }
+  </script>
+
+</body>
+</html>
