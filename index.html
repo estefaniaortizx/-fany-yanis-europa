@@ -1,4 +1,4 @@
-```html
+```html id="e8q5lm"
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -332,6 +332,46 @@
       margin-top: 10px;
     }
 
+    .transportation {
+      display: block;
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 18px;
+      color: #333;
+      padding: 25px;
+      text-decoration: none;
+      margin-top: 18px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .transportation:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+    }
+
+    .transportation-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .transportation-name {
+      font-family: Georgia, serif;
+      font-size: 26px;
+    }
+
+    .transportation-description {
+      color: #888;
+      font-size: 13px;
+    }
+
+    .transportation-note {
+      color: #8a7055;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
     footer {
       border-top: 1px solid #e3ded7;
       color: #999;
@@ -442,6 +482,8 @@
 
     </section>
 
+
+    <!-- ARRIVAL FLIGHTS -->
 
     <section class="section container">
 
@@ -573,6 +615,8 @@
     </section>
 
 
+    <!-- RETURN FLIGHTS -->
+
     <section class="section container">
 
       <div class="section-label" id="returnLabel">
@@ -703,6 +747,8 @@
     </section>
 
 
+    <!-- CITIES -->
+
     <section class="section container">
 
       <div class="trip-intro">
@@ -730,6 +776,7 @@
             <div class="city-name" id="barcelonaName">
               🇪🇸 Barcelona
             </div>
+
             <div class="arrow">→</div>
           </div>
 
@@ -750,6 +797,7 @@
             <div class="city-name" id="parisName">
               🇫🇷 Paris
             </div>
+
             <div class="arrow">→</div>
           </div>
 
@@ -770,6 +818,7 @@
             <div class="city-name" id="brugesName">
               🇧🇪 Bruges
             </div>
+
             <div class="arrow">→</div>
           </div>
 
@@ -790,6 +839,7 @@
             <div class="city-name" id="florenceName">
               🇮🇹 Florence
             </div>
+
             <div class="arrow">→</div>
           </div>
 
@@ -810,6 +860,7 @@
             <div class="city-name" id="veniceName">
               🇮🇹 Venice
             </div>
+
             <div class="arrow">→</div>
           </div>
 
@@ -830,6 +881,7 @@
             <div class="city-name" id="romeName">
               🇮🇹 Rome
             </div>
+
             <div class="arrow">→</div>
           </div>
 
@@ -850,6 +902,7 @@
             <div class="city-name" id="madridName">
               🇪🇸 Madrid
             </div>
+
             <div class="arrow">→</div>
           </div>
 
@@ -864,6 +917,33 @@
         </a>
 
       </div>
+
+
+      <!-- TRANSPORTATION TAB -->
+
+      <a href="transportation.html" class="transportation">
+
+        <div class="transportation-top">
+
+          <div class="transportation-name" id="transportationName">
+            ✈️🚆 Transportation
+          </div>
+
+          <div class="arrow">
+            →
+          </div>
+
+        </div>
+
+        <div class="transportation-description" id="transportationDescription">
+          Flights and trains between our destinations
+        </div>
+
+        <div class="transportation-note" id="transportationNote">
+          View transportation
+        </div>
+
+      </a>
 
     </section>
 
@@ -892,6 +972,7 @@
         document.getElementById("passwordError").style.display = "block";
 
       }
+
     }
 
 
@@ -995,6 +1076,16 @@
           "Ver itinerario de Madrid";
 
 
+        document.getElementById("transportationName").textContent =
+          "✈️🚆 Transporte";
+
+        document.getElementById("transportationDescription").textContent =
+          "Vuelos y trenes entre nuestros destinos";
+
+        document.getElementById("transportationNote").textContent =
+          "Ver transporte";
+
+
         englishButton.classList.remove("active");
         spanishButton.classList.add("active");
 
@@ -1082,6 +1173,16 @@
 
         document.getElementById("madridNote").textContent =
           "View Madrid itinerary";
+
+
+        document.getElementById("transportationName").textContent =
+          "✈️🚆 Transportation";
+
+        document.getElementById("transportationDescription").textContent =
+          "Flights and trains between our destinations";
+
+        document.getElementById("transportationNote").textContent =
+          "View transportation";
 
 
         englishButton.classList.add("active");
