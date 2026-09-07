@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Fany & Yanis Europa</title>
 
   <style>
@@ -106,13 +105,6 @@
       border: 1px solid #e7e2db;
       border-radius: 20px;
       padding: 30px;
-    }
-
-    .card h2 {
-      font-family: Georgia, serif;
-      font-size: 30px;
-      font-weight: 500;
-      margin-bottom: 25px;
     }
 
     /* DEPARTURES */
@@ -382,7 +374,7 @@
 
   <section class="hero container">
 
-    <div class="eyebrow">
+    <div class="eyebrow" id="tripDates">
       October 18 – November 2, 2026
     </div>
 
@@ -408,12 +400,6 @@
     </div>
 
     <div class="card">
-
-      <h2>
-        <span id="departureTitle">
-          Departures
-        </span>
-      </h2>
 
       <div class="departure-grid">
 
@@ -473,9 +459,15 @@
 
     <div class="card">
 
-      <h2 id="flightTitle">
-        Our Flights
-      </h2>
+      <div
+        class="section-heading"
+        style="text-align:left; margin-bottom:25px;">
+
+        <h2 id="flightTitle">
+          Our Flights
+        </h2>
+
+      </div>
 
 
       <div class="flight-list">
@@ -497,11 +489,15 @@
 
               <div>
 
-                <div class="flight-title">
+                <div
+                  class="flight-title"
+                  id="fanyOutboundTitle">
                   Fany · Philadelphia → Madrid
                 </div>
 
-                <div class="flight-subtitle">
+                <div
+                  class="flight-subtitle"
+                  id="fanyOutboundSubtitle">
                   October 18 · 8:30 PM
                 </div>
 
@@ -521,80 +517,41 @@
             <div class="detail-grid">
 
               <div class="detail">
-
-                <small id="fanyOutDateLabel">
-                  Date
-                </small>
-
-                <strong>
+                <small id="date1Label">Date</small>
+                <strong id="fanyOutDate">
                   October 18 → October 19, 2026
                 </strong>
-
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Airline
-                </small>
-
-                <strong>
-                  British Airways
-                </strong>
-
+                <small>Flight</small>
+                <strong>BA1605</strong>
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Flight
-                </small>
-
-                <strong>
-                  BA1605
-                </strong>
-
+                <small>Airline</small>
+                <strong>British Airways</strong>
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Departure
-                </small>
-
+                <small>Departure</small>
                 <strong>
                   8:30 PM · PHL Terminal A
                 </strong>
-
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Arrival
-                </small>
-
+                <small>Arrival</small>
                 <strong>
                   9:35 AM · MAD Terminal 4S
                 </strong>
-
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Duration
-                </small>
-
+                <small>Duration</small>
                 <strong>
                   7 hours 5 minutes
                 </strong>
-
               </div>
 
             </div>
@@ -620,11 +577,15 @@
 
               <div>
 
-                <div class="flight-title">
+                <div
+                  class="flight-title"
+                  id="yanisOutboundTitle">
                   Yanis · Mexico City → Madrid
                 </div>
 
-                <div class="flight-subtitle">
+                <div
+                  class="flight-subtitle"
+                  id="yanisOutboundSubtitle">
                   October 18 · 7:00 PM
                 </div>
 
@@ -644,80 +605,41 @@
             <div class="detail-grid">
 
               <div class="detail">
-
-                <small>
-                  Date
-                </small>
-
+                <small>Date</small>
                 <strong>
                   October 18 → October 19, 2026
                 </strong>
-
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Airline
-                </small>
-
-                <strong>
-                  Iberia
-                </strong>
-
+                <small>Flight</small>
+                <strong>IB0308</strong>
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Flight
-                </small>
-
-                <strong>
-                  IB0308
-                </strong>
-
+                <small>Airline</small>
+                <strong>Iberia</strong>
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Departure
-                </small>
-
+                <small>Departure</small>
                 <strong>
                   7:00 PM · MEX Terminal 1
                 </strong>
-
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Arrival
-                </small>
-
+                <small>Arrival</small>
                 <strong>
                   1:40 PM · MAD Terminal 4S
                 </strong>
-
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Duration
-                </small>
-
+                <small>Duration</small>
                 <strong>
                   10 hours 40 minutes
                 </strong>
-
               </div>
 
             </div>
@@ -743,11 +665,15 @@
 
               <div>
 
-                <div class="flight-title">
+                <div
+                  class="flight-title"
+                  id="fanyReturnTitle">
                   Fany · Madrid → Philadelphia
                 </div>
 
-                <div class="flight-subtitle">
+                <div
+                  class="flight-subtitle"
+                  id="fanyReturnSubtitle">
                   November 2 · 1:15 PM
                 </div>
 
@@ -767,67 +693,29 @@
             <div class="detail-grid">
 
               <div class="detail">
-
-                <small>
-                  Date
-                </small>
-
+                <small>Date</small>
                 <strong>
                   November 2, 2026
                 </strong>
-
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Airline
-                </small>
-
-                <strong>
-                  American Airlines
-                </strong>
-
+                <small>Flight</small>
+                <strong>AY3813</strong>
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Flight
-                </small>
-
-                <strong>
-                  AY3813
-                </strong>
-
-              </div>
-
-
-              <div class="detail">
-
-                <small>
-                  Departure
-                </small>
-
+                <small>Departure</small>
                 <strong>
                   1:15 PM · MAD Terminal 4S
                 </strong>
-
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Arrival
-                </small>
-
+                <small>Arrival</small>
                 <strong>
                   3:50 PM · PHL Terminal A
                 </strong>
-
               </div>
 
             </div>
@@ -853,11 +741,15 @@
 
               <div>
 
-                <div class="flight-title">
+                <div
+                  class="flight-title"
+                  id="yanisReturnTitle">
                   Yanis · Madrid → Mexico City
                 </div>
 
-                <div class="flight-subtitle">
+                <div
+                  class="flight-subtitle"
+                  id="yanisReturnSubtitle">
                   November 2 · 4:50 PM
                 </div>
 
@@ -877,80 +769,41 @@
             <div class="detail-grid">
 
               <div class="detail">
-
-                <small>
-                  Date
-                </small>
-
+                <small>Date</small>
                 <strong>
                   November 2, 2026
                 </strong>
-
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Airline
-                </small>
-
-                <strong>
-                  Iberia
-                </strong>
-
+                <small>Flight</small>
+                <strong>IB0311</strong>
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Flight
-                </small>
-
-                <strong>
-                  IB0311
-                </strong>
-
+                <small>Airline</small>
+                <strong>Iberia</strong>
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Departure
-                </small>
-
+                <small>Departure</small>
                 <strong>
                   4:50 PM · MAD Terminal 4S
                 </strong>
-
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Arrival
-                </small>
-
+                <small>Arrival</small>
                 <strong>
                   10:10 PM · MEX Terminal 1
                 </strong>
-
               </div>
 
-
               <div class="detail">
-
-                <small>
-                  Duration
-                </small>
-
+                <small>Duration</small>
                 <strong>
                   13 hours 20 minutes
                 </strong>
-
               </div>
 
             </div>
@@ -1011,21 +864,15 @@
 
         <div class="city-tags">
 
-          <span
-            class="tag"
-            data-tag="hotel">
+          <span class="tag">
             🏨 Hotel
           </span>
 
-          <span
-            class="tag"
-            data-tag="plans">
+          <span class="tag">
             📅 Plans
           </span>
 
-          <span
-            class="tag"
-            data-tag="food">
+          <span class="tag">
             🍴 Food
           </span>
 
@@ -1058,21 +905,15 @@
 
         <div class="city-tags">
 
-          <span
-            class="tag"
-            data-tag="hotel">
+          <span class="tag">
             🏨 Hotel
           </span>
 
-          <span
-            class="tag"
-            data-tag="plans">
+          <span class="tag">
             📅 Plans
           </span>
 
-          <span
-            class="tag"
-            data-tag="food">
+          <span class="tag">
             🍴 Food
           </span>
 
@@ -1105,21 +946,15 @@
 
         <div class="city-tags">
 
-          <span
-            class="tag"
-            data-tag="hotel">
+          <span class="tag">
             🏨 Hotel
           </span>
 
-          <span
-            class="tag"
-            data-tag="plans">
+          <span class="tag">
             📅 Plans
           </span>
 
-          <span
-            class="tag"
-            data-tag="food">
+          <span class="tag">
             🍴 Food
           </span>
 
@@ -1152,21 +987,15 @@
 
         <div class="city-tags">
 
-          <span
-            class="tag"
-            data-tag="hotel">
+          <span class="tag">
             🏨 Hotel
           </span>
 
-          <span
-            class="tag"
-            data-tag="plans">
+          <span class="tag">
             📅 Plans
           </span>
 
-          <span
-            class="tag"
-            data-tag="food">
+          <span class="tag">
             🍴 Food
           </span>
 
@@ -1199,21 +1028,15 @@
 
         <div class="city-tags">
 
-          <span
-            class="tag"
-            data-tag="hotel">
+          <span class="tag">
             🏨 Hotel
           </span>
 
-          <span
-            class="tag"
-            data-tag="plans">
+          <span class="tag">
             📅 Plans
           </span>
 
-          <span
-            class="tag"
-            data-tag="food">
+          <span class="tag">
             🍴 Food
           </span>
 
@@ -1246,21 +1069,15 @@
 
         <div class="city-tags">
 
-          <span
-            class="tag"
-            data-tag="hotel">
+          <span class="tag">
             🏨 Hotel
           </span>
 
-          <span
-            class="tag"
-            data-tag="plans">
+          <span class="tag">
             📅 Plans
           </span>
 
-          <span
-            class="tag"
-            data-tag="food">
+          <span class="tag">
             🍴 Food
           </span>
 
@@ -1275,7 +1092,7 @@
 
           <div
             class="city-name"
-            data-city="madridFinal">
+            data-city="madrid-final">
             🇪🇸 Madrid
           </div>
 
@@ -1287,27 +1104,21 @@
 
         <div
           class="city-date"
-          data-date="madridFinal">
+          data-date="madrid-final">
           November 1–2
         </div>
 
         <div class="city-tags">
 
-          <span
-            class="tag"
-            data-tag="hotel">
+          <span class="tag">
             🏨 Hotel
           </span>
 
-          <span
-            class="tag"
-            data-tag="plans">
+          <span class="tag">
             📅 Plans
           </span>
 
-          <span
-            class="tag"
-            data-tag="departure">
+          <span class="tag">
             ✈️ Departure
           </span>
 
@@ -1346,9 +1157,19 @@
         document.getElementById("spanishButton");
 
 
+      const cities =
+        document.querySelectorAll(".city-name");
+
+      const dates =
+        document.querySelectorAll(".city-date");
+
+
       if (language === "es") {
 
         document.documentElement.lang = "es";
+
+
+        /* MAIN TEXT */
 
         document.getElementById("mainTitle").textContent =
           "Viaje a Europa";
@@ -1356,26 +1177,14 @@
         document.getElementById("mainSubtitle").textContent =
           "Viaje de Fany y Yanis por Europa";
 
+        document.getElementById("tripDates").textContent =
+          "18 de octubre – 2 de noviembre de 2026";
+
+
+        /* DEPARTURES */
+
         document.getElementById("departureLabel").textContent =
           "Nuestras salidas";
-
-        document.getElementById("departureTitle").textContent =
-          "Salidas";
-
-        document.getElementById("flightLabel").textContent =
-          "Vuelos";
-
-        document.getElementById("flightTitle").textContent =
-          "Nuestros vuelos";
-
-        document.getElementById("destinationsTitle").textContent =
-          "Nuestro viaje";
-
-        document.getElementById("destinationsSubtitle").textContent =
-          "Haz clic en un destino para explorar";
-
-        document.getElementById("footerText").textContent =
-          "Fany y Yanis Europa · 2026";
 
 
         document.getElementById("fanyDepartureDate").textContent =
@@ -1385,7 +1194,51 @@
           "18 de octubre de 2026 · 7:00 PM";
 
 
-        const cities = document.querySelectorAll(".city-name");
+        /* FLIGHTS */
+
+        document.getElementById("flightLabel").textContent =
+          "Vuelos";
+
+        document.getElementById("flightTitle").textContent =
+          "Nuestros vuelos";
+
+
+        document.getElementById("fanyOutboundTitle").textContent =
+          "Fany · Filadelfia → Madrid";
+
+        document.getElementById("fanyOutboundSubtitle").textContent =
+          "18 de octubre · 8:30 PM";
+
+
+        document.getElementById("yanisOutboundTitle").textContent =
+          "Yanis · Ciudad de México → Madrid";
+
+        document.getElementById("yanisOutboundSubtitle").textContent =
+          "18 de octubre · 7:00 PM";
+
+
+        document.getElementById("fanyReturnTitle").textContent =
+          "Fany · Madrid → Filadelfia";
+
+        document.getElementById("fanyReturnSubtitle").textContent =
+          "2 de noviembre · 1:15 PM";
+
+
+        document.getElementById("yanisReturnTitle").textContent =
+          "Yanis · Madrid → Ciudad de México";
+
+        document.getElementById("yanisReturnSubtitle").textContent =
+          "2 de noviembre · 4:50 PM";
+
+
+        /* DESTINATIONS */
+
+        document.getElementById("destinationsTitle").textContent =
+          "Nuestro viaje";
+
+        document.getElementById("destinationsSubtitle").textContent =
+          "Haz clic en un destino para explorar";
+
 
         cities[0].textContent = "🇪🇸 Madrid";
         cities[1].textContent = "🇪🇸 Barcelona";
@@ -1396,8 +1249,6 @@
         cities[6].textContent = "🇪🇸 Madrid";
 
 
-        const dates = document.querySelectorAll(".city-date");
-
         dates[0].textContent = "19–21 de octubre";
         dates[1].textContent = "21–24 de octubre";
         dates[2].textContent = "24–27 de octubre";
@@ -1407,22 +1258,18 @@
         dates[6].textContent = "1–2 de noviembre";
 
 
-        document.querySelectorAll('[data-tag="plans"]')
-          .forEach(tag => tag.textContent = "📅 Planes");
-
-        document.querySelectorAll('[data-tag="food"]')
-          .forEach(tag => tag.textContent = "🍴 Comida");
-
-        document.querySelectorAll('[data-tag="departure"]')
-          .forEach(tag => tag.textContent = "✈️ Salida");
-
+        /* BUTTON */
 
         englishButton.classList.remove("active");
         spanishButton.classList.add("active");
 
+
       } else {
 
         document.documentElement.lang = "en";
+
+
+        /* MAIN TEXT */
 
         document.getElementById("mainTitle").textContent =
           "Europe Trip";
@@ -1430,26 +1277,14 @@
         document.getElementById("mainSubtitle").textContent =
           "Fany & Yanis European Trip";
 
+        document.getElementById("tripDates").textContent =
+          "October 18 – November 2, 2026";
+
+
+        /* DEPARTURES */
+
         document.getElementById("departureLabel").textContent =
           "Our Departures";
-
-        document.getElementById("departureTitle").textContent =
-          "Departures";
-
-        document.getElementById("flightLabel").textContent =
-          "Flights";
-
-        document.getElementById("flightTitle").textContent =
-          "Our Flights";
-
-        document.getElementById("destinationsTitle").textContent =
-          "Our Trip";
-
-        document.getElementById("destinationsSubtitle").textContent =
-          "Click a destination to explore";
-
-        document.getElementById("footerText").textContent =
-          "Fany & Yanis Europa · 2026";
 
 
         document.getElementById("fanyDepartureDate").textContent =
@@ -1459,7 +1294,51 @@
           "October 18, 2026 · 7:00 PM";
 
 
-        const cities = document.querySelectorAll(".city-name");
+        /* FLIGHTS */
+
+        document.getElementById("flightLabel").textContent =
+          "Flights";
+
+        document.getElementById("flightTitle").textContent =
+          "Our Flights";
+
+
+        document.getElementById("fanyOutboundTitle").textContent =
+          "Fany · Philadelphia → Madrid";
+
+        document.getElementById("fanyOutboundSubtitle").textContent =
+          "October 18 · 8:30 PM";
+
+
+        document.getElementById("yanisOutboundTitle").textContent =
+          "Yanis · Mexico City → Madrid";
+
+        document.getElementById("yanisOutboundSubtitle").textContent =
+          "October 18 · 7:00 PM";
+
+
+        document.getElementById("fanyReturnTitle").textContent =
+          "Fany · Madrid → Philadelphia";
+
+        document.getElementById("fanyReturnSubtitle").textContent =
+          "November 2 · 1:15 PM";
+
+
+        document.getElementById("yanisReturnTitle").textContent =
+          "Yanis · Madrid → Mexico City";
+
+        document.getElementById("yanisReturnSubtitle").textContent =
+          "November 2 · 4:50 PM";
+
+
+        /* DESTINATIONS */
+
+        document.getElementById("destinationsTitle").textContent =
+          "Our Trip";
+
+        document.getElementById("destinationsSubtitle").textContent =
+          "Click a destination to explore";
+
 
         cities[0].textContent = "🇪🇸 Madrid";
         cities[1].textContent = "🇪🇸 Barcelona";
@@ -1470,8 +1349,6 @@
         cities[6].textContent = "🇪🇸 Madrid";
 
 
-        const dates = document.querySelectorAll(".city-date");
-
         dates[0].textContent = "October 19–21";
         dates[1].textContent = "October 21–24";
         dates[2].textContent = "October 24–27";
@@ -1481,15 +1358,7 @@
         dates[6].textContent = "November 1–2";
 
 
-        document.querySelectorAll('[data-tag="plans"]')
-          .forEach(tag => tag.textContent = "📅 Plans");
-
-        document.querySelectorAll('[data-tag="food"]')
-          .forEach(tag => tag.textContent = "🍴 Food");
-
-        document.querySelectorAll('[data-tag="departure"]')
-          .forEach(tag => tag.textContent = "✈️ Departure");
-
+        /* BUTTON */
 
         englishButton.classList.add("active");
         spanishButton.classList.remove("active");
