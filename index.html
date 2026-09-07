@@ -1,10 +1,10 @@
-```html id="e8q5lm"
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fany & Yanis Europa</title>
+  <title>Europe Trip</title>
 
   <style>
     * {
@@ -39,7 +39,7 @@
       border-radius: 22px;
       padding: 45px 32px;
       text-align: center;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
     }
 
     .password-box .lock {
@@ -301,7 +301,7 @@
 
     .city:hover {
       transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
     }
 
     .city-top {
@@ -346,7 +346,7 @@
 
     .transportation:hover {
       transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
     }
 
     .transportation-top {
@@ -408,13 +408,15 @@
 
 <body>
 
+  <!-- PASSWORD -->
+
   <div id="passwordScreen">
 
     <div class="password-box">
 
       <div class="lock">🔒</div>
 
-      <h1>Fany & Yanis</h1>
+      <h1>Europe Trip</h1>
 
       <p id="passwordText">
         Enter the password to view our Europe trip.
@@ -427,7 +429,9 @@
         onkeydown="if(event.key === 'Enter') checkPassword()"
       >
 
-      <button onclick="checkPassword()" id="passwordButton">
+      <button
+        onclick="checkPassword()"
+        id="passwordButton">
         Enter
       </button>
 
@@ -440,12 +444,14 @@
   </div>
 
 
+  <!-- WEBSITE -->
+
   <div id="website">
 
     <nav class="container">
 
       <div class="logo">
-        ✈️ Fany & Yanis Europa
+        ✈️ Europe Trip
       </div>
 
       <div class="language">
@@ -469,6 +475,8 @@
 
     </nav>
 
+
+    <!-- HERO -->
 
     <section class="hero container">
 
@@ -497,17 +505,26 @@
 
       <div class="flight-list">
 
+
+        <!-- FANY ARRIVAL -->
+
         <div class="flight">
 
-          <button class="flight-button" onclick="toggleFlight(this)">
+          <button
+            class="flight-button"
+            onclick="toggleFlight(this)">
 
             <div class="flight-main">
 
-              <div class="flight-icon">✈️</div>
+              <div class="flight-icon">
+                ✈️
+              </div>
 
               <div>
 
-                <div class="flight-title" id="fanyArrivalTitle">
+                <div
+                  class="flight-title"
+                  id="fanyArrivalTitle">
                   Fany · Philadelphia → Madrid
                 </div>
 
@@ -519,32 +536,49 @@
 
             </div>
 
-            <div class="flight-arrow">⌄</div>
+            <div class="flight-arrow">
+              ⌄
+            </div>
 
           </button>
+
 
           <div class="flight-details">
 
             <div class="detail-grid">
 
               <div class="detail">
-                <small>Flight</small>
+                <small id="fanyArrivalFlightLabel">
+                  Flight
+                </small>
                 <strong>BA1605</strong>
               </div>
 
               <div class="detail">
-                <small>Departure</small>
-                <strong>8:30 PM · PHL Terminal A</strong>
+                <small id="fanyArrivalDepartureLabel">
+                  Departure
+                </small>
+                <strong>
+                  8:30 PM · Philadelphia (PHL)
+                </strong>
               </div>
 
               <div class="detail">
-                <small>Arrival</small>
-                <strong>9:35 AM · MAD Terminal 4S</strong>
+                <small id="fanyArrivalArrivalLabel">
+                  Arrival
+                </small>
+                <strong>
+                  9:35 AM · Madrid (MAD)
+                </strong>
               </div>
 
               <div class="detail">
-                <small>Duration</small>
-                <strong>7 hours 5 minutes</strong>
+                <small id="fanyArrivalDurationLabel">
+                  Duration
+                </small>
+                <strong>
+                  7 hours 5 minutes
+                </strong>
               </div>
 
             </div>
@@ -554,17 +588,25 @@
         </div>
 
 
+        <!-- YANIS ARRIVAL -->
+
         <div class="flight">
 
-          <button class="flight-button" onclick="toggleFlight(this)">
+          <button
+            class="flight-button"
+            onclick="toggleFlight(this)">
 
             <div class="flight-main">
 
-              <div class="flight-icon">✈️</div>
+              <div class="flight-icon">
+                ✈️
+              </div>
 
               <div>
 
-                <div class="flight-title" id="yanisArrivalTitle">
+                <div
+                  class="flight-title"
+                  id="yanisArrivalTitle">
                   Yanis · Mexico City → Madrid
                 </div>
 
@@ -576,32 +618,51 @@
 
             </div>
 
-            <div class="flight-arrow">⌄</div>
+            <div class="flight-arrow">
+              ⌄
+            </div>
 
           </button>
+
 
           <div class="flight-details">
 
             <div class="detail-grid">
 
               <div class="detail">
-                <small>Flight</small>
-                <strong>IB0308</strong>
+                <small>
+                  Flight
+                </small>
+                <strong>
+                  IB0308
+                </strong>
               </div>
 
               <div class="detail">
-                <small>Departure</small>
-                <strong>7:00 PM · MEX Terminal 1</strong>
+                <small>
+                  Departure
+                </small>
+                <strong>
+                  7:00 PM · Mexico City (MEX)
+                </strong>
               </div>
 
               <div class="detail">
-                <small>Arrival</small>
-                <strong>1:40 PM · MAD Terminal 4S</strong>
+                <small>
+                  Arrival
+                </small>
+                <strong>
+                  1:40 PM · Madrid (MAD)
+                </strong>
               </div>
 
               <div class="detail">
-                <small>Duration</small>
-                <strong>10 hours 40 minutes</strong>
+                <small>
+                  Duration
+                </small>
+                <strong>
+                  10 hours 40 minutes
+                </strong>
               </div>
 
             </div>
@@ -629,17 +690,26 @@
 
       <div class="flight-list">
 
+
+        <!-- FANY RETURN -->
+
         <div class="flight">
 
-          <button class="flight-button" onclick="toggleFlight(this)">
+          <button
+            class="flight-button"
+            onclick="toggleFlight(this)">
 
             <div class="flight-main">
 
-              <div class="flight-icon">✈️</div>
+              <div class="flight-icon">
+                ✈️
+              </div>
 
               <div>
 
-                <div class="flight-title" id="fanyReturnTitle">
+                <div
+                  class="flight-title"
+                  id="fanyReturnTitle">
                   Fany · Madrid → Philadelphia
                 </div>
 
@@ -651,32 +721,51 @@
 
             </div>
 
-            <div class="flight-arrow">⌄</div>
+            <div class="flight-arrow">
+              ⌄
+            </div>
 
           </button>
+
 
           <div class="flight-details">
 
             <div class="detail-grid">
 
               <div class="detail">
-                <small>Flight</small>
-                <strong>AY3813</strong>
+                <small>
+                  Flight
+                </small>
+                <strong>
+                  AY3813
+                </strong>
               </div>
 
               <div class="detail">
-                <small>Departure</small>
-                <strong>1:15 PM · Madrid Terminal 4S</strong>
+                <small>
+                  Departure
+                </small>
+                <strong>
+                  1:15 PM · Madrid (MAD)
+                </strong>
               </div>
 
               <div class="detail">
-                <small>Arrival</small>
-                <strong>3:50 PM · Philadelphia Terminal A</strong>
+                <small>
+                  Arrival
+                </small>
+                <strong>
+                  3:50 PM · Philadelphia (PHL)
+                </strong>
               </div>
 
               <div class="detail">
-                <small>Duration</small>
-                <strong>8 hours 35 minutes</strong>
+                <small>
+                  Duration
+                </small>
+                <strong>
+                  7 hours 5 minutes
+                </strong>
               </div>
 
             </div>
@@ -686,17 +775,25 @@
         </div>
 
 
+        <!-- YANIS RETURN -->
+
         <div class="flight">
 
-          <button class="flight-button" onclick="toggleFlight(this)">
+          <button
+            class="flight-button"
+            onclick="toggleFlight(this)">
 
             <div class="flight-main">
 
-              <div class="flight-icon">✈️</div>
+              <div class="flight-icon">
+                ✈️
+              </div>
 
               <div>
 
-                <div class="flight-title" id="yanisReturnTitle">
+                <div
+                  class="flight-title"
+                  id="yanisReturnTitle">
                   Yanis · Madrid → Mexico City
                 </div>
 
@@ -708,32 +805,51 @@
 
             </div>
 
-            <div class="flight-arrow">⌄</div>
+            <div class="flight-arrow">
+              ⌄
+            </div>
 
           </button>
+
 
           <div class="flight-details">
 
             <div class="detail-grid">
 
               <div class="detail">
-                <small>Flight</small>
-                <strong>IB0311</strong>
+                <small>
+                  Flight
+                </small>
+                <strong>
+                  IB0311
+                </strong>
               </div>
 
               <div class="detail">
-                <small>Departure</small>
-                <strong>4:50 PM · Madrid Terminal 4S</strong>
+                <small>
+                  Departure
+                </small>
+                <strong>
+                  4:50 PM · Madrid (MAD)
+                </strong>
               </div>
 
               <div class="detail">
-                <small>Arrival</small>
-                <strong>10:10 PM · Mexico City Terminal 1</strong>
+                <small>
+                  Arrival
+                </small>
+                <strong>
+                  10:10 PM · Mexico City (MEX)
+                </strong>
               </div>
 
               <div class="detail">
-                <small>Duration</small>
-                <strong>13 hours 20 minutes</strong>
+                <small>
+                  Duration
+                </small>
+                <strong>
+                  13 hours 20 minutes
+                </strong>
               </div>
 
             </div>
@@ -747,18 +863,20 @@
     </section>
 
 
-    <!-- CITIES -->
+    <!-- TRIP -->
 
     <section class="section container">
 
       <div class="trip-intro">
 
-        <div class="section-label" id="journeyLabel">
+        <div
+          class="section-label"
+          id="journeyLabel">
           Our Journey
         </div>
 
         <h2 id="tripTitle">
-          Our Trip
+          Explore Europe
         </h2>
 
         <p id="tripSubtitle">
@@ -768,149 +886,236 @@
       </div>
 
 
+      <!-- CITY TABS -->
+
       <div class="city-grid">
 
-        <a href="barcelona.html" class="city">
+
+        <!-- BARCELONA -->
+
+        <a
+          href="barcelona.html"
+          class="city">
 
           <div class="city-top">
-            <div class="city-name" id="barcelonaName">
+
+            <div
+              class="city-name"
+              id="barcelonaName">
               🇪🇸 Barcelona
             </div>
 
-            <div class="arrow">→</div>
+            <div class="arrow">
+              →
+            </div>
+
           </div>
 
           <div class="city-date">
             October 19–22
           </div>
 
-          <div class="city-note" id="barcelonaNote">
+          <div
+            class="city-note"
+            id="barcelonaNote">
             View Barcelona itinerary
           </div>
 
         </a>
 
 
-        <a href="paris.html" class="city">
+        <!-- PARIS -->
+
+        <a
+          href="paris.html"
+          class="city">
 
           <div class="city-top">
-            <div class="city-name" id="parisName">
+
+            <div
+              class="city-name"
+              id="parisName">
               🇫🇷 Paris
             </div>
 
-            <div class="arrow">→</div>
+            <div class="arrow">
+              →
+            </div>
+
           </div>
 
           <div class="city-date">
             October 22–25
           </div>
 
-          <div class="city-note" id="parisNote">
+          <div
+            class="city-note"
+            id="parisNote">
             View Paris itinerary
           </div>
 
         </a>
 
 
-        <a href="bruges.html" class="city">
+        <!-- BRUGES -->
+
+        <a
+          href="bruges.html"
+          class="city">
 
           <div class="city-top">
-            <div class="city-name" id="brugesName">
+
+            <div
+              class="city-name"
+              id="brugesName">
               🇧🇪 Bruges
             </div>
 
-            <div class="arrow">→</div>
+            <div class="arrow">
+              →
+            </div>
+
           </div>
 
           <div class="city-date">
             October 25–26
           </div>
 
-          <div class="city-note" id="brugesNote">
+          <div
+            class="city-note"
+            id="brugesNote">
             View Bruges itinerary
           </div>
 
         </a>
 
 
-        <a href="florence.html" class="city">
+        <!-- FLORENCE -->
+
+        <a
+          href="florence.html"
+          class="city">
 
           <div class="city-top">
-            <div class="city-name" id="florenceName">
+
+            <div
+              class="city-name"
+              id="florenceName">
               🇮🇹 Florence
             </div>
 
-            <div class="arrow">→</div>
+            <div class="arrow">
+              →
+            </div>
+
           </div>
 
           <div class="city-date">
             October 26–29
           </div>
 
-          <div class="city-note" id="florenceNote">
+          <div
+            class="city-note"
+            id="florenceNote">
             View Florence itinerary
           </div>
 
         </a>
 
 
-        <a href="venice.html" class="city">
+        <!-- VENICE -->
+
+        <a
+          href="venice.html"
+          class="city">
 
           <div class="city-top">
-            <div class="city-name" id="veniceName">
+
+            <div
+              class="city-name"
+              id="veniceName">
               🇮🇹 Venice
             </div>
 
-            <div class="arrow">→</div>
+            <div class="arrow">
+              →
+            </div>
+
           </div>
 
           <div class="city-date">
             October 28 · Day Trip
           </div>
 
-          <div class="city-note" id="veniceNote">
+          <div
+            class="city-note"
+            id="veniceNote">
             Day trip from Florence
           </div>
 
         </a>
 
 
-        <a href="rome.html" class="city">
+        <!-- ROME -->
+
+        <a
+          href="rome.html"
+          class="city">
 
           <div class="city-top">
-            <div class="city-name" id="romeName">
+
+            <div
+              class="city-name"
+              id="romeName">
               🇮🇹 Rome
             </div>
 
-            <div class="arrow">→</div>
+            <div class="arrow">
+              →
+            </div>
+
           </div>
 
           <div class="city-date">
             October 29–31
           </div>
 
-          <div class="city-note" id="romeNote">
+          <div
+            class="city-note"
+            id="romeNote">
             View Rome itinerary
           </div>
 
         </a>
 
 
-        <a href="madrid.html" class="city">
+        <!-- MADRID -->
+
+        <a
+          href="madrid.html"
+          class="city">
 
           <div class="city-top">
-            <div class="city-name" id="madridName">
+
+            <div
+              class="city-name"
+              id="madridName">
               🇪🇸 Madrid
             </div>
 
-            <div class="arrow">→</div>
+            <div class="arrow">
+              →
+            </div>
+
           </div>
 
           <div class="city-date">
             October 31–November 2
           </div>
 
-          <div class="city-note" id="madridNote">
+          <div
+            class="city-note"
+            id="madridNote">
             View Madrid itinerary
           </div>
 
@@ -921,11 +1126,15 @@
 
       <!-- TRANSPORTATION TAB -->
 
-      <a href="transportation.html" class="transportation">
+      <a
+        href="transportation.html"
+        class="transportation">
 
         <div class="transportation-top">
 
-          <div class="transportation-name" id="transportationName">
+          <div
+            class="transportation-name"
+            id="transportationName">
             ✈️🚆 Transportation
           </div>
 
@@ -935,11 +1144,15 @@
 
         </div>
 
-        <div class="transportation-description" id="transportationDescription">
+        <div
+          class="transportation-description"
+          id="transportationDescription">
           Flights and trains between our destinations
         </div>
 
-        <div class="transportation-note" id="transportationNote">
+        <div
+          class="transportation-note"
+          id="transportationNote">
           View transportation
         </div>
 
@@ -949,7 +1162,7 @@
 
 
     <footer>
-      Fany & Yanis Europa · 2026
+      Europe Trip · 2026
     </footer>
 
   </div>
@@ -964,12 +1177,16 @@
 
       if (password === "lola123") {
 
-        document.getElementById("passwordScreen").style.display = "none";
-        document.getElementById("website").style.display = "block";
+        document.getElementById("passwordScreen").style.display =
+          "none";
+
+        document.getElementById("website").style.display =
+          "block";
 
       } else {
 
-        document.getElementById("passwordError").style.display = "block";
+        document.getElementById("passwordError").style.display =
+          "block";
 
       }
 
@@ -977,7 +1194,9 @@
 
 
     function toggleFlight(button) {
+
       button.parentElement.classList.toggle("open");
+
     }
 
 
@@ -993,6 +1212,7 @@
       if (language === "es") {
 
         document.documentElement.lang = "es";
+
 
         document.getElementById("mainTitle").textContent =
           "Viaje a Europa";
@@ -1013,7 +1233,7 @@
           "Nuestro viaje";
 
         document.getElementById("tripTitle").textContent =
-          "Nuestro viaje";
+          "Explora Europa";
 
         document.getElementById("tripSubtitle").textContent =
           "Explora cada destino";
@@ -1093,6 +1313,7 @@
 
         document.documentElement.lang = "en";
 
+
         document.getElementById("mainTitle").textContent =
           "Europe Trip";
 
@@ -1112,7 +1333,7 @@
           "Our Journey";
 
         document.getElementById("tripTitle").textContent =
-          "Our Trip";
+          "Explore Europe";
 
         document.getElementById("tripSubtitle").textContent =
           "Explore each destination";
