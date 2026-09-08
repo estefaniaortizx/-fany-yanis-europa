@@ -115,18 +115,13 @@
     }
 
     .hotel-address {
-      display: inline-block;
+      display: block;
       color: #8a7055;
-      text-decoration: none;
+      text-decoration: underline;
+      text-underline-offset: 4px;
       font-size: 14px;
-      border-bottom: 1px solid #cdbda9;
-      padding-bottom: 2px;
+      margin-bottom: 10px;
       white-space: pre-line;
-    }
-
-    .hotel-address:hover {
-      color: #333;
-      border-color: #333;
     }
 
     .hotel-note {
@@ -185,22 +180,31 @@
     .activity-note {
       color: #777;
       font-size: 13px;
-      margin: 6px 0;
+      margin: 6px 0 10px;
     }
 
     .activity-address {
-      display: inline-block;
+      display: block;
       color: #8a7055;
-      text-decoration: none;
+      text-decoration: underline;
+      text-underline-offset: 4px;
       font-size: 13px;
-      border-bottom: 1px solid #cdbda9;
-      padding-bottom: 2px;
+      margin-bottom: 10px;
       white-space: pre-line;
     }
 
-    .activity-address:hover {
+    .activity-link {
+      display: inline-block;
+      color: #8a7055;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-size: 13px;
+    }
+
+    .activity-address:hover,
+    .activity-link:hover,
+    .hotel-address:hover {
       color: #333;
-      border-color: #333;
     }
 
     footer {
@@ -225,8 +229,6 @@
 </head>
 
 <body>
-
-  <!-- NAVIGATION -->
 
   <nav class="container">
 
@@ -255,8 +257,6 @@
 
   </nav>
 
-
-  <!-- BARCELONA -->
 
   <section class="hero container">
 
@@ -295,14 +295,14 @@
         target="_blank"
         rel="noopener noreferrer">
 
-        Carrer de la Creu Coberta, 20
-        08014 Barcelona
+        Carrer de la Creu Coberta, 20<br>
+        08014 Barcelona<br>
         Spain
 
       </a>
 
       <div class="hotel-note" id="hotelNote">
-        Tap the address to open it in Apple Maps.
+        Click the address to open it in Apple Maps.
       </div>
 
     </div>
@@ -366,6 +366,8 @@
       </div>
 
 
+      <!-- SAGRADA FAMILIA -->
+
       <div class="activity">
 
         <div class="activity-time">
@@ -386,14 +388,16 @@
           target="_blank"
           rel="noopener noreferrer">
 
-          Carrer de Mallorca, 401
-          08013 Barcelona
+          Carrer de Mallorca, 401<br>
+          08013 Barcelona<br>
           Spain
 
         </a>
 
       </div>
 
+
+      <!-- SAGRADA TOWERS -->
 
       <div class="activity">
 
@@ -412,6 +416,8 @@
       </div>
 
 
+      <!-- CASA BATLLO -->
+
       <div class="activity">
 
         <div class="activity-name">
@@ -428,14 +434,16 @@
           target="_blank"
           rel="noopener noreferrer">
 
-          Passeig de Gràcia, 43
-          08007 Barcelona
+          Passeig de Gràcia, 43<br>
+          08007 Barcelona<br>
           Spain
 
         </a>
 
       </div>
 
+
+      <!-- BARCELONA STADIUM -->
 
       <div class="activity">
 
@@ -453,14 +461,16 @@
           target="_blank"
           rel="noopener noreferrer">
 
-          Carrer d'Aristides Maillol, s/n
-          08028 Barcelona
+          Carrer d'Aristides Maillol, s/n<br>
+          08028 Barcelona<br>
           Spain
 
         </a>
 
       </div>
 
+
+      <!-- COFFEE CASA -->
 
       <div class="activity">
 
@@ -478,16 +488,14 @@
           target="_blank"
           rel="noopener noreferrer">
 
-          Carrer dels Carders, 25
-          08003 Barcelona
+          Carrer dels Carders, 25<br>
+          08003 Barcelona<br>
           Spain
 
         </a>
 
-        <br>
-
         <a
-          class="activity-address"
+          class="activity-link"
           href="https://www.instagram.com/reels/Db06ipCveCb/"
           target="_blank"
           rel="noopener noreferrer">
@@ -498,6 +506,8 @@
 
       </div>
 
+
+      <!-- MOCHA -->
 
       <div class="activity">
 
@@ -515,16 +525,14 @@
           target="_blank"
           rel="noopener noreferrer">
 
-          Carrer de Lepant, 258
-          08013 Barcelona
+          Carrer de Lepant, 258<br>
+          08013 Barcelona<br>
           Spain
 
         </a>
 
-        <br>
-
         <a
-          class="activity-address"
+          class="activity-link"
           href="https://www.instagram.com/mocha_bcn?stkn=M3FzZGd6OXhibnp0"
           target="_blank"
           rel="noopener noreferrer">
@@ -587,7 +595,7 @@
           "Nuestro hotel";
 
         document.getElementById("hotelNote").textContent =
-          "Toca la dirección para abrirla en Apple Maps.";
+          "Haz clic en la dirección para abrirla en Apple Maps.";
 
         document.getElementById("itineraryLabel").textContent =
           "Itinerario";
@@ -615,7 +623,7 @@
           "Our Hotel";
 
         document.getElementById("hotelNote").textContent =
-          "Tap the address to open it in Apple Maps.";
+          "Click the address to open it in Apple Maps.";
 
         document.getElementById("itineraryLabel").textContent =
           "Itinerary";
