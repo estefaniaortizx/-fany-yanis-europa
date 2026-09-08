@@ -37,6 +37,10 @@
       font-size: 14px;
     }
 
+    .back:hover {
+      color: #8a7055;
+    }
+
     .language {
       display: flex;
       align-items: center;
@@ -126,6 +130,10 @@
       text-align: left;
     }
 
+    .flight-button:hover {
+      background: #faf9f7;
+    }
+
     .flight-main {
       display: flex;
       align-items: center;
@@ -204,8 +212,7 @@
       margin-bottom: 12px;
     }
 
-    .hotel-address,
-    .activity-address {
+    .hotel-address {
       display: inline-block;
       color: #8a7055;
       text-decoration: none;
@@ -214,9 +221,9 @@
       padding-bottom: 2px;
     }
 
-    .hotel-address:hover,
-    .activity-address:hover {
+    .hotel-address:hover {
       color: #333;
+      border-color: #333;
     }
 
     .hotel-note {
@@ -278,9 +285,24 @@
       margin: 6px 0;
     }
 
+    .activity-address {
+      display: inline-block;
+      color: #8a7055;
+      text-decoration: none;
+      font-size: 13px;
+      border-bottom: 1px solid #cdbda9;
+      padding-bottom: 2px;
+    }
+
+    .activity-address:hover {
+      color: #333;
+      border-color: #333;
+    }
+
     .activity-image {
       width: 100%;
       max-width: 700px;
+      height: auto;
       display: block;
       margin-top: 15px;
       border-radius: 14px;
@@ -300,14 +322,24 @@
         padding-top: 45px;
       }
 
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
       .detail-grid {
         grid-template-columns: 1fr;
+      }
+
+      .language button {
+        font-size: 11px;
       }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- NAVIGATION -->
 
   <nav class="container">
 
@@ -317,16 +349,18 @@
 
     <div class="language">
 
-      <button id="englishButton"
-              class="active"
-              onclick="setLanguage('en')">
+      <button
+        id="englishButton"
+        class="active"
+        onclick="setLanguage('en')">
         🇺🇸 English
       </button>
 
       <span>|</span>
 
-      <button id="spanishButton"
-              onclick="setLanguage('es')">
+      <button
+        id="spanishButton"
+        onclick="setLanguage('es')">
         🇲🇽 Español
       </button>
 
@@ -368,11 +402,15 @@
 
     <div class="flight">
 
-      <button class="flight-button" onclick="toggleFlight(this)">
+      <button
+        class="flight-button"
+        onclick="toggleFlight(this)">
 
         <div class="flight-main">
 
-          <div class="flight-icon">✈️</div>
+          <div class="flight-icon">
+            ✈️
+          </div>
 
           <div>
 
@@ -388,7 +426,9 @@
 
         </div>
 
-        <div class="flight-arrow">⌄</div>
+        <div class="flight-arrow">
+          ⌄
+        </div>
 
       </button>
 
@@ -537,6 +577,8 @@
       </div>
 
 
+      <!-- LOUVRE -->
+
       <div class="activity">
 
         <div class="activity-time">
@@ -553,10 +595,6 @@
           Entrance: Pyramid
         </div>
 
-        <!--
-          Replace the filename below with the EXACT filename
-          Grit gives your uploaded Louvre picture if different.
-        -->
         <img
           class="activity-image"
           src="louvre-entrance.png"
@@ -564,6 +602,8 @@
 
       </div>
 
+
+      <!-- PONT D'IÉNA -->
 
       <div class="activity">
 
@@ -584,6 +624,8 @@
       </div>
 
 
+      <!-- ARC DE TRIOMPHE -->
+
       <div class="activity">
 
         <div class="activity-name">
@@ -602,6 +644,8 @@
 
       </div>
 
+
+      <!-- MOULIN ROUGE -->
 
       <div class="activity">
 
