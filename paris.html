@@ -3,42 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paris · Europe Trip</title>
+
+  <title>Paris | Europe Trip</title>
 
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f8f6f2;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f4ef;
       color: #333;
-      line-height: 1.6;
     }
 
     .container {
-      width: min(1000px, calc(100% - 40px));
+      max-width: 1000px;
       margin: auto;
+      padding: 0 25px;
     }
 
     nav {
-      height: 75px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      padding: 25px 0;
     }
 
     .back {
       color: #333;
       text-decoration: none;
       font-size: 14px;
-    }
-
-    .back:hover {
-      color: #8a7055;
     }
 
     .language {
@@ -49,38 +45,36 @@
 
     .language button {
       border: none;
-      background: transparent;
-      color: #999;
+      background: none;
       cursor: pointer;
+      color: #999;
       font-size: 13px;
-      padding: 5px;
     }
 
     .language button.active {
       color: #333;
-      font-weight: 700;
+      font-weight: bold;
     }
 
     .hero {
       text-align: center;
-      padding: 65px 20px 55px;
+      padding: 60px 20px;
     }
 
-    .eyebrow {
+    .hero .date {
       color: #8a7055;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: bold;
       letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 15px;
     }
 
     .hero h1 {
       font-family: Georgia, serif;
-      font-size: clamp(52px, 9vw, 82px);
-      font-weight: 500;
-      letter-spacing: -3px;
-      line-height: 1;
+      font-size: 80px;
+      font-weight: normal;
+      margin: 0;
     }
 
     .section {
@@ -90,105 +84,98 @@
     .section-label {
       color: #8a7055;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: bold;
       letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .section-title {
       font-family: Georgia, serif;
-      font-size: 34px;
-      font-weight: 500;
-      margin-bottom: 25px;
+      font-size: 32px;
+      font-weight: normal;
+      margin-bottom: 20px;
     }
 
     /* FLIGHT */
 
-    .flight {
+    .flight-card {
       background: white;
       border: 1px solid #e5dfd7;
       border-radius: 18px;
       overflow: hidden;
     }
 
-    .flight-button {
-      width: 100%;
-      border: none;
-      background: white;
-      cursor: pointer;
+    .flight-header {
       padding: 22px;
+      cursor: pointer;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      text-align: left;
+      align-items: center;
     }
 
-    .flight-button:hover {
+    .flight-header:hover {
       background: #faf9f7;
     }
 
-    .flight-main {
+    .flight-left {
       display: flex;
-      align-items: center;
       gap: 15px;
+      align-items: center;
     }
 
     .flight-icon {
       font-size: 22px;
-      flex-shrink: 0;
     }
 
-    .flight-title {
+    .flight-route {
       font-family: Georgia, serif;
       font-size: 19px;
     }
 
-    .flight-subtitle {
+    .flight-time {
       color: #888;
       font-size: 13px;
-      margin-top: 3px;
+      margin-top: 4px;
     }
 
-    .flight-arrow {
-      color: #999;
+    .arrow {
+      color: #888;
       font-size: 20px;
-      transition: transform 0.2s;
     }
 
-    .flight.open .flight-arrow {
+    .flight-info {
+      display: none;
+      border-top: 1px solid #eee;
+      padding: 22px;
+      background: #faf9f7;
+    }
+
+    .flight-card.open .flight-info {
+      display: block;
+    }
+
+    .flight-card.open .arrow {
       transform: rotate(180deg);
     }
 
-    .flight-details {
-      display: none;
-      background: #faf9f7;
-      border-top: 1px solid #eee;
-      padding: 22px;
-    }
-
-    .flight.open .flight-details {
-      display: block;
-    }
-
-    .detail-grid {
+    .flight-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
 
-    .detail small {
+    .flight-detail span {
       display: block;
       color: #999;
       font-size: 10px;
-      letter-spacing: 0.7px;
       text-transform: uppercase;
+      letter-spacing: 1px;
       margin-bottom: 4px;
     }
 
-    .detail strong {
+    .flight-detail strong {
       font-size: 14px;
-      font-weight: 600;
     }
 
     /* HOTEL */
@@ -206,27 +193,24 @@
       margin-bottom: 12px;
     }
 
-    .hotel-address {
-      display: inline-block;
+    .address {
       color: #8a7055;
       text-decoration: none;
       font-size: 14px;
       border-bottom: 1px solid #cdbda9;
-      padding-bottom: 2px;
     }
 
-    .hotel-address:hover {
+    .address:hover {
       color: #333;
-      border-color: #333;
     }
 
     .hotel-note {
       color: #888;
       font-size: 13px;
-      margin-top: 15px;
+      margin-top: 12px;
     }
 
-    /* ITINERARY */
+    /* DAYS */
 
     .day {
       background: white;
@@ -239,7 +223,7 @@
     .day-date {
       color: #8a7055;
       font-size: 11px;
-      font-weight: 700;
+      font-weight: bold;
       letter-spacing: 1px;
       text-transform: uppercase;
       margin-bottom: 8px;
@@ -247,13 +231,13 @@
 
     .day-title {
       font-family: Georgia, serif;
-      font-size: 24px;
-      margin-bottom: 12px;
+      font-size: 25px;
+      margin-bottom: 10px;
     }
 
     .activity {
       border-top: 1px solid #eee;
-      padding: 15px 0;
+      padding: 16px 0;
     }
 
     .activity:first-of-type {
@@ -263,7 +247,7 @@
     .activity-time {
       color: #8a7055;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: bold;
       margin-bottom: 4px;
     }
 
@@ -276,47 +260,36 @@
     .activity-note {
       color: #777;
       font-size: 13px;
-      margin: 6px 0;
+      line-height: 1.7;
+      margin-bottom: 8px;
     }
 
     .activity-address {
-      display: inline-block;
       color: #8a7055;
       text-decoration: none;
       font-size: 13px;
       border-bottom: 1px solid #cdbda9;
-      padding-bottom: 2px;
     }
 
     .activity-address:hover {
       color: #333;
-      border-color: #333;
     }
 
     footer {
-      border-top: 1px solid #e3ded7;
+      text-align: center;
       color: #999;
       font-size: 13px;
-      padding: 30px;
-      text-align: center;
-      margin-top: 30px;
+      padding: 30px 0;
+      border-top: 1px solid #e3ded7;
     }
 
     @media (max-width: 650px) {
-      .hero {
-        padding-top: 45px;
-      }
-
       .hero h1 {
-        letter-spacing: -2px;
+        font-size: 60px;
       }
 
-      .detail-grid {
+      .flight-grid {
         grid-template-columns: 1fr;
-      }
-
-      .language button {
-        font-size: 11px;
       }
     }
   </style>
@@ -324,398 +297,408 @@
 
 <body>
 
-  <!-- NAVIGATION -->
+  <div class="container">
 
-  <nav class="container">
+    <!-- NAVIGATION -->
 
-    <a href="index.html" class="back" id="backButton">
-      ← Back to trip
-    </a>
+    <nav>
 
-    <div class="language">
-
-      <button
-        id="englishButton"
-        class="active"
-        onclick="setLanguage('en')">
-        🇺🇸 English
-      </button>
-
-      <span>|</span>
-
-      <button
-        id="spanishButton"
-        onclick="setLanguage('es')">
-        🇲🇽 Español
-      </button>
-
-    </div>
-
-  </nav>
-
-
-  <!-- PARIS -->
-
-  <section class="hero container">
-
-    <div class="eyebrow">
-      October 22 – 25, 2026
-    </div>
-
-    <h1 id="mainTitle">
-      Paris
-    </h1>
-
-  </section>
-
-
-  <!-- FLIGHT -->
-
-  <section class="section container">
-
-    <div class="section-label" id="flightLabel">
-      Getting to Paris
-    </div>
-
-    <div class="section-title" id="flightTitle">
-      Barcelona → Paris
-    </div>
-
-    <div class="flight">
-
-      <button
-        class="flight-button"
-        onclick="toggleFlight(this)">
-
-        <div class="flight-main">
-
-          <div class="flight-icon">
-            ✈️
-          </div>
-
-          <div>
-
-            <div class="flight-title">
-              Barcelona (BCN) → Paris (ORY)
-            </div>
-
-            <div class="flight-subtitle">
-              Thursday, October 22 · 9:50 AM – 11:40 AM
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="flight-arrow">
-          ⌄
-        </div>
-
-      </button>
-
-      <div class="flight-details">
-
-        <div class="detail-grid">
-
-          <div class="detail">
-            <small>Airline</small>
-            <strong>Vueling</strong>
-          </div>
-
-          <div class="detail">
-            <small>Flight</small>
-            <strong>VY8004</strong>
-          </div>
-
-          <div class="detail">
-            <small>Departure</small>
-            <strong>9:50 AM · Barcelona (BCN)</strong>
-          </div>
-
-          <div class="detail">
-            <small>Arrival</small>
-            <strong>11:40 AM · Paris (ORY)</strong>
-          </div>
-
-          <div class="detail">
-            <small>Duration</small>
-            <strong>1 hour 50 minutes</strong>
-          </div>
-
-          <div class="detail">
-            <small>Route</small>
-            <strong>Direct · Economy</strong>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- HOTEL -->
-
-  <section class="section container">
-
-    <div class="section-label" id="hotelLabel">
-      Where We're Staying
-    </div>
-
-    <div class="section-title" id="hotelTitle">
-      Our Hotel
-    </div>
-
-    <div class="hotel-card">
-
-      <div class="hotel-name">
-        Hotel Zélie Champs-Elysées
-      </div>
-
-      <a
-        class="hotel-address"
-        href="https://maps.apple.com/?address=23%20Rue%20Brey%2C%2075017%20Paris%2C%20France"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        23 Rue Brey, 75017 Paris, France
-
+      <a href="index.html" class="back" id="backButton">
+        ← Back to trip
       </a>
 
-      <div class="hotel-note" id="hotelNote">
-        Tap the address to open it in Apple Maps.
+      <div class="language">
+
+        <button
+          id="englishButton"
+          class="active"
+          onclick="setLanguage('en')">
+          English
+        </button>
+
+        <span>|</span>
+
+        <button
+          id="spanishButton"
+          onclick="setLanguage('es')">
+          Español
+        </button>
+
       </div>
 
-    </div>
-
-  </section>
+    </nav>
 
 
-  <!-- ITINERARY -->
+    <!-- HEADER -->
 
-  <section class="section container">
+    <section class="hero">
 
-    <div class="section-label" id="itineraryLabel">
-      Itinerary
-    </div>
-
-    <div class="section-title" id="itineraryTitle">
-      Paris
-    </div>
-
-
-    <!-- OCTOBER 22 -->
-
-    <div class="day">
-
-      <div class="day-date">
-        Thursday · October 22
+      <div class="date">
+        October 22 – 25, 2026
       </div>
 
-      <div class="day-title">
-        Arrival in Paris
+      <h1 id="pageTitle">
+        Paris
+      </h1>
+
+    </section>
+
+
+    <!-- FLIGHT -->
+
+    <section class="section">
+
+      <div class="section-label">
+        Getting to Paris
       </div>
 
-      <div class="activity">
+      <div class="section-title">
+        Barcelona → Paris
+      </div>
 
-        <div class="activity-time">
-          11:40 AM
+      <div class="flight-card">
+
+        <div
+          class="flight-header"
+          onclick="toggleFlight()">
+
+          <div class="flight-left">
+
+            <div class="flight-icon">
+              ✈️
+            </div>
+
+            <div>
+
+              <div class="flight-route">
+                Barcelona (BCN) → Paris (ORY)
+              </div>
+
+              <div class="flight-time">
+                Thu, Oct 22 · 9:50 AM – 11:40 AM
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="arrow">
+            ⌄
+          </div>
+
         </div>
 
-        <div class="activity-name">
-          Arrive in Paris
+
+        <div class="flight-info">
+
+          <div class="flight-grid">
+
+            <div class="flight-detail">
+              <span>Airline</span>
+              <strong>Vueling</strong>
+            </div>
+
+            <div class="flight-detail">
+              <span>Flight</span>
+              <strong>VY8004</strong>
+            </div>
+
+            <div class="flight-detail">
+              <span>Departure</span>
+              <strong>9:50 AM · Barcelona (BCN)</strong>
+            </div>
+
+            <div class="flight-detail">
+              <span>Arrival</span>
+              <strong>11:40 AM · Paris (ORY)</strong>
+            </div>
+
+            <div class="flight-detail">
+              <span>Duration</span>
+              <strong>1h 50m</strong>
+            </div>
+
+            <div class="flight-detail">
+              <span>Class</span>
+              <strong>Economy</strong>
+            </div>
+
+          </div>
+
         </div>
 
       </div>
 
-      <div class="activity">
+    </section>
 
-        <div class="activity-time">
-          Afternoon
+
+    <!-- HOTEL -->
+
+    <section class="section">
+
+      <div class="section-label">
+        Where We're Staying
+      </div>
+
+      <div class="section-title">
+        Our Hotel
+      </div>
+
+      <div class="hotel-card">
+
+        <div class="hotel-name">
+          Hotel Zélie Champs-Elysées
         </div>
 
-        <div class="activity-name">
-          Eiffel Tower
+        <a
+          class="address"
+          href="https://maps.apple.com/?address=23%20Rue%20Brey%2C%2075017%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          23 Rue Brey, 75017 Paris, France
+
+        </a>
+
+        <div class="hotel-note">
+          Tap the address to open it in Apple Maps.
         </div>
 
       </div>
 
-    </div>
+    </section>
 
 
-    <!-- OCTOBER 23 -->
+    <!-- ITINERARY -->
 
-    <div class="day">
+    <section class="section">
 
-      <div class="day-date">
-        Friday · October 23
+      <div class="section-label">
+        Itinerary
       </div>
 
-      <div class="day-title">
+      <div class="section-title">
         Paris
       </div>
 
 
-      <!-- LOUVRE -->
+      <!-- OCTOBER 22 -->
 
-      <div class="activity">
+      <div class="day">
 
-        <div class="activity-time">
-          10:00 AM
+        <div class="day-date">
+          Thursday · October 22
         </div>
 
-        <div class="activity-name">
-          Louvre
+        <div class="day-title">
+          Arrival in Paris
         </div>
 
-        <div class="activity-note">
-          Entrance: Carrousel or Pyramid<br>
-          Porte des Lions (until 5:15 PM)<br>
-          Entrance: Pyramid
+
+        <div class="activity">
+
+          <div class="activity-time">
+            11:40 AM
+          </div>
+
+          <div class="activity-name">
+            Arrive in Paris
+          </div>
+
+        </div>
+
+
+        <div class="activity">
+
+          <div class="activity-time">
+            Afternoon
+          </div>
+
+          <div class="activity-name">
+            Eiffel Tower
+          </div>
+
         </div>
 
       </div>
 
 
-      <!-- PONT D'IÉNA -->
+      <!-- OCTOBER 23 -->
 
-      <div class="activity">
+      <div class="day">
 
-        <div class="activity-name">
-          Pont d'Iéna
+        <div class="day-date">
+          Friday · October 23
         </div>
 
-        <a
-          class="activity-address"
-          href="https://maps.apple.com/?address=Pont%20d%27I%C3%A9na%2C%2075007%20Paris%2C%20France"
-          target="_blank"
-          rel="noopener noreferrer">
+        <div class="day-title">
+          Paris
+        </div>
 
-          📍 Pont d'Iéna, 75007 Paris, France
 
-        </a>
+        <!-- LOUVRE -->
+
+        <div class="activity">
+
+          <div class="activity-time">
+            10:00 AM
+          </div>
+
+          <div class="activity-name">
+            Louvre
+          </div>
+
+          <div class="activity-note">
+            Entrance: Carrousel or Pyramid<br>
+            Porte des Lions (until 5:15 PM)<br>
+            Entrance: Pyramid
+          </div>
+
+        </div>
+
+
+        <!-- PONT D'IÉNA -->
+
+        <div class="activity">
+
+          <div class="activity-name">
+            Pont d'Iéna
+          </div>
+
+          <a
+            class="activity-address"
+            href="https://maps.apple.com/?address=Pont%20d%27I%C3%A9na%2C%2075007%20Paris%2C%20France"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            📍 Pont d'Iéna, 75007 Paris, France
+
+          </a>
+
+        </div>
+
+
+        <!-- ARC DE TRIOMPHE -->
+
+        <div class="activity">
+
+          <div class="activity-name">
+            Arc de Triomphe
+          </div>
+
+          <a
+            class="activity-address"
+            href="https://maps.apple.com/?address=Place%20Charles%20de%20Gaulle%2C%2075008%20Paris%2C%20France"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            📍 Place Charles de Gaulle, 75008 Paris, France
+
+          </a>
+
+        </div>
+
+
+        <!-- MOULIN ROUGE -->
+
+        <div class="activity">
+
+          <div class="activity-time">
+            8:00 PM
+          </div>
+
+          <div class="activity-name">
+            Moulin Rouge
+          </div>
+
+          <div class="activity-note">
+            Doors open at 8:00 PM<br>
+            Show starts at 9:00 PM
+          </div>
+
+          <a
+            class="activity-address"
+            href="https://maps.apple.com/?address=82%20Boulevard%20de%20Clichy%2C%2075018%20Paris%2C%20France"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            📍 82 Boulevard de Clichy, 75018 Paris, France
+
+          </a>
+
+        </div>
 
       </div>
 
 
-      <!-- ARC DE TRIOMPHE -->
+      <!-- OCTOBER 24 -->
 
-      <div class="activity">
+      <div class="day">
 
-        <div class="activity-name">
-          Arc de Triomphe
+        <div class="day-date">
+          Saturday · October 24
         </div>
 
-        <a
-          class="activity-address"
-          href="https://maps.apple.com/?address=Place%20Charles%20de%20Gaulle%2C%2075008%20Paris%2C%20France"
-          target="_blank"
-          rel="noopener noreferrer">
-
-          📍 Place Charles de Gaulle, 75008 Paris, France
-
-        </a>
-
-      </div>
-
-
-      <!-- MOULIN ROUGE -->
-
-      <div class="activity">
-
-        <div class="activity-time">
-          8:00 PM
-        </div>
-
-        <div class="activity-name">
-          Moulin Rouge
-        </div>
-
-        <div class="activity-note">
-          Doors open at 8:00 PM<br>
-          Show starts at 9:00 PM
-        </div>
-
-        <a
-          class="activity-address"
-          href="https://maps.apple.com/?address=82%20Boulevard%20de%20Clichy%2C%2075018%20Paris%2C%20France"
-          target="_blank"
-          rel="noopener noreferrer">
-
-          📍 82 Boulevard de Clichy, 75018 Paris, France
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- OCTOBER 24 -->
-
-    <div class="day">
-
-      <div class="day-date">
-        Saturday · October 24
-      </div>
-
-      <div class="day-title">
-        Disneyland Paris
-      </div>
-
-      <div class="activity">
-
-        <div class="activity-name">
+        <div class="day-title">
           Disneyland Paris
         </div>
 
-        <a
-          class="activity-address"
-          href="https://maps.apple.com/?address=Disneyland%20Paris%2C%20Boulevard%20de%20Parc%2C%2077713%20Marne-la-Vall%C3%A9e%2C%20France"
-          target="_blank"
-          rel="noopener noreferrer">
 
-          📍 Disneyland Paris, Boulevard de Parc, 77713 Marne-la-Vallée, France
+        <div class="activity">
 
-        </a>
+          <div class="activity-name">
+            Disneyland Paris
+          </div>
+
+          <a
+            class="activity-address"
+            href="https://maps.apple.com/?address=Disneyland%20Paris%2C%20Boulevard%20de%20Parc%2C%2077713%20Marne-la-Vall%C3%A9e%2C%20France"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            📍 Disneyland Paris, Boulevard de Parc, 77713 Marne-la-Vallée, France
+
+          </a>
+
+        </div>
 
       </div>
 
-    </div>
 
+      <!-- OCTOBER 25 -->
 
-    <!-- OCTOBER 25 -->
+      <div class="day">
 
-    <div class="day">
+        <div class="day-date">
+          Sunday · October 25
+        </div>
 
-      <div class="day-date">
-        Sunday · October 25
+        <div class="day-title">
+          Paris → Bruges
+        </div>
+
+        <div class="activity-note">
+          Activities and train information to be added.
+        </div>
+
       </div>
 
-      <div class="day-title">
-        Paris → Bruges
-      </div>
-
-      <div class="activity-note">
-        Activities and train information to be added.
-      </div>
-
-    </div>
-
-  </section>
+    </section>
 
 
-  <footer>
-    Europe Trip · Paris · 2026
-  </footer>
+    <footer>
+      Europe Trip · Paris · 2026
+    </footer>
+
+  </div>
 
 
   <script>
 
-    function toggleFlight(button) {
-      button.parentElement.classList.toggle("open");
+    function toggleFlight() {
+      document
+        .querySelector(".flight-card")
+        .classList.toggle("open");
     }
 
 
@@ -727,76 +710,41 @@
       const spanishButton =
         document.getElementById("spanishButton");
 
+      const pageTitle =
+        document.getElementById("pageTitle");
+
+      const backButton =
+        document.getElementById("backButton");
+
 
       if (language === "es") {
 
         document.documentElement.lang = "es";
 
-        document.getElementById("backButton").textContent =
+        pageTitle.textContent = "París";
+
+        backButton.textContent =
           "← Volver al viaje";
 
-        document.getElementById("mainTitle").textContent =
-          "París";
-
-        document.getElementById("flightLabel").textContent =
-          "Cómo llegar a París";
-
-        document.getElementById("flightTitle").textContent =
-          "Barcelona → París";
-
-        document.getElementById("hotelLabel").textContent =
-          "Dónde nos hospedamos";
-
-        document.getElementById("hotelTitle").textContent =
-          "Nuestro hotel";
-
-        document.getElementById("hotelNote").textContent =
-          "Toca la dirección para abrirla en Apple Maps.";
-
-        document.getElementById("itineraryLabel").textContent =
-          "Itinerario";
-
-        document.getElementById("itineraryTitle").textContent =
-          "París";
-
         englishButton.classList.remove("active");
+
         spanishButton.classList.add("active");
 
       } else {
 
         document.documentElement.lang = "en";
 
-        document.getElementById("backButton").textContent =
+        pageTitle.textContent = "Paris";
+
+        backButton.textContent =
           "← Back to trip";
 
-        document.getElementById("mainTitle").textContent =
-          "Paris";
-
-        document.getElementById("flightLabel").textContent =
-          "Getting to Paris";
-
-        document.getElementById("flightTitle").textContent =
-          "Barcelona → Paris";
-
-        document.getElementById("hotelLabel").textContent =
-          "Where We're Staying";
-
-        document.getElementById("hotelTitle").textContent =
-          "Our Hotel";
-
-        document.getElementById("hotelNote").textContent =
-          "Tap the address to open it in Apple Maps.";
-
-        document.getElementById("itineraryLabel").textContent =
-          "Itinerary";
-
-        document.getElementById("itineraryTitle").textContent =
-          "Paris";
-
         englishButton.classList.add("active");
+
         spanishButton.classList.remove("active");
 
       }
+
     }
 
   </script>
