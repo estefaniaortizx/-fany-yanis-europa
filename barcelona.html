@@ -1,10 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barcelona · Fany & Yanis</title>
+  <title>Barcelona</title>
 
   <style>
     * {
@@ -36,10 +35,6 @@
       color: #333;
       text-decoration: none;
       font-size: 14px;
-    }
-
-    .back:hover {
-      color: #8a7055;
     }
 
     .language {
@@ -78,20 +73,14 @@
 
     .hero h1 {
       font-family: Georgia, serif;
-      font-size: clamp(48px, 8vw, 76px);
+      font-size: clamp(52px, 9vw, 82px);
       font-weight: 500;
       letter-spacing: -3px;
       line-height: 1;
-      margin-bottom: 18px;
-    }
-
-    .dates {
-      color: #777;
-      font-size: 15px;
     }
 
     .section {
-      margin-bottom: 55px;
+      margin-bottom: 50px;
     }
 
     .section-label {
@@ -110,143 +99,57 @@
       margin-bottom: 25px;
     }
 
-    .flight {
-      background: white;
-      border: 1px solid #e5dfd7;
-      border-radius: 18px;
-      overflow: hidden;
-    }
+    /* HOTEL */
 
-    .flight-button {
-      width: 100%;
-      border: none;
-      background: white;
-      cursor: pointer;
-      padding: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      text-align: left;
-    }
-
-    .flight-button:hover {
-      background: #faf9f7;
-    }
-
-    .flight-main {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .flight-icon {
-      font-size: 22px;
-    }
-
-    .flight-title {
-      font-family: Georgia, serif;
-      font-size: 19px;
-    }
-
-    .flight-subtitle {
-      color: #888;
-      font-size: 13px;
-      margin-top: 3px;
-    }
-
-    .flight-arrow {
-      color: #999;
-      font-size: 20px;
-      transition: transform 0.2s;
-    }
-
-    .flight.open .flight-arrow {
-      transform: rotate(180deg);
-    }
-
-    .flight-details {
-      display: none;
-      background: #faf9f7;
-      border-top: 1px solid #eee;
-      padding: 22px;
-    }
-
-    .flight.open .flight-details {
-      display: block;
-    }
-
-    .detail-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .detail small {
-      display: block;
-      color: #999;
-      font-size: 10px;
-      letter-spacing: 0.7px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .detail strong {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .hotel {
+    .hotel-card {
       background: white;
       border: 1px solid #e5dfd7;
       border-radius: 18px;
       padding: 25px;
     }
 
-    .hotel-icon {
-      font-size: 25px;
-      margin-bottom: 10px;
-    }
-
     .hotel-name {
       font-family: Georgia, serif;
-      font-size: 24px;
-      margin-bottom: 8px;
+      font-size: 27px;
+      margin-bottom: 12px;
     }
 
-    .hotel-address a {
-      color: #777;
+    .hotel-address {
+      display: inline-block;
+      color: #8a7055;
       text-decoration: none;
       font-size: 14px;
+      border-bottom: 1px solid #cdbda9;
+      padding-bottom: 2px;
+      white-space: pre-line;
     }
 
-    .hotel-address a:hover {
-      color: #8a7055;
-      text-decoration: underline;
+    .hotel-address:hover {
+      color: #333;
+      border-color: #333;
     }
 
-    .hotel-city {
-      color: #8a7055;
-      font-size: 12px;
-      margin-top: 10px;
+    .hotel-note {
+      color: #888;
+      font-size: 13px;
+      margin-top: 15px;
     }
 
-    .day-list {
-      display: grid;
-      gap: 15px;
-    }
+    /* ITINERARY */
 
     .day {
       background: white;
       border: 1px solid #e5dfd7;
       border-radius: 18px;
       padding: 25px;
+      margin-bottom: 15px;
     }
 
     .day-date {
       color: #8a7055;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.7px;
+      letter-spacing: 1px;
       text-transform: uppercase;
       margin-bottom: 8px;
     }
@@ -254,12 +157,50 @@
     .day-title {
       font-family: Georgia, serif;
       font-size: 24px;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
 
-    .day-details {
+    .activity {
+      border-top: 1px solid #eee;
+      padding: 15px 0;
+    }
+
+    .activity:first-of-type {
+      border-top: none;
+    }
+
+    .activity-time {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .activity-name {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .activity-note {
       color: #777;
-      font-size: 14px;
+      font-size: 13px;
+      margin: 6px 0;
+    }
+
+    .activity-address {
+      display: inline-block;
+      color: #8a7055;
+      text-decoration: none;
+      font-size: 13px;
+      border-bottom: 1px solid #cdbda9;
+      padding-bottom: 2px;
+      white-space: pre-line;
+    }
+
+    .activity-address:hover {
+      color: #333;
+      border-color: #333;
     }
 
     footer {
@@ -279,19 +220,13 @@
       .hero h1 {
         letter-spacing: -2px;
       }
-
-      .detail-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .language button {
-        font-size: 11px;
-      }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- NAVIGATION -->
 
   <nav class="container">
 
@@ -321,119 +256,17 @@
   </nav>
 
 
+  <!-- BARCELONA -->
+
   <section class="hero container">
 
-    <div class="eyebrow" id="country">
-      Spain
+    <div class="eyebrow">
+      October 19 – 22, 2026
     </div>
 
-    <h1 id="cityTitle">
+    <h1 id="mainTitle">
       Barcelona
     </h1>
-
-    <div class="dates">
-      October 19–22, 2026
-    </div>
-
-  </section>
-
-
-  <!-- FLIGHT -->
-
-  <section class="section container">
-
-    <div class="section-label" id="flightLabel">
-      Getting to Barcelona
-    </div>
-
-    <div class="section-title" id="flightSectionTitle">
-      Our Flight
-    </div>
-
-    <div class="flight">
-
-      <button
-        class="flight-button"
-        onclick="toggleFlight(this)">
-
-        <div class="flight-main">
-
-          <div class="flight-icon">
-            ✈️
-          </div>
-
-          <div>
-
-            <div class="flight-title" id="flightTitle">
-              Madrid → Barcelona
-            </div>
-
-            <div class="flight-subtitle">
-              Monday, October 19 · 6:00 PM–7:15 PM
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="flight-arrow">
-          ⌄
-        </div>
-
-      </button>
-
-
-      <div class="flight-details">
-
-        <div class="detail-grid">
-
-          <div class="detail">
-            <small id="flightNumberLabel">
-              Flight
-            </small>
-            <strong>IB421</strong>
-          </div>
-
-          <div class="detail">
-            <small id="departureLabel">
-              Departure
-            </small>
-            <strong>6:00 PM · Madrid (MAD)</strong>
-          </div>
-
-          <div class="detail">
-            <small id="arrivalLabel">
-              Arrival
-            </small>
-            <strong>7:15 PM · Barcelona (BCN)</strong>
-          </div>
-
-          <div class="detail">
-            <small id="durationLabel">
-              Duration
-            </small>
-            <strong>1 hour 15 minutes</strong>
-          </div>
-
-          <div class="detail">
-            <small id="routeLabel">
-              Route
-            </small>
-            <strong>Direct · Economy</strong>
-          </div>
-
-          <div class="detail">
-            <small id="airlineLabel">
-              Airline
-            </small>
-            <strong>Iberia · IB421</strong>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
 
   </section>
 
@@ -446,36 +279,30 @@
       Where We're Staying
     </div>
 
-    <div class="section-title" id="hotelSectionTitle">
-      Barcelona Hotel
+    <div class="section-title" id="hotelTitle">
+      Our Hotel
     </div>
 
-    <div class="hotel">
-
-      <div class="hotel-icon">
-        🏨
-      </div>
+    <div class="hotel-card">
 
       <div class="hotel-name">
-        Occidental Barcelona 1929
+        Hotel
       </div>
 
-      <div class="hotel-address">
+      <a
+        class="hotel-address"
+        href="https://maps.apple.com/?address=Carrer%20de%20la%20Creu%20Coberta%2C%2020%2C%2008014%20Barcelona%2C%20Spain"
+        target="_blank"
+        rel="noopener noreferrer">
 
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=Occidental+Barcelona+1929%2C+Carrer+Creu+Coberta+20-22%2C+Barcelona%2C+Spain"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Carrer Creu Coberta, 20–22
-          <br>
-          Sants-Montjuïc, 08014 Barcelona, Spain
-        </a>
+        Carrer de la Creu Coberta, 20
+        08014 Barcelona
+        Spain
 
-      </div>
+      </a>
 
-      <div class="hotel-city" id="hotelCity">
-        Barcelona, Spain
+      <div class="hotel-note" id="hotelNote">
+        Tap the address to open it in Apple Maps.
       </div>
 
     </div>
@@ -483,93 +310,220 @@
   </section>
 
 
-  <!-- DAY BY DAY -->
+  <!-- ITINERARY -->
 
   <section class="section container">
 
     <div class="section-label" id="itineraryLabel">
-      Day by Day
+      Itinerary
     </div>
 
     <div class="section-title" id="itineraryTitle">
-      Our Barcelona Plans
+      Barcelona
     </div>
 
-    <div class="day-list">
 
-      <!-- OCTOBER 19 -->
+    <!-- OCTOBER 19 -->
 
-      <div class="day">
+    <div class="day">
 
-        <div class="day-date">
-          Monday, October 19
+      <div class="day-date">
+        Monday · October 19
+      </div>
+
+      <div class="day-title">
+        Arrival in Barcelona
+      </div>
+
+    </div>
+
+
+    <!-- OCTOBER 20 -->
+
+    <div class="day">
+
+      <div class="day-date">
+        Tuesday · October 20
+      </div>
+
+      <div class="day-title">
+        Barcelona
+      </div>
+
+    </div>
+
+
+    <!-- OCTOBER 21 -->
+
+    <div class="day">
+
+      <div class="day-date">
+        Wednesday · October 21
+      </div>
+
+      <div class="day-title">
+        Barcelona
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-time">
+          5:15 PM
         </div>
 
-        <div class="day-title" id="day19Title">
-          Arrival in Barcelona
+        <div class="activity-name">
+          Sagrada Família
         </div>
 
-        <div class="day-details" id="day19Details">
-          Arrive in Barcelona from Madrid and check in at Occidental Barcelona 1929.
+        <div class="activity-note">
+          Access time
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?address=Carrer%20de%20Mallorca%2C%20401%2C%2008013%20Barcelona%2C%20Spain"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Carrer de Mallorca, 401
+          08013 Barcelona
+          Spain
+
+        </a>
+
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-time">
+          6:00 PM
+        </div>
+
+        <div class="activity-name">
+          Sagrada Família Towers
+        </div>
+
+        <div class="activity-note">
+          Visit to the towers
         </div>
 
       </div>
 
 
-      <!-- OCTOBER 20 -->
+      <div class="activity">
 
-      <div class="day">
-
-        <div class="day-date">
-          Tuesday, October 20
+        <div class="activity-name">
+          Casa Batlló
         </div>
 
-        <div class="day-title" id="day20Title">
-          Activities
+        <div class="activity-note">
+          Date & time TBD
         </div>
 
-        <div class="day-details" id="day20Details">
-          Activities and excursions to be added.
-        </div>
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?address=Passeig%20de%20Gr%C3%A0cia%2C%2043%2C%2008007%20Barcelona%2C%20Spain"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Passeig de Gràcia, 43
+          08007 Barcelona
+          Spain
+
+        </a>
 
       </div>
 
 
-      <!-- OCTOBER 21 -->
+      <div class="activity">
 
-      <div class="day">
-
-        <div class="day-date">
-          Wednesday, October 21
+        <div class="activity-name">
+          Barcelona Stadium
         </div>
 
-        <div class="day-title" id="day21Title">
-          Activities
+        <div class="activity-note">
+          Date & time TBD
         </div>
 
-        <div class="day-details" id="day21Details">
-          Activities and excursions to be added.
-        </div>
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?address=Carrer%20d%27Aristides%20Maillol%2C%20s%2Fn%2C%2008028%20Barcelona%2C%20Spain"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Carrer d'Aristides Maillol, s/n
+          08028 Barcelona
+          Spain
+
+        </a>
 
       </div>
 
 
-      <!-- OCTOBER 22 -->
+      <div class="activity">
 
-      <div class="day">
-
-        <div class="day-date">
-          Thursday, October 22
+        <div class="activity-name">
+          Coffee Casa
         </div>
 
-        <div class="day-title" id="day22Title">
-          Leaving Barcelona
+        <div class="activity-note">
+          Tiramisu Latte · Date & time TBD
         </div>
 
-        <div class="day-details" id="day22Details">
-          Depart Barcelona for Paris.
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?address=Carrer%20dels%20Carders%2C%2025%2C%2008003%20Barcelona%2C%20Spain"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Carrer dels Carders, 25
+          08003 Barcelona
+          Spain
+
+        </a>
+
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Mocha
         </div>
 
+        <div class="activity-note">
+          Try matcha or coffee · Date & time TBD
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?address=Carrer%20de%20Lepant%2C%20258%2C%2008013%20Barcelona%2C%20Spain"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Carrer de Lepant, 258
+          08013 Barcelona
+          Spain
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- OCTOBER 22 -->
+
+    <div class="day">
+
+      <div class="day-date">
+        Thursday · October 22
+      </div>
+
+      <div class="day-title">
+        Barcelona → Paris
       </div>
 
     </div>
@@ -578,16 +532,11 @@
 
 
   <footer>
-    Fany & Yanis Europa · Barcelona · 2026
+    Europe Trip · Barcelona · 2026
   </footer>
 
 
   <script>
-
-    function toggleFlight(button) {
-      button.parentElement.classList.toggle("open");
-    }
-
 
     function setLanguage(language) {
 
@@ -597,7 +546,6 @@
       const spanishButton =
         document.getElementById("spanishButton");
 
-
       if (language === "es") {
 
         document.documentElement.lang = "es";
@@ -605,74 +553,23 @@
         document.getElementById("backButton").textContent =
           "← Volver al viaje";
 
-        document.getElementById("country").textContent =
-          "España";
-
-        document.getElementById("flightLabel").textContent =
-          "Cómo llegar a Barcelona";
-
-        document.getElementById("flightSectionTitle").textContent =
-          "Nuestro vuelo";
-
-        document.getElementById("flightTitle").textContent =
-          "Madrid → Barcelona";
-
-        document.getElementById("flightNumberLabel").textContent =
-          "Vuelo";
-
-        document.getElementById("departureLabel").textContent =
-          "Salida";
-
-        document.getElementById("arrivalLabel").textContent =
-          "Llegada";
-
-        document.getElementById("durationLabel").textContent =
-          "Duración";
-
-        document.getElementById("routeLabel").textContent =
-          "Ruta";
-
-        document.getElementById("airlineLabel").textContent =
-          "Aerolínea";
+        document.getElementById("mainTitle").textContent =
+          "Barcelona";
 
         document.getElementById("hotelLabel").textContent =
           "Dónde nos hospedamos";
 
-        document.getElementById("hotelSectionTitle").textContent =
-          "Hotel en Barcelona";
+        document.getElementById("hotelTitle").textContent =
+          "Nuestro hotel";
 
-        document.getElementById("hotelCity").textContent =
-          "Barcelona, España";
+        document.getElementById("hotelNote").textContent =
+          "Toca la dirección para abrirla en Apple Maps.";
 
         document.getElementById("itineraryLabel").textContent =
-          "Día por día";
+          "Itinerario";
 
         document.getElementById("itineraryTitle").textContent =
-          "Nuestros planes en Barcelona";
-
-        document.getElementById("day19Title").textContent =
-          "Llegada a Barcelona";
-
-        document.getElementById("day19Details").textContent =
-          "Llegamos a Barcelona desde Madrid y nos hospedamos en Occidental Barcelona 1929.";
-
-        document.getElementById("day20Title").textContent =
-          "Actividades";
-
-        document.getElementById("day20Details").textContent =
-          "Aquí agregaremos las actividades y excursiones.";
-
-        document.getElementById("day21Title").textContent =
-          "Actividades";
-
-        document.getElementById("day21Details").textContent =
-          "Aquí agregaremos las actividades y excursiones.";
-
-        document.getElementById("day22Title").textContent =
-          "Salida de Barcelona";
-
-        document.getElementById("day22Details").textContent =
-          "Salimos de Barcelona hacia París.";
+          "Barcelona";
 
         englishButton.classList.remove("active");
         spanishButton.classList.add("active");
@@ -684,74 +581,23 @@
         document.getElementById("backButton").textContent =
           "← Back to trip";
 
-        document.getElementById("country").textContent =
-          "Spain";
-
-        document.getElementById("flightLabel").textContent =
-          "Getting to Barcelona";
-
-        document.getElementById("flightSectionTitle").textContent =
-          "Our Flight";
-
-        document.getElementById("flightTitle").textContent =
-          "Madrid → Barcelona";
-
-        document.getElementById("flightNumberLabel").textContent =
-          "Flight";
-
-        document.getElementById("departureLabel").textContent =
-          "Departure";
-
-        document.getElementById("arrivalLabel").textContent =
-          "Arrival";
-
-        document.getElementById("durationLabel").textContent =
-          "Duration";
-
-        document.getElementById("routeLabel").textContent =
-          "Route";
-
-        document.getElementById("airlineLabel").textContent =
-          "Airline";
+        document.getElementById("mainTitle").textContent =
+          "Barcelona";
 
         document.getElementById("hotelLabel").textContent =
           "Where We're Staying";
 
-        document.getElementById("hotelSectionTitle").textContent =
-          "Barcelona Hotel";
+        document.getElementById("hotelTitle").textContent =
+          "Our Hotel";
 
-        document.getElementById("hotelCity").textContent =
-          "Barcelona, Spain";
+        document.getElementById("hotelNote").textContent =
+          "Tap the address to open it in Apple Maps.";
 
         document.getElementById("itineraryLabel").textContent =
-          "Day by Day";
+          "Itinerary";
 
         document.getElementById("itineraryTitle").textContent =
-          "Our Barcelona Plans";
-
-        document.getElementById("day19Title").textContent =
-          "Arrival in Barcelona";
-
-        document.getElementById("day19Details").textContent =
-          "Arrive in Barcelona from Madrid and check in at Occidental Barcelona 1929.";
-
-        document.getElementById("day20Title").textContent =
-          "Activities";
-
-        document.getElementById("day20Details").textContent =
-          "Activities and excursions to be added.";
-
-        document.getElementById("day21Title").textContent =
-          "Activities";
-
-        document.getElementById("day21Details").textContent =
-          "Activities and excursions to be added.";
-
-        document.getElementById("day22Title").textContent =
-          "Leaving Barcelona";
-
-        document.getElementById("day22Details").textContent =
-          "Depart Barcelona for Paris.";
+          "Barcelona";
 
         englishButton.classList.add("active");
         spanishButton.classList.remove("active");
@@ -764,4 +610,3 @@
 
 </body>
 </html>
-```
