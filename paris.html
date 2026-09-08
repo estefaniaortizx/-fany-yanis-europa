@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,10 +126,6 @@
       text-align: left;
     }
 
-    .flight-button:hover {
-      background: #faf9f7;
-    }
-
     .flight-main {
       display: flex;
       align-items: center;
@@ -139,6 +134,7 @@
 
     .flight-icon {
       font-size: 22px;
+      flex-shrink: 0;
     }
 
     .flight-title {
@@ -208,7 +204,8 @@
       margin-bottom: 12px;
     }
 
-    .hotel-address {
+    .hotel-address,
+    .activity-address {
       display: inline-block;
       color: #8a7055;
       text-decoration: none;
@@ -217,9 +214,9 @@
       padding-bottom: 2px;
     }
 
-    .hotel-address:hover {
+    .hotel-address:hover,
+    .activity-address:hover {
       color: #333;
-      border-color: #333;
     }
 
     .hotel-note {
@@ -250,12 +247,43 @@
     .day-title {
       font-family: Georgia, serif;
       font-size: 24px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .day-placeholder {
-      color: #999;
-      font-size: 14px;
+    .activity {
+      border-top: 1px solid #eee;
+      padding: 15px 0;
+    }
+
+    .activity:first-of-type {
+      border-top: none;
+    }
+
+    .activity-time {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .activity-name {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .activity-note {
+      color: #777;
+      font-size: 13px;
+      margin: 6px 0;
+    }
+
+    .activity-image {
+      width: 100%;
+      max-width: 700px;
+      display: block;
+      margin-top: 15px;
+      border-radius: 14px;
     }
 
     footer {
@@ -272,24 +300,14 @@
         padding-top: 45px;
       }
 
-      .hero h1 {
-        letter-spacing: -2px;
-      }
-
       .detail-grid {
         grid-template-columns: 1fr;
-      }
-
-      .language button {
-        font-size: 11px;
       }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- NAVIGATION -->
 
   <nav class="container">
 
@@ -299,18 +317,16 @@
 
     <div class="language">
 
-      <button
-        id="englishButton"
-        class="active"
-        onclick="setLanguage('en')">
+      <button id="englishButton"
+              class="active"
+              onclick="setLanguage('en')">
         🇺🇸 English
       </button>
 
       <span>|</span>
 
-      <button
-        id="spanishButton"
-        onclick="setLanguage('es')">
+      <button id="spanishButton"
+              onclick="setLanguage('es')">
         🇲🇽 Español
       </button>
 
@@ -352,15 +368,11 @@
 
     <div class="flight">
 
-      <button
-        class="flight-button"
-        onclick="toggleFlight(this)">
+      <button class="flight-button" onclick="toggleFlight(this)">
 
         <div class="flight-main">
 
-          <div class="flight-icon">
-            ✈️
-          </div>
+          <div class="flight-icon">✈️</div>
 
           <div>
 
@@ -376,9 +388,7 @@
 
         </div>
 
-        <div class="flight-arrow">
-          ⌄
-        </div>
+        <div class="flight-arrow">⌄</div>
 
       </button>
 
@@ -453,9 +463,7 @@
 
       </a>
 
-      <div
-        class="hotel-note"
-        id="hotelNote">
+      <div class="hotel-note" id="hotelNote">
         Tap the address to open it in Apple Maps.
       </div>
 
@@ -489,8 +497,28 @@
         Arrival in Paris
       </div>
 
-      <div class="day-placeholder">
-        Activities to be added.
+      <div class="activity">
+
+        <div class="activity-time">
+          11:40 AM
+        </div>
+
+        <div class="activity-name">
+          Arrive in Paris
+        </div>
+
+      </div>
+
+      <div class="activity">
+
+        <div class="activity-time">
+          Afternoon
+        </div>
+
+        <div class="activity-name">
+          Eiffel Tower
+        </div>
+
       </div>
 
     </div>
@@ -508,8 +536,98 @@
         Paris
       </div>
 
-      <div class="day-placeholder">
-        Activities to be added.
+
+      <div class="activity">
+
+        <div class="activity-time">
+          10:00 AM
+        </div>
+
+        <div class="activity-name">
+          Louvre
+        </div>
+
+        <div class="activity-note">
+          Entrance: Carrousel or Pyramid<br>
+          Porte des Lions (until 5:15 PM)<br>
+          Entrance: Pyramid
+        </div>
+
+        <!--
+          Replace the filename below with the EXACT filename
+          Grit gives your uploaded Louvre picture if different.
+        -->
+        <img
+          class="activity-image"
+          src="louvre-entrance.png"
+          alt="Louvre entrance information">
+
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Pont d'Iéna
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?address=Pont%20d%27I%C3%A9na%2C%2075007%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          📍 Pont d'Iéna, 75007 Paris, France
+
+        </a>
+
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Arc de Triomphe
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?address=Place%20Charles%20de%20Gaulle%2C%2075008%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          📍 Place Charles de Gaulle, 75008 Paris, France
+
+        </a>
+
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-time">
+          8:00 PM
+        </div>
+
+        <div class="activity-name">
+          Moulin Rouge
+        </div>
+
+        <div class="activity-note">
+          Doors open at 8:00 PM<br>
+          Show starts at 9:00 PM
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?address=82%20Boulevard%20de%20Clichy%2C%2075018%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          📍 82 Boulevard de Clichy, 75018 Paris, France
+
+        </a>
+
       </div>
 
     </div>
@@ -524,11 +642,15 @@
       </div>
 
       <div class="day-title">
-        Paris
+        Disneyland Paris
       </div>
 
-      <div class="day-placeholder">
-        Activities to be added.
+      <div class="activity">
+
+        <div class="activity-name">
+          Disneyland Paris
+        </div>
+
       </div>
 
     </div>
@@ -546,7 +668,7 @@
         Paris → Bruges
       </div>
 
-      <div class="day-placeholder">
+      <div class="activity-note">
         Activities and train information to be added.
       </div>
 
@@ -658,4 +780,3 @@
 
 </body>
 </html>
-```
