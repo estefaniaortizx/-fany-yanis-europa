@@ -156,7 +156,7 @@
       text-decoration: underline;
       text-underline-offset: 4px;
       font-size: 13px;
-      margin-top: 8px;
+      margin-top: 9px;
     }
 
     .possible-place {
@@ -262,7 +262,7 @@
       Itinerary
     </div>
 
-    <div class="section-title">
+    <div class="section-title" id="itineraryTitle">
       Paris
     </div>
 
@@ -324,17 +324,11 @@
           After the museum · Time TBD
         </div>
 
-        <a
-          class="activity-address"
-          href="https://maps.apple.com/?address=Montmartre%2C%20Paris%2C%20France"
-          target="_blank"
-          rel="noopener noreferrer">
-
+        <div class="activity-address">
           Montmartre<br>
           Paris<br>
           France
-
-        </a>
+        </div>
 
       </div>
 
@@ -514,6 +508,9 @@
       <div class="day-title">
         Disneyland Paris
       </div>
+
+
+      <!-- DISNEYLAND PARIS -->
 
       <div class="activity">
 
@@ -704,6 +701,9 @@
         document.getElementById("itineraryLabel").textContent =
           "Itinerario";
 
+        document.getElementById("itineraryTitle").textContent =
+          "París";
+
         document.getElementById("day22Date").textContent =
           "Jueves · 22 de octubre";
 
@@ -789,6 +789,9 @@
         document.getElementById("itineraryLabel").textContent =
           "Itinerary";
 
+        document.getElementById("itineraryTitle").textContent =
+          "Paris";
+
         document.getElementById("day22Date").textContent =
           "Thursday · October 22";
 
@@ -860,9 +863,7 @@
 
         englishButton.classList.add("active");
         spanishButton.classList.remove("active");
-
       }
-
     }
 
   </script>
