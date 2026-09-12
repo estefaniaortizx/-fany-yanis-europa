@@ -124,7 +124,7 @@
 
     .activity {
       border-top: 1px solid #eee;
-      padding: 15px 0;
+      padding: 16px 0;
     }
 
     .activity:first-of-type {
@@ -147,7 +147,7 @@
     .activity-note {
       color: #777;
       font-size: 13px;
-      margin: 6px 0 10px;
+      margin: 5px 0;
     }
 
     .activity-address {
@@ -156,7 +156,7 @@
       text-decoration: underline;
       text-underline-offset: 4px;
       font-size: 13px;
-      margin-bottom: 10px;
+      margin-top: 8px;
     }
 
     .possible-place {
@@ -185,7 +185,6 @@
       text-decoration: underline;
       text-underline-offset: 4px;
       font-size: 13px;
-      white-space: pre-line;
     }
 
     footer {
@@ -195,10 +194,6 @@
       padding: 30px;
       text-align: center;
       margin-top: 30px;
-    }
-
-    a:hover {
-      color: #333;
     }
 
     @media (max-width: 650px) {
@@ -222,22 +217,15 @@
     </a>
 
     <div class="language">
-
-      <button
-        id="englishButton"
-        class="active"
-        onclick="setLanguage('en')">
+      <button id="englishButton" class="active" onclick="setLanguage('en')">
         🇺🇸 English
       </button>
 
       <span>|</span>
 
-      <button
-        id="spanishButton"
-        onclick="setLanguage('es')">
+      <button id="spanishButton" onclick="setLanguage('es')">
         🇲🇽 Español
       </button>
-
     </div>
 
   </nav>
@@ -251,9 +239,7 @@
       October 22 – 24, 2026
     </div>
 
-    <h1 id="mainTitle">
-      Paris
-    </h1>
+    <h1>Paris</h1>
 
   </section>
 
@@ -266,7 +252,7 @@
       Itinerary
     </div>
 
-    <div class="section-title" id="itineraryTitle">
+    <div class="section-title">
       Paris
     </div>
 
@@ -279,7 +265,7 @@
         Thursday · October 22
       </div>
 
-      <div class="day-title" id="day22Title">
+      <div class="day-title">
         Paris
       </div>
 
@@ -374,7 +360,7 @@
         Friday · October 23
       </div>
 
-      <div class="day-title" id="day23Title">
+      <div class="day-title">
         Paris
       </div>
 
@@ -395,18 +381,6 @@
           Entrance: Carrousel or Pyramid
         </div>
 
-        <a
-          class="activity-address"
-          href="https://maps.apple.com/?address=Louvre%20Museum%2C%2075001%20Paris%2C%20France"
-          target="_blank"
-          rel="noopener noreferrer">
-
-          Louvre Museum<br>
-          75001 Paris<br>
-          France
-
-        </a>
-
         <div class="activity-note" id="louvreEntranceNote">
           Porte des Lions until 5:15 PM · Entrance: Pyramid
         </div>
@@ -423,7 +397,7 @@
         </div>
 
         <div class="activity-note" id="pontNote">
-          After the Louvre · Time TBD
+          Time TBD
         </div>
 
       </div>
@@ -454,8 +428,33 @@
         Saturday · October 24
       </div>
 
-      <div class="day-title" id="day24Title">
+      <div class="day-title">
         Disneyland Paris
+      </div>
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Disneyland Paris
+        </div>
+
+        <div class="activity-note" id="disneyNote">
+          All day · Time TBD
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?address=Disneyland%20Paris%2C%20Boulevard%20de%20Parc%2C%2077713%20Marne-la-Vall%C3%A9e%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Disneyland Paris<br>
+          Boulevard de Parc<br>
+          77713 Marne-la-Vallée<br>
+          France
+
+        </a>
+
       </div>
 
     </div>
@@ -568,12 +567,8 @@
 
     function setLanguage(language) {
 
-      const englishButton =
-        document.getElementById("englishButton");
-
-      const spanishButton =
-        document.getElementById("spanishButton");
-
+      const englishButton = document.getElementById("englishButton");
+      const spanishButton = document.getElementById("spanishButton");
 
       if (language === "es") {
 
@@ -587,9 +582,6 @@
 
         document.getElementById("itineraryLabel").textContent =
           "Itinerario";
-
-        document.getElementById("itineraryTitle").textContent =
-          "París";
 
         document.getElementById("day22Date").textContent =
           "Jueves · 22 de octubre";
@@ -615,9 +607,6 @@
         document.getElementById("day23Date").textContent =
           "Viernes · 23 de octubre";
 
-        document.getElementById("day23Title").textContent =
-          "París";
-
         document.getElementById("louvreNote").textContent =
           "Entrada: Carrousel o Pirámide";
 
@@ -625,7 +614,7 @@
           "Porte des Lions hasta las 17:15 · Entrada: Pirámide";
 
         document.getElementById("pontNote").textContent =
-          "Después del Louvre · Hora por confirmar";
+          "Hora por confirmar";
 
         document.getElementById("arcNote").textContent =
           "Después del Pont d'Iéna · Hora por confirmar";
@@ -633,8 +622,8 @@
         document.getElementById("day24Date").textContent =
           "Sábado · 24 de octubre";
 
-        document.getElementById("day24Title").textContent =
-          "Disneyland Paris";
+        document.getElementById("disneyNote").textContent =
+          "Todo el día · Hora por confirmar";
 
         document.getElementById("possibleLabel").textContent =
           "Lugares posibles";
@@ -670,9 +659,6 @@
         document.getElementById("itineraryLabel").textContent =
           "Itinerary";
 
-        document.getElementById("itineraryTitle").textContent =
-          "Paris";
-
         document.getElementById("day22Date").textContent =
           "Thursday · October 22";
 
@@ -697,9 +683,6 @@
         document.getElementById("day23Date").textContent =
           "Friday · October 23";
 
-        document.getElementById("day23Title").textContent =
-          "Paris";
-
         document.getElementById("louvreNote").textContent =
           "Entrance: Carrousel or Pyramid";
 
@@ -707,7 +690,7 @@
           "Porte des Lions until 5:15 PM · Entrance: Pyramid";
 
         document.getElementById("pontNote").textContent =
-          "After the Louvre · Time TBD";
+          "Time TBD";
 
         document.getElementById("arcNote").textContent =
           "After Pont d'Iéna · Time TBD";
@@ -715,8 +698,8 @@
         document.getElementById("day24Date").textContent =
           "Saturday · October 24";
 
-        document.getElementById("day24Title").textContent =
-          "Disneyland Paris";
+        document.getElementById("disneyNote").textContent =
+          "All day · Time TBD";
 
         document.getElementById("possibleLabel").textContent =
           "Possible Places";
@@ -738,9 +721,7 @@
 
         englishButton.classList.add("active");
         spanishButton.classList.remove("active");
-
       }
-
     }
 
   </script>
