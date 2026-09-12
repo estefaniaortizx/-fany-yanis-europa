@@ -185,7 +185,6 @@
       text-decoration: underline;
       text-underline-offset: 4px;
       font-size: 13px;
-      white-space: pre-line;
     }
 
     footer {
@@ -275,7 +274,7 @@
         Thursday · October 22
       </div>
 
-      <div class="day-title">
+      <div class="day-title" id="day22Title">
         Paris
       </div>
 
@@ -401,7 +400,7 @@
         Friday · October 23
       </div>
 
-      <div class="day-title">
+      <div class="day-title" id="day23Title">
         Paris
       </div>
 
@@ -414,7 +413,7 @@
           10:00 AM
         </div>
 
-        <div class="activity-name">
+        <div class="activity-name" id="louvreName">
           Louvre Museum
         </div>
 
@@ -472,7 +471,7 @@
 
       <div class="activity">
 
-        <div class="activity-name">
+        <div class="activity-name" id="arcName">
           Arc de Triomphe
         </div>
 
@@ -505,7 +504,7 @@
         Saturday · October 24
       </div>
 
-      <div class="day-title">
+      <div class="day-title" id="day24Title">
         Disneyland Paris
       </div>
 
@@ -692,17 +691,23 @@
 
         document.documentElement.lang = "es";
 
+        document.title = "París";
+
         document.getElementById("backButton").textContent =
           "← Volver al viaje";
 
         document.getElementById("dates").textContent =
           "22 – 24 de octubre de 2026";
 
+        document.querySelector(".hero h1").textContent =
+          "París";
+
         document.getElementById("itineraryLabel").textContent =
           "Itinerario";
 
         document.getElementById("itineraryTitle").textContent =
           "París";
+
 
         document.getElementById("day22Date").textContent =
           "Jueves · 22 de octubre";
@@ -725,8 +730,15 @@
         document.getElementById("eiffelNote").textContent =
           "Por la noche · Hora por confirmar";
 
+
         document.getElementById("day23Date").textContent =
           "Viernes · 23 de octubre";
+
+        document.getElementById("day23Title").textContent =
+          "París";
+
+        document.getElementById("louvreName").textContent =
+          "Museo del Louvre";
 
         document.getElementById("louvreNote").textContent =
           "Entrada: Carrousel o Pirámide";
@@ -737,14 +749,22 @@
         document.getElementById("pontNote").textContent =
           "Hora por confirmar";
 
+        document.getElementById("arcName").textContent =
+          "Arco del Triunfo";
+
         document.getElementById("arcNote").textContent =
           "Después del Pont d'Iéna · Hora por confirmar";
+
 
         document.getElementById("day24Date").textContent =
           "Sábado · 24 de octubre";
 
+        document.getElementById("day24Title").textContent =
+          "Disneyland París";
+
         document.getElementById("disneyNote").textContent =
           "Todo el día · Hora por confirmar";
+
 
         document.getElementById("possibleLabel").textContent =
           "Lugares posibles";
@@ -773,12 +793,16 @@
         document.getElementById("footer").textContent =
           "Viaje por Europa · París · 2026";
 
+
         englishButton.classList.remove("active");
         spanishButton.classList.add("active");
+
 
       } else {
 
         document.documentElement.lang = "en";
+
+        document.title = "Paris";
 
         document.getElementById("backButton").textContent =
           "← Back to trip";
@@ -786,11 +810,15 @@
         document.getElementById("dates").textContent =
           "October 22 – 24, 2026";
 
+        document.querySelector(".hero h1").textContent =
+          "Paris";
+
         document.getElementById("itineraryLabel").textContent =
           "Itinerary";
 
         document.getElementById("itineraryTitle").textContent =
           "Paris";
+
 
         document.getElementById("day22Date").textContent =
           "Thursday · October 22";
@@ -813,8 +841,15 @@
         document.getElementById("eiffelNote").textContent =
           "At night · Time TBD";
 
+
         document.getElementById("day23Date").textContent =
           "Friday · October 23";
+
+        document.getElementById("day23Title").textContent =
+          "Paris";
+
+        document.getElementById("louvreName").textContent =
+          "Louvre Museum";
 
         document.getElementById("louvreNote").textContent =
           "Entrance: Carrousel or Pyramid";
@@ -825,14 +860,22 @@
         document.getElementById("pontNote").textContent =
           "Time TBD";
 
+        document.getElementById("arcName").textContent =
+          "Arc de Triomphe";
+
         document.getElementById("arcNote").textContent =
           "After Pont d'Iéna · Time TBD";
+
 
         document.getElementById("day24Date").textContent =
           "Saturday · October 24";
 
+        document.getElementById("day24Title").textContent =
+          "Disneyland Paris";
+
         document.getElementById("disneyNote").textContent =
           "All day · Time TBD";
+
 
         document.getElementById("possibleLabel").textContent =
           "Possible Places";
@@ -861,9 +904,12 @@
         document.getElementById("footer").textContent =
           "Europe Trip · Paris · 2026";
 
+
         englishButton.classList.add("active");
         spanishButton.classList.remove("active");
+
       }
+
     }
 
   </script>
