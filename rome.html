@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Rome</title>
 
   <style>
@@ -100,127 +100,6 @@
       margin-bottom: 25px;
     }
 
-    /* FLIGHT */
-
-    .flight {
-      background: white;
-      border: 1px solid #e5dfd7;
-      border-radius: 18px;
-      overflow: hidden;
-    }
-
-    .flight-button {
-      width: 100%;
-      border: none;
-      background: white;
-      cursor: pointer;
-      padding: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      text-align: left;
-    }
-
-    .flight-main {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .flight-icon {
-      font-size: 22px;
-      flex-shrink: 0;
-    }
-
-    .flight-title {
-      font-family: Georgia, serif;
-      font-size: 19px;
-    }
-
-    .flight-subtitle {
-      color: #888;
-      font-size: 13px;
-      margin-top: 3px;
-    }
-
-    .flight-arrow {
-      color: #999;
-      font-size: 20px;
-      transition: transform 0.2s;
-    }
-
-    .flight.open .flight-arrow {
-      transform: rotate(180deg);
-    }
-
-    .flight-details {
-      display: none;
-      background: #faf9f7;
-      border-top: 1px solid #eee;
-      padding: 22px;
-    }
-
-    .flight.open .flight-details {
-      display: block;
-    }
-
-    .detail-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .detail small {
-      display: block;
-      color: #999;
-      font-size: 10px;
-      letter-spacing: 0.7px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .detail strong {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    /* HOTEL */
-
-    .hotel-card {
-      background: white;
-      border: 1px solid #e5dfd7;
-      border-radius: 18px;
-      padding: 25px;
-    }
-
-    .hotel-name {
-      font-family: Georgia, serif;
-      font-size: 27px;
-      margin-bottom: 12px;
-    }
-
-    .hotel-address {
-      display: inline-block;
-      color: #8a7055;
-      text-decoration: none;
-      font-size: 14px;
-      border-bottom: 1px solid #cdbda9;
-      padding-bottom: 2px;
-    }
-
-    .hotel-address:hover {
-      color: #333;
-      border-color: #333;
-    }
-
-    .hotel-note {
-      color: #888;
-      font-size: 13px;
-      margin-top: 15px;
-    }
-
-    /* ITINERARY */
-
     .day {
       background: white;
       border: 1px solid #e5dfd7;
@@ -246,18 +125,11 @@
 
     .activity {
       border-top: 1px solid #eee;
-      padding: 15px 0;
+      padding: 16px 0;
     }
 
     .activity:first-of-type {
       border-top: none;
-    }
-
-    .activity-time {
-      color: #8a7055;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 4px;
     }
 
     .activity-name {
@@ -269,21 +141,16 @@
     .activity-note {
       color: #777;
       font-size: 13px;
-      margin: 6px 0;
+      margin: 5px 0;
     }
 
     .activity-address {
-      display: inline-block;
+      display: block;
       color: #8a7055;
-      text-decoration: none;
       font-size: 13px;
-      border-bottom: 1px solid #cdbda9;
-      padding-bottom: 2px;
-    }
-
-    .activity-address:hover {
-      color: #333;
-      border-color: #333;
+      margin-top: 9px;
+      text-decoration: none;
+      line-height: 1.6;
     }
 
     footer {
@@ -303,388 +170,198 @@
       .hero h1 {
         letter-spacing: -2px;
       }
-
-      .detail-grid {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
-
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-
   <nav class="container">
 
-```
-<a href="index.html" class="back" id="backButton">
-  ← Back to trip
-</a>
+    <a href="index.html" class="back" id="backButton">
+      ← Back to trip
+    </a>
 
-<div class="language">
+    <div class="language">
 
-  <button
-    id="englishButton"
-    class="active"
-    onclick="setLanguage('en')">
-    🇺🇸 English
-  </button>
+      <button
+        id="englishButton"
+        class="active"
+        onclick="setLanguage('en')">
+        🇺🇸 English
+      </button>
 
-  <span>|</span>
+      <span>|</span>
 
-  <button
-    id="spanishButton"
-    onclick="setLanguage('es')">
-    🇲🇽 Español
-  </button>
+      <button
+        id="spanishButton"
+        onclick="setLanguage('es')">
+        🇲🇽 Español
+      </button>
 
-</div>
-```
+    </div>
 
   </nav>
 
-  <!-- ROME -->
+
+  <!-- HERO -->
 
   <section class="hero container">
 
-```
-<div
-  class="eyebrow"
-  data-en="October 28 – 31, 2026"
-  data-es="28 – 31 de octubre de 2026">
-  October 28 – 31, 2026
-</div>
+    <div class="eyebrow" id="tripType">
+      Rome
+    </div>
 
-<h1
-  id="mainTitle"
-  data-en="Rome"
-  data-es="Roma">
-  Rome
-</h1>
-```
+    <h1 id="cityName">
+      Rome
+    </h1>
 
   </section>
 
-  <!-- TRANSPORTATION -->
-
-  <section class="section container">
-
-```
-<div
-  class="section-label"
-  data-en="Getting to Rome"
-  data-es="Cómo llegar a Roma">
-  Getting to Rome
-</div>
-
-<div
-  class="section-title"
-  data-en="Florence → Rome"
-  data-es="Florencia → Roma">
-  Florence → Rome
-</div>
-
-<div class="flight">
-
-  <button
-    class="flight-button"
-    onclick="toggleFlight(this)">
-
-    <div class="flight-main">
-
-      <div class="flight-icon">
-        🚆
-      </div>
-
-      <div>
-
-        <div
-          class="flight-title"
-          data-en="Florence → Rome"
-          data-es="Florencia → Roma">
-          Florence → Rome
-        </div>
-
-        <div
-          class="flight-subtitle"
-          data-en="Train information coming soon"
-          data-es="Información del tren próximamente">
-          Train information coming soon
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="flight-arrow">
-      ⌄
-    </div>
-
-  </button>
-
-  <div class="flight-details">
-
-    <div class="detail-grid">
-
-      <div class="detail">
-        <small
-          data-en="Transportation"
-          data-es="Transporte">
-          Transportation
-        </small>
-
-        <strong
-          data-en="Train"
-          data-es="Tren">
-          Train
-        </strong>
-      </div>
-
-      <div class="detail">
-        <small
-          data-en="Status"
-          data-es="Estado">
-          Status
-        </small>
-
-        <strong
-          data-en="Information coming soon"
-          data-es="Información próximamente">
-          Information coming soon
-        </strong>
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-```
-
-  </section>
 
   <!-- HOTEL -->
 
   <section class="section container">
 
-```
-<div
-  class="section-label"
-  id="hotelLabel"
-  data-en="Where We're Staying"
-  data-es="Dónde nos hospedamos">
-  Where We're Staying
-</div>
+    <div class="section-label" id="hotelLabel">
+      Where We're Staying
+    </div>
 
-<div
-  class="section-title"
-  id="hotelTitle"
-  data-en="Our Hotel"
-  data-es="Nuestro hotel">
-  Our Hotel
-</div>
+    <div class="section-title" id="hotelTitle">
+      Hotel
+    </div>
 
-<div class="hotel-card">
+    <div class="day">
 
-  <div class="hotel-name">
-    UNA HOTELS Empire Roma
-  </div>
+      <div class="activity">
 
-  <a
-    class="hotel-address"
-    href="https://maps.apple.com/?address=Via%20Aureliana%2039%2C%2000187%20Rome%2C%20Italy"
-    target="_blank"
-    rel="noopener noreferrer">
+        <div class="activity-name">
+          UNA Hotels Empire Roma
+        </div>
 
-    Via Aureliana 39<br>
-    00187 Rome<br>
-    Italy
+        <div class="activity-address">
+          Via Aureliana 39<br>
+          00187 Rome<br>
+          Italy
+        </div>
 
-  </a>
+      </div>
 
-  <div
-    class="hotel-note"
-    id="hotelNote"
-    data-en="Tap the address to open it in Apple Maps."
-    data-es="Toca la dirección para abrirla en Apple Maps.">
-    Tap the address to open it in Apple Maps.
-  </div>
-
-</div>
-```
+    </div>
 
   </section>
 
-  <!-- ITINERARY -->
+
+  <!-- ROME ITINERARY -->
 
   <section class="section container">
 
-```
-<div
-  class="section-label"
-  id="itineraryLabel"
-  data-en="Itinerary"
-  data-es="Itinerario">
-  Itinerary
-</div>
-
-<div
-  class="section-title"
-  id="itineraryTitle"
-  data-en="Rome"
-  data-es="Roma">
-  Rome
-</div>
-
-
-<!-- OCTOBER 28 -->
-
-<div class="day">
-
-  <div
-    class="day-date"
-    data-en="Wednesday · October 28"
-    data-es="Miércoles · 28 de octubre">
-    Wednesday · October 28
-  </div>
-
-  <div
-    class="day-title"
-    data-en="Arrival in Rome"
-    data-es="Llegada a Roma">
-    Arrival in Rome
-  </div>
-
-</div>
-
-
-<!-- OCTOBER 29 -->
-
-<div class="day">
-
-  <div
-    class="day-date"
-    data-en="Thursday · October 29"
-    data-es="Jueves · 29 de octubre">
-    Thursday · October 29
-  </div>
-
-  <div
-    class="day-title"
-    data-en="Rome"
-    data-es="Roma">
-    Rome
-  </div>
-
-</div>
-
-
-<!-- OCTOBER 30 -->
-
-<div class="day">
-
-  <div
-    class="day-date"
-    data-en="Friday · October 30"
-    data-es="Viernes · 30 de octubre">
-    Friday · October 30
-  </div>
-
-  <div
-    class="day-title"
-    data-en="Vatican City"
-    data-es="Ciudad del Vaticano">
-    Vatican City
-  </div>
-
-  <div class="activity">
-
-    <div class="activity-time">
-      12:00 PM
+    <div class="section-label" id="itineraryLabel">
+      Itinerary
     </div>
 
-    <div
-      class="activity-name"
-      data-en="Vatican Museums"
-      data-es="Museos Vaticanos">
-      Vatican Museums
+    <div class="section-title" id="itineraryTitle">
+      Places to Visit
     </div>
 
-  </div>
 
-</div>
+    <!-- CHIESA DI SANT'IGNAZIO -->
+
+    <div class="day">
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Chiesa di Sant'Ignazio di Loyola
+        </div>
+
+        <div class="activity-note" id="ignazioNote">
+          Date & time TBD
+        </div>
+
+        <div class="activity-address">
+          Via del Caravita 8A<br>
+          00186 Rome<br>
+          Italy
+        </div>
+
+      </div>
 
 
-<!-- OCTOBER 31 -->
+      <!-- PIAZZA NAVONA -->
 
-<div class="day">
+      <div class="activity">
 
-  <div
-    class="day-date"
-    data-en="Saturday · October 31"
-    data-es="Sábado · 31 de octubre">
-    Saturday · October 31
-  </div>
+        <div class="activity-name">
+          Piazza Navona
+        </div>
 
-  <div
-    class="day-title"
-    data-en="Rome → Madrid"
-    data-es="Roma → Madrid">
-    Rome → Madrid
-  </div>
+        <div class="activity-note" id="navonaNote">
+          Date & time TBD
+        </div>
 
-  <div class="activity">
+        <div class="activity-address">
+          00186 Rome<br>
+          Italy
+        </div>
 
-    <div class="activity-time">
-      8:20 AM – 10:50 AM
+      </div>
+
+
+      <!-- GRAN CAFÉ MARCEL -->
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Gran Café Marcel
+        </div>
+
+        <div class="activity-note" id="marcelNote">
+          Postcards & souvenirs · Date & time TBD
+        </div>
+
+        <div class="activity-address">
+          Via dei Canestrari 9<br>
+          00186 Rome<br>
+          Italy
+        </div>
+
+      </div>
+
+
+      <!-- BOOKTIQUE -->
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Booktique
+        </div>
+
+        <div class="activity-note" id="booktiqueNote">
+          Souvenirs · Date & time TBD
+        </div>
+
+        <div class="activity-address">
+          Via della Stelletta 17<br>
+          00186 Rome<br>
+          Italy
+        </div>
+
+      </div>
+
     </div>
-
-    <div
-      class="activity-name"
-      data-en="Rome (FCO) → Madrid (MAD)"
-      data-es="Roma (FCO) → Madrid (MAD)">
-      Rome (FCO) → Madrid (MAD)
-    </div>
-
-    <div
-      class="activity-note"
-      data-en="Direct · 2h 30m · Economy<br>ITA Airways · AZ58"
-      data-es="Directo · 2h 30m · Económica<br>ITA Airways · AZ58">
-      Direct · 2h 30m · Economy<br>
-      ITA Airways · AZ58
-    </div>
-
-  </div>
-
-</div>
-```
 
   </section>
 
-  <footer>
-    <span
-      data-en="Europe Trip · Rome · 2026"
-      data-es="Viaje por Europa · Roma · 2026">
-      Europe Trip · Rome · 2026
-    </span>
+
+  <footer id="footer">
+    Europe Trip · Rome · 2026
   </footer>
+
 
   <script>
 
-    function toggleFlight(button) {
-      button.parentElement.classList.toggle("open");
-    }
-
-
     function setLanguage(language) {
-
-      const elements = document.querySelectorAll("[data-en]");
-
-      elements.forEach(function(element) {
-        element.innerHTML = element.getAttribute("data-" + language);
-      });
 
       const englishButton =
         document.getElementById("englishButton");
@@ -692,16 +369,92 @@
       const spanishButton =
         document.getElementById("spanishButton");
 
+
       if (language === "es") {
 
         document.documentElement.lang = "es";
+        document.title = "Roma";
+
+        document.getElementById("backButton").textContent =
+          "← Volver al viaje";
+
+        document.getElementById("tripType").textContent =
+          "Roma";
+
+        document.getElementById("cityName").textContent =
+          "Roma";
+
+        document.getElementById("hotelLabel").textContent =
+          "Dónde nos hospedamos";
+
+        document.getElementById("hotelTitle").textContent =
+          "Hotel";
+
+        document.getElementById("itineraryLabel").textContent =
+          "Itinerario";
+
+        document.getElementById("itineraryTitle").textContent =
+          "Lugares para visitar";
+
+        document.getElementById("ignazioNote").textContent =
+          "Fecha y hora por confirmar";
+
+        document.getElementById("navonaNote").textContent =
+          "Fecha y hora por confirmar";
+
+        document.getElementById("marcelNote").textContent =
+          "Postales y souvenirs · Fecha y hora por confirmar";
+
+        document.getElementById("booktiqueNote").textContent =
+          "Souvenirs · Fecha y hora por confirmar";
+
+        document.getElementById("footer").textContent =
+          "Viaje por Europa · Roma · 2026";
 
         englishButton.classList.remove("active");
         spanishButton.classList.add("active");
 
+
       } else {
 
         document.documentElement.lang = "en";
+        document.title = "Rome";
+
+        document.getElementById("backButton").textContent =
+          "← Back to trip";
+
+        document.getElementById("tripType").textContent =
+          "Rome";
+
+        document.getElementById("cityName").textContent =
+          "Rome";
+
+        document.getElementById("hotelLabel").textContent =
+          "Where We're Staying";
+
+        document.getElementById("hotelTitle").textContent =
+          "Hotel";
+
+        document.getElementById("itineraryLabel").textContent =
+          "Itinerary";
+
+        document.getElementById("itineraryTitle").textContent =
+          "Places to Visit";
+
+        document.getElementById("ignazioNote").textContent =
+          "Date & time TBD";
+
+        document.getElementById("navonaNote").textContent =
+          "Date & time TBD";
+
+        document.getElementById("marcelNote").textContent =
+          "Postcards & souvenirs · Date & time TBD";
+
+        document.getElementById("booktiqueNote").textContent =
+          "Souvenirs · Date & time TBD";
+
+        document.getElementById("footer").textContent =
+          "Europe Trip · Rome · 2026";
 
         englishButton.classList.add("active");
         spanishButton.classList.remove("active");
