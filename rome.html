@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -308,6 +309,7 @@
       }
     }
   </style>
+
 </head>
 
 <body>
@@ -316,261 +318,358 @@
 
   <nav class="container">
 
-    <a href="index.html" class="back" id="backButton">
-      ← Back to trip
-    </a>
+```
+<a href="index.html" class="back" id="backButton">
+  ← Back to trip
+</a>
 
-    <div class="language">
+<div class="language">
 
-      <button
-        id="englishButton"
-        class="active"
-        onclick="setLanguage('en')">
-        🇺🇸 English
-      </button>
+  <button
+    id="englishButton"
+    class="active"
+    onclick="setLanguage('en')">
+    🇺🇸 English
+  </button>
 
-      <span>|</span>
+  <span>|</span>
 
-      <button
-        id="spanishButton"
-        onclick="setLanguage('es')">
-        🇲🇽 Español
-      </button>
+  <button
+    id="spanishButton"
+    onclick="setLanguage('es')">
+    🇲🇽 Español
+  </button>
 
-    </div>
+</div>
+```
 
   </nav>
-
 
   <!-- ROME -->
 
   <section class="hero container">
 
-    <div class="eyebrow">
-      October 28 – 31, 2026
-    </div>
+```
+<div
+  class="eyebrow"
+  data-en="October 28 – 31, 2026"
+  data-es="28 – 31 de octubre de 2026">
+  October 28 – 31, 2026
+</div>
 
-    <h1 id="mainTitle">
-      Rome
-    </h1>
+<h1
+  id="mainTitle"
+  data-en="Rome"
+  data-es="Roma">
+  Rome
+</h1>
+```
 
   </section>
-
 
   <!-- TRANSPORTATION -->
 
   <section class="section container">
 
-    <div class="section-label">
-      Getting to Rome
-    </div>
+```
+<div
+  class="section-label"
+  data-en="Getting to Rome"
+  data-es="Cómo llegar a Roma">
+  Getting to Rome
+</div>
 
-    <div class="section-title">
-      Florence → Rome
-    </div>
+<div
+  class="section-title"
+  data-en="Florence → Rome"
+  data-es="Florencia → Roma">
+  Florence → Rome
+</div>
 
-    <div class="flight">
+<div class="flight">
 
-      <button
-        class="flight-button"
-        onclick="toggleFlight(this)">
+  <button
+    class="flight-button"
+    onclick="toggleFlight(this)">
 
-        <div class="flight-main">
+    <div class="flight-main">
 
-          <div class="flight-icon">
-            🚆
-          </div>
+      <div class="flight-icon">
+        🚆
+      </div>
 
-          <div>
+      <div>
 
-            <div class="flight-title">
-              Florence → Rome
-            </div>
-
-            <div class="flight-subtitle">
-              Train information coming soon
-            </div>
-
-          </div>
-
+        <div
+          class="flight-title"
+          data-en="Florence → Rome"
+          data-es="Florencia → Roma">
+          Florence → Rome
         </div>
 
-        <div class="flight-arrow">
-          ⌄
-        </div>
-
-      </button>
-
-      <div class="flight-details">
-
-        <div class="detail-grid">
-
-          <div class="detail">
-            <small>Transportation</small>
-            <strong>Train</strong>
-          </div>
-
-          <div class="detail">
-            <small>Status</small>
-            <strong>Information coming soon</strong>
-          </div>
-
+        <div
+          class="flight-subtitle"
+          data-en="Train information coming soon"
+          data-es="Información del tren próximamente">
+          Train information coming soon
         </div>
 
       </div>
 
     </div>
 
-  </section>
+    <div class="flight-arrow">
+      ⌄
+    </div>
 
+  </button>
+
+  <div class="flight-details">
+
+    <div class="detail-grid">
+
+      <div class="detail">
+        <small
+          data-en="Transportation"
+          data-es="Transporte">
+          Transportation
+        </small>
+
+        <strong
+          data-en="Train"
+          data-es="Tren">
+          Train
+        </strong>
+      </div>
+
+      <div class="detail">
+        <small
+          data-en="Status"
+          data-es="Estado">
+          Status
+        </small>
+
+        <strong
+          data-en="Information coming soon"
+          data-es="Información próximamente">
+          Information coming soon
+        </strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
 
   <!-- HOTEL -->
 
   <section class="section container">
 
-    <div class="section-label" id="hotelLabel">
-      Where We're Staying
-    </div>
+```
+<div
+  class="section-label"
+  id="hotelLabel"
+  data-en="Where We're Staying"
+  data-es="Dónde nos hospedamos">
+  Where We're Staying
+</div>
 
-    <div class="section-title" id="hotelTitle">
-      Our Hotel
-    </div>
+<div
+  class="section-title"
+  id="hotelTitle"
+  data-en="Our Hotel"
+  data-es="Nuestro hotel">
+  Our Hotel
+</div>
 
-    <div class="hotel-card">
+<div class="hotel-card">
 
-      <div class="hotel-name">
-        UNA HOTELS Empire Roma
-      </div>
+  <div class="hotel-name">
+    UNA HOTELS Empire Roma
+  </div>
 
-      <a
-        class="hotel-address"
-        href="https://maps.apple.com/?address=Via%20Aureliana%2039%2C%2000187%20Rome%2C%20Italy"
-        target="_blank"
-        rel="noopener noreferrer">
+  <a
+    class="hotel-address"
+    href="https://maps.apple.com/?address=Via%20Aureliana%2039%2C%2000187%20Rome%2C%20Italy"
+    target="_blank"
+    rel="noopener noreferrer">
 
-        Via Aureliana 39
-        00187 Rome
-        Italy
+    Via Aureliana 39<br>
+    00187 Rome<br>
+    Italy
 
-      </a>
+  </a>
 
-      <div class="hotel-note" id="hotelNote">
-        Tap the address to open it in Apple Maps.
-      </div>
+  <div
+    class="hotel-note"
+    id="hotelNote"
+    data-en="Tap the address to open it in Apple Maps."
+    data-es="Toca la dirección para abrirla en Apple Maps.">
+    Tap the address to open it in Apple Maps.
+  </div>
 
-    </div>
+</div>
+```
 
   </section>
-
 
   <!-- ITINERARY -->
 
   <section class="section container">
 
-    <div class="section-label" id="itineraryLabel">
-      Itinerary
+```
+<div
+  class="section-label"
+  id="itineraryLabel"
+  data-en="Itinerary"
+  data-es="Itinerario">
+  Itinerary
+</div>
+
+<div
+  class="section-title"
+  id="itineraryTitle"
+  data-en="Rome"
+  data-es="Roma">
+  Rome
+</div>
+
+
+<!-- OCTOBER 28 -->
+
+<div class="day">
+
+  <div
+    class="day-date"
+    data-en="Wednesday · October 28"
+    data-es="Miércoles · 28 de octubre">
+    Wednesday · October 28
+  </div>
+
+  <div
+    class="day-title"
+    data-en="Arrival in Rome"
+    data-es="Llegada a Roma">
+    Arrival in Rome
+  </div>
+
+</div>
+
+
+<!-- OCTOBER 29 -->
+
+<div class="day">
+
+  <div
+    class="day-date"
+    data-en="Thursday · October 29"
+    data-es="Jueves · 29 de octubre">
+    Thursday · October 29
+  </div>
+
+  <div
+    class="day-title"
+    data-en="Rome"
+    data-es="Roma">
+    Rome
+  </div>
+
+</div>
+
+
+<!-- OCTOBER 30 -->
+
+<div class="day">
+
+  <div
+    class="day-date"
+    data-en="Friday · October 30"
+    data-es="Viernes · 30 de octubre">
+    Friday · October 30
+  </div>
+
+  <div
+    class="day-title"
+    data-en="Vatican City"
+    data-es="Ciudad del Vaticano">
+    Vatican City
+  </div>
+
+  <div class="activity">
+
+    <div class="activity-time">
+      12:00 PM
     </div>
 
-    <div class="section-title" id="itineraryTitle">
-      Rome
+    <div
+      class="activity-name"
+      data-en="Vatican Museums"
+      data-es="Museos Vaticanos">
+      Vatican Museums
     </div>
 
+  </div>
 
-    <!-- OCTOBER 28 -->
+</div>
 
-    <div class="day">
 
-      <div class="day-date">
-        Wednesday · October 28
-      </div>
+<!-- OCTOBER 31 -->
 
-      <div class="day-title">
-        Arrival in Rome
-      </div>
+<div class="day">
 
+  <div
+    class="day-date"
+    data-en="Saturday · October 31"
+    data-es="Sábado · 31 de octubre">
+    Saturday · October 31
+  </div>
+
+  <div
+    class="day-title"
+    data-en="Rome → Madrid"
+    data-es="Roma → Madrid">
+    Rome → Madrid
+  </div>
+
+  <div class="activity">
+
+    <div class="activity-time">
+      8:20 AM – 10:50 AM
     </div>
 
-
-    <!-- OCTOBER 29 -->
-
-    <div class="day">
-
-      <div class="day-date">
-        Thursday · October 29
-      </div>
-
-      <div class="day-title">
-        Rome
-      </div>
-
+    <div
+      class="activity-name"
+      data-en="Rome (FCO) → Madrid (MAD)"
+      data-es="Roma (FCO) → Madrid (MAD)">
+      Rome (FCO) → Madrid (MAD)
     </div>
 
-
-    <!-- OCTOBER 30 -->
-
-    <div class="day">
-
-      <div class="day-date">
-        Friday · October 30
-      </div>
-
-      <div class="day-title">
-        Vatican City
-      </div>
-
-      <div class="activity">
-
-        <div class="activity-time">
-          12:00 PM
-        </div>
-
-        <div class="activity-name">
-          Vatican Museums
-        </div>
-
-      </div>
-
+    <div
+      class="activity-note"
+      data-en="Direct · 2h 30m · Economy<br>ITA Airways · AZ58"
+      data-es="Directo · 2h 30m · Económica<br>ITA Airways · AZ58">
+      Direct · 2h 30m · Economy<br>
+      ITA Airways · AZ58
     </div>
 
+  </div>
 
-    <!-- OCTOBER 31 -->
-
-    <div class="day">
-
-      <div class="day-date">
-        Saturday · October 31
-      </div>
-
-      <div class="day-title">
-        Rome → Madrid
-      </div>
-
-      <div class="activity">
-
-        <div class="activity-time">
-          8:20 AM – 10:50 AM
-        </div>
-
-        <div class="activity-name">
-          Rome (FCO) → Madrid (MAD)
-        </div>
-
-        <div class="activity-note">
-          Direct · 2h 30m · Economy<br>
-          ITA Airways · AZ58
-        </div>
-
-      </div>
-
-    </div>
+</div>
+```
 
   </section>
 
-
   <footer>
-    Europe Trip · Rome · 2026
+    <span
+      data-en="Europe Trip · Rome · 2026"
+      data-es="Viaje por Europa · Roma · 2026">
+      Europe Trip · Rome · 2026
+    </span>
   </footer>
-
 
   <script>
 
@@ -580,6 +679,12 @@
 
 
     function setLanguage(language) {
+
+      const elements = document.querySelectorAll("[data-en]");
+
+      elements.forEach(function(element) {
+        element.innerHTML = element.getAttribute("data-" + language);
+      });
 
       const englishButton =
         document.getElementById("englishButton");
@@ -591,54 +696,12 @@
 
         document.documentElement.lang = "es";
 
-        document.getElementById("backButton").textContent =
-          "← Volver al viaje";
-
-        document.getElementById("mainTitle").textContent =
-          "Roma";
-
-        document.getElementById("hotelLabel").textContent =
-          "Dónde nos hospedamos";
-
-        document.getElementById("hotelTitle").textContent =
-          "Nuestro hotel";
-
-        document.getElementById("hotelNote").textContent =
-          "Toca la dirección para abrirla en Apple Maps.";
-
-        document.getElementById("itineraryLabel").textContent =
-          "Itinerario";
-
-        document.getElementById("itineraryTitle").textContent =
-          "Roma";
-
         englishButton.classList.remove("active");
         spanishButton.classList.add("active");
 
       } else {
 
         document.documentElement.lang = "en";
-
-        document.getElementById("backButton").textContent =
-          "← Back to trip";
-
-        document.getElementById("mainTitle").textContent =
-          "Rome";
-
-        document.getElementById("hotelLabel").textContent =
-          "Where We're Staying";
-
-        document.getElementById("hotelTitle").textContent =
-          "Our Hotel";
-
-        document.getElementById("hotelNote").textContent =
-          "Tap the address to open it in Apple Maps.";
-
-        document.getElementById("itineraryLabel").textContent =
-          "Itinerary";
-
-        document.getElementById("itineraryTitle").textContent =
-          "Rome";
 
         englishButton.classList.add("active");
         spanishButton.classList.remove("active");
