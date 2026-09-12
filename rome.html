@@ -108,33 +108,23 @@
       margin-bottom: 15px;
     }
 
-    .day-date {
-      color: #8a7055;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .day-title {
-      font-family: Georgia, serif;
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-
     .activity {
       border-top: 1px solid #eee;
-      padding: 16px 0;
+      padding: 18px 0;
     }
 
-    .activity:first-of-type {
+    .activity:first-child {
       border-top: none;
+      padding-top: 0;
+    }
+
+    .activity:last-child {
+      padding-bottom: 0;
     }
 
     .activity-name {
       font-family: Georgia, serif;
-      font-size: 20px;
+      font-size: 21px;
       margin-bottom: 6px;
     }
 
@@ -145,11 +135,9 @@
     }
 
     .activity-address {
-      display: block;
       color: #8a7055;
       font-size: 13px;
       margin-top: 9px;
-      text-decoration: none;
       line-height: 1.6;
     }
 
@@ -265,9 +253,25 @@
     </div>
 
 
-    <!-- CHIESA DI SANT'IGNAZIO -->
-
     <div class="day">
+
+
+      <!-- VATICAN MUSEUM -->
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Vatican Museums
+        </div>
+
+        <div class="activity-note" id="vaticanNote">
+          September 30, 2026 · 12:00 PM
+        </div>
+
+      </div>
+
+
+      <!-- CHIESA DI SANT'IGNAZIO -->
 
       <div class="activity">
 
@@ -396,6 +400,9 @@
         document.getElementById("itineraryTitle").textContent =
           "Lugares para visitar";
 
+        document.getElementById("vaticanNote").textContent =
+          "30 de septiembre de 2026 · 12:00 PM";
+
         document.getElementById("ignazioNote").textContent =
           "Fecha y hora por confirmar";
 
@@ -413,7 +420,6 @@
 
         englishButton.classList.remove("active");
         spanishButton.classList.add("active");
-
 
       } else {
 
@@ -440,6 +446,9 @@
 
         document.getElementById("itineraryTitle").textContent =
           "Places to Visit";
+
+        document.getElementById("vaticanNote").textContent =
+          "September 30, 2026 · 12:00 PM";
 
         document.getElementById("ignazioNote").textContent =
           "Date & time TBD";
