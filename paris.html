@@ -99,36 +99,6 @@
       margin-bottom: 25px;
     }
 
-    .hotel-card,
-    .activity-card {
-      background: white;
-      border: 1px solid #e5dfd7;
-      border-radius: 18px;
-      padding: 25px;
-    }
-
-    .hotel-name {
-      font-family: Georgia, serif;
-      font-size: 27px;
-      margin-bottom: 12px;
-    }
-
-    .hotel-address,
-    .activity-address {
-      display: block;
-      color: #8a7055;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-
-    .hotel-note {
-      color: #888;
-      font-size: 13px;
-      margin-top: 15px;
-    }
-
     .day {
       background: white;
       border: 1px solid #e5dfd7;
@@ -178,6 +148,15 @@
       color: #777;
       font-size: 13px;
       margin: 6px 0 10px;
+    }
+
+    .activity-address {
+      display: block;
+      color: #8a7055;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-size: 13px;
+      margin-bottom: 10px;
     }
 
     .possible-place {
@@ -236,8 +215,6 @@
 
 <body>
 
-  <!-- NAVIGATION -->
-
   <nav class="container">
 
     <a href="index.html" class="back" id="backButton">
@@ -271,7 +248,7 @@
   <section class="hero container">
 
     <div class="eyebrow" id="dates">
-      October 22 – 26, 2026
+      October 22 – 24, 2026
     </div>
 
     <h1 id="mainTitle">
@@ -294,18 +271,20 @@
     </div>
 
 
-    <!-- OCTOBER 22 -->
+    <!-- THURSDAY OCTOBER 22 -->
 
     <div class="day">
 
-      <div class="day-date">
+      <div class="day-date" id="day22Date">
         Thursday · October 22
       </div>
 
-      <div class="day-title">
+      <div class="day-title" id="day22Title">
         Paris
       </div>
 
+
+      <!-- MUSEE DE L'ORANGERIE -->
 
       <div class="activity">
 
@@ -317,12 +296,14 @@
           Musée de l'Orangerie
         </div>
 
-        <div class="activity-note">
+        <div class="activity-note" id="museumNote">
           Museum visit
         </div>
 
       </div>
 
+
+      <!-- MONTMARTRE -->
 
       <div class="activity">
 
@@ -330,8 +311,54 @@
           Montmartre
         </div>
 
-        <div class="activity-note">
+        <div class="activity-note" id="montmartreNote">
           After the museum · Time TBD
+        </div>
+
+      </div>
+
+
+      <!-- GALERIES LAFAYETTE -->
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Galeries Lafayette
+        </div>
+
+        <div class="activity-note" id="galeriesNote">
+          Time TBD
+        </div>
+
+        <div class="activity-note" id="galeriesDescription">
+          Apparently it's very nice in here and you can also get a view of the Eiffel Tower.
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?address=40%20Boulevard%20Haussmann%2C%2075009%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          40 Boulevard Haussmann<br>
+          75009 Paris<br>
+          France
+
+        </a>
+
+      </div>
+
+
+      <!-- EIFFEL TOWER -->
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Eiffel Tower
+        </div>
+
+        <div class="activity-note" id="eiffelNote">
+          At night · Time TBD
         </div>
 
       </div>
@@ -339,35 +366,99 @@
     </div>
 
 
-    <!-- OCTOBER 23 -->
+    <!-- FRIDAY OCTOBER 23 -->
 
     <div class="day">
 
-      <div class="day-date">
+      <div class="day-date" id="day23Date">
         Friday · October 23
       </div>
 
-      <div class="day-title">
+      <div class="day-title" id="day23Title">
         Paris
+      </div>
+
+
+      <!-- LOUVRE -->
+
+      <div class="activity">
+
+        <div class="activity-time">
+          10:00 AM
+        </div>
+
+        <div class="activity-name">
+          Louvre Museum
+        </div>
+
+        <div class="activity-note" id="louvreNote">
+          Entrance: Carrousel or Pyramid
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?address=Louvre%20Museum%2C%2075001%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Louvre Museum<br>
+          75001 Paris<br>
+          France
+
+        </a>
+
+        <div class="activity-note" id="louvreEntranceNote">
+          Porte des Lions until 5:15 PM · Entrance: Pyramid
+        </div>
+
+      </div>
+
+
+      <!-- PONT D'IENA -->
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Pont d'Iéna
+        </div>
+
+        <div class="activity-note" id="pontNote">
+          After the Louvre · Time TBD
+        </div>
+
+      </div>
+
+
+      <!-- ARC DE TRIOMPHE -->
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Arc de Triomphe
+        </div>
+
+        <div class="activity-note" id="arcNote">
+          After Pont d'Iéna · Time TBD
+        </div>
+
       </div>
 
     </div>
 
 
-    <!-- OCTOBER 24 -->
+    <!-- SATURDAY OCTOBER 24 -->
 
     <div class="day">
 
-      <div class="day-date">
+      <div class="day-date" id="day24Date">
         Saturday · October 24
       </div>
 
-      <div class="day-title">
+      <div class="day-title" id="day24Title">
         Disneyland Paris
       </div>
 
     </div>
-
 
   </section>
 
@@ -393,7 +484,7 @@
         Seamer Coffee
       </div>
 
-      <div class="possible-place-note">
+      <div class="possible-place-note" id="seamerNote">
         Date & time TBD
       </div>
 
@@ -420,7 +511,7 @@
         Angelina
       </div>
 
-      <div class="possible-place-note">
+      <div class="possible-place-note" id="angelinaNote">
         Hot chocolate · Date & time TBD
       </div>
 
@@ -447,7 +538,7 @@
         Pedone
       </div>
 
-      <div class="possible-place-note">
+      <div class="possible-place-note" id="pedoneNote">
         Date & time TBD
       </div>
 
@@ -459,37 +550,6 @@
 
         51 Rue des Petits Champs<br>
         75001 Paris<br>
-        France
-
-      </a>
-
-    </div>
-
-
-    <!-- GALERIES LAFAYETTE -->
-
-    <div class="possible-place">
-
-      <div class="possible-place-name">
-        Galeries Lafayette
-      </div>
-
-      <div class="possible-place-note">
-        Date & time TBD
-      </div>
-
-      <div class="possible-place-note">
-        Apparently it's very nice in here and you can also get a view of the Eiffel Tower.
-      </div>
-
-      <a
-        class="possible-place-address"
-        href="https://maps.apple.com/?address=40%20Boulevard%20Haussmann%2C%2075009%20Paris%2C%20France"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        40 Boulevard Haussmann<br>
-        75009 Paris<br>
         France
 
       </a>
@@ -514,6 +574,7 @@
       const spanishButton =
         document.getElementById("spanishButton");
 
+
       if (language === "es") {
 
         document.documentElement.lang = "es";
@@ -522,7 +583,7 @@
           "← Volver al viaje";
 
         document.getElementById("dates").textContent =
-          "22 – 26 de octubre de 2026";
+          "22 – 24 de octubre de 2026";
 
         document.getElementById("itineraryLabel").textContent =
           "Itinerario";
@@ -530,11 +591,65 @@
         document.getElementById("itineraryTitle").textContent =
           "París";
 
+        document.getElementById("day22Date").textContent =
+          "Jueves · 22 de octubre";
+
+        document.getElementById("day22Title").textContent =
+          "París";
+
+        document.getElementById("museumNote").textContent =
+          "Visita al museo";
+
+        document.getElementById("montmartreNote").textContent =
+          "Después del museo · Hora por confirmar";
+
+        document.getElementById("galeriesNote").textContent =
+          "Hora por confirmar";
+
+        document.getElementById("galeriesDescription").textContent =
+          "Aparentemente es muy bonito por dentro y también se puede ver la Torre Eiffel.";
+
+        document.getElementById("eiffelNote").textContent =
+          "Por la noche · Hora por confirmar";
+
+        document.getElementById("day23Date").textContent =
+          "Viernes · 23 de octubre";
+
+        document.getElementById("day23Title").textContent =
+          "París";
+
+        document.getElementById("louvreNote").textContent =
+          "Entrada: Carrousel o Pirámide";
+
+        document.getElementById("louvreEntranceNote").textContent =
+          "Porte des Lions hasta las 17:15 · Entrada: Pirámide";
+
+        document.getElementById("pontNote").textContent =
+          "Después del Louvre · Hora por confirmar";
+
+        document.getElementById("arcNote").textContent =
+          "Después del Pont d'Iéna · Hora por confirmar";
+
+        document.getElementById("day24Date").textContent =
+          "Sábado · 24 de octubre";
+
+        document.getElementById("day24Title").textContent =
+          "Disneyland Paris";
+
         document.getElementById("possibleLabel").textContent =
           "Lugares posibles";
 
         document.getElementById("possibleTitle").textContent =
           "Lugares para visitar";
+
+        document.getElementById("seamerNote").textContent =
+          "Fecha y hora por confirmar";
+
+        document.getElementById("angelinaNote").textContent =
+          "Chocolate caliente · Fecha y hora por confirmar";
+
+        document.getElementById("pedoneNote").textContent =
+          "Fecha y hora por confirmar";
 
         document.getElementById("footer").textContent =
           "Viaje por Europa · París · 2026";
@@ -550,7 +665,7 @@
           "← Back to trip";
 
         document.getElementById("dates").textContent =
-          "October 22 – 26, 2026";
+          "October 22 – 24, 2026";
 
         document.getElementById("itineraryLabel").textContent =
           "Itinerary";
@@ -558,11 +673,65 @@
         document.getElementById("itineraryTitle").textContent =
           "Paris";
 
+        document.getElementById("day22Date").textContent =
+          "Thursday · October 22";
+
+        document.getElementById("day22Title").textContent =
+          "Paris";
+
+        document.getElementById("museumNote").textContent =
+          "Museum visit";
+
+        document.getElementById("montmartreNote").textContent =
+          "After the museum · Time TBD";
+
+        document.getElementById("galeriesNote").textContent =
+          "Time TBD";
+
+        document.getElementById("galeriesDescription").textContent =
+          "Apparently it's very nice in here and you can also get a view of the Eiffel Tower.";
+
+        document.getElementById("eiffelNote").textContent =
+          "At night · Time TBD";
+
+        document.getElementById("day23Date").textContent =
+          "Friday · October 23";
+
+        document.getElementById("day23Title").textContent =
+          "Paris";
+
+        document.getElementById("louvreNote").textContent =
+          "Entrance: Carrousel or Pyramid";
+
+        document.getElementById("louvreEntranceNote").textContent =
+          "Porte des Lions until 5:15 PM · Entrance: Pyramid";
+
+        document.getElementById("pontNote").textContent =
+          "After the Louvre · Time TBD";
+
+        document.getElementById("arcNote").textContent =
+          "After Pont d'Iéna · Time TBD";
+
+        document.getElementById("day24Date").textContent =
+          "Saturday · October 24";
+
+        document.getElementById("day24Title").textContent =
+          "Disneyland Paris";
+
         document.getElementById("possibleLabel").textContent =
           "Possible Places";
 
         document.getElementById("possibleTitle").textContent =
           "Places to Visit";
+
+        document.getElementById("seamerNote").textContent =
+          "Date & time TBD";
+
+        document.getElementById("angelinaNote").textContent =
+          "Hot chocolate · Date & time TBD";
+
+        document.getElementById("pedoneNote").textContent =
+          "Date & time TBD";
 
         document.getElementById("footer").textContent =
           "Europe Trip · Paris · 2026";
