@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Venice</title>
 
   <style>
@@ -131,13 +132,6 @@
       border-top: none;
     }
 
-    .activity-time {
-      color: #8a7055;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
     .activity-name {
       font-family: Georgia, serif;
       font-size: 20px;
@@ -153,10 +147,9 @@
     .activity-address {
       display: block;
       color: #8a7055;
-      text-decoration: underline;
-      text-underline-offset: 4px;
       font-size: 13px;
       margin-top: 9px;
+      text-decoration: none;
       line-height: 1.6;
     }
 
@@ -190,28 +183,19 @@
     </a>
 
     <div class="language">
-
-      <button
-        id="englishButton"
-        class="active"
-        onclick="setLanguage('en')">
+      <button id="englishButton" class="active" onclick="setLanguage('en')">
         🇺🇸 English
       </button>
 
       <span>|</span>
 
-      <button
-        id="spanishButton"
-        onclick="setLanguage('es')">
+      <button id="spanishButton" onclick="setLanguage('es')">
         🇲🇽 Español
       </button>
-
     </div>
 
   </nav>
 
-
-  <!-- HERO -->
 
   <section class="hero container">
 
@@ -225,8 +209,6 @@
 
   </section>
 
-
-  <!-- TRIP INFORMATION -->
 
   <section class="section container">
 
@@ -265,8 +247,6 @@
   </section>
 
 
-  <!-- VENICE ITINERARY -->
-
   <section class="section container">
 
     <div class="section-label" id="itineraryLabel">
@@ -278,13 +258,11 @@
     </div>
 
 
-    <!-- RIALTO BRIDGE -->
-
     <div class="day">
 
       <div class="activity">
 
-        <div class="activity-name" id="rialtoName">
+        <div class="activity-name">
           Rialto Bridge
         </div>
 
@@ -295,11 +273,9 @@
       </div>
 
 
-      <!-- PONTE DELL'ACCADEMIA -->
-
       <div class="activity">
 
-        <div class="activity-name" id="accademiaName">
+        <div class="activity-name">
           Ponte dell'Accademia
         </div>
 
@@ -310,11 +286,9 @@
       </div>
 
 
-      <!-- SUSO GELATO -->
-
       <div class="activity">
 
-        <div class="activity-name" id="susoName">
+        <div class="activity-name">
           Suso Gelato
         </div>
 
@@ -345,12 +319,8 @@
 
     function setLanguage(language) {
 
-      const englishButton =
-        document.getElementById("englishButton");
-
-      const spanishButton =
-        document.getElementById("spanishButton");
-
+      const englishButton = document.getElementById("englishButton");
+      const spanishButton = document.getElementById("spanishButton");
 
       if (language === "es") {
 
@@ -405,7 +375,6 @@
         englishButton.classList.remove("active");
         spanishButton.classList.add("active");
 
-
       } else {
 
         document.documentElement.lang = "en";
@@ -458,6 +427,7 @@
 
         englishButton.classList.add("active");
         spanishButton.classList.remove("active");
+
       }
 
     }
