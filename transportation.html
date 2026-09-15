@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Transportation | Europe Trip</title>
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f5f7ff;
+      background: #fff8f0;
       color: #333;
     }
 
     header {
-      background: linear-gradient(135deg, #4361ee, #7209b7);
+      background: linear-gradient(135deg, #ff6b6b, #f7b267, #4ecdc4);
       color: white;
       text-align: center;
-      padding: 35px 20px;
+      padding: 40px 20px;
     }
 
     header h1 {
@@ -42,7 +43,7 @@
     }
 
     .container {
-      max-width: 850px;
+      max-width: 900px;
       margin: auto;
       padding: 25px 18px;
     }
@@ -58,14 +59,14 @@
     .date {
       font-size: 20px;
       font-weight: bold;
-      color: #3a0ca3;
+      color: #e76f51;
       margin-bottom: 15px;
     }
 
     .transport {
-      border-left: 5px solid #4361ee;
-      background: #f4f0ff;
-      padding: 16px;
+      background: #fff4e6;
+      border-left: 5px solid #f4a261;
+      padding: 18px;
       border-radius: 10px;
       margin-bottom: 15px;
     }
@@ -74,36 +75,36 @@
       margin-bottom: 0;
     }
 
-    h2 {
-      color: #3a0ca3;
-      margin-top: 0;
-    }
-
-    h3 {
-      margin-top: 0;
-      color: #4361ee;
-    }
-
     .route {
-      font-size: 20px;
+      font-size: 21px;
       font-weight: bold;
-      margin-bottom: 12px;
+      color: #e76f51;
+      margin-bottom: 10px;
     }
 
     .confirmed {
       display: inline-block;
       background: #dff5e3;
-      color: #217a36;
+      color: #277a3d;
       padding: 5px 10px;
       border-radius: 15px;
       font-size: 13px;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+    }
+
+    .tbd {
+      background: #f0f8ff;
+      border-left-color: #4ecdc4;
+    }
+
+    .tbd .route {
+      color: #2a9d8f;
     }
 
     .back {
       display: inline-block;
-      background: #4361ee;
+      background: #e76f51;
       color: white;
       text-decoration: none;
       padding: 12px 18px;
@@ -140,7 +141,9 @@
 
 <div class="container">
 
+
   <!-- OCTOBER 18 -->
+
   <div class="card">
 
     <div class="date">
@@ -159,15 +162,7 @@
         <span data-lang="es">Confirmado</span>
       </div>
 
-      <p>
-        <strong>
-          <span data-lang="en">Airline:</span>
-          <span data-lang="es">Aerolínea:</span>
-        </strong>
-        British Airways
-      </p>
-
-      <p><strong>BA1605</strong></p>
+      <p><strong>British Airways BA1605</strong></p>
 
       <p>
         <strong>
@@ -187,6 +182,7 @@
 
     </div>
 
+
     <div class="transport">
 
       <div class="route">
@@ -198,15 +194,7 @@
         <span data-lang="es">Confirmado</span>
       </div>
 
-      <p>
-        <strong>
-          <span data-lang="en">Airline:</span>
-          <span data-lang="es">Aerolínea:</span>
-        </strong>
-        Iberia
-      </p>
-
-      <p><strong>IB0308</strong></p>
+      <p><strong>Iberia IB0308</strong></p>
 
       <p>
         <strong>
@@ -230,6 +218,7 @@
 
 
   <!-- OCTOBER 19 -->
+
   <div class="card">
 
     <div class="date">
@@ -258,6 +247,7 @@
 
 
   <!-- OCTOBER 22 -->
+
   <div class="card">
 
     <div class="date">
@@ -286,6 +276,7 @@
 
 
   <!-- OCTOBER 25 -->
+
   <div class="card">
 
     <div class="date">
@@ -304,9 +295,7 @@
         <span data-lang="es">Confirmado</span>
       </div>
 
-      <p>
-        <strong>Eurostar</strong> · Standard
-      </p>
+      <p><strong>Eurostar · Standard</strong></p>
 
       <p>
         <strong>
@@ -330,6 +319,7 @@
 
 
   <!-- OCTOBER 26 -->
+
   <div class="card">
 
     <div class="date">
@@ -358,6 +348,7 @@
 
 
   <!-- OCTOBER 27 -->
+
   <div class="card">
 
     <div class="date">
@@ -394,6 +385,7 @@
 
     </div>
 
+
     <div class="transport">
 
       <div class="route">
@@ -427,6 +419,7 @@
 
 
   <!-- OCTOBER 29 -->
+
   <div class="card">
 
     <div class="date">
@@ -434,7 +427,7 @@
       <span data-lang="es">Jueves 29 de octubre</span>
     </div>
 
-    <div class="transport">
+    <div class="transport tbd">
 
       <div class="route">
         🚆 Florence → Rome
@@ -445,6 +438,7 @@
           <span data-lang="en">Train:</span>
           <span data-lang="es">Tren:</span>
         </strong>
+
         <span data-lang="en">To be booked</span>
         <span data-lang="es">Por reservar</span>
       </p>
@@ -455,6 +449,7 @@
 
 
   <!-- OCTOBER 31 -->
+
   <div class="card">
 
     <div class="date">
@@ -483,12 +478,14 @@
 
 
   <!-- NOVEMBER 2 -->
+
   <div class="card">
 
     <div class="date">
       <span data-lang="en">Monday, November 2</span>
       <span data-lang="es">Lunes 2 de noviembre</span>
     </div>
+
 
     <div class="transport">
 
@@ -520,6 +517,7 @@
       </p>
 
     </div>
+
 
     <div class="transport">
 
@@ -562,18 +560,25 @@
 
 </div>
 
+
 <script>
+
   function setLanguage(lang) {
+
     document.querySelectorAll("[data-lang]").forEach(function(element) {
+
       if (element.getAttribute("data-lang") === lang) {
         element.style.display = "inline";
       } else {
         element.style.display = "none";
       }
+
     });
+
   }
 
   setLanguage("en");
+
 </script>
 
 </body>
