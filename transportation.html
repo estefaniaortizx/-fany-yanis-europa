@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Transportation</title>
+  <title>Transportation | Europe Trip</title>
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f8ff;
+      background: #f5f7ff;
       color: #333;
     }
 
@@ -26,13 +26,15 @@
     }
 
     header p {
-      font-size: 18px;
       margin: 10px 0 20px;
+      font-size: 18px;
     }
 
-    button {
+    .language button {
       border: none;
-      padding: 9px 14px;
+      background: white;
+      color: #333;
+      padding: 9px 15px;
       margin: 3px;
       border-radius: 20px;
       cursor: pointer;
@@ -40,7 +42,7 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 850px;
       margin: auto;
       padding: 25px 18px;
     }
@@ -53,54 +55,60 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     }
 
+    .date {
+      font-size: 20px;
+      font-weight: bold;
+      color: #3a0ca3;
+      margin-bottom: 15px;
+    }
+
+    .transport {
+      border-left: 5px solid #4361ee;
+      background: #f4f0ff;
+      padding: 16px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .transport:last-child {
+      margin-bottom: 0;
+    }
+
     h2 {
       color: #3a0ca3;
       margin-top: 0;
     }
 
     h3 {
+      margin-top: 0;
       color: #4361ee;
-      margin-bottom: 8px;
     }
 
-    .date {
+    .route {
+      font-size: 20px;
       font-weight: bold;
-      font-size: 19px;
-      color: #3a0ca3;
-      margin-top: 25px;
       margin-bottom: 12px;
     }
 
-    .transport {
-      background: #f4f0ff;
-      border-left: 5px solid #7209b7;
-      padding: 16px;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .status {
+    .confirmed {
       display: inline-block;
-      background: #e8f5e9;
+      background: #dff5e3;
+      color: #217a36;
       padding: 5px 10px;
       border-radius: 15px;
       font-size: 13px;
       font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    .tbd {
-      background: #fff4d6;
+      margin-bottom: 10px;
     }
 
     .back {
       display: inline-block;
-      margin-top: 10px;
-      padding: 12px 18px;
       background: #4361ee;
       color: white;
-      border-radius: 10px;
       text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 10px;
+      margin-top: 5px;
     }
 
     [data-lang="es"] {
@@ -113,15 +121,20 @@
 
 <header>
 
-  <h1>🚆 Transportation / Transporte</h1>
+  <h1>
+    <span data-lang="en">🚆 Transportation</span>
+    <span data-lang="es">🚆 Transporte</span>
+  </h1>
 
   <p>
     <span data-lang="en">Europe Trip · 2026</span>
     <span data-lang="es">Viaje por Europa · 2026</span>
   </p>
 
-  <button onclick="setLanguage('en')">🇺🇸 English</button>
-  <button onclick="setLanguage('es')">🇲🇽 Español</button>
+  <div class="language">
+    <button onclick="setLanguage('en')">🇺🇸 English</button>
+    <button onclick="setLanguage('es')">🇲🇽 Español</button>
+  </div>
 
 </header>
 
@@ -137,67 +150,79 @@
 
     <div class="transport">
 
-      <h3>✈️ Philadelphia → Madrid</h3>
+      <div class="route">
+        ✈️ Philadelphia → Madrid
+      </div>
 
-      <span class="status">
-        <span data-lang="en">Flight</span>
-        <span data-lang="es">Vuelo</span>
-      </span>
+      <div class="confirmed">
+        <span data-lang="en">Confirmed</span>
+        <span data-lang="es">Confirmado</span>
+      </div>
+
+      <p>
+        <strong>
+          <span data-lang="en">Airline:</span>
+          <span data-lang="es">Aerolínea:</span>
+        </strong>
+        British Airways
+      </p>
+
+      <p><strong>BA1605</strong></p>
 
       <p>
         <strong>
           <span data-lang="en">Departure:</span>
           <span data-lang="es">Salida:</span>
         </strong>
-        Philadelphia (PHL) · Terminal A
+        Philadelphia (PHL), Terminal A · 8:30 PM
       </p>
-
-      <p>8:30 PM</p>
 
       <p>
         <strong>
           <span data-lang="en">Arrival:</span>
           <span data-lang="es">Llegada:</span>
         </strong>
-        Madrid (MAD) · Terminal 4S
+        Madrid (MAD), Terminal 4S · 9:35 AM, October 19
       </p>
-
-      <p>9:35 AM · October 19</p>
-
-      <p>British Airways BA1605</p>
 
     </div>
 
     <div class="transport">
 
-      <h3>✈️ Mexico City → Madrid</h3>
+      <div class="route">
+        ✈️ Mexico City → Madrid
+      </div>
 
-      <span class="status">
-        <span data-lang="en">Flight</span>
-        <span data-lang="es">Vuelo</span>
-      </span>
+      <div class="confirmed">
+        <span data-lang="en">Confirmed</span>
+        <span data-lang="es">Confirmado</span>
+      </div>
+
+      <p>
+        <strong>
+          <span data-lang="en">Airline:</span>
+          <span data-lang="es">Aerolínea:</span>
+        </strong>
+        Iberia
+      </p>
+
+      <p><strong>IB0308</strong></p>
 
       <p>
         <strong>
           <span data-lang="en">Departure:</span>
           <span data-lang="es">Salida:</span>
         </strong>
-        Mexico City (MEX) · Terminal 1
+        Mexico City (MEX), Terminal 1 · 7:00 PM
       </p>
-
-      <p>7:00 PM</p>
 
       <p>
         <strong>
           <span data-lang="en">Arrival:</span>
           <span data-lang="es">Llegada:</span>
         </strong>
-        Madrid (MAD) · Terminal 4S
+        Madrid (MAD), Terminal 4S · 1:40 PM, October 19
       </p>
-
-      <p>1:40 PM · October 19</p>
-
-      <p>Iberia IB0308</p>
 
     </div>
 
@@ -214,16 +239,18 @@
 
     <div class="transport">
 
-      <h3>✈️ Madrid → Barcelona</h3>
+      <div class="route">
+        ✈️ Madrid → Barcelona
+      </div>
 
-      <span class="status">
-        <span data-lang="en">Flight</span>
-        <span data-lang="es">Vuelo</span>
-      </span>
+      <div class="confirmed">
+        <span data-lang="en">Confirmed</span>
+        <span data-lang="es">Confirmado</span>
+      </div>
+
+      <p><strong>Iberia IB421</strong></p>
 
       <p>6:00 PM → 7:15 PM</p>
-
-      <p>Iberia IB421</p>
 
     </div>
 
@@ -240,16 +267,18 @@
 
     <div class="transport">
 
-      <h3>✈️ Barcelona → Paris</h3>
+      <div class="route">
+        ✈️ Barcelona → Paris
+      </div>
 
-      <span class="status">
-        <span data-lang="en">Flight</span>
-        <span data-lang="es">Vuelo</span>
-      </span>
+      <div class="confirmed">
+        <span data-lang="en">Confirmed</span>
+        <span data-lang="es">Confirmado</span>
+      </div>
+
+      <p><strong>Vueling VY8004</strong></p>
 
       <p>9:50 AM → 11:40 AM</p>
-
-      <p>Vueling VY8004</p>
 
     </div>
 
@@ -266,15 +295,17 @@
 
     <div class="transport">
 
-      <h3>🚆 Paris → Brussels</h3>
+      <div class="route">
+        🚆 Paris → Brussels
+      </div>
 
-      <span class="status">
+      <div class="confirmed">
         <span data-lang="en">Confirmed</span>
         <span data-lang="es">Confirmado</span>
-      </span>
+      </div>
 
       <p>
-        <strong>Eurostar · Standard</strong>
+        <strong>Eurostar</strong> · Standard
       </p>
 
       <p>
@@ -282,20 +313,16 @@
           <span data-lang="en">Departure:</span>
           <span data-lang="es">Salida:</span>
         </strong>
-        Paris Gare du Nord
+        Paris Gare du Nord · 7:55 AM
       </p>
-
-      <p>7:55 AM</p>
 
       <p>
         <strong>
           <span data-lang="en">Arrival:</span>
           <span data-lang="es">Llegada:</span>
         </strong>
-        Brussels Midi / Zuid
+        Brussels Midi / Zuid · 9:39 AM
       </p>
-
-      <p>9:39 AM</p>
 
     </div>
 
@@ -312,16 +339,18 @@
 
     <div class="transport">
 
-      <h3>✈️ Brussels → Florence</h3>
+      <div class="route">
+        ✈️ Brussels → Florence
+      </div>
 
-      <span class="status">
-        <span data-lang="en">Flight</span>
-        <span data-lang="es">Vuelo</span>
-      </span>
+      <div class="confirmed">
+        <span data-lang="en">Confirmed</span>
+        <span data-lang="es">Confirmado</span>
+      </div>
+
+      <p><strong>Brussels Airlines SN3139</strong></p>
 
       <p>9:15 AM → 11:05 AM</p>
-
-      <p>Brussels Airlines SN3139</p>
 
     </div>
 
@@ -338,63 +367,59 @@
 
     <div class="transport">
 
-      <h3>🚆 Florence → Venice</h3>
+      <div class="route">
+        🚆 Florence → Venice
+      </div>
 
-      <span class="status">
+      <div class="confirmed">
         <span data-lang="en">Confirmed</span>
         <span data-lang="es">Confirmado</span>
-      </span>
+      </div>
 
       <p>
         <strong>
           <span data-lang="en">Departure:</span>
           <span data-lang="es">Salida:</span>
         </strong>
-        Firenze S. M. Novella
+        Firenze S. M. Novella · 7:20 AM
       </p>
-
-      <p>7:20 AM</p>
 
       <p>
         <strong>
           <span data-lang="en">Arrival:</span>
           <span data-lang="es">Llegada:</span>
         </strong>
-        Venezia S. Lucia
+        Venezia S. Lucia · 9:34 AM
       </p>
-
-      <p>9:34 AM</p>
 
     </div>
 
     <div class="transport">
 
-      <h3>🚆 Venice → Florence</h3>
+      <div class="route">
+        🚆 Venice → Florence
+      </div>
 
-      <span class="status">
+      <div class="confirmed">
         <span data-lang="en">Confirmed</span>
         <span data-lang="es">Confirmado</span>
-      </span>
+      </div>
 
       <p>
         <strong>
           <span data-lang="en">Departure:</span>
           <span data-lang="es">Salida:</span>
         </strong>
-        Venezia S. Lucia
+        Venezia S. Lucia · 7:26 PM
       </p>
-
-      <p>7:26 PM</p>
 
       <p>
         <strong>
           <span data-lang="en">Arrival:</span>
           <span data-lang="es">Llegada:</span>
         </strong>
-        Firenze S. M. Novella
+        Firenze S. M. Novella · 9:39 PM
       </p>
-
-      <p>9:39 PM</p>
 
     </div>
 
@@ -409,18 +434,19 @@
       <span data-lang="es">Jueves 29 de octubre</span>
     </div>
 
-    <div class="transport tbd">
+    <div class="transport">
 
-      <h3>🚆 Florence → Rome</h3>
-
-      <span class="status">
-        <span data-lang="en">To be booked</span>
-        <span data-lang="es">Por reservar</span>
-      </span>
+      <div class="route">
+        🚆 Florence → Rome
+      </div>
 
       <p>
-        <span data-lang="en">Train details TBD.</span>
-        <span data-lang="es">Detalles del tren por definir.</span>
+        <strong>
+          <span data-lang="en">Train:</span>
+          <span data-lang="es">Tren:</span>
+        </strong>
+        <span data-lang="en">To be booked</span>
+        <span data-lang="es">Por reservar</span>
       </p>
 
     </div>
@@ -438,16 +464,18 @@
 
     <div class="transport">
 
-      <h3>✈️ Rome → Madrid</h3>
+      <div class="route">
+        ✈️ Rome → Madrid
+      </div>
 
-      <span class="status">
-        <span data-lang="en">Flight</span>
-        <span data-lang="es">Vuelo</span>
-      </span>
+      <div class="confirmed">
+        <span data-lang="en">Confirmed</span>
+        <span data-lang="es">Confirmado</span>
+      </div>
+
+      <p><strong>ITA Airways AZ58</strong></p>
 
       <p>8:20 AM → 10:50 AM</p>
-
-      <p>ITA Airways AZ58</p>
 
     </div>
 
@@ -464,67 +492,63 @@
 
     <div class="transport">
 
-      <h3>✈️ Madrid → Philadelphia</h3>
+      <div class="route">
+        ✈️ Madrid → Philadelphia
+      </div>
 
-      <span class="status">
-        <span data-lang="en">Flight</span>
-        <span data-lang="es">Vuelo</span>
-      </span>
+      <div class="confirmed">
+        <span data-lang="en">Confirmed</span>
+        <span data-lang="es">Confirmado</span>
+      </div>
+
+      <p><strong>American Airlines AY3813</strong></p>
 
       <p>
         <strong>
           <span data-lang="en">Departure:</span>
           <span data-lang="es">Salida:</span>
         </strong>
-        Madrid (MAD) · Terminal 4S
+        Madrid (MAD), Terminal 4S · 1:15 PM
       </p>
-
-      <p>1:15 PM</p>
 
       <p>
         <strong>
           <span data-lang="en">Arrival:</span>
           <span data-lang="es">Llegada:</span>
         </strong>
-        Philadelphia (PHL) · Terminal A
+        Philadelphia (PHL), Terminal A · 3:50 PM
       </p>
-
-      <p>3:50 PM</p>
-
-      <p>American Airlines AY3813</p>
 
     </div>
 
     <div class="transport">
 
-      <h3>✈️ Madrid → Mexico City</h3>
+      <div class="route">
+        ✈️ Madrid → Mexico City
+      </div>
 
-      <span class="status">
-        <span data-lang="en">Flight</span>
-        <span data-lang="es">Vuelo</span>
-      </span>
+      <div class="confirmed">
+        <span data-lang="en">Confirmed</span>
+        <span data-lang="es">Confirmado</span>
+      </div>
+
+      <p><strong>Iberia IB0311</strong></p>
 
       <p>
         <strong>
           <span data-lang="en">Departure:</span>
           <span data-lang="es">Salida:</span>
         </strong>
-        Madrid (MAD) · Terminal 4S
+        Madrid (MAD), Terminal 4S · 4:50 PM
       </p>
-
-      <p>4:50 PM</p>
 
       <p>
         <strong>
           <span data-lang="en">Arrival:</span>
           <span data-lang="es">Llegada:</span>
         </strong>
-        Mexico City (MEX) · Terminal 1
+        Mexico City (MEX), Terminal 1 · 10:10 PM
       </p>
-
-      <p>10:10 PM</p>
-
-      <p>Iberia IB0311</p>
 
     </div>
 
@@ -540,13 +564,16 @@
 
 <script>
   function setLanguage(lang) {
-    document.querySelectorAll('[data-lang]').forEach(el => {
-      el.style.display =
-        el.getAttribute('data-lang') === lang ? 'inline' : 'none';
+    document.querySelectorAll("[data-lang]").forEach(function(element) {
+      if (element.getAttribute("data-lang") === lang) {
+        element.style.display = "inline";
+      } else {
+        element.style.display = "none";
+      }
     });
   }
 
-  setLanguage('en');
+  setLanguage("en");
 </script>
 
 </body>
