@@ -1,716 +1,553 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Transportation · Europe Trip</title>
+  <title>Transportation</title>
 
   <style>
-    * {
-      box-sizing: border-box;
+    body {
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f8ff;
+      color: #333;
     }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f8f6f2;
-      color: #333;
-      line-height: 1.6;
+    header {
+      background: linear-gradient(135deg, #4361ee, #7209b7);
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 38px;
+    }
+
+    header p {
+      font-size: 18px;
+      margin: 10px 0 20px;
+    }
+
+    button {
+      border: none;
+      padding: 9px 14px;
+      margin: 3px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
     .container {
-      width: min(1000px, calc(100% - 40px));
+      max-width: 900px;
       margin: auto;
+      padding: 25px 18px;
     }
 
-    nav {
-      height: 75px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     }
 
-    .back {
-      color: #333;
-      text-decoration: none;
-      font-size: 14px;
+    h2 {
+      color: #3a0ca3;
+      margin-top: 0;
     }
 
-    .back:hover {
-      color: #8a7055;
+    h3 {
+      color: #4361ee;
+      margin-bottom: 8px;
     }
 
-    .language {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .language button {
-      border: none;
-      background: transparent;
-      color: #999;
-      cursor: pointer;
-      font-size: 13px;
-      padding: 5px;
-    }
-
-    .language button.active {
-      color: #333;
-      font-weight: 700;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 65px 20px 55px;
-    }
-
-    .eyebrow {
-      color: #8a7055;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(48px, 8vw, 76px);
-      font-weight: 500;
-      letter-spacing: -3px;
-      line-height: 1;
-      margin-bottom: 18px;
-    }
-
-    .hero p {
-      color: #777;
-      font-size: 15px;
-    }
-
-    .section {
-      margin-bottom: 55px;
-    }
-
-    .section-label {
-      color: #8a7055;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+    .date {
+      font-weight: bold;
+      font-size: 19px;
+      color: #3a0ca3;
+      margin-top: 25px;
       margin-bottom: 12px;
     }
 
-    .section-title {
-      font-family: Georgia, serif;
-      font-size: 34px;
-      font-weight: 500;
-      margin-bottom: 25px;
+    .transport {
+      background: #f4f0ff;
+      border-left: 5px solid #7209b7;
+      padding: 16px;
+      border-radius: 10px;
+      margin-bottom: 15px;
     }
 
-    .flight-list {
-      display: grid;
-      gap: 15px;
-    }
-
-    .flight {
-      background: white;
-      border: 1px solid #e5dfd7;
-      border-radius: 18px;
-      overflow: hidden;
-    }
-
-    .flight-button {
-      width: 100%;
-      border: none;
-      background: white;
-      cursor: pointer;
-      padding: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      text-align: left;
-    }
-
-    .flight-button:hover {
-      background: #faf9f7;
-    }
-
-    .flight-main {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .flight-icon {
-      font-size: 22px;
-      flex-shrink: 0;
-    }
-
-    .flight-title {
-      font-family: Georgia, serif;
-      font-size: 19px;
-    }
-
-    .flight-subtitle {
-      color: #888;
+    .status {
+      display: inline-block;
+      background: #e8f5e9;
+      padding: 5px 10px;
+      border-radius: 15px;
       font-size: 13px;
-      margin-top: 3px;
+      font-weight: bold;
+      margin-bottom: 8px;
     }
 
-    .flight-arrow {
-      color: #999;
-      font-size: 20px;
-      transition: transform 0.2s;
-      flex-shrink: 0;
-      margin-left: 15px;
+    .tbd {
+      background: #fff4d6;
     }
 
-    .flight.open .flight-arrow {
-      transform: rotate(180deg);
+    .back {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 18px;
+      background: #4361ee;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
     }
 
-    .flight-details {
+    [data-lang="es"] {
       display: none;
-      background: #faf9f7;
-      border-top: 1px solid #eee;
-      padding: 22px;
-    }
-
-    .flight.open .flight-details {
-      display: block;
-    }
-
-    .detail-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .detail small {
-      display: block;
-      color: #999;
-      font-size: 10px;
-      letter-spacing: 0.7px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .detail strong {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .empty-trains {
-      background: white;
-      border: 1px solid #e5dfd7;
-      border-radius: 18px;
-      padding: 25px;
-      color: #888;
-      font-size: 14px;
-    }
-
-    footer {
-      border-top: 1px solid #e3ded7;
-      color: #999;
-      font-size: 13px;
-      padding: 30px;
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    @media (max-width: 650px) {
-      .hero {
-        padding-top: 45px;
-      }
-
-      .hero h1 {
-        letter-spacing: -2px;
-      }
-
-      .detail-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .language button {
-        font-size: 11px;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <nav class="container">
+<header>
 
-    <a href="index.html" class="back" id="backButton">
-      ← Back to trip
-    </a>
+  <h1>🚆 Transportation / Transporte</h1>
 
-    <div class="language">
+  <p>
+    <span data-lang="en">Europe Trip · 2026</span>
+    <span data-lang="es">Viaje por Europa · 2026</span>
+  </p>
 
-      <button
-        id="englishButton"
-        class="active"
-        onclick="setLanguage('en')">
-        🇺🇸 English
-      </button>
+  <button onclick="setLanguage('en')">🇺🇸 English</button>
+  <button onclick="setLanguage('es')">🇲🇽 Español</button>
 
-      <span>|</span>
+</header>
 
-      <button
-        id="spanishButton"
-        onclick="setLanguage('es')">
-        🇲🇽 Español
-      </button>
+<div class="container">
+
+  <!-- OCTOBER 18 -->
+  <div class="card">
+
+    <div class="date">
+      <span data-lang="en">Sunday, October 18</span>
+      <span data-lang="es">Domingo 18 de octubre</span>
+    </div>
+
+    <div class="transport">
+
+      <h3>✈️ Philadelphia → Madrid</h3>
+
+      <span class="status">
+        <span data-lang="en">Flight</span>
+        <span data-lang="es">Vuelo</span>
+      </span>
+
+      <p>
+        <strong>
+          <span data-lang="en">Departure:</span>
+          <span data-lang="es">Salida:</span>
+        </strong>
+        Philadelphia (PHL) · Terminal A
+      </p>
+
+      <p>8:30 PM</p>
+
+      <p>
+        <strong>
+          <span data-lang="en">Arrival:</span>
+          <span data-lang="es">Llegada:</span>
+        </strong>
+        Madrid (MAD) · Terminal 4S
+      </p>
+
+      <p>9:35 AM · October 19</p>
+
+      <p>British Airways BA1605</p>
 
     </div>
 
-  </nav>
-
-
-  <section class="hero container">
-
-    <div class="eyebrow" id="eyebrow">
-      Getting Around Europe
-    </div>
-
-    <h1 id="mainTitle">
-      Transportation
-    </h1>
-
-    <p id="mainSubtitle">
-      Flights and trains between our destinations
-    </p>
-
-  </section>
-
-
-  <!-- FLIGHTS -->
-
-  <section class="section container">
-
-    <div class="section-label" id="flightsLabel">
-      Flights
-    </div>
-
-    <div class="section-title" id="flightsTitle">
-      Flights Between Cities
-    </div>
-
-
-    <div class="flight-list">
-
-
-      <!-- OCTOBER 19: MADRID → BARCELONA -->
-
-      <div class="flight">
-
-        <button
-          class="flight-button"
-          onclick="toggleFlight(this)">
-
-          <div class="flight-main">
-
-            <div class="flight-icon">✈️</div>
-
-            <div>
-
-              <div class="flight-title">
-                Madrid (MAD) → Barcelona (BCN)
-              </div>
-
-              <div class="flight-subtitle">
-                Monday, October 19 · 6:00 PM – 7:15 PM
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="flight-arrow">⌄</div>
-
-        </button>
-
-
-        <div class="flight-details">
-
-          <div class="detail-grid">
-
-            <div class="detail">
-              <small>Airline</small>
-              <strong>Iberia</strong>
-            </div>
-
-            <div class="detail">
-              <small>Flight</small>
-              <strong>IB421</strong>
-            </div>
-
-            <div class="detail">
-              <small>Departure</small>
-              <strong>6:00 PM · Madrid (MAD)</strong>
-            </div>
-
-            <div class="detail">
-              <small>Arrival</small>
-              <strong>7:15 PM · Barcelona (BCN)</strong>
-            </div>
-
-            <div class="detail">
-              <small>Duration</small>
-              <strong>1 hour 15 minutes</strong>
-            </div>
-
-            <div class="detail">
-              <small>Route</small>
-              <strong>Direct · Economy</strong>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- OCTOBER 22: BARCELONA → PARIS -->
-
-      <div class="flight">
-
-        <button
-          class="flight-button"
-          onclick="toggleFlight(this)">
-
-          <div class="flight-main">
-
-            <div class="flight-icon">✈️</div>
-
-            <div>
-
-              <div class="flight-title">
-                Barcelona (BCN) → Paris (ORY)
-              </div>
-
-              <div class="flight-subtitle">
-                Thursday, October 22 · 9:50 AM – 11:40 AM
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="flight-arrow">⌄</div>
-
-        </button>
-
-
-        <div class="flight-details">
-
-          <div class="detail-grid">
-
-            <div class="detail">
-              <small>Airline</small>
-              <strong>Vueling</strong>
-            </div>
-
-            <div class="detail">
-              <small>Flight</small>
-              <strong>VY8004</strong>
-            </div>
-
-            <div class="detail">
-              <small>Departure</small>
-              <strong>9:50 AM · Barcelona (BCN)</strong>
-            </div>
-
-            <div class="detail">
-              <small>Arrival</small>
-              <strong>11:40 AM · Paris (ORY)</strong>
-            </div>
-
-            <div class="detail">
-              <small>Duration</small>
-              <strong>1 hour 50 minutes</strong>
-            </div>
-
-            <div class="detail">
-              <small>Route</small>
-              <strong>Direct · Economy</strong>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- OCTOBER 26: BRUSSELS → FLORENCE -->
-
-      <div class="flight">
-
-        <button
-          class="flight-button"
-          onclick="toggleFlight(this)">
-
-          <div class="flight-main">
-
-            <div class="flight-icon">✈️</div>
-
-            <div>
-
-              <div class="flight-title">
-                Brussels (BRU) → Florence (FLR)
-              </div>
-
-              <div class="flight-subtitle">
-                Monday, October 26 · 9:15 AM – 11:05 AM
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="flight-arrow">⌄</div>
-
-        </button>
-
-
-        <div class="flight-details">
-
-          <div class="detail-grid">
-
-            <div class="detail">
-              <small>Airline</small>
-              <strong>Brussels Airlines</strong>
-            </div>
-
-            <div class="detail">
-              <small>Flight</small>
-              <strong>SN3139</strong>
-            </div>
-
-            <div class="detail">
-              <small>Departure</small>
-              <strong>9:15 AM · Brussels (BRU)</strong>
-            </div>
-
-            <div class="detail">
-              <small>Arrival</small>
-              <strong>11:05 AM · Florence (FLR)</strong>
-            </div>
-
-            <div class="detail">
-              <small>Duration</small>
-              <strong>1 hour 50 minutes</strong>
-            </div>
-
-            <div class="detail">
-              <small>Route</small>
-              <strong>Direct · Economy</strong>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- OCTOBER 31: ROME → MADRID -->
-
-      <div class="flight">
-
-        <button
-          class="flight-button"
-          onclick="toggleFlight(this)">
-
-          <div class="flight-main">
-
-            <div class="flight-icon">✈️</div>
-
-            <div>
-
-              <div class="flight-title">
-                Rome (FCO) → Madrid (MAD)
-              </div>
-
-              <div class="flight-subtitle">
-                Saturday, October 31 · 8:20 AM – 10:50 AM
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="flight-arrow">⌄</div>
-
-        </button>
-
-
-        <div class="flight-details">
-
-          <div class="detail-grid">
-
-            <div class="detail">
-              <small>Airline</small>
-              <strong>ITA Airways</strong>
-            </div>
-
-            <div class="detail">
-              <small>Flight</small>
-              <strong>AZ58</strong>
-            </div>
-
-            <div class="detail">
-              <small>Departure</small>
-              <strong>8:20 AM · Rome (FCO)</strong>
-            </div>
-
-            <div class="detail">
-              <small>Arrival</small>
-              <strong>10:50 AM · Madrid (MAD)</strong>
-            </div>
-
-            <div class="detail">
-              <small>Duration</small>
-              <strong>2 hours 30 minutes</strong>
-            </div>
-
-            <div class="detail">
-              <small>Route</small>
-              <strong>Direct · Economy</strong>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
+    <div class="transport">
+
+      <h3>✈️ Mexico City → Madrid</h3>
+
+      <span class="status">
+        <span data-lang="en">Flight</span>
+        <span data-lang="es">Vuelo</span>
+      </span>
+
+      <p>
+        <strong>
+          <span data-lang="en">Departure:</span>
+          <span data-lang="es">Salida:</span>
+        </strong>
+        Mexico City (MEX) · Terminal 1
+      </p>
+
+      <p>7:00 PM</p>
+
+      <p>
+        <strong>
+          <span data-lang="en">Arrival:</span>
+          <span data-lang="es">Llegada:</span>
+        </strong>
+        Madrid (MAD) · Terminal 4S
+      </p>
+
+      <p>1:40 PM · October 19</p>
+
+      <p>Iberia IB0308</p>
 
     </div>
 
-  </section>
+  </div>
 
 
-  <!-- TRAINS -->
+  <!-- OCTOBER 19 -->
+  <div class="card">
 
-  <section class="section container">
-
-    <div class="section-label" id="trainsLabel">
-      Trains
+    <div class="date">
+      <span data-lang="en">Monday, October 19</span>
+      <span data-lang="es">Lunes 19 de octubre</span>
     </div>
 
-    <div class="section-title" id="trainsTitle">
-      Train Information
+    <div class="transport">
+
+      <h3>✈️ Madrid → Barcelona</h3>
+
+      <span class="status">
+        <span data-lang="en">Flight</span>
+        <span data-lang="es">Vuelo</span>
+      </span>
+
+      <p>6:00 PM → 7:15 PM</p>
+
+      <p>Iberia IB421</p>
+
     </div>
 
-    <div class="empty-trains" id="trainsText">
-      Train information will be added once the tickets are booked.
+  </div>
+
+
+  <!-- OCTOBER 22 -->
+  <div class="card">
+
+    <div class="date">
+      <span data-lang="en">Thursday, October 22</span>
+      <span data-lang="es">Jueves 22 de octubre</span>
     </div>
 
-  </section>
+    <div class="transport">
+
+      <h3>✈️ Barcelona → Paris</h3>
+
+      <span class="status">
+        <span data-lang="en">Flight</span>
+        <span data-lang="es">Vuelo</span>
+      </span>
+
+      <p>9:50 AM → 11:40 AM</p>
+
+      <p>Vueling VY8004</p>
+
+    </div>
+
+  </div>
 
 
-  <footer>
-    Europe Trip · Transportation · 2026
-  </footer>
+  <!-- OCTOBER 25 -->
+  <div class="card">
+
+    <div class="date">
+      <span data-lang="en">Sunday, October 25</span>
+      <span data-lang="es">Domingo 25 de octubre</span>
+    </div>
+
+    <div class="transport">
+
+      <h3>🚆 Paris → Brussels</h3>
+
+      <span class="status">
+        <span data-lang="en">Confirmed</span>
+        <span data-lang="es">Confirmado</span>
+      </span>
+
+      <p>
+        <strong>Eurostar · Standard</strong>
+      </p>
+
+      <p>
+        <strong>
+          <span data-lang="en">Departure:</span>
+          <span data-lang="es">Salida:</span>
+        </strong>
+        Paris Gare du Nord
+      </p>
+
+      <p>7:55 AM</p>
+
+      <p>
+        <strong>
+          <span data-lang="en">Arrival:</span>
+          <span data-lang="es">Llegada:</span>
+        </strong>
+        Brussels Midi / Zuid
+      </p>
+
+      <p>9:39 AM</p>
+
+    </div>
+
+  </div>
 
 
-  <script>
+  <!-- OCTOBER 26 -->
+  <div class="card">
 
-    function toggleFlight(button) {
-      button.parentElement.classList.toggle("open");
-    }
+    <div class="date">
+      <span data-lang="en">Monday, October 26</span>
+      <span data-lang="es">Lunes 26 de octubre</span>
+    </div>
+
+    <div class="transport">
+
+      <h3>✈️ Brussels → Florence</h3>
+
+      <span class="status">
+        <span data-lang="en">Flight</span>
+        <span data-lang="es">Vuelo</span>
+      </span>
+
+      <p>9:15 AM → 11:05 AM</p>
+
+      <p>Brussels Airlines SN3139</p>
+
+    </div>
+
+  </div>
 
 
-    function setLanguage(language) {
+  <!-- OCTOBER 27 -->
+  <div class="card">
 
-      const englishButton =
-        document.getElementById("englishButton");
+    <div class="date">
+      <span data-lang="en">Tuesday, October 27</span>
+      <span data-lang="es">Martes 27 de octubre</span>
+    </div>
 
-      const spanishButton =
-        document.getElementById("spanishButton");
+    <div class="transport">
+
+      <h3>🚆 Florence → Venice</h3>
+
+      <span class="status">
+        <span data-lang="en">Confirmed</span>
+        <span data-lang="es">Confirmado</span>
+      </span>
+
+      <p>
+        <strong>
+          <span data-lang="en">Departure:</span>
+          <span data-lang="es">Salida:</span>
+        </strong>
+        Firenze S. M. Novella
+      </p>
+
+      <p>7:20 AM</p>
+
+      <p>
+        <strong>
+          <span data-lang="en">Arrival:</span>
+          <span data-lang="es">Llegada:</span>
+        </strong>
+        Venezia S. Lucia
+      </p>
+
+      <p>9:34 AM</p>
+
+    </div>
+
+    <div class="transport">
+
+      <h3>🚆 Venice → Florence</h3>
+
+      <span class="status">
+        <span data-lang="en">Confirmed</span>
+        <span data-lang="es">Confirmado</span>
+      </span>
+
+      <p>
+        <strong>
+          <span data-lang="en">Departure:</span>
+          <span data-lang="es">Salida:</span>
+        </strong>
+        Venezia S. Lucia
+      </p>
+
+      <p>7:26 PM</p>
+
+      <p>
+        <strong>
+          <span data-lang="en">Arrival:</span>
+          <span data-lang="es">Llegada:</span>
+        </strong>
+        Firenze S. M. Novella
+      </p>
+
+      <p>9:39 PM</p>
+
+    </div>
+
+  </div>
 
 
-      if (language === "es") {
+  <!-- OCTOBER 29 -->
+  <div class="card">
 
-        document.documentElement.lang = "es";
+    <div class="date">
+      <span data-lang="en">Thursday, October 29</span>
+      <span data-lang="es">Jueves 29 de octubre</span>
+    </div>
 
-        document.getElementById("backButton").textContent =
-          "← Volver al viaje";
+    <div class="transport tbd">
 
-        document.getElementById("eyebrow").textContent =
-          "Cómo moverse por Europa";
+      <h3>🚆 Florence → Rome</h3>
 
-        document.getElementById("mainTitle").textContent =
-          "Transporte";
+      <span class="status">
+        <span data-lang="en">To be booked</span>
+        <span data-lang="es">Por reservar</span>
+      </span>
 
-        document.getElementById("mainSubtitle").textContent =
-          "Vuelos y trenes entre nuestros destinos";
+      <p>
+        <span data-lang="en">Train details TBD.</span>
+        <span data-lang="es">Detalles del tren por definir.</span>
+      </p>
 
-        document.getElementById("flightsLabel").textContent =
-          "Vuelos";
+    </div>
 
-        document.getElementById("flightsTitle").textContent =
-          "Vuelos entre ciudades";
+  </div>
 
-        document.getElementById("trainsLabel").textContent =
-          "Trenes";
 
-        document.getElementById("trainsTitle").textContent =
-          "Información de trenes";
+  <!-- OCTOBER 31 -->
+  <div class="card">
 
-        document.getElementById("trainsText").textContent =
-          "La información de los trenes se agregará cuando se compren los boletos.";
+    <div class="date">
+      <span data-lang="en">Saturday, October 31</span>
+      <span data-lang="es">Sábado 31 de octubre</span>
+    </div>
 
-        englishButton.classList.remove("active");
-        spanishButton.classList.add("active");
+    <div class="transport">
 
-      } else {
+      <h3>✈️ Rome → Madrid</h3>
 
-        document.documentElement.lang = "en";
+      <span class="status">
+        <span data-lang="en">Flight</span>
+        <span data-lang="es">Vuelo</span>
+      </span>
 
-        document.getElementById("backButton").textContent =
-          "← Back to trip";
+      <p>8:20 AM → 10:50 AM</p>
 
-        document.getElementById("eyebrow").textContent =
-          "Getting Around Europe";
+      <p>ITA Airways AZ58</p>
 
-        document.getElementById("mainTitle").textContent =
-          "Transportation";
+    </div>
 
-        document.getElementById("mainSubtitle").textContent =
-          "Flights and trains between our destinations";
+  </div>
 
-        document.getElementById("flightsLabel").textContent =
-          "Flights";
 
-        document.getElementById("flightsTitle").textContent =
-          "Flights Between Cities";
+  <!-- NOVEMBER 2 -->
+  <div class="card">
 
-        document.getElementById("trainsLabel").textContent =
-          "Trains";
+    <div class="date">
+      <span data-lang="en">Monday, November 2</span>
+      <span data-lang="es">Lunes 2 de noviembre</span>
+    </div>
 
-        document.getElementById("trainsTitle").textContent =
-          "Train Information";
+    <div class="transport">
 
-        document.getElementById("trainsText").textContent =
-          "Train information will be added once the tickets are booked.";
+      <h3>✈️ Madrid → Philadelphia</h3>
 
-        englishButton.classList.add("active");
-        spanishButton.classList.remove("active");
+      <span class="status">
+        <span data-lang="en">Flight</span>
+        <span data-lang="es">Vuelo</span>
+      </span>
 
-      }
+      <p>
+        <strong>
+          <span data-lang="en">Departure:</span>
+          <span data-lang="es">Salida:</span>
+        </strong>
+        Madrid (MAD) · Terminal 4S
+      </p>
 
-    }
+      <p>1:15 PM</p>
 
-  </script>
+      <p>
+        <strong>
+          <span data-lang="en">Arrival:</span>
+          <span data-lang="es">Llegada:</span>
+        </strong>
+        Philadelphia (PHL) · Terminal A
+      </p>
+
+      <p>3:50 PM</p>
+
+      <p>American Airlines AY3813</p>
+
+    </div>
+
+    <div class="transport">
+
+      <h3>✈️ Madrid → Mexico City</h3>
+
+      <span class="status">
+        <span data-lang="en">Flight</span>
+        <span data-lang="es">Vuelo</span>
+      </span>
+
+      <p>
+        <strong>
+          <span data-lang="en">Departure:</span>
+          <span data-lang="es">Salida:</span>
+        </strong>
+        Madrid (MAD) · Terminal 4S
+      </p>
+
+      <p>4:50 PM</p>
+
+      <p>
+        <strong>
+          <span data-lang="en">Arrival:</span>
+          <span data-lang="es">Llegada:</span>
+        </strong>
+        Mexico City (MEX) · Terminal 1
+      </p>
+
+      <p>10:10 PM</p>
+
+      <p>Iberia IB0311</p>
+
+    </div>
+
+  </div>
+
+
+  <a class="back" href="index.html">
+    <span data-lang="en">← Back to Europe Trip</span>
+    <span data-lang="es">← Regresar al Viaje por Europa</span>
+  </a>
+
+</div>
+
+<script>
+  function setLanguage(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display =
+        el.getAttribute('data-lang') === lang ? 'inline' : 'none';
+    });
+  }
+
+  setLanguage('en');
+</script>
 
 </body>
 </html>
-```
