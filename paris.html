@@ -6,380 +6,767 @@
   <title>Paris</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff0f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8f6f2;
       color: #333;
-    }
-
-    header {
-      background: linear-gradient(135deg, #9b5de5, #f15bb5);
-      color: white;
-      text-align: center;
-      padding: 35px 20px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 38px;
-    }
-
-    button {
-      border: none;
-      padding: 9px 14px;
-      margin: 3px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
+      line-height: 1.6;
     }
 
     .container {
-      max-width: 900px;
+      width: min(1000px, calc(100% - 40px));
       margin: auto;
-      padding: 25px 18px;
     }
 
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 22px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-
-    h2 {
-      color: #7b2cbf;
-    }
-
-    h3 {
-      color: #c9184a;
-    }
-
-    .date {
-      font-weight: bold;
-      font-size: 19px;
-      color: #7b2cbf;
-      margin-top: 25px;
-    }
-
-    .confirmed {
-      background: #f8efff;
-      border-left: 5px solid #9b5de5;
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    a {
-      color: #7b2cbf;
-      text-decoration: none;
+    nav {
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .back {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 12px 18px;
-      background: #9b5de5;
-      color: white;
-      border-radius: 10px;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
     }
 
-    [data-lang="es"] {
-      display: none;
+    .language {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .language button {
+      border: none;
+      background: transparent;
+      color: #999;
+      cursor: pointer;
+      font-size: 13px;
+      padding: 5px;
+    }
+
+    .language button.active {
+      color: #333;
+      font-weight: 700;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 65px 20px 55px;
+    }
+
+    .eyebrow {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(52px, 9vw, 82px);
+      font-weight: 500;
+      letter-spacing: -3px;
+      line-height: 1;
+    }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .section-label {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: 34px;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .hotel-card {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 18px;
+      padding: 25px;
+    }
+
+    .hotel-name {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+
+    .hotel-address {
+      display: block;
+      color: #8a7055;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .hotel-note {
+      color: #888;
+      font-size: 13px;
+      margin-top: 15px;
+    }
+
+    .day {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 15px;
+    }
+
+    .day-date {
+      color: #8a7055;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .day-title {
+      font-family: Georgia, serif;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .activity {
+      border-top: 1px solid #eee;
+      padding: 15px 0;
+    }
+
+    .activity:first-of-type {
+      border-top: none;
+    }
+
+    .activity-time {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .activity-name {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .activity-note {
+      color: #777;
+      font-size: 13px;
+      margin: 6px 0 10px;
+    }
+
+    .activity-address {
+      display: block;
+      color: #8a7055;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .activity-link {
+      display: inline-block;
+      color: #8a7055;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-size: 13px;
+    }
+
+    .activity-address:hover,
+    .activity-link:hover,
+    .hotel-address:hover {
+      color: #333;
+    }
+
+    footer {
+      border-top: 1px solid #e3ded7;
+      color: #999;
+      font-size: 13px;
+      padding: 30px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 650px) {
+      .hero {
+        padding-top: 45px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>🇫🇷 Paris</h1>
+  <nav class="container">
+    <a href="index.html" class="back" id="backButton">← Back to trip</a>
 
-  <p>
-    <span data-lang="en">October 22 – 25, 2026</span>
-    <span data-lang="es">22 – 25 de octubre de 2026</span>
-  </p>
+    <div class="language">
+      <button id="englishButton" class="active" onclick="setLanguage('en')">
+        🇺🇸 English
+      </button>
 
-  <button onclick="setLanguage('en')">🇺🇸 English</button>
-  <button onclick="setLanguage('es')">🇲🇽 Español</button>
-</header>
+      <span>|</span>
 
-<div class="container">
+      <button id="spanishButton" onclick="setLanguage('es')">
+        🇲🇽 Español
+      </button>
+    </div>
+  </nav>
 
-  <div class="card">
-    <h2>
-      <span data-lang="en">🏨 Hotel</span>
-      <span data-lang="es">🏨 Hotel</span>
-    </h2>
 
-    <p><strong>Hotel Zélie Champs-Elysées</strong></p>
-
-    <p>
-      <a href="https://maps.apple.com/?address=23%20Rue%20Brey,%2075017%20Paris,%20France" target="_blank">
-        23 Rue Brey<br>
-        75017 Paris<br>
-        France
-      </a>
-    </p>
-  </div>
-
-  <div class="card">
-
-    <h2>
-      <span data-lang="en">📅 Itinerary</span>
-      <span data-lang="es">📅 Itinerario</span>
-    </h2>
-
-    <div class="date">
-      <span data-lang="en">Thursday, October 22</span>
-      <span data-lang="es">Jueves 22 de octubre</span>
+  <section class="hero container">
+    <div class="eyebrow" id="heroDate">
+      October 22–25, 2026
     </div>
 
-    <h3>🎨 Musée de l'Orangerie</h3>
+    <h1 id="mainTitle">
+      Paris
+    </h1>
+  </section>
 
-    <p><strong>3:00 PM</strong></p>
 
-    <p>
-      <a href="https://maps.apple.com/?address=Jardin%20des%20Tuileries,%20Place%20de%20la%20Concorde,%2075001%20Paris,%20France" target="_blank">
-        Jardin des Tuileries<br>
-        Place de la Concorde (côté Seine)<br>
-        75001 Paris<br>
-        France
-      </a>
-    </p>
+  <!-- ITINERARY -->
 
-    <h3>
-      <span data-lang="en">Montmartre</span>
-      <span data-lang="es">Montmartre</span>
-    </h3>
+  <section class="section container">
 
-    <p>
-      <span data-lang="en">Time TBD</span>
-      <span data-lang="es">Hora por definir</span>
-    </p>
-
-    <p>
-      <a href="https://maps.apple.com/?address=Montmartre,%20Paris,%20France" target="_blank">
-        Montmartre<br>
-        Paris<br>
-        France
-      </a>
-    </p>
-
-    <h3>🛍️ Galeries Lafayette</h3>
-
-    <p>
-      <span data-lang="en">Time TBD</span>
-      <span data-lang="es">Hora por definir</span>
-    </p>
-
-    <p>
-      <a href="https://maps.apple.com/?address=40%20Boulevard%20Haussmann,%2075009%20Paris,%20France" target="_blank">
-        40 Boulevard Haussmann<br>
-        75009 Paris<br>
-        France
-      </a>
-    </p>
-
-    <p>
-      <span data-lang="en">Beautiful inside, with a view of the Eiffel Tower.</span>
-      <span data-lang="es">Es muy bonito por dentro y tiene una vista de la Torre Eiffel.</span>
-    </p>
-
-    <h3>🗼 Eiffel Tower</h3>
-
-    <p>
-      <span data-lang="en">At night · Time TBD</span>
-      <span data-lang="es">De noche · Hora por definir</span>
-    </p>
-
-    <p>
-      <a href="https://maps.apple.com/?address=5%20Avenue%20Anatole%20France,%2075007%20Paris,%20France" target="_blank">
-        5 Avenue Anatole France<br>
-        75007 Paris<br>
-        France
-      </a>
-    </p>
-
-    <div class="date">
-      <span data-lang="en">Friday, October 23</span>
-      <span data-lang="es">Viernes 23 de octubre</span>
+    <div class="section-label" id="itineraryLabel">
+      Itinerary
     </div>
 
-    <h3>🏛️ Museo del Louvre</h3>
-
-    <p>
-      <strong>
-        <span data-lang="en">10:00 AM</span>
-        <span data-lang="es">10:00 AM</span>
-      </strong>
-    </p>
-
-    <p>
-      <a href="https://maps.apple.com/?address=93%20Rue%20de%20Rivoli,%2075001%20Paris,%20France" target="_blank">
-        93 Rue de Rivoli<br>
-        75001 Paris<br>
-        France
-      </a>
-    </p>
-
-    <p>
-      <span data-lang="en">Entrance: Carrousel or Pyramid</span>
-      <span data-lang="es">Entrada: Carrousel o Pirámide</span>
-    </p>
-
-    <h3>🌉 Pont d'Iéna</h3>
-
-    <p>
-      <span data-lang="en">Time TBD</span>
-      <span data-lang="es">Hora por definir</span>
-    </p>
-
-    <p>
-      <a href="https://maps.apple.com/?address=Pont%20d'Iena,%2075016%20Paris,%20France" target="_blank">
-        Pont d'Iéna<br>
-        75016 Paris<br>
-        France
-      </a>
-    </p>
-
-    <h3>🏛️ Arco del Triunfo</h3>
-
-    <p>
-      <span data-lang="en">After Pont d'Iéna · Time TBD</span>
-      <span data-lang="es">Después de Pont d'Iéna · Hora por definir</span>
-    </p>
-
-    <p>
-      <a href="https://maps.apple.com/?address=Place%20Charles%20de%20Gaulle,%2075008%20Paris,%20France" target="_blank">
-        Place Charles de Gaulle<br>
-        75008 Paris<br>
-        France
-      </a>
-    </p>
-
-    <div class="date">
-      <span data-lang="en">Saturday, October 24</span>
-      <span data-lang="es">Sábado 24 de octubre</span>
+    <div class="section-title" id="itineraryTitle">
+      Paris
     </div>
 
-    <h3>🏰 Disneyland Paris</h3>
 
-    <p>
-      <span data-lang="en">All day · Time TBD</span>
-      <span data-lang="es">Todo el día · Hora por definir</span>
-    </p>
+    <!-- OCTOBER 22 -->
 
-    <p>
-      <a href="https://maps.apple.com/?address=Disneyland%20Paris,%2077700%20Chessy,%20France" target="_blank">
-        Disneyland Paris<br>
-        77700 Chessy<br>
-        France
-      </a>
-    </p>
+    <div class="day">
 
-    <div class="date">
-      <span data-lang="en">Sunday, October 25</span>
-      <span data-lang="es">Domingo 25 de octubre</span>
+      <div class="day-date" id="date1">
+        Thursday · October 22
+      </div>
+
+      <div class="day-title" id="title1">
+        Paris
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-time">
+          3:00 PM
+        </div>
+
+        <div class="activity-name">
+          Musée de l'Orangerie
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=Place%20de%20la%20Concorde%2C%2075001%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Place de la Concorde (côté Seine)<br>
+          75001 Paris, France
+
+        </a>
+
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-time">
+          After museum
+        </div>
+
+        <div class="activity-name">
+          Montmartre
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=Montmartre%2C%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Montmartre<br>
+          Paris, France
+
+        </a>
+
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-time">
+          TBD
+        </div>
+
+        <div class="activity-name">
+          Galeries Lafayette
+        </div>
+
+        <div class="activity-note" id="galeriesNote">
+          Very nice inside and there is a view of the Eiffel Tower.
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=40%20Boulevard%20Haussmann%2C%2075009%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          40 Boulevard Haussmann<br>
+          75009 Paris, France
+
+        </a>
+
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-time">
+          TBD
+        </div>
+
+        <div class="activity-name">
+          Eiffel Tower at Night
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=5%20Avenue%20Anatole%20France%2C%2075007%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          5 Avenue Anatole France<br>
+          75007 Paris, France
+
+        </a>
+
+      </div>
+
     </div>
 
-    <div class="confirmed">
-      <h3>🚆 Paris → Brussels</h3>
 
-      <p><strong>Eurostar · Standard</strong></p>
+    <!-- OCTOBER 23 -->
 
-      <p>
-        <strong>
-          <span data-lang="en">7:55 AM → 9:39 AM</span>
-          <span data-lang="es">7:55 AM → 9:39 AM</span>
-        </strong>
-      </p>
+    <div class="day">
 
-      <p>
-        <strong>
-          <span data-lang="en">Departure:</span>
-          <span data-lang="es">Salida:</span>
-        </strong>
-        Paris Gare du Nord
-      </p>
+      <div class="day-date" id="date2">
+        Friday · October 23
+      </div>
 
-      <p>
-        <strong>
-          <span data-lang="en">Arrival:</span>
-          <span data-lang="es">Llegada:</span>
-        </strong>
-        Brussels Midi / Zuid
-      </p>
+      <div class="day-title" id="title2">
+        Paris
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-time">
+          10:00 AM
+        </div>
+
+        <div class="activity-name">
+          Louvre Museum
+        </div>
+
+        <div class="activity-note" id="louvreNote1">
+          Entrance: Carrousel or Pyramid
+        </div>
+
+        <div class="activity-note" id="louvreNote2">
+          Porte des Lions until 5:15 PM · Entrance: Pyramid
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=93%20Rue%20de%20Rivoli%2C%2075001%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          93 Rue de Rivoli<br>
+          75001 Paris, France
+
+        </a>
+
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-time">
+          TBD
+        </div>
+
+        <div class="activity-name">
+          Pont d'Iéna
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=Pont%20d%27I%C3%A9na%2C%2075016%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Pont d'Iéna<br>
+          75016 Paris, France
+
+        </a>
+
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-time">
+          After Pont d'Iéna
+        </div>
+
+        <div class="activity-name">
+          Arc de Triomphe
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=Place%20Charles%20de%20Gaulle%2C%2075008%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Place Charles de Gaulle<br>
+          75008 Paris, France
+
+        </a>
+
+      </div>
+
     </div>
 
-    <h2>
-      <span data-lang="en">☕ Possible Places</span>
-      <span data-lang="es">☕ Lugares posibles</span>
-    </h2>
 
-    <h3>Seamer Coffee</h3>
-    <p>
-      <span data-lang="en">Time TBD</span>
-      <span data-lang="es">Hora por definir</span>
-    </p>
-    <p>
-      37 Rue Saint-Georges<br>
-      75009 Paris<br>
-      France
-    </p>
+    <!-- OCTOBER 24 -->
 
-    <h3>Angelina</h3>
-    <p>
-      <span data-lang="en">Hot chocolate · Time TBD</span>
-      <span data-lang="es">Chocolate caliente · Hora por definir</span>
-    </p>
-    <p>
-      226 Rue de Rivoli<br>
-      75001 Paris<br>
-      France
-    </p>
-    <p>
-      <span data-lang="en">Friends said the hot chocolate is really good.</span>
-      <span data-lang="es">Mis amigos dijeron que el chocolate caliente está muy bueno.</span>
-    </p>
+    <div class="day">
 
-    <h3>Pedone</h3>
-    <p>
-      51 Rue des Petits Champs<br>
-      75001 Paris<br>
-      France
-    </p>
+      <div class="day-date" id="date3">
+        Saturday · October 24
+      </div>
 
-    <h3>Maison Louvard</h3>
-    <p>
-      11 Rue de Châteaudun<br>
-      75009 Paris<br>
-      France
-    </p>
-    <p>
-      <span data-lang="en">Friends said the cookie croissant is really good.</span>
-      <span data-lang="es">Mis amigos dijeron que el cookie croissant está muy bueno.</span>
-    </p>
+      <div class="day-title" id="title3">
+        Disneyland Paris
+      </div>
 
-  </div>
 
-  <a class="back" href="index.html">
-    <span data-lang="en">← Back to Europe Trip</span>
-    <span data-lang="es">← Regresar al Viaje por Europa</span>
-  </a>
+      <div class="activity">
 
-</div>
+        <div class="activity-time">
+          All day
+        </div>
 
-<script>
-  function setLanguage(lang) {
-    document.querySelectorAll('[data-lang]').forEach(el => {
-      el.style.display =
-        el.getAttribute('data-lang') === lang ? 'inline' : 'none';
-    });
-  }
+        <div class="activity-name">
+          Disneyland Paris
+        </div>
 
-  setLanguage('en');
-</script>
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=Disneyland%20Paris%2C%2077700%20Chessy%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          77700 Chessy, France
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- POSSIBLE PLACES -->
+
+    <div class="day">
+
+      <div class="day-date" id="possibleDate">
+        Possible Places
+      </div>
+
+      <div class="day-title" id="possibleTitle">
+        Paris
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Seamer Coffee
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=37%20Rue%20Saint-Georges%2C%2075009%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          37 Rue Saint-Georges<br>
+          75009 Paris, France
+
+        </a>
+
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Angelina
+        </div>
+
+        <div class="activity-note" id="angelinaNote">
+          Hot chocolate. Friends said it is really good.
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=226%20Rue%20de%20Rivoli%2C%2075001%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          226 Rue de Rivoli<br>
+          75001 Paris, France
+
+        </a>
+
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Pedone
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=51%20Rue%20des%20Petits%20Champs%2C%2075001%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          51 Rue des Petits Champs<br>
+          75001 Paris, France
+
+        </a>
+
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Maison Louvard
+        </div>
+
+        <div class="activity-note" id="louvardNote">
+          Friends said the cookie croissant is really good.
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=11%20Rue%20de%20Ch%C3%A2teaudun%2C%2075009%20Paris%2C%20France"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          11 Rue de Châteaudun<br>
+          75009 Paris, France
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer id="footer">
+    Europe Trip · Paris · 2026
+  </footer>
+
+
+  <script>
+
+    function setLanguage(language) {
+
+      const englishButton =
+        document.getElementById("englishButton");
+
+      const spanishButton =
+        document.getElementById("spanishButton");
+
+
+      if (language === "es") {
+
+        document.documentElement.lang = "es";
+
+        document.getElementById("backButton").textContent =
+          "← Volver al viaje";
+
+        document.getElementById("heroDate").textContent =
+          "22–25 de octubre de 2026";
+
+        document.getElementById("mainTitle").textContent =
+          "París";
+
+        document.getElementById("itineraryLabel").textContent =
+          "Itinerario";
+
+        document.getElementById("itineraryTitle").textContent =
+          "París";
+
+        document.getElementById("date1").textContent =
+          "Jueves · 22 de octubre";
+
+        document.getElementById("title1").textContent =
+          "París";
+
+        document.getElementById("galeriesNote").textContent =
+          "Muy bonito por dentro y tiene una vista de la Torre Eiffel.";
+
+        document.getElementById("date2").textContent =
+          "Viernes · 23 de octubre";
+
+        document.getElementById("title2").textContent =
+          "París";
+
+        document.getElementById("louvreNote1").textContent =
+          "Entrada: Carrousel o Pirámide";
+
+        document.getElementById("louvreNote2").textContent =
+          "Porte des Lions hasta las 5:15 PM · Entrada: Pirámide";
+
+        document.getElementById("date3").textContent =
+          "Sábado · 24 de octubre";
+
+        document.getElementById("title3").textContent =
+          "Disneyland París";
+
+        document.getElementById("possibleDate").textContent =
+          "Posibles lugares";
+
+        document.getElementById("possibleTitle").textContent =
+          "París";
+
+        document.getElementById("angelinaNote").textContent =
+          "Chocolate caliente. Mis amigos dijeron que está muy bueno.";
+
+        document.getElementById("louvardNote").textContent =
+          "Mis amigos dijeron que el croissant de galleta está muy bueno.";
+
+        document.getElementById("footer").textContent =
+          "Viaje por Europa · París · 2026";
+
+        englishButton.classList.remove("active");
+        spanishButton.classList.add("active");
+
+      } else {
+
+        document.documentElement.lang = "en";
+
+        document.getElementById("backButton").textContent =
+          "← Back to trip";
+
+        document.getElementById("heroDate").textContent =
+          "October 22–25, 2026";
+
+        document.getElementById("mainTitle").textContent =
+          "Paris";
+
+        document.getElementById("itineraryLabel").textContent =
+          "Itinerary";
+
+        document.getElementById("itineraryTitle").textContent =
+          "Paris";
+
+        document.getElementById("date1").textContent =
+          "Thursday · October 22";
+
+        document.getElementById("title1").textContent =
+          "Paris";
+
+        document.getElementById("galeriesNote").textContent =
+          "Very nice inside and there is a view of the Eiffel Tower.";
+
+        document.getElementById("date2").textContent =
+          "Friday · October 23";
+
+        document.getElementById("title2").textContent =
+          "Paris";
+
+        document.getElementById("louvreNote1").textContent =
+          "Entrance: Carrousel or Pyramid";
+
+        document.getElementById("louvreNote2").textContent =
+          "Porte des Lions until 5:15 PM · Entrance: Pyramid";
+
+        document.getElementById("date3").textContent =
+          "Saturday · October 24";
+
+        document.getElementById("title3").textContent =
+          "Disneyland Paris";
+
+        document.getElementById("possibleDate").textContent =
+          "Possible Places";
+
+        document.getElementById("possibleTitle").textContent =
+          "Paris";
+
+        document.getElementById("angelinaNote").textContent =
+          "Hot chocolate. Friends said it is really good.";
+
+        document.getElementById("louvardNote").textContent =
+          "Friends said the cookie croissant is really good.";
+
+        document.getElementById("footer").textContent =
+          "Europe Trip · Paris · 2026";
+
+        englishButton.classList.add("active");
+        spanishButton.classList.remove("active");
+
+      }
+
+    }
+
+  </script>
 
 </body>
 </html>
