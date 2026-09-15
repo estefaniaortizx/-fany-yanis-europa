@@ -3,305 +3,762 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Barcelona</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #eef8ff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8f6f2;
       color: #333;
-    }
-
-    header {
-      background: linear-gradient(135deg, #e63946, #457b9d);
-      color: white;
-      text-align: center;
-      padding: 35px 20px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 38px;
-    }
-
-    header p {
-      font-size: 18px;
-    }
-
-    button {
-      border: none;
-      padding: 9px 14px;
-      margin: 3px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
+      line-height: 1.6;
     }
 
     .container {
-      max-width: 900px;
+      width: min(1000px, calc(100% - 40px));
       margin: auto;
-      padding: 25px 18px;
     }
 
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 22px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-
-    h2 {
-      color: #1d3557;
-    }
-
-    h3 {
-      color: #e63946;
-    }
-
-    .date {
-      font-weight: bold;
-      font-size: 19px;
-      color: #1d3557;
-      margin-top: 25px;
-    }
-
-    .confirmed {
-      background: #eefaf0;
-      border-left: 5px solid #2a9d8f;
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    a {
-      color: #1d3557;
-      text-decoration: none;
+    nav {
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .back {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 12px 18px;
-      background: #e63946;
-      color: white;
-      border-radius: 10px;
+      color: #333;
+      text-decoration: none;
+      font-size: 13px;
     }
 
-    [data-lang="es"] {
-      display: none;
+    .back:hover {
+      color: #8a7055;
+    }
+
+    .language {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .language button {
+      border: none;
+      background: transparent;
+      color: #999;
+      cursor: pointer;
+      font-size: 13px;
+      padding: 5px;
+    }
+
+    .language button.active {
+      color: #333;
+      font-weight: 700;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 75px 20px 65px;
+    }
+
+    .eyebrow {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(48px, 8vw, 76px);
+      font-weight: 500;
+      letter-spacing: -3px;
+      line-height: 1;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-label {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: 34px;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .hotel {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 18px;
+      padding: 25px;
+    }
+
+    .hotel-name {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .address {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .address a {
+      color: #8a7055;
+      text-decoration: none;
+    }
+
+    .address a:hover {
+      text-decoration: underline;
+    }
+
+    .note {
+      color: #888;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    .day {
+      margin-bottom: 35px;
+    }
+
+    .day-header {
+      margin-bottom: 15px;
+    }
+
+    .day-date {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .day-title {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      font-weight: 500;
+    }
+
+    .activity-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .activity {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .activity-time {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .activity-name {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .activity-description {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .activity-address {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .activity-address a {
+      color: #8a7055;
+      text-decoration: none;
+    }
+
+    .activity-address a:hover {
+      text-decoration: underline;
+    }
+
+    .possible {
+      display: grid;
+      gap: 12px;
+    }
+
+    .possible-place {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .possible-name {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .possible-description {
+      color: #777;
+      font-size: 13px;
+    }
+
+    footer {
+      border-top: 1px solid #e3ded7;
+      color: #999;
+      font-size: 13px;
+      padding: 30px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 650px) {
+      .hero {
+        padding-top: 55px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .language button {
+        font-size: 11px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>🇪🇸 Barcelona</h1>
+  <nav class="container">
 
-  <p>
-    <span data-lang="en">October 19 – 22, 2026</span>
-    <span data-lang="es">19 – 22 de octubre de 2026</span>
-  </p>
+    <a href="index.html" class="back" id="backLink">
+      ← Back to Europe Trip
+    </a>
 
-  <button onclick="setLanguage('en')">🇺🇸 English</button>
-  <button onclick="setLanguage('es')">🇲🇽 Español</button>
-</header>
+    <div class="language">
 
-<div class="container">
+      <button
+        id="englishButton"
+        class="active"
+        onclick="setLanguage('en')">
+        🇺🇸 English
+      </button>
 
-  <div class="card">
-    <h2>
-      <span data-lang="en">🏨 Hotel</span>
-      <span data-lang="es">🏨 Hotel</span>
-    </h2>
+      <span>|</span>
 
-    <p><strong>Occidental Barcelona 1929</strong></p>
+      <button
+        id="spanishButton"
+        onclick="setLanguage('es')">
+        🇲🇽 Español
+      </button>
 
-    <p>
-      <a href="https://maps.apple.com/?address=Carrer%20de%20la%20Creu%20Coberta%2020,%2008014%20Barcelona,%20Spain" target="_blank">
-        Carrer de la Creu Coberta, 20<br>
-        08014 Barcelona<br>
-        Spain
-      </a>
-    </p>
-
-    <p>
-      <span data-lang="en">Click the address to open it in Apple Maps.</span>
-      <span data-lang="es">Haz clic en la dirección para abrirla en Apple Maps.</span>
-    </p>
-  </div>
-
-  <div class="card">
-
-    <h2>
-      <span data-lang="en">📅 Itinerary</span>
-      <span data-lang="es">📅 Itinerario</span>
-    </h2>
-
-    <div class="date">
-      <span data-lang="en">Monday, October 19</span>
-      <span data-lang="es">Lunes 19 de octubre</span>
     </div>
 
-    <h3>
-      <span data-lang="en">Arrival in Barcelona</span>
-      <span data-lang="es">Llegada a Barcelona</span>
-    </h3>
+  </nav>
 
-    <div class="date">
-      <span data-lang="en">Tuesday, October 20</span>
-      <span data-lang="es">Martes 20 de octubre</span>
+
+  <section class="hero container">
+
+    <div class="eyebrow" id="dateText">
+      October 19 – 22, 2026
     </div>
 
-    <div class="confirmed">
-      <h3>
-        <span data-lang="en">🏟️ Barcelona Stadium Tour</span>
-        <span data-lang="es">🏟️ Barcelona Stadium Tour</span>
-      </h3>
+    <h1 id="pageTitle">
+      🇪🇸 Barcelona
+    </h1>
 
-      <p><strong>Museum · General Ticket</strong></p>
+  </section>
 
-      <p>
-        <strong>
-          <span data-lang="en">October 20, 2026 · 10:30 AM</span>
-          <span data-lang="es">20 de octubre de 2026 · 10:30 AM</span>
-        </strong>
-      </p>
 
-      <p>
-        <a href="https://maps.apple.com/?address=Carrer%20d'Aristides%20Maillol,%20s/n,%2008028%20Barcelona,%20Spain" target="_blank">
-          Carrer d'Aristides Maillol, s/n<br>
-          08028 Barcelona<br>
+  <!-- HOTEL -->
+
+  <section class="section container">
+
+    <div class="section-label" id="hotelLabel">
+      Stay
+    </div>
+
+    <div class="section-title" id="hotelTitle">
+      Our Hotel
+    </div>
+
+    <div class="hotel">
+
+      <div class="hotel-name">
+        Hotel
+      </div>
+
+      <div class="address">
+        <a
+          href="https://maps.apple.com/?address=Carrer%20de%20la%20Creu%20Coberta%2C%2020%2C%2008014%20Barcelona%2C%20Spain"
+          target="_blank">
+          Carrer de la Creu Coberta, 20<br>
+          08014 Barcelona<br>
           Spain
         </a>
-      </p>
+      </div>
+
+      <div class="note" id="hotelNote">
+        Click the address to open it in Apple Maps.
+      </div>
+
     </div>
 
-    <div class="date">
-      <span data-lang="en">Wednesday, October 21</span>
-      <span data-lang="es">Miércoles 21 de octubre</span>
+  </section>
+
+
+  <!-- ITINERARY -->
+
+  <section class="section container">
+
+    <div class="section-label" id="itineraryLabel">
+      Itinerary
     </div>
 
-    <h3>🏛️ Sagrada Família</h3>
-
-    <p>
-      <strong>
-        <span data-lang="en">Access: 5:15 PM</span>
-        <span data-lang="es">Acceso: 5:15 PM</span>
-      </strong>
-    </p>
-
-    <p>
-      <strong>
-        <span data-lang="en">Towers visit: 6:00 PM</span>
-        <span data-lang="es">Visita a las torres: 6:00 PM</span>
-      </strong>
-    </p>
-
-    <p>
-      <a href="https://maps.apple.com/?address=Carrer%20de%20Mallorca%20401,%2008013%20Barcelona,%20Spain" target="_blank">
-        Carrer de Mallorca, 401<br>
-        08013 Barcelona<br>
-        Spain
-      </a>
-    </p>
-
-    <h3>🏠 Casa Batlló</h3>
-
-    <p>
-      <strong>
-        <span data-lang="en">1:00 PM</span>
-        <span data-lang="es">1:00 PM</span>
-      </strong>
-    </p>
-
-    <p>
-      <a href="https://maps.apple.com/?address=Passeig%20de%20Gracia%2043,%2008007%20Barcelona,%20Spain" target="_blank">
-        Passeig de Gràcia, 43<br>
-        08007 Barcelona<br>
-        Spain
-      </a>
-    </p>
-
-    <h3>
-      <span data-lang="en">☕ Coffee Casa</span>
-      <span data-lang="es">☕ Coffee Casa</span>
-    </h3>
-
-    <p>
-      <strong>Tiramisu Latte</strong>
-    </p>
-
-    <p>
-      <a href="https://maps.apple.com/?address=Carrer%20dels%20Carders%2025,%2008003%20Barcelona,%20Spain" target="_blank">
-        Carrer dels Carders, 25<br>
-        08003 Barcelona<br>
-        Spain
-      </a>
-    </p>
-
-    <p>
-      <a href="https://www.instagram.com/reels/Db06ipCveCb/" target="_blank">
-        Instagram
-      </a>
-    </p>
-
-    <h3>☕ Mocha</h3>
-
-    <p>
-      <span data-lang="en">Try matcha or coffee · Date & time TBD</span>
-      <span data-lang="es">Prueba matcha o café · Fecha y hora por definir</span>
-    </p>
-
-    <p>
-      <a href="https://maps.apple.com/?address=Carrer%20de%20Lepant%20258,%2008013%20Barcelona,%20Spain" target="_blank">
-        Carrer de Lepant, 258<br>
-        08013 Barcelona<br>
-        Spain
-      </a>
-    </p>
-
-    <p>
-      <a href="https://www.instagram.com/mocha_bcn?stkn=M3FzZGd6OXhibnp0" target="_blank">
-        Instagram
-      </a>
-    </p>
-
-    <div class="date">
-      <span data-lang="en">Thursday, October 22</span>
-      <span data-lang="es">Jueves 22 de octubre</span>
+    <div class="section-title" id="itineraryTitle">
+      Barcelona
     </div>
 
-    <h3>
-      <span data-lang="en">✈️ Barcelona → Paris</span>
-      <span data-lang="es">✈️ Barcelona → París</span>
-    </h3>
 
-    <p>
-      <span data-lang="en">Flight: 9:50 AM – 11:40 AM · Vueling VY8004</span>
-      <span data-lang="es">Vuelo: 9:50 AM – 11:40 AM · Vueling VY8004</span>
-    </p>
+    <!-- OCTOBER 19 -->
 
-  </div>
+    <div class="day">
 
-  <a class="back" href="index.html">
-    <span data-lang="en">← Back to Europe Trip</span>
-    <span data-lang="es">← Regresar al Viaje por Europa</span>
-  </a>
+      <div class="day-header">
 
-</div>
+        <div class="day-date">
+          October 19, 2026 · Monday
+        </div>
 
-<script>
-  function setLanguage(lang) {
-    document.querySelectorAll('[data-lang]').forEach(el => {
-      el.style.display =
-        el.getAttribute('data-lang') === lang ? 'inline' : 'none';
-    });
-  }
+        <div class="day-title" id="day19Title">
+          Arrival in Barcelona
+        </div>
 
-  setLanguage('en');
-</script>
+      </div>
+
+      <div class="activity-list">
+
+        <div class="activity">
+
+          <div class="activity-name" id="arrivalName">
+            Madrid → Barcelona
+          </div>
+
+          <div class="activity-description" id="arrivalDescription">
+            Arriving in Barcelona
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- OCTOBER 20 -->
+
+    <div class="day">
+
+      <div class="day-header">
+
+        <div class="day-date">
+          October 20, 2026 · Tuesday
+        </div>
+
+        <div class="day-title" id="day20Title">
+          Barcelona
+        </div>
+
+      </div>
+
+      <div class="activity-list">
+
+
+        <div class="activity">
+
+          <div class="activity-time">
+            10:30 AM
+          </div>
+
+          <div class="activity-name" id="stadiumName">
+            Barcelona Stadium Tour
+          </div>
+
+          <div class="activity-description" id="stadiumDescription">
+            Museum · General ticket
+          </div>
+
+          <div class="activity-address">
+            Carrer d'Aristides Maillol, s/n<br>
+            08028 Barcelona<br>
+            Spain
+          </div>
+
+        </div>
+
+
+        <div class="activity">
+
+          <div class="activity-time">
+            1:00 PM
+          </div>
+
+          <div class="activity-name" id="casaName">
+            Casa Batlló
+          </div>
+
+          <div class="activity-address">
+            Passeig de Gràcia, 43<br>
+            08007 Barcelona<br>
+            Spain
+          </div>
+
+        </div>
+
+
+        <div class="activity">
+
+          <div class="activity-name">
+            Coffee Casa
+          </div>
+
+          <div class="activity-description" id="coffeeDescription">
+            Tiramisu Latte · Date & time TBD
+          </div>
+
+          <div class="activity-address">
+            Carrer dels Carders, 25<br>
+            08003 Barcelona<br>
+            Spain
+          </div>
+
+          <div class="note">
+            <a
+              href="https://www.instagram.com/reels/Db06ipCveCb/"
+              target="_blank">
+              Instagram
+            </a>
+          </div>
+
+        </div>
+
+
+        <div class="activity">
+
+          <div class="activity-name">
+            Mocha
+          </div>
+
+          <div class="activity-description" id="mochaDescription">
+            Try matcha or coffee · Date & time TBD
+          </div>
+
+          <div class="activity-address">
+            Carrer de Lepant, 258<br>
+            08013 Barcelona<br>
+            Spain
+          </div>
+
+          <div class="note">
+            <a
+              href="https://www.instagram.com/mocha_bcn?stkn=M3FzZGd6OXhibnp0"
+              target="_blank">
+              Instagram
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- OCTOBER 21 -->
+
+    <div class="day">
+
+      <div class="day-header">
+
+        <div class="day-date">
+          October 21, 2026 · Wednesday
+        </div>
+
+        <div class="day-title" id="day21Title">
+          Barcelona
+        </div>
+
+      </div>
+
+      <div class="activity-list">
+
+
+        <div class="activity">
+
+          <div class="activity-time">
+            5:15 PM
+          </div>
+
+          <div class="activity-name" id="sagradaName">
+            Sagrada Família
+          </div>
+
+          <div class="activity-description" id="sagradaDescription">
+            Access time
+          </div>
+
+          <div class="activity-address">
+            Carrer de Mallorca, 401<br>
+            08013 Barcelona<br>
+            Spain
+          </div>
+
+        </div>
+
+
+        <div class="activity">
+
+          <div class="activity-time">
+            6:00 PM
+          </div>
+
+          <div class="activity-name" id="towerName">
+            Sagrada Família Towers
+          </div>
+
+          <div class="activity-description" id="towerDescription">
+            Visit to the towers
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- OCTOBER 22 -->
+
+    <div class="day">
+
+      <div class="day-header">
+
+        <div class="day-date">
+          October 22, 2026 · Thursday
+        </div>
+
+        <div class="day-title" id="day22Title">
+          Barcelona → Paris
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    Europe Trip · 2026
+  </footer>
+
+
+  <script>
+
+    function setLanguage(language) {
+
+      const englishButton =
+        document.getElementById("englishButton");
+
+      const spanishButton =
+        document.getElementById("spanishButton");
+
+
+      if (language === "es") {
+
+        document.documentElement.lang = "es";
+
+        document.getElementById("backLink").textContent =
+          "← Volver a Viaje a Europa";
+
+        document.getElementById("dateText").textContent =
+          "19 – 22 de octubre de 2026";
+
+        document.getElementById("pageTitle").textContent =
+          "🇪🇸 Barcelona";
+
+        document.getElementById("hotelLabel").textContent =
+          "Hospedaje";
+
+        document.getElementById("hotelTitle").textContent =
+          "Nuestro hotel";
+
+        document.getElementById("hotelNote").textContent =
+          "Haz clic en la dirección para abrirla en Apple Maps.";
+
+        document.getElementById("itineraryLabel").textContent =
+          "Itinerario";
+
+        document.getElementById("itineraryTitle").textContent =
+          "Barcelona";
+
+        document.getElementById("day19Title").textContent =
+          "Llegada a Barcelona";
+
+        document.getElementById("arrivalName").textContent =
+          "Madrid → Barcelona";
+
+        document.getElementById("arrivalDescription").textContent =
+          "Llegada a Barcelona";
+
+        document.getElementById("day20Title").textContent =
+          "Barcelona";
+
+        document.getElementById("stadiumName").textContent =
+          "Tour del estadio de Barcelona";
+
+        document.getElementById("stadiumDescription").textContent =
+          "Museo · Entrada general";
+
+        document.getElementById("casaName").textContent =
+          "Casa Batlló";
+
+        document.getElementById("coffeeDescription").textContent =
+          "Tiramisu Latte · Fecha y hora por confirmar";
+
+        document.getElementById("mochaDescription").textContent =
+          "Prueba matcha o café · Fecha y hora por confirmar";
+
+        document.getElementById("day21Title").textContent =
+          "Barcelona";
+
+        document.getElementById("sagradaName").textContent =
+          "Sagrada Família";
+
+        document.getElementById("sagradaDescription").textContent =
+          "Hora de acceso";
+
+        document.getElementById("towerName").textContent =
+          "Torres de la Sagrada Família";
+
+        document.getElementById("towerDescription").textContent =
+          "Visita a las torres";
+
+        document.getElementById("day22Title").textContent =
+          "Barcelona → París";
+
+        englishButton.classList.remove("active");
+        spanishButton.classList.add("active");
+
+      } else {
+
+        document.documentElement.lang = "en";
+
+        document.getElementById("backLink").textContent =
+          "← Back to Europe Trip";
+
+        document.getElementById("dateText").textContent =
+          "October 19 – 22, 2026";
+
+        document.getElementById("pageTitle").textContent =
+          "🇪🇸 Barcelona";
+
+        document.getElementById("hotelLabel").textContent =
+          "Stay";
+
+        document.getElementById("hotelTitle").textContent =
+          "Our Hotel";
+
+        document.getElementById("hotelNote").textContent =
+          "Click the address to open it in Apple Maps.";
+
+        document.getElementById("itineraryLabel").textContent =
+          "Itinerary";
+
+        document.getElementById("itineraryTitle").textContent =
+          "Barcelona";
+
+        document.getElementById("day19Title").textContent =
+          "Arrival in Barcelona";
+
+        document.getElementById("arrivalName").textContent =
+          "Madrid → Barcelona";
+
+        document.getElementById("arrivalDescription").textContent =
+          "Arriving in Barcelona";
+
+        document.getElementById("day20Title").textContent =
+          "Barcelona";
+
+        document.getElementById("stadiumName").textContent =
+          "Barcelona Stadium Tour";
+
+        document.getElementById("stadiumDescription").textContent =
+          "Museum · General ticket";
+
+        document.getElementById("casaName").textContent =
+          "Casa Batlló";
+
+        document.getElementById("coffeeDescription").textContent =
+          "Tiramisu Latte · Date & time TBD";
+
+        document.getElementById("mochaDescription").textContent =
+          "Try matcha or coffee · Date & time TBD";
+
+        document.getElementById("day21Title").textContent =
+          "Barcelona";
+
+        document.getElementById("sagradaName").textContent =
+          "Sagrada Família";
+
+        document.getElementById("sagradaDescription").textContent =
+          "Access time";
+
+        document.getElementById("towerName").textContent =
+          "Sagrada Família Towers";
+
+        document.getElementById("towerDescription").textContent =
+          "Visit to the towers";
+
+        document.getElementById("day22Title").textContent =
+          "Barcelona → Paris";
+
+        englishButton.classList.add("active");
+        spanishButton.classList.remove("active");
+
+      }
+
+    }
+
+  </script>
 
 </body>
 </html>
