@@ -3,348 +3,344 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Florence</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f8f6f2;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff8e7;
       color: #333;
-      line-height: 1.6;
-    }
-
-    .container {
-      width: min(1000px, calc(100% - 40px));
-      margin: auto;
-    }
-
-    nav {
-      height: 75px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .back {
-      color: #333;
-      text-decoration: none;
-      font-size: 15px;
-    }
-
-    .back:hover {
-      opacity: 0.6;
-    }
-
-    .language-toggle {
-      display: flex;
-      gap: 6px;
-    }
-
-    .language-toggle button {
-      border: none;
-      background: transparent;
-      padding: 6px 10px;
-      cursor: pointer;
-      font-size: 14px;
-      color: #777;
-    }
-
-    .language-toggle button.active {
-      color: #333;
-      font-weight: 600;
     }
 
     header {
+      background: linear-gradient(135deg, #e76f51, #f4a261);
+      color: white;
       text-align: center;
-      padding: 45px 0 55px;
+      padding: 35px 20px;
     }
 
     header h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(42px, 7vw, 70px);
-      font-weight: 400;
-      margin-bottom: 10px;
+      margin: 0;
+      font-size: 38px;
     }
 
     header p {
-      color: #777;
-      font-size: 16px;
+      font-size: 18px;
+      margin: 10px 0 20px;
     }
 
-    section {
-      margin-bottom: 50px;
+    button {
+      border: none;
+      padding: 9px 14px;
+      margin: 3px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
-    .section-title {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 28px;
-      font-weight: 400;
-      margin-bottom: 22px;
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 25px 18px;
     }
 
-    .day {
+    .card {
       background: white;
-      border-radius: 14px;
-      padding: 25px;
-      margin-bottom: 18px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      border-radius: 18px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     }
 
-    .day h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 22px;
-      font-weight: 400;
-      margin-bottom: 5px;
+    h2 {
+      color: #9c4221;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: #e76f51;
+      margin-bottom: 8px;
     }
 
     .date {
-      color: #888;
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
-
-    .place {
-      padding: 14px 0;
-      border-top: 1px solid #eee;
-    }
-
-    .place:first-of-type {
-      border-top: none;
-    }
-
-    .place-name {
-      font-weight: 600;
-      font-size: 16px;
-    }
-
-    .place-time {
-      color: #777;
-      font-size: 14px;
-      margin-top: 3px;
-    }
-
-    .address {
-      color: #888;
-      font-size: 13px;
-      margin-top: 4px;
-    }
-
-    .note {
-      color: #666;
-      font-size: 14px;
-      font-style: italic;
-      margin-top: 6px;
-    }
-
-    .possible-place {
-      background: white;
-      border-radius: 14px;
-      padding: 20px 25px;
+      font-weight: bold;
+      font-size: 19px;
+      color: #9c4221;
+      margin-top: 25px;
       margin-bottom: 12px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     }
 
-    .possible-place h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 20px;
-      font-weight: 400;
-      margin-bottom: 5px;
+    .confirmed {
+      background: #fff2df;
+      border-left: 5px solid #e76f51;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
     }
 
-    .possible-place p {
-      color: #666;
-      font-size: 14px;
+    .possible {
+      background: #fffaf2;
+      border-left: 5px solid #f4a261;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
     }
 
-    footer {
-      text-align: center;
-      padding: 35px 0 50px;
-      color: #999;
-      font-size: 13px;
+    a {
+      color: #9c4221;
+      text-decoration: none;
     }
 
-    @media (max-width: 600px) {
-      .container {
-        width: min(100% - 28px, 1000px);
-      }
+    .back {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 18px;
+      background: #e76f51;
+      color: white;
+      border-radius: 10px;
+    }
 
-      nav {
-        height: 65px;
-      }
-
-      header {
-        padding: 35px 0 45px;
-      }
-
-      .day {
-        padding: 20px;
-      }
+    [data-lang="es"] {
+      display: none;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+<header>
 
-    <nav>
-      <a href="index.html" class="back">
-        <span data-en="← Back" data-es="← Volver">← Back</span>
+  <h1>🇮🇹 Florence / Florencia</h1>
+
+  <p>
+    <span data-lang="en">October 26 – 29, 2026</span>
+    <span data-lang="es">26 – 29 de octubre de 2026</span>
+  </p>
+
+  <button onclick="setLanguage('en')">🇺🇸 English</button>
+  <button onclick="setLanguage('es')">🇲🇽 Español</button>
+
+</header>
+
+<div class="container">
+
+  <!-- HOTEL -->
+  <div class="card">
+
+    <h2>
+      <span data-lang="en">🏨 Hotel</span>
+      <span data-lang="es">🏨 Hotel</span>
+    </h2>
+
+    <p>
+      <strong>Residenza d'Epoca La Basilica</strong>
+    </p>
+
+    <p>
+      <a href="https://maps.apple.com/?address=Via%20dei%20Conti%204,%2050123%20Florence,%20Italy" target="_blank">
+        Via dei Conti 4<br>
+        50123 Florence<br>
+        Italy
       </a>
-
-      <div class="language-toggle">
-        <button id="enBtn" class="active" onclick="setLanguage('en')">EN</button>
-        <button id="esBtn" onclick="setLanguage('es')">ES</button>
-      </div>
-    </nav>
-
-    <header>
-      <h1 data-en="Florence" data-es="Florencia">Florence</h1>
-      <p
-        data-en="October 18 – November 2, 2026"
-        data-es="18 de octubre – 2 de noviembre de 2026"
-      >
-        October 18 – November 2, 2026
-      </p>
-    </header>
-
-    <!-- SCHEDULED ITINERARY -->
-
-    <section>
-      <h2
-        class="section-title"
-        data-en="Itinerary"
-        data-es="Itinerario"
-      >
-        Itinerary
-      </h2>
-
-      <!-- Add your Florence days here -->
-
-      <div class="day">
-        <h3
-          data-en="Day 1"
-          data-es="Día 1"
-        >
-          Day 1
-        </h3>
-
-        <div class="date"
-          data-en="Date TBD"
-          data-es="Fecha por determinar"
-        >
-          Date TBD
-        </div>
-
-        <!-- Example place -->
-        <div class="place">
-          <div
-            class="place-name"
-            data-en="Place Name"
-            data-es="Nombre del lugar"
-          >
-            Place Name
-          </div>
-
-          <div
-            class="place-time"
-            data-en="Time TBD"
-            data-es="Hora por determinar"
-          >
-            Time TBD
-          </div>
-
-          <div class="address">
-            Address goes here
-          </div>
-
-          <div
-            class="note"
-            data-en="Notes about this place go here."
-            data-es="Las notas sobre este lugar van aquí."
-          >
-            Notes about this place go here.
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-
-    <!-- POSSIBLE PLACES -->
-
-    <section>
-      <h2
-        class="section-title"
-        data-en="Possible Places"
-        data-es="Lugares posibles"
-      >
-        Possible Places
-      </h2>
-
-      <!-- Add TBD places here -->
-
-      <div class="possible-place">
-        <h3
-          data-en="Place Name"
-          data-es="Nombre del lugar"
-        >
-          Place Name
-        </h3>
-
-        <p
-          data-en="Add information about the place here."
-          data-es="Añade aquí información sobre el lugar."
-        >
-          Add information about the place here.
-        </p>
-
-        <div class="address">
-          Address goes here
-        </div>
-      </div>
-
-    </section>
-
-
-    <footer>
-      <span
-        data-en="Europe Trip 2026"
-        data-es="Viaje por Europa 2026"
-      >
-        Europe Trip 2026
-      </span>
-    </footer>
+    </p>
 
   </div>
 
+  <!-- ITINERARY -->
+  <div class="card">
 
-  <script>
-    function setLanguage(language) {
-      document.querySelectorAll("[data-en]").forEach(function(element) {
-        element.textContent = element.getAttribute("data-" + language);
-      });
+    <h2>
+      <span data-lang="en">📅 Itinerary</span>
+      <span data-lang="es">📅 Itinerario</span>
+    </h2>
 
-      document.getElementById("enBtn").classList.toggle(
-        "active",
-        language === "en"
-      );
+    <!-- OCTOBER 26 -->
+    <div class="date">
+      <span data-lang="en">Monday, October 26</span>
+      <span data-lang="es">Lunes 26 de octubre</span>
+    </div>
 
-      document.getElementById("esBtn").classList.toggle(
-        "active",
-        language === "es"
-      );
+    <h3>
+      <span data-lang="en">Arrive in Florence</span>
+      <span data-lang="es">Llegada a Florencia</span>
+    </h3>
 
-      document.documentElement.lang = language;
-    }
-  </script>
+    <p>
+      <span data-lang="en">
+        Arrive in Florence and check in at the hotel.
+      </span>
+      <span data-lang="es">
+        Llegada a Florencia y registro en el hotel.
+      </span>
+    </p>
+
+    <!-- OCTOBER 27 -->
+    <div class="date">
+      <span data-lang="en">Tuesday, October 27</span>
+      <span data-lang="es">Martes 27 de octubre</span>
+    </div>
+
+    <h3>
+      <span data-lang="en">🚆 Venice Day Trip</span>
+      <span data-lang="es">🚆 Excursión de un día a Venecia</span>
+    </h3>
+
+    <div class="confirmed">
+
+      <p>
+        <strong>
+          <span data-lang="en">Florence → Venice</span>
+          <span data-lang="es">Florencia → Venecia</span>
+        </strong>
+      </p>
+
+      <p>
+        <strong>
+          <span data-lang="en">Departure:</span>
+          <span data-lang="es">Salida:</span>
+        </strong>
+        Firenze S. M. Novella · 7:20 AM
+      </p>
+
+      <p>
+        <strong>
+          <span data-lang="en">Arrival:</span>
+          <span data-lang="es">Llegada:</span>
+        </strong>
+        Venezia S. Lucia · 9:34 AM
+      </p>
+
+      <hr>
+
+      <p>
+        <strong>
+          <span data-lang="en">Venice → Florence</span>
+          <span data-lang="es">Venecia → Florencia</span>
+        </strong>
+      </p>
+
+      <p>
+        <strong>
+          <span data-lang="en">Departure:</span>
+          <span data-lang="es">Salida:</span>
+        </strong>
+        Venezia S. Lucia · 7:26 PM
+      </p>
+
+      <p>
+        <strong>
+          <span data-lang="en">Arrival:</span>
+          <span data-lang="es">Llegada:</span>
+        </strong>
+        Firenze S. M. Novella · 9:39 PM
+      </p>
+
+    </div>
+
+    <!-- OCTOBER 28 -->
+    <div class="date">
+      <span data-lang="en">Wednesday, October 28</span>
+      <span data-lang="es">Miércoles 28 de octubre</span>
+    </div>
+
+    <h3>
+      <span data-lang="en">Florence</span>
+      <span data-lang="es">Florencia</span>
+    </h3>
+
+    <p>
+      <span data-lang="en">
+        Explore Florence.
+      </span>
+      <span data-lang="es">
+        Explorar Florencia.
+      </span>
+    </p>
+
+    <!-- OCTOBER 29 -->
+    <div class="date">
+      <span data-lang="en">Thursday, October 29</span>
+      <span data-lang="es">Jueves 29 de octubre</span>
+    </div>
+
+    <h3>
+      <span data-lang="en">🚆 Florence → Rome</span>
+      <span data-lang="es">🚆 Florencia → Roma</span>
+    </h3>
+
+    <p>
+      <span data-lang="en">Train details: TBD</span>
+      <span data-lang="es">Detalles del tren: por definir</span>
+    </p>
+
+  </div>
+
+  <!-- POSSIBLE PLACES -->
+  <div class="card">
+
+    <h2>
+      <span data-lang="en">📍 Possible Places</span>
+      <span data-lang="es">📍 Lugares posibles</span>
+    </h2>
+
+    <div class="possible">
+
+      <h3>🌉 Ponte Vecchio</h3>
+
+      <p>
+        <span data-lang="en">
+          Famous historic bridge over the Arno River.
+        </span>
+        <span data-lang="es">
+          Famoso puente histórico sobre el río Arno.
+        </span>
+      </p>
+
+    </div>
+
+    <div class="possible">
+
+      <h3>🍹 Osteria Belle Donne</h3>
+
+      <p>
+        <a href="https://maps.apple.com/?address=Via%20delle%20Belle%20Donne%2016/R,%2050123%20Florence,%20Italy" target="_blank">
+          Via delle Belle Donne 16/R<br>
+          50123 Florence<br>
+          Italy
+        </a>
+      </p>
+
+      <p>
+        <span data-lang="en">
+          Window to order a Spritz.
+        </span>
+        <span data-lang="es">
+          Momento ideal para pedir un Spritz.
+        </span>
+      </p>
+
+    </div>
+
+  </div>
+
+  <a class="back" href="index.html">
+    <span data-lang="en">← Back to Europe Trip</span>
+    <span data-lang="es">← Regresar al Viaje por Europa</span>
+  </a>
+
+</div>
+
+<script>
+  function setLanguage(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display =
+        el.getAttribute('data-lang') === lang ? 'inline' : 'none';
+    });
+  }
+
+  setLanguage('en');
+</script>
 
 </body>
 </html>
