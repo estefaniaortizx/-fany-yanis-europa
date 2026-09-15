@@ -6,268 +6,606 @@
   <title>Venice</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #eaf8f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8f6f2;
       color: #333;
-    }
-
-    header {
-      background: linear-gradient(135deg, #008c95, #00b4d8);
-      color: white;
-      text-align: center;
-      padding: 35px 20px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 38px;
-    }
-
-    button {
-      border: none;
-      padding: 9px 14px;
-      margin: 3px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
+      line-height: 1.6;
     }
 
     .container {
-      max-width: 900px;
+      width: min(1000px, calc(100% - 40px));
       margin: auto;
-      padding: 25px 18px;
     }
 
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 22px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-
-    h2 {
-      color: #0077b6;
-    }
-
-    h3 {
-      color: #0096c7;
-    }
-
-    .date {
-      font-weight: bold;
-      font-size: 19px;
-      color: #0077b6;
-      margin-top: 25px;
-    }
-
-    .confirmed {
-      background: #edfafa;
-      border-left: 5px solid #0096c7;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    a {
-      color: #0077b6;
-      text-decoration: none;
+    nav {
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .back {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 12px 18px;
-      background: #008c95;
-      color: white;
-      border-radius: 10px;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
     }
 
-    [data-lang="es"] {
-      display: none;
+    .language {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .language button {
+      border: none;
+      background: transparent;
+      color: #999;
+      cursor: pointer;
+      font-size: 13px;
+      padding: 5px;
+    }
+
+    .language button.active {
+      color: #333;
+      font-weight: 700;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 65px 20px 55px;
+    }
+
+    .eyebrow {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(52px, 9vw, 82px);
+      font-weight: 500;
+      letter-spacing: -3px;
+      line-height: 1;
+    }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .section-label {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: 34px;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .day {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 15px;
+    }
+
+    .day-date {
+      color: #8a7055;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .day-title {
+      font-family: Georgia, serif;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .activity {
+      border-top: 1px solid #eee;
+      padding: 15px 0;
+    }
+
+    .activity:first-of-type {
+      border-top: none;
+    }
+
+    .activity-time {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .activity-name {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .activity-note {
+      color: #777;
+      font-size: 13px;
+      margin: 6px 0 10px;
+    }
+
+    .activity-address {
+      display: block;
+      color: #8a7055;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .activity-address:hover {
+      color: #333;
+    }
+
+    footer {
+      border-top: 1px solid #e3ded7;
+      color: #999;
+      font-size: 13px;
+      padding: 30px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 650px) {
+      .hero {
+        padding-top: 45px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
+  <nav class="container">
 
-  <h1>🇮🇹 Venice / Venecia</h1>
+    <a href="index.html" class="back" id="backButton">
+      ← Back to trip
+    </a>
 
-  <p>
-    <span data-lang="en">Day Trip · October 27, 2026</span>
-    <span data-lang="es">Excursión de un día · 27 de octubre de 2026</span>
-  </p>
+    <div class="language">
 
-  <button onclick="setLanguage('en')">🇺🇸 English</button>
-  <button onclick="setLanguage('es')">🇲🇽 Español</button>
+      <button
+        id="englishButton"
+        class="active"
+        onclick="setLanguage('en')">
+        🇺🇸 English
+      </button>
 
-</header>
+      <span>|</span>
 
-<div class="container">
-
-  <div class="card">
-
-    <h2>
-      <span data-lang="en">🚆 Florence → Venice</span>
-      <span data-lang="es">🚆 Florencia → Venecia</span>
-    </h2>
-
-    <div class="confirmed">
-
-      <p>
-        <strong>
-          <span data-lang="en">Tuesday, October 27, 2026</span>
-          <span data-lang="es">Martes 27 de octubre de 2026</span>
-        </strong>
-      </p>
-
-      <p>
-        <strong>
-          <span data-lang="en">Departure:</span>
-          <span data-lang="es">Salida:</span>
-        </strong>
-        Firenze S. M. Novella
-      </p>
-
-      <p>7:20 AM</p>
-
-      <p>
-        <strong>
-          <span data-lang="en">Arrival:</span>
-          <span data-lang="es">Llegada:</span>
-        </strong>
-        Venezia S. Lucia
-      </p>
-
-      <p>9:34 AM</p>
+      <button
+        id="spanishButton"
+        onclick="setLanguage('es')">
+        🇲🇽 Español
+      </button>
 
     </div>
 
-    <h2>
-      <span data-lang="en">🌙 Venice → Florence</span>
-      <span data-lang="es">🌙 Venecia → Florencia</span>
-    </h2>
+  </nav>
 
-    <div class="confirmed">
 
-      <p>
-        <strong>
-          <span data-lang="en">Departure:</span>
-          <span data-lang="es">Salida:</span>
-        </strong>
-        Venezia S. Lucia
-      </p>
+  <section class="hero container">
 
-      <p>7:26 PM</p>
+    <div class="eyebrow" id="heroDate">
+      October 27, 2026 · Day Trip
+    </div>
 
-      <p>
-        <strong>
-          <span data-lang="en">Arrival:</span>
-          <span data-lang="es">Llegada:</span>
-        </strong>
-        Firenze S. M. Novella
-      </p>
+    <h1 id="mainTitle">
+      Venice
+    </h1>
 
-      <p>9:39 PM</p>
+  </section>
+
+
+  <!-- ITINERARY -->
+
+  <section class="section container">
+
+    <div class="section-label" id="itineraryLabel">
+      Itinerary
+    </div>
+
+    <div class="section-title" id="itineraryTitle">
+      Venice
+    </div>
+
+
+    <!-- PONTE DELL'ACCADEMIA -->
+
+    <div class="day">
+
+      <div class="day-date">
+        1
+      </div>
+
+      <div class="day-title" id="bridgeTitle">
+        Ponte dell'Accademia
+      </div>
+
+      <div class="activity">
+
+        <div class="activity-note" id="bridgeNote">
+          Start the day with a walk across the bridge and views of the Grand Canal.
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=Ponte%20dell%27Accademia%2C%20Venice%2C%20Italy"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="bridgeAddress">
+
+          Ponte dell'Accademia<br>
+          Venice, Italy
+
+        </a>
+
+      </div>
 
     </div>
 
-  </div>
 
-  <div class="card">
+    <!-- ST MARK'S SQUARE -->
 
-    <h2>
-      <span data-lang="en">📍 Places to Visit</span>
-      <span data-lang="es">📍 Lugares para visitar</span>
-    </h2>
+    <div class="day">
 
-    <h3>1. Ponte dell'Accademia</h3>
+      <div class="day-date">
+        2
+      </div>
 
-    <p>
-      <span data-lang="en">Start the day here and enjoy the views of the Grand Canal.</span>
-      <span data-lang="es">Empiecen el día aquí y disfruten de las vistas del Gran Canal.</span>
-    </p>
+      <div class="day-title" id="squareTitle">
+        St. Mark's Square
+      </div>
 
-    <h3>2. St. Mark's Square</h3>
 
-    <p>
-      <span data-lang="en">Explore the square and the surrounding landmarks.</span>
-      <span data-lang="es">Recorran la plaza y los lugares importantes que la rodean.</span>
-    </p>
+      <!-- BASILICA -->
 
-    <h3>3. Basilica di San Marco</h3>
+      <div class="activity">
 
-    <p>
-      <span data-lang="en">Visit the Basilica of St. Mark.</span>
-      <span data-lang="es">Visiten la Basílica de San Marcos.</span>
-    </p>
+        <div class="activity-name" id="basilicaName">
+          Basilica di San Marco
+        </div>
 
-    <p>
-      San Marco 328<br>
-      30124 Venice<br>
-      Italy
-    </p>
+        <div class="activity-note" id="basilicaNote">
+          Visit the basilica in St. Mark's Square.
+        </div>
 
-    <h3>4. Doge's Palace</h3>
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=Basilica%20di%20San%20Marco%2C%20San%20Marco%20328%2C%20Venice%2C%20Italy"
+          target="_blank"
+          rel="noopener noreferrer">
 
-    <p>
-      <span data-lang="en">Visit the Doge's Palace next to St. Mark's Square.</span>
-      <span data-lang="es">Visiten el Palacio Ducal junto a la Plaza de San Marcos.</span>
-    </p>
+          San Marco 328<br>
+          Venice, Italy
 
-    <h3>5. Spritz 🍹</h3>
+        </a>
 
-    <p>
-      <span data-lang="en">Stop for a Spritz around St. Mark's Square.</span>
-      <span data-lang="es">Paren para tomar un Spritz por la zona de la Plaza de San Marcos.</span>
-    </p>
+      </div>
 
-    <h3>6. Suso Gelato 🍦</h3>
 
-    <p>
-      San Marco 5453<br>
-      Calle de la Bissa<br>
-      30124 Venice<br>
-      Italy
-    </p>
+      <!-- DOGE'S PALACE -->
 
-    <h3>7. Rialto Bridge</h3>
+      <div class="activity">
 
-    <p>
-      <span data-lang="en">Visit the famous Rialto Bridge.</span>
-      <span data-lang="es">Visiten el famoso Puente de Rialto.</span>
-    </p>
+        <div class="activity-name" id="dogeName">
+          Doge's Palace
+        </div>
 
-    <h3>8. Gondola Ride 🚣</h3>
+        <div class="activity-note" id="dogeNote">
+          Explore the palace in St. Mark's Square.
+        </div>
 
-    <p>
-      <span data-lang="en">Take a gondola ride through Venice.</span>
-      <span data-lang="es">Tomen un paseo en góndola por Venecia.</span>
-    </p>
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=Doge%27s%20Palace%2C%20Piazza%20San%20Marco%2C%20Venice%2C%20Italy"
+          target="_blank"
+          rel="noopener noreferrer">
 
-  </div>
+          Piazza San Marco<br>
+          Venice, Italy
 
-  <a class="back" href="index.html">
-    <span data-lang="en">← Back to Europe Trip</span>
-    <span data-lang="es">← Regresar al Viaje por Europa</span>
-  </a>
+        </a>
 
-</div>
+      </div>
 
-<script>
-  function setLanguage(lang) {
-    document.querySelectorAll('[data-lang]').forEach(el => {
-      el.style.display =
-        el.getAttribute('data-lang') === lang ? 'inline' : 'none';
-    });
-  }
 
-  setLanguage('en');
-</script>
+      <!-- SPRITZ -->
+
+      <div class="activity">
+
+        <div class="activity-name" id="spritzName">
+          Spritz
+        </div>
+
+        <div class="activity-note" id="spritzNote">
+          Stop for a Spritz here.
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- RIALTO -->
+
+    <div class="day">
+
+      <div class="day-date">
+        3
+      </div>
+
+      <div class="day-title" id="rialtoTitle">
+        Rialto Bridge
+      </div>
+
+      <div class="activity">
+
+        <div class="activity-note" id="rialtoNote">
+          Walk across the famous bridge and explore the area around Rialto.
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=Rialto%20Bridge%2C%20Venice%2C%20Italy"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Rialto Bridge<br>
+          Venice, Italy
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- SUSO -->
+
+    <div class="day">
+
+      <div class="day-date">
+        4
+      </div>
+
+      <div class="day-title">
+        Suso Gelato
+      </div>
+
+      <div class="activity">
+
+        <div class="activity-note" id="susoNote">
+          Gelato stop.
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?address=Sotoportego%20de%20la%20Bissa%2C%205453%2C%2030124%20Venice%2C%20Italy"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Sotoportego de la Bissa, 5453<br>
+          30124 Venice<br>
+          Italy
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- GONDOLA -->
+
+    <div class="day">
+
+      <div class="day-date">
+        5
+      </div>
+
+      <div class="day-title" id="gondolaTitle">
+        Gondola Ride
+      </div>
+
+      <div class="activity">
+
+        <div class="activity-note" id="gondolaNote">
+          Take a gondola ride through Venice.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer id="footer">
+    Europe Trip · Venice · 2026
+  </footer>
+
+
+  <script>
+
+    function setLanguage(language) {
+
+      const englishButton =
+        document.getElementById("englishButton");
+
+      const spanishButton =
+        document.getElementById("spanishButton");
+
+
+      if (language === "es") {
+
+        document.documentElement.lang = "es";
+
+        document.getElementById("backButton").textContent =
+          "← Volver al viaje";
+
+        document.getElementById("heroDate").textContent =
+          "27 de octubre de 2026 · Excursión de un día";
+
+        document.getElementById("mainTitle").textContent =
+          "Venecia";
+
+        document.getElementById("itineraryLabel").textContent =
+          "Itinerario";
+
+        document.getElementById("itineraryTitle").textContent =
+          "Venecia";
+
+        document.getElementById("bridgeTitle").textContent =
+          "Puente de la Academia";
+
+        document.getElementById("bridgeNote").textContent =
+          "Comenzar el día caminando por el puente y disfrutando las vistas del Gran Canal.";
+
+        document.getElementById("squareTitle").textContent =
+          "Plaza de San Marcos";
+
+        document.getElementById("basilicaName").textContent =
+          "Basílica de San Marcos";
+
+        document.getElementById("basilicaNote").textContent =
+          "Visitar la basílica en la Plaza de San Marcos.";
+
+        document.getElementById("dogeName").textContent =
+          "Palacio Ducal";
+
+        document.getElementById("dogeNote").textContent =
+          "Explorar el palacio en la Plaza de San Marcos.";
+
+        document.getElementById("spritzName").textContent =
+          "Spritz";
+
+        document.getElementById("spritzNote").textContent =
+          "Parar aquí para tomar un Spritz.";
+
+        document.getElementById("rialtoTitle").textContent =
+          "Puente de Rialto";
+
+        document.getElementById("rialtoNote").textContent =
+          "Caminar por el famoso puente y explorar la zona de Rialto.";
+
+        document.getElementById("susoNote").textContent =
+          "Parada para comer gelato.";
+
+        document.getElementById("gondolaTitle").textContent =
+          "Paseo en góndola";
+
+        document.getElementById("gondolaNote").textContent =
+          "Dar un paseo en góndola por Venecia.";
+
+        document.getElementById("footer").textContent =
+          "Viaje por Europa · Venecia · 2026";
+
+        englishButton.classList.remove("active");
+        spanishButton.classList.add("active");
+
+      } else {
+
+        document.documentElement.lang = "en";
+
+        document.getElementById("backButton").textContent =
+          "← Back to trip";
+
+        document.getElementById("heroDate").textContent =
+          "October 27, 2026 · Day Trip";
+
+        document.getElementById("mainTitle").textContent =
+          "Venice";
+
+        document.getElementById("itineraryLabel").textContent =
+          "Itinerary";
+
+        document.getElementById("itineraryTitle").textContent =
+          "Venice";
+
+        document.getElementById("bridgeTitle").textContent =
+          "Ponte dell'Accademia";
+
+        document.getElementById("bridgeNote").textContent =
+          "Start the day with a walk across the bridge and views of the Grand Canal.";
+
+        document.getElementById("squareTitle").textContent =
+          "St. Mark's Square";
+
+        document.getElementById("basilicaName").textContent =
+          "Basilica di San Marco";
+
+        document.getElementById("basilicaNote").textContent =
+          "Visit the basilica in St. Mark's Square.";
+
+        document.getElementById("dogeName").textContent =
+          "Doge's Palace";
+
+        document.getElementById("dogeNote").textContent =
+          "Explore the palace in St. Mark's Square.";
+
+        document.getElementById("spritzName").textContent =
+          "Spritz";
+
+        document.getElementById("spritzNote").textContent =
+          "Stop for a Spritz here.";
+
+        document.getElementById("rialtoTitle").textContent =
+          "Rialto Bridge";
+
+        document.getElementById("rialtoNote").textContent =
+          "Walk across the famous bridge and explore the area around Rialto.";
+
+        document.getElementById("susoNote").textContent =
+          "Gelato stop.";
+
+        document.getElementById("gondolaTitle").textContent =
+          "Gondola Ride";
+
+        document.getElementById("gondolaNote").textContent =
+          "Take a gondola ride through Venice.";
+
+        document.getElementById("footer").textContent =
+          "Europe Trip · Venice · 2026";
+
+        englishButton.classList.add("active");
+        spanishButton.classList.remove("active");
+
+      }
+
+    }
+
+  </script>
 
 </body>
 </html>
