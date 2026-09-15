@@ -159,7 +159,16 @@
       margin-bottom: 10px;
     }
 
-    .activity-address:hover {
+    .activity-link {
+      display: inline-block;
+      color: #8a7055;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-size: 13px;
+    }
+
+    .activity-address:hover,
+    .activity-link:hover {
       color: #333;
     }
 
@@ -244,26 +253,29 @@
 
     <div class="day">
 
-      <div class="day-date">
-        1
+      <div class="day-date" id="date1">
+        Tuesday · October 27
       </div>
 
-      <div class="day-title" id="bridgeTitle">
-        Ponte dell'Accademia
+      <div class="day-title" id="title1">
+        Venice
       </div>
 
       <div class="activity">
 
-        <div class="activity-note" id="bridgeNote">
-          Start the day with a walk across the bridge and views of the Grand Canal.
+        <div class="activity-name">
+          Ponte dell'Accademia
+        </div>
+
+        <div class="activity-note" id="accademiaNote">
+          Walk across the bridge and enjoy the views of the Grand Canal.
         </div>
 
         <a
           class="activity-address"
           href="https://maps.apple.com/?q=Ponte%20dell%27Accademia%2C%20Venice%2C%20Italy"
           target="_blank"
-          rel="noopener noreferrer"
-          id="bridgeAddress">
+          rel="noopener noreferrer">
 
           Ponte dell'Accademia<br>
           Venice, Italy
@@ -272,19 +284,30 @@
 
       </div>
 
-    </div>
 
+      <!-- ST MARK'S SQUARE -->
 
-    <!-- ST MARK'S SQUARE -->
+      <div class="activity">
 
-    <div class="day">
+        <div class="activity-name">
+          St. Mark's Square
+        </div>
 
-      <div class="day-date">
-        2
-      </div>
+        <div class="activity-note" id="squareNote">
+          Explore the square and visit the Basilica di San Marco and Doge's Palace.
+        </div>
 
-      <div class="day-title" id="squareTitle">
-        St. Mark's Square
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?q=Piazza%20San%20Marco%2C%20Venice%2C%20Italy"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Piazza San Marco<br>
+          Venice, Italy
+
+        </a>
+
       </div>
 
 
@@ -292,12 +315,12 @@
 
       <div class="activity">
 
-        <div class="activity-name" id="basilicaName">
+        <div class="activity-name">
           Basilica di San Marco
         </div>
 
         <div class="activity-note" id="basilicaNote">
-          Visit the basilica in St. Mark's Square.
+          Visit the basilica.
         </div>
 
         <a
@@ -318,12 +341,12 @@
 
       <div class="activity">
 
-        <div class="activity-name" id="dogeName">
+        <div class="activity-name">
           Doge's Palace
         </div>
 
         <div class="activity-note" id="dogeNote">
-          Explore the palace in St. Mark's Square.
+          Explore the palace.
         </div>
 
         <a
@@ -344,32 +367,24 @@
 
       <div class="activity">
 
-        <div class="activity-name" id="spritzName">
+        <div class="activity-name">
           Spritz
         </div>
 
         <div class="activity-note" id="spritzNote">
-          Stop for a Spritz here.
+          Stop here for a Spritz.
         </div>
 
       </div>
 
-    </div>
 
-
-    <!-- RIALTO -->
-
-    <div class="day">
-
-      <div class="day-date">
-        3
-      </div>
-
-      <div class="day-title" id="rialtoTitle">
-        Rialto Bridge
-      </div>
+      <!-- RIALTO -->
 
       <div class="activity">
+
+        <div class="activity-name">
+          Rialto Bridge
+        </div>
 
         <div class="activity-note" id="rialtoNote">
           Walk across the famous bridge and explore the area around Rialto.
@@ -388,22 +403,14 @@
 
       </div>
 
-    </div>
 
-
-    <!-- SUSO -->
-
-    <div class="day">
-
-      <div class="day-date">
-        4
-      </div>
-
-      <div class="day-title">
-        Suso Gelato
-      </div>
+      <!-- SUSO GELATO -->
 
       <div class="activity">
+
+        <div class="activity-name">
+          Suso Gelato
+        </div>
 
         <div class="activity-note" id="susoNote">
           Gelato stop.
@@ -411,34 +418,26 @@
 
         <a
           class="activity-address"
-          href="https://maps.apple.com/?address=Sotoportego%20de%20la%20Bissa%2C%205453%2C%2030124%20Venice%2C%20Italy"
+          href="https://maps.apple.com/?q=Suso%20Gelato%2C%20San%20Marco%205453%2C%20Venice%2C%20Italy"
           target="_blank"
           rel="noopener noreferrer">
 
-          Sotoportego de la Bissa, 5453<br>
-          30124 Venice<br>
-          Italy
+          San Marco 5453<br>
+          Calle de la Bissa<br>
+          30124 Venice, Italy
 
         </a>
 
       </div>
 
-    </div>
 
-
-    <!-- GONDOLA -->
-
-    <div class="day">
-
-      <div class="day-date">
-        5
-      </div>
-
-      <div class="day-title" id="gondolaTitle">
-        Gondola Ride
-      </div>
+      <!-- GONDOLA -->
 
       <div class="activity">
+
+        <div class="activity-name">
+          Gondola Ride
+        </div>
 
         <div class="activity-note" id="gondolaNote">
           Take a gondola ride through Venice.
@@ -486,44 +485,32 @@
         document.getElementById("itineraryTitle").textContent =
           "Venecia";
 
-        document.getElementById("bridgeTitle").textContent =
-          "Puente de la Academia";
+        document.getElementById("date1").textContent =
+          "Martes · 27 de octubre";
 
-        document.getElementById("bridgeNote").textContent =
-          "Comenzar el día caminando por el puente y disfrutando las vistas del Gran Canal.";
+        document.getElementById("title1").textContent =
+          "Venecia";
 
-        document.getElementById("squareTitle").textContent =
-          "Plaza de San Marcos";
+        document.getElementById("accademiaNote").textContent =
+          "Caminar por el puente y disfrutar las vistas del Gran Canal.";
 
-        document.getElementById("basilicaName").textContent =
-          "Basílica de San Marcos";
+        document.getElementById("squareNote").textContent =
+          "Explorar la plaza y visitar la Basílica de San Marcos y el Palacio Ducal.";
 
         document.getElementById("basilicaNote").textContent =
-          "Visitar la basílica en la Plaza de San Marcos.";
-
-        document.getElementById("dogeName").textContent =
-          "Palacio Ducal";
+          "Visitar la basílica.";
 
         document.getElementById("dogeNote").textContent =
-          "Explorar el palacio en la Plaza de San Marcos.";
-
-        document.getElementById("spritzName").textContent =
-          "Spritz";
+          "Explorar el palacio.";
 
         document.getElementById("spritzNote").textContent =
           "Parar aquí para tomar un Spritz.";
-
-        document.getElementById("rialtoTitle").textContent =
-          "Puente de Rialto";
 
         document.getElementById("rialtoNote").textContent =
           "Caminar por el famoso puente y explorar la zona de Rialto.";
 
         document.getElementById("susoNote").textContent =
           "Parada para comer gelato.";
-
-        document.getElementById("gondolaTitle").textContent =
-          "Paseo en góndola";
 
         document.getElementById("gondolaNote").textContent =
           "Dar un paseo en góndola por Venecia.";
@@ -553,44 +540,32 @@
         document.getElementById("itineraryTitle").textContent =
           "Venice";
 
-        document.getElementById("bridgeTitle").textContent =
-          "Ponte dell'Accademia";
+        document.getElementById("date1").textContent =
+          "Tuesday · October 27";
 
-        document.getElementById("bridgeNote").textContent =
-          "Start the day with a walk across the bridge and views of the Grand Canal.";
+        document.getElementById("title1").textContent =
+          "Venice";
 
-        document.getElementById("squareTitle").textContent =
-          "St. Mark's Square";
+        document.getElementById("accademiaNote").textContent =
+          "Walk across the bridge and enjoy the views of the Grand Canal.";
 
-        document.getElementById("basilicaName").textContent =
-          "Basilica di San Marco";
+        document.getElementById("squareNote").textContent =
+          "Explore the square and visit the Basilica di San Marco and Doge's Palace.";
 
         document.getElementById("basilicaNote").textContent =
-          "Visit the basilica in St. Mark's Square.";
-
-        document.getElementById("dogeName").textContent =
-          "Doge's Palace";
+          "Visit the basilica.";
 
         document.getElementById("dogeNote").textContent =
-          "Explore the palace in St. Mark's Square.";
-
-        document.getElementById("spritzName").textContent =
-          "Spritz";
+          "Explore the palace.";
 
         document.getElementById("spritzNote").textContent =
-          "Stop for a Spritz here.";
-
-        document.getElementById("rialtoTitle").textContent =
-          "Rialto Bridge";
+          "Stop here for a Spritz.";
 
         document.getElementById("rialtoNote").textContent =
           "Walk across the famous bridge and explore the area around Rialto.";
 
         document.getElementById("susoNote").textContent =
           "Gelato stop.";
-
-        document.getElementById("gondolaTitle").textContent =
-          "Gondola Ride";
 
         document.getElementById("gondolaNote").textContent =
           "Take a gondola ride through Venice.";
