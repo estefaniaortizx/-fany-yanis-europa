@@ -6,577 +6,227 @@
   <title>Madrid</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f8f6f2;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff7ed;
       color: #333;
-      line-height: 1.6;
     }
 
-    .container {
-      width: min(1000px, calc(100% - 40px));
-      margin: auto;
+    header {
+      background: linear-gradient(135deg, #e63946, #f4a261);
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
     }
 
-    nav {
-      height: 75px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    header h1 {
+      margin: 0;
+      font-size: 38px;
     }
 
-    .back {
-      color: #333;
-      text-decoration: none;
-      font-size: 14px;
+    header p {
+      margin: 10px 0 0;
+      font-size: 18px;
     }
 
     .language {
-      display: flex;
-      align-items: center;
-      gap: 5px;
+      margin-top: 20px;
     }
 
-    .language button {
+    button {
       border: none;
-      background: transparent;
-      color: #999;
+      padding: 9px 14px;
+      margin: 3px;
+      border-radius: 20px;
       cursor: pointer;
-      font-size: 13px;
-      padding: 5px;
+      font-weight: bold;
     }
 
-    .language button.active {
-      color: #333;
-      font-weight: 700;
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 25px 18px;
     }
 
-    .hero {
-      text-align: center;
-      padding: 65px 20px 55px;
-    }
-
-    .eyebrow {
-      color: #8a7055;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(52px, 9vw, 82px);
-      font-weight: 500;
-      letter-spacing: -3px;
-      line-height: 1;
-    }
-
-    .section {
-      margin-bottom: 50px;
-    }
-
-    .section-label {
-      color: #8a7055;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-family: Georgia, serif;
-      font-size: 34px;
-      font-weight: 500;
-      margin-bottom: 25px;
-    }
-
-    /* HOTEL */
-
-    .hotel-card {
+    .card {
       background: white;
-      border: 1px solid #e5dfd7;
       border-radius: 18px;
-      padding: 25px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     }
 
-    .hotel-name {
-      font-family: Georgia, serif;
-      font-size: 27px;
-      margin-bottom: 12px;
+    h2 {
+      color: #d62828;
+      margin-top: 0;
     }
 
-    .hotel-address {
-      display: block;
-      color: #8a7055;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      font-size: 14px;
-      margin-bottom: 10px;
-      white-space: pre-line;
+    h3 {
+      color: #e76f51;
     }
 
-    .hotel-note {
-      color: #888;
-      font-size: 13px;
-      margin-top: 15px;
+    .date {
+      font-weight: bold;
+      font-size: 19px;
+      color: #d62828;
+      margin-top: 20px;
     }
 
-    /* FLIGHT */
-
-    .flight-card {
-      background: white;
-      border: 1px solid #e5dfd7;
-      border-radius: 18px;
-      padding: 25px;
+    .confirmed {
+      background: #fff0f0;
+      border-left: 5px solid #d62828;
+      padding: 15px;
+      border-radius: 10px;
     }
 
-    .flight-date {
-      color: #8a7055;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
+    a {
+      color: #c1121f;
+      text-decoration: none;
     }
 
-    .flight-route {
-      font-family: Georgia, serif;
-      font-size: 27px;
-      margin-bottom: 8px;
+    .back {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 18px;
+      background: #d62828;
+      color: white;
+      border-radius: 10px;
     }
 
-    .flight-time {
-      font-size: 15px;
-      margin-bottom: 8px;
-    }
-
-    .flight-details {
-      color: #777;
-      font-size: 13px;
-    }
-
-    /* ITINERARY */
-
-    .day {
-      background: white;
-      border: 1px solid #e5dfd7;
-      border-radius: 18px;
-      padding: 25px;
-      margin-bottom: 15px;
-    }
-
-    .day-date {
-      color: #8a7055;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .day-title {
-      font-family: Georgia, serif;
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-
-    .activity {
-      border-top: 1px solid #eee;
-      padding: 15px 0;
-    }
-
-    .activity:first-of-type {
-      border-top: none;
-    }
-
-    .activity-time {
-      color: #8a7055;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .activity-name {
-      font-family: Georgia, serif;
-      font-size: 20px;
-      margin-bottom: 6px;
-    }
-
-    .activity-note {
-      color: #777;
-      font-size: 13px;
-      margin: 6px 0 10px;
-    }
-
-    .activity-address {
-      display: block;
-      color: #8a7055;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      font-size: 13px;
-      margin-bottom: 10px;
-      white-space: pre-line;
-    }
-
-    .activity-address:hover,
-    .hotel-address:hover {
-      color: #333;
-    }
-
-    footer {
-      border-top: 1px solid #e3ded7;
-      color: #999;
-      font-size: 13px;
-      padding: 30px;
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    @media (max-width: 650px) {
-      .hero {
-        padding-top: 45px;
-      }
-
-      .hero h1 {
-        letter-spacing: -2px;
-      }
+    [data-lang="es"] {
+      display: none;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
+<header>
+  <h1>
+    <span data-lang="en">🇪🇸 Madrid</span>
+    <span data-lang="es">🇪🇸 Madrid</span>
+  </h1>
 
-  <nav class="container">
+  <p>
+    <span data-lang="en">October 31 – November 2, 2026</span>
+    <span data-lang="es">31 de octubre – 2 de noviembre de 2026</span>
+  </p>
 
-    <a href="index.html" class="back" id="backButton">
-      ← Back to trip
-    </a>
+  <div class="language">
+    <button onclick="setLanguage('en')">🇺🇸 English</button>
+    <button onclick="setLanguage('es')">🇲🇽 Español</button>
+  </div>
+</header>
 
-    <div class="language">
+<div class="container">
 
-      <button
-        id="englishButton"
-        class="active"
-        onclick="setLanguage('en')">
-        🇺🇸 English
-      </button>
+  <div class="card">
+    <h2>
+      <span data-lang="en">🏨 Hotel</span>
+      <span data-lang="es">🏨 Hotel</span>
+    </h2>
 
-      <span>|</span>
+    <p><strong>NYX Hotel Madrid by Leonardo Hotels</strong></p>
 
-      <button
-        id="spanishButton"
-        onclick="setLanguage('es')">
-        🇲🇽 Español
-      </button>
-
-    </div>
-
-  </nav>
-
-
-  <!-- HERO -->
-
-  <section class="hero container">
-
-    <div class="eyebrow" id="dates">
-      October 30 – November 2, 2026
-    </div>
-
-    <h1 id="mainTitle">
-      Madrid
-    </h1>
-
-  </section>
-
-
-  <!-- HOTEL -->
-
-  <section class="section container">
-
-    <div class="section-label" id="hotelLabel">
-      Where We're Staying
-    </div>
-
-    <div class="section-title" id="hotelTitle">
-      Our Hotel
-    </div>
-
-    <div class="hotel-card">
-
-      <div class="hotel-name">
-        NYX Hotel Madrid by Leonardo Hotels
-      </div>
-
-      <a
-        class="hotel-address"
-        href="https://maps.apple.com/?address=Calle%20del%20Aviador%20Zorita%2C%2034%2C%2028020%20Madrid%2C%20Spain"
-        target="_blank"
-        rel="noopener noreferrer">
-
+    <p>
+      <a href="https://maps.apple.com/?address=Calle%20del%20Aviador%20Zorita%2034,%20280020%20Madrid,%20Spain" target="_blank">
         Calle del Aviador Zorita, 34<br>
         28020 Madrid<br>
         Spain
-
       </a>
+    </p>
+  </div>
 
-      <div class="hotel-note" id="hotelNote">
-        Click the address to open it in Apple Maps.
-      </div>
+  <div class="card">
+    <h2>
+      <span data-lang="en">📅 Itinerary</span>
+      <span data-lang="es">📅 Itinerario</span>
+    </h2>
 
+    <div class="date">
+      <span data-lang="en">Saturday, October 31</span>
+      <span data-lang="es">Sábado 31 de octubre</span>
     </div>
 
-  </section>
+    <h3>
+      <span data-lang="en">Madrid arrival</span>
+      <span data-lang="es">Llegada a Madrid</span>
+    </h3>
 
-
-  <!-- FLIGHT -->
-
-  <section class="section container">
-
-    <div class="section-label" id="flightLabel">
-      Transportation
+    <div class="date">
+      <span data-lang="en">Sunday, November 1</span>
+      <span data-lang="es">Domingo 1 de noviembre</span>
     </div>
 
-    <div class="section-title" id="flightTitle">
-      Flight to Madrid
-    </div>
+    <div class="confirmed">
+      <h3>
+        <span data-lang="en">⚽ Classic Tour Bernabéu</span>
+        <span data-lang="es">⚽ Classic Tour Bernabéu</span>
+      </h3>
 
-    <div class="flight-card">
+      <p>
+        <strong>
+          <span data-lang="en">November 1, 2026 · 10:30 AM</span>
+          <span data-lang="es">1 de noviembre de 2026 · 10:30 AM</span>
+        </strong>
+      </p>
 
-      <div class="flight-date">
-        Saturday · October 31
-      </div>
+      <p>
+        <span data-lang="en">Confirmed ticket.</span>
+        <span data-lang="es">Entrada confirmada.</span>
+      </p>
 
-      <div class="flight-route">
-        Rome (FCO) → Madrid (MAD)
-      </div>
-
-      <div class="flight-time">
-        8:20 AM – 10:50 AM
-      </div>
-
-      <div class="flight-details">
-        Direct · 2h 30m · Economy<br>
-        ITA Airways · AZ58
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ITINERARY -->
-
-  <section class="section container">
-
-    <div class="section-label" id="itineraryLabel">
-      Itinerary
-    </div>
-
-    <div class="section-title" id="itineraryTitle">
-      Madrid
-    </div>
-
-
-    <!-- OCTOBER 30 -->
-
-    <div class="day">
-
-      <div class="day-date">
-        Friday · October 30
-      </div>
-
-      <div class="day-title">
-        Madrid
-      </div>
-
-    </div>
-
-
-    <!-- OCTOBER 31 -->
-
-    <div class="day">
-
-      <div class="day-date">
-        Saturday · October 31
-      </div>
-
-      <div class="day-title">
-        Madrid
-      </div>
-
-
-      <!-- REAL MADRID STADIUM -->
-
-      <div class="activity">
-
-        <div class="activity-name">
-          Real Madrid Stadium
-        </div>
-
-        <div class="activity-note" id="stadiumNote">
-          Date & time TBD
-        </div>
-
-        <a
-          class="activity-address"
-          href="https://maps.apple.com/?address=Avenida%20de%20Concha%20Espina%2C%201%2C%2028036%20Madrid%2C%20Spain"
-          target="_blank"
-          rel="noopener noreferrer">
-
+      <p>
+        <a href="https://maps.apple.com/?address=Avenida%20de%20Concha%20Espina%201,%2028036%20Madrid,%20Spain" target="_blank">
           Avenida de Concha Espina, 1<br>
           28036 Madrid<br>
           Spain
-
         </a>
-
-      </div>
-
+      </p>
     </div>
 
+    <h3>
+      <span data-lang="en">Possible places</span>
+      <span data-lang="es">Lugares posibles</span>
+    </h3>
 
-    <!-- NOVEMBER 1 -->
+    <p>
+      <strong>Divorare</strong><br>
+      <a href="https://maps.apple.com/?address=Calle%20de%20Augusto%20Figueroa%2020,%2028004%20Madrid,%20Spain" target="_blank">
+        Calle de Augusto Figueroa, 20<br>
+        28004 Madrid<br>
+        Spain
+      </a>
+    </p>
 
-    <div class="day">
-
-      <div class="day-date">
-        Sunday · November 1
-      </div>
-
-      <div class="day-title">
-        Madrid
-      </div>
-
+    <div class="date">
+      <span data-lang="en">Monday, November 2</span>
+      <span data-lang="es">Lunes 2 de noviembre</span>
     </div>
 
+    <h3>
+      <span data-lang="en">Departure from Madrid</span>
+      <span data-lang="es">Salida de Madrid</span>
+    </h3>
+  </div>
 
-    <!-- NOVEMBER 2 -->
+  <a class="back" href="index.html">
+    <span data-lang="en">← Back to Europe Trip</span>
+    <span data-lang="es">← Regresar al Viaje por Europa</span>
+  </a>
 
-    <div class="day">
+</div>
 
-      <div class="day-date">
-        Monday · November 2
-      </div>
+<script>
+  function setLanguage(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display = el.getAttribute('data-lang') === lang ? 'inline' : 'none';
+    });
+  }
 
-      <div class="day-title">
-        Departure
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <footer id="footer">
-    Europe Trip · Madrid · 2026
-  </footer>
-
-
-  <script>
-
-    function setLanguage(language) {
-
-      const englishButton =
-        document.getElementById("englishButton");
-
-      const spanishButton =
-        document.getElementById("spanishButton");
-
-      if (language === "es") {
-
-        document.documentElement.lang = "es";
-
-        document.getElementById("backButton").textContent =
-          "← Volver al viaje";
-
-        document.getElementById("dates").textContent =
-          "30 de octubre – 2 de noviembre de 2026";
-
-        document.getElementById("hotelLabel").textContent =
-          "Dónde nos hospedamos";
-
-        document.getElementById("hotelTitle").textContent =
-          "Nuestro hotel";
-
-        document.getElementById("hotelNote").textContent =
-          "Haz clic en la dirección para abrirla en Apple Maps.";
-
-        document.getElementById("flightLabel").textContent =
-          "Transporte";
-
-        document.getElementById("flightTitle").textContent =
-          "Vuelo a Madrid";
-
-        document.getElementById("itineraryLabel").textContent =
-          "Itinerario";
-
-        document.getElementById("itineraryTitle").textContent =
-          "Madrid";
-
-        document.getElementById("stadiumNote").textContent =
-          "Fecha y hora por confirmar";
-
-        document.getElementById("footer").textContent =
-          "Viaje por Europa · Madrid · 2026";
-
-        englishButton.classList.remove("active");
-        spanishButton.classList.add("active");
-
-      } else {
-
-        document.documentElement.lang = "en";
-
-        document.getElementById("backButton").textContent =
-          "← Back to trip";
-
-        document.getElementById("dates").textContent =
-          "October 30 – November 2, 2026";
-
-        document.getElementById("hotelLabel").textContent =
-          "Where We're Staying";
-
-        document.getElementById("hotelTitle").textContent =
-          "Our Hotel";
-
-        document.getElementById("hotelNote").textContent =
-          "Click the address to open it in Apple Maps.";
-
-        document.getElementById("flightLabel").textContent =
-          "Transportation";
-
-        document.getElementById("flightTitle").textContent =
-          "Flight to Madrid";
-
-        document.getElementById("itineraryLabel").textContent =
-          "Itinerary";
-
-        document.getElementById("itineraryTitle").textContent =
-          "Madrid";
-
-        document.getElementById("stadiumNote").textContent =
-          "Date & time TBD";
-
-        document.getElementById("footer").textContent =
-          "Europe Trip · Madrid · 2026";
-
-        englishButton.classList.add("active");
-        spanishButton.classList.remove("active");
-
-      }
-
-    }
-
-  </script>
+  setLanguage('en');
+</script>
 
 </body>
 </html>
