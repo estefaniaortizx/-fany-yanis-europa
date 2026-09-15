@@ -3,436 +3,271 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Venice</title>
 
   <style>
-    * {
-      box-sizing: border-box;
+    body {
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #eaf8f6;
+      color: #333;
     }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f8f6f2;
-      color: #333;
-      line-height: 1.6;
+    header {
+      background: linear-gradient(135deg, #008c95, #00b4d8);
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 38px;
+    }
+
+    button {
+      border: none;
+      padding: 9px 14px;
+      margin: 3px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
     .container {
-      width: min(1000px, calc(100% - 40px));
+      max-width: 900px;
       margin: auto;
+      padding: 25px 18px;
     }
 
-    nav {
-      height: 75px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .back {
-      color: #333;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .language {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .language button {
-      border: none;
-      background: transparent;
-      color: #999;
-      cursor: pointer;
-      font-size: 13px;
-      padding: 5px;
-    }
-
-    .language button.active {
-      color: #333;
-      font-weight: 700;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 65px 20px 55px;
-    }
-
-    .eyebrow {
-      color: #8a7055;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(52px, 9vw, 82px);
-      font-weight: 500;
-      letter-spacing: -3px;
-      line-height: 1;
-    }
-
-    .section {
-      margin-bottom: 50px;
-    }
-
-    .section-label {
-      color: #8a7055;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-family: Georgia, serif;
-      font-size: 34px;
-      font-weight: 500;
-      margin-bottom: 25px;
-    }
-
-    .day {
+    .card {
       background: white;
-      border: 1px solid #e5dfd7;
       border-radius: 18px;
-      padding: 25px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #0077b6;
+    }
+
+    h3 {
+      color: #0096c7;
+    }
+
+    .date {
+      font-weight: bold;
+      font-size: 19px;
+      color: #0077b6;
+      margin-top: 25px;
+    }
+
+    .confirmed {
+      background: #edfafa;
+      border-left: 5px solid #0096c7;
+      padding: 15px;
+      border-radius: 10px;
       margin-bottom: 15px;
     }
 
-    .day-date {
-      color: #8a7055;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .day-title {
-      font-family: Georgia, serif;
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-
-    .activity {
-      border-top: 1px solid #eee;
-      padding: 16px 0;
-    }
-
-    .activity:first-of-type {
-      border-top: none;
-    }
-
-    .activity-name {
-      font-family: Georgia, serif;
-      font-size: 20px;
-      margin-bottom: 6px;
-    }
-
-    .activity-note {
-      color: #777;
-      font-size: 13px;
-      margin: 5px 0;
-    }
-
-    .activity-address {
-      display: block;
-      color: #8a7055;
-      font-size: 13px;
-      margin-top: 9px;
+    a {
+      color: #0077b6;
       text-decoration: none;
-      line-height: 1.6;
     }
 
-    footer {
-      border-top: 1px solid #e3ded7;
-      color: #999;
-      font-size: 13px;
-      padding: 30px;
-      text-align: center;
-      margin-top: 30px;
+    .back {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 18px;
+      background: #008c95;
+      color: white;
+      border-radius: 10px;
     }
 
-    @media (max-width: 650px) {
-      .hero {
-        padding-top: 45px;
-      }
-
-      .hero h1 {
-        letter-spacing: -2px;
-      }
+    [data-lang="es"] {
+      display: none;
     }
   </style>
 </head>
 
 <body>
 
-  <nav class="container">
+<header>
 
-    <a href="index.html" class="back" id="backButton">
-      ← Back to trip
-    </a>
+  <h1>🇮🇹 Venice / Venecia</h1>
 
-    <div class="language">
-      <button id="englishButton" class="active" onclick="setLanguage('en')">
-        🇺🇸 English
-      </button>
+  <p>
+    <span data-lang="en">Day Trip · October 27, 2026</span>
+    <span data-lang="es">Excursión de un día · 27 de octubre de 2026</span>
+  </p>
 
-      <span>|</span>
+  <button onclick="setLanguage('en')">🇺🇸 English</button>
+  <button onclick="setLanguage('es')">🇲🇽 Español</button>
 
-      <button id="spanishButton" onclick="setLanguage('es')">
-        🇲🇽 Español
-      </button>
-    </div>
+</header>
 
-  </nav>
+<div class="container">
 
+  <div class="card">
 
-  <section class="hero container">
+    <h2>
+      <span data-lang="en">🚆 Florence → Venice</span>
+      <span data-lang="es">🚆 Florencia → Venecia</span>
+    </h2>
 
-    <div class="eyebrow" id="tripType">
-      Day Trip from Florence
-    </div>
+    <div class="confirmed">
 
-    <h1 id="cityName">
-      Venice
-    </h1>
+      <p>
+        <strong>
+          <span data-lang="en">Tuesday, October 27, 2026</span>
+          <span data-lang="es">Martes 27 de octubre de 2026</span>
+        </strong>
+      </p>
 
-  </section>
+      <p>
+        <strong>
+          <span data-lang="en">Departure:</span>
+          <span data-lang="es">Salida:</span>
+        </strong>
+        Firenze S. M. Novella
+      </p>
 
+      <p>7:20 AM</p>
 
-  <section class="section container">
+      <p>
+        <strong>
+          <span data-lang="en">Arrival:</span>
+          <span data-lang="es">Llegada:</span>
+        </strong>
+        Venezia S. Lucia
+      </p>
 
-    <div class="section-label" id="tripLabel">
-      Transportation
-    </div>
-
-    <div class="section-title" id="tripTitle">
-      Florence → Venice
-    </div>
-
-    <div class="day">
-
-      <div class="day-date" id="trainDate">
-        Train · Date TBD
-      </div>
-
-      <div class="day-title" id="trainTitle">
-        Florence to Venice
-      </div>
-
-      <div class="activity">
-
-        <div class="activity-name" id="trainName">
-          Train
-        </div>
-
-        <div class="activity-note" id="trainNote">
-          Train has not been booked yet · Time TBD
-        </div>
-
-      </div>
+      <p>9:34 AM</p>
 
     </div>
 
-  </section>
+    <h2>
+      <span data-lang="en">🌙 Venice → Florence</span>
+      <span data-lang="es">🌙 Venecia → Florencia</span>
+    </h2>
 
+    <div class="confirmed">
 
-  <section class="section container">
+      <p>
+        <strong>
+          <span data-lang="en">Departure:</span>
+          <span data-lang="es">Salida:</span>
+        </strong>
+        Venezia S. Lucia
+      </p>
 
-    <div class="section-label" id="itineraryLabel">
-      Itinerary
-    </div>
+      <p>7:26 PM</p>
 
-    <div class="section-title" id="itineraryTitle">
-      Places to Visit
-    </div>
+      <p>
+        <strong>
+          <span data-lang="en">Arrival:</span>
+          <span data-lang="es">Llegada:</span>
+        </strong>
+        Firenze S. M. Novella
+      </p>
 
-
-    <div class="day">
-
-      <div class="activity">
-
-        <div class="activity-name">
-          Rialto Bridge
-        </div>
-
-        <div class="activity-note" id="rialtoNote">
-          Date & time TBD
-        </div>
-
-      </div>
-
-
-      <div class="activity">
-
-        <div class="activity-name">
-          Ponte dell'Accademia
-        </div>
-
-        <div class="activity-note" id="accademiaNote">
-          Date & time TBD
-        </div>
-
-      </div>
-
-
-      <div class="activity">
-
-        <div class="activity-name">
-          Suso Gelato
-        </div>
-
-        <div class="activity-note" id="susoNote">
-          Date & time TBD
-        </div>
-
-        <div class="activity-address">
-          San Marco 5453<br>
-          Calle de la Bissa<br>
-          30124 Venice<br>
-          Italy
-        </div>
-
-      </div>
+      <p>9:39 PM</p>
 
     </div>
 
-  </section>
+  </div>
 
+  <div class="card">
 
-  <footer id="footer">
-    Europe Trip · Venice · 2026
-  </footer>
+    <h2>
+      <span data-lang="en">📍 Places to Visit</span>
+      <span data-lang="es">📍 Lugares para visitar</span>
+    </h2>
 
+    <h3>1. Ponte dell'Accademia</h3>
 
-  <script>
+    <p>
+      <span data-lang="en">Start the day here and enjoy the views of the Grand Canal.</span>
+      <span data-lang="es">Empiecen el día aquí y disfruten de las vistas del Gran Canal.</span>
+    </p>
 
-    function setLanguage(language) {
+    <h3>2. St. Mark's Square</h3>
 
-      const englishButton = document.getElementById("englishButton");
-      const spanishButton = document.getElementById("spanishButton");
+    <p>
+      <span data-lang="en">Explore the square and the surrounding landmarks.</span>
+      <span data-lang="es">Recorran la plaza y los lugares importantes que la rodean.</span>
+    </p>
 
-      if (language === "es") {
+    <h3>3. Basilica di San Marco</h3>
 
-        document.documentElement.lang = "es";
-        document.title = "Venecia";
+    <p>
+      <span data-lang="en">Visit the Basilica of St. Mark.</span>
+      <span data-lang="es">Visiten la Basílica de San Marcos.</span>
+    </p>
 
-        document.getElementById("backButton").textContent =
-          "← Volver al viaje";
+    <p>
+      San Marco 328<br>
+      30124 Venice<br>
+      Italy
+    </p>
 
-        document.getElementById("tripType").textContent =
-          "Excursión de un día desde Florencia";
+    <h3>4. Doge's Palace</h3>
 
-        document.getElementById("cityName").textContent =
-          "Venecia";
+    <p>
+      <span data-lang="en">Visit the Doge's Palace next to St. Mark's Square.</span>
+      <span data-lang="es">Visiten el Palacio Ducal junto a la Plaza de San Marcos.</span>
+    </p>
 
-        document.getElementById("tripLabel").textContent =
-          "Transporte";
+    <h3>5. Spritz 🍹</h3>
 
-        document.getElementById("tripTitle").textContent =
-          "Florencia → Venecia";
+    <p>
+      <span data-lang="en">Stop for a Spritz around St. Mark's Square.</span>
+      <span data-lang="es">Paren para tomar un Spritz por la zona de la Plaza de San Marcos.</span>
+    </p>
 
-        document.getElementById("trainDate").textContent =
-          "Tren · Fecha por confirmar";
+    <h3>6. Suso Gelato 🍦</h3>
 
-        document.getElementById("trainTitle").textContent =
-          "Florencia a Venecia";
+    <p>
+      San Marco 5453<br>
+      Calle de la Bissa<br>
+      30124 Venice<br>
+      Italy
+    </p>
 
-        document.getElementById("trainName").textContent =
-          "Tren";
+    <h3>7. Rialto Bridge</h3>
 
-        document.getElementById("trainNote").textContent =
-          "El tren todavía no está reservado · Hora por confirmar";
+    <p>
+      <span data-lang="en">Visit the famous Rialto Bridge.</span>
+      <span data-lang="es">Visiten el famoso Puente de Rialto.</span>
+    </p>
 
-        document.getElementById("itineraryLabel").textContent =
-          "Itinerario";
+    <h3>8. Gondola Ride 🚣</h3>
 
-        document.getElementById("itineraryTitle").textContent =
-          "Lugares para visitar";
+    <p>
+      <span data-lang="en">Take a gondola ride through Venice.</span>
+      <span data-lang="es">Tomen un paseo en góndola por Venecia.</span>
+    </p>
 
-        document.getElementById("rialtoNote").textContent =
-          "Fecha y hora por confirmar";
+  </div>
 
-        document.getElementById("accademiaNote").textContent =
-          "Fecha y hora por confirmar";
+  <a class="back" href="index.html">
+    <span data-lang="en">← Back to Europe Trip</span>
+    <span data-lang="es">← Regresar al Viaje por Europa</span>
+  </a>
 
-        document.getElementById("susoNote").textContent =
-          "Fecha y hora por confirmar";
+</div>
 
-        document.getElementById("footer").textContent =
-          "Viaje por Europa · Venecia · 2026";
+<script>
+  function setLanguage(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display =
+        el.getAttribute('data-lang') === lang ? 'inline' : 'none';
+    });
+  }
 
-        englishButton.classList.remove("active");
-        spanishButton.classList.add("active");
-
-      } else {
-
-        document.documentElement.lang = "en";
-        document.title = "Venice";
-
-        document.getElementById("backButton").textContent =
-          "← Back to trip";
-
-        document.getElementById("tripType").textContent =
-          "Day Trip from Florence";
-
-        document.getElementById("cityName").textContent =
-          "Venice";
-
-        document.getElementById("tripLabel").textContent =
-          "Transportation";
-
-        document.getElementById("tripTitle").textContent =
-          "Florence → Venice";
-
-        document.getElementById("trainDate").textContent =
-          "Train · Date TBD";
-
-        document.getElementById("trainTitle").textContent =
-          "Florence to Venice";
-
-        document.getElementById("trainName").textContent =
-          "Train";
-
-        document.getElementById("trainNote").textContent =
-          "Train has not been booked yet · Time TBD";
-
-        document.getElementById("itineraryLabel").textContent =
-          "Itinerary";
-
-        document.getElementById("itineraryTitle").textContent =
-          "Places to Visit";
-
-        document.getElementById("rialtoNote").textContent =
-          "Date & time TBD";
-
-        document.getElementById("accademiaNote").textContent =
-          "Date & time TBD";
-
-        document.getElementById("susoNote").textContent =
-          "Date & time TBD";
-
-        document.getElementById("footer").textContent =
-          "Europe Trip · Venice · 2026";
-
-        englishButton.classList.add("active");
-        spanishButton.classList.remove("active");
-
-      }
-
-    }
-
-  </script>
+  setLanguage('en');
+</script>
 
 </body>
 </html>
