@@ -6,341 +6,619 @@
   <title>Florence</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff8e7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8f6f2;
       color: #333;
-    }
-
-    header {
-      background: linear-gradient(135deg, #e76f51, #f4a261);
-      color: white;
-      text-align: center;
-      padding: 35px 20px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 38px;
-    }
-
-    header p {
-      font-size: 18px;
-      margin: 10px 0 20px;
-    }
-
-    button {
-      border: none;
-      padding: 9px 14px;
-      margin: 3px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
+      line-height: 1.6;
     }
 
     .container {
-      max-width: 900px;
+      width: min(1000px, calc(100% - 40px));
       margin: auto;
-      padding: 25px 18px;
     }
 
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 22px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-
-    h2 {
-      color: #9c4221;
-      margin-top: 0;
-    }
-
-    h3 {
-      color: #e76f51;
-      margin-bottom: 8px;
-    }
-
-    .date {
-      font-weight: bold;
-      font-size: 19px;
-      color: #9c4221;
-      margin-top: 25px;
-      margin-bottom: 12px;
-    }
-
-    .confirmed {
-      background: #fff2df;
-      border-left: 5px solid #e76f51;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .possible {
-      background: #fffaf2;
-      border-left: 5px solid #f4a261;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    a {
-      color: #9c4221;
-      text-decoration: none;
+    nav {
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .back {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 12px 18px;
-      background: #e76f51;
-      color: white;
-      border-radius: 10px;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
     }
 
-    [data-lang="es"] {
-      display: none;
+    .language {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .language button {
+      border: none;
+      background: transparent;
+      color: #999;
+      cursor: pointer;
+      font-size: 13px;
+      padding: 5px;
+    }
+
+    .language button.active {
+      color: #333;
+      font-weight: 700;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 65px 20px 55px;
+    }
+
+    .eyebrow {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(52px, 9vw, 82px);
+      font-weight: 500;
+      letter-spacing: -3px;
+      line-height: 1;
+    }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .section-label {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: 34px;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .hotel-card {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 18px;
+      padding: 25px;
+    }
+
+    .hotel-name {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+
+    .hotel-address {
+      display: block;
+      color: #8a7055;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .hotel-note {
+      color: #888;
+      font-size: 13px;
+      margin-top: 15px;
+    }
+
+    .day {
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 15px;
+    }
+
+    .day-date {
+      color: #8a7055;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .day-title {
+      font-family: Georgia, serif;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .activity {
+      border-top: 1px solid #eee;
+      padding: 15px 0;
+    }
+
+    .activity:first-of-type {
+      border-top: none;
+    }
+
+    .activity-time {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .activity-name {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .activity-note {
+      color: #777;
+      font-size: 13px;
+      margin: 6px 0 10px;
+    }
+
+    .activity-address {
+      display: block;
+      color: #8a7055;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .activity-link {
+      display: inline-block;
+      color: #8a7055;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-size: 13px;
+    }
+
+    .activity-address:hover,
+    .activity-link:hover,
+    .hotel-address:hover {
+      color: #333;
+    }
+
+    footer {
+      border-top: 1px solid #e3ded7;
+      color: #999;
+      font-size: 13px;
+      padding: 30px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 650px) {
+      .hero {
+        padding-top: 45px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
+  <nav class="container">
 
-  <h1>🇮🇹 Florence / Florencia</h1>
+    <a href="index.html" class="back" id="backButton">
+      ← Back to trip
+    </a>
 
-  <p>
-    <span data-lang="en">October 26 – 29, 2026</span>
-    <span data-lang="es">26 – 29 de octubre de 2026</span>
-  </p>
+    <div class="language">
 
-  <button onclick="setLanguage('en')">🇺🇸 English</button>
-  <button onclick="setLanguage('es')">🇲🇽 Español</button>
+      <button
+        id="englishButton"
+        class="active"
+        onclick="setLanguage('en')">
+        🇺🇸 English
+      </button>
 
-</header>
+      <span>|</span>
 
-<div class="container">
+      <button
+        id="spanishButton"
+        onclick="setLanguage('es')">
+        🇲🇽 Español
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <section class="hero container">
+
+    <div class="eyebrow" id="heroDate">
+      October 26 – 29, 2026
+    </div>
+
+    <h1 id="mainTitle">
+      Florence
+    </h1>
+
+  </section>
+
 
   <!-- HOTEL -->
-  <div class="card">
 
-    <h2>
-      <span data-lang="en">🏨 Hotel</span>
-      <span data-lang="es">🏨 Hotel</span>
-    </h2>
+  <section class="section container">
 
-    <p>
-      <strong>Residenza d'Epoca La Basilica</strong>
-    </p>
+    <div class="section-label" id="hotelLabel">
+      Where We're Staying
+    </div>
 
-    <p>
-      <a href="https://maps.apple.com/?address=Via%20dei%20Conti%204,%2050123%20Florence,%20Italy" target="_blank">
+    <div class="section-title" id="hotelTitle">
+      Our Hotel
+    </div>
+
+    <div class="hotel-card">
+
+      <div class="hotel-name">
+        Residenza d'Epoca La Basilica
+      </div>
+
+      <a
+        class="hotel-address"
+        href="https://maps.apple.com/?address=Via%20dei%20Conti%204%2C%2050123%20Florence%2C%20Italy"
+        target="_blank"
+        rel="noopener noreferrer">
+
         Via dei Conti 4<br>
         50123 Florence<br>
         Italy
-      </a>
-    </p>
 
-  </div>
+      </a>
+
+      <div class="hotel-note" id="hotelNote">
+        Click the address to open it in Apple Maps.
+      </div>
+
+    </div>
+
+  </section>
+
 
   <!-- ITINERARY -->
-  <div class="card">
 
-    <h2>
-      <span data-lang="en">📅 Itinerary</span>
-      <span data-lang="es">📅 Itinerario</span>
-    </h2>
+  <section class="section container">
+
+    <div class="section-label" id="itineraryLabel">
+      Itinerary
+    </div>
+
+    <div class="section-title" id="itineraryTitle">
+      Florence
+    </div>
+
 
     <!-- OCTOBER 26 -->
-    <div class="date">
-      <span data-lang="en">Monday, October 26</span>
-      <span data-lang="es">Lunes 26 de octubre</span>
+
+    <div class="day">
+
+      <div class="day-date">
+        Monday · October 26
+      </div>
+
+      <div class="day-title">
+        Arrival in Florence
+      </div>
+
     </div>
 
-    <h3>
-      <span data-lang="en">Arrive in Florence</span>
-      <span data-lang="es">Llegada a Florencia</span>
-    </h3>
-
-    <p>
-      <span data-lang="en">
-        Arrive in Florence and check in at the hotel.
-      </span>
-      <span data-lang="es">
-        Llegada a Florencia y registro en el hotel.
-      </span>
-    </p>
 
     <!-- OCTOBER 27 -->
-    <div class="date">
-      <span data-lang="en">Tuesday, October 27</span>
-      <span data-lang="es">Martes 27 de octubre</span>
-    </div>
 
-    <h3>
-      <span data-lang="en">🚆 Venice Day Trip</span>
-      <span data-lang="es">🚆 Excursión de un día a Venecia</span>
-    </h3>
+    <div class="day">
 
-    <div class="confirmed">
+      <div class="day-date">
+        Tuesday · October 27
+      </div>
 
-      <p>
-        <strong>
-          <span data-lang="en">Florence → Venice</span>
-          <span data-lang="es">Florencia → Venecia</span>
-        </strong>
-      </p>
+      <div class="day-title" id="day2Title">
+        Venice Day Trip
+      </div>
 
-      <p>
-        <strong>
-          <span data-lang="en">Departure:</span>
-          <span data-lang="es">Salida:</span>
-        </strong>
-        Firenze S. M. Novella · 7:20 AM
-      </p>
+      <div class="activity">
 
-      <p>
-        <strong>
-          <span data-lang="en">Arrival:</span>
-          <span data-lang="es">Llegada:</span>
-        </strong>
-        Venezia S. Lucia · 9:34 AM
-      </p>
+        <div class="activity-time">
+          7:20 AM
+        </div>
 
-      <hr>
+        <div class="activity-name">
+          Florence → Venice
+        </div>
 
-      <p>
-        <strong>
-          <span data-lang="en">Venice → Florence</span>
-          <span data-lang="es">Venecia → Florencia</span>
-        </strong>
-      </p>
+        <div class="activity-note">
+          Firenze S.M. Novella → Venezia S. Lucia
+        </div>
 
-      <p>
-        <strong>
-          <span data-lang="en">Departure:</span>
-          <span data-lang="es">Salida:</span>
-        </strong>
-        Venezia S. Lucia · 7:26 PM
-      </p>
+      </div>
 
-      <p>
-        <strong>
-          <span data-lang="en">Arrival:</span>
-          <span data-lang="es">Llegada:</span>
-        </strong>
-        Firenze S. M. Novella · 9:39 PM
-      </p>
+      <div class="activity">
+
+        <div class="activity-name">
+          Venice
+        </div>
+
+        <div class="activity-note" id="veniceNote">
+          Day trip from Florence.
+        </div>
+
+      </div>
+
+      <div class="activity">
+
+        <div class="activity-time">
+          7:26 PM
+        </div>
+
+        <div class="activity-name">
+          Venice → Florence
+        </div>
+
+        <div class="activity-note">
+          Venezia S. Lucia → Firenze S.M. Novella
+        </div>
+
+      </div>
 
     </div>
+
 
     <!-- OCTOBER 28 -->
-    <div class="date">
-      <span data-lang="en">Wednesday, October 28</span>
-      <span data-lang="es">Miércoles 28 de octubre</span>
-    </div>
 
-    <h3>
-      <span data-lang="en">Florence</span>
-      <span data-lang="es">Florencia</span>
-    </h3>
+    <div class="day">
 
-    <p>
-      <span data-lang="en">
-        Explore Florence.
-      </span>
-      <span data-lang="es">
-        Explorar Florencia.
-      </span>
-    </p>
+      <div class="day-date">
+        Wednesday · October 28
+      </div>
 
-    <!-- OCTOBER 29 -->
-    <div class="date">
-      <span data-lang="en">Thursday, October 29</span>
-      <span data-lang="es">Jueves 29 de octubre</span>
-    </div>
-
-    <h3>
-      <span data-lang="en">🚆 Florence → Rome</span>
-      <span data-lang="es">🚆 Florencia → Roma</span>
-    </h3>
-
-    <p>
-      <span data-lang="en">Train details: TBD</span>
-      <span data-lang="es">Detalles del tren: por definir</span>
-    </p>
-
-  </div>
-
-  <!-- POSSIBLE PLACES -->
-  <div class="card">
-
-    <h2>
-      <span data-lang="en">📍 Possible Places</span>
-      <span data-lang="es">📍 Lugares posibles</span>
-    </h2>
-
-    <div class="possible">
-
-      <h3>🌉 Ponte Vecchio</h3>
-
-      <p>
-        <span data-lang="en">
-          Famous historic bridge over the Arno River.
-        </span>
-        <span data-lang="es">
-          Famoso puente histórico sobre el río Arno.
-        </span>
-      </p>
+      <div class="day-title">
+        Florence
+      </div>
 
     </div>
 
-    <div class="possible">
 
-      <h3>🍹 Osteria Belle Donne</h3>
+    <!-- POSSIBLE PLACES -->
 
-      <p>
-        <a href="https://maps.apple.com/?address=Via%20delle%20Belle%20Donne%2016/R,%2050123%20Florence,%20Italy" target="_blank">
+    <div class="day">
+
+      <div class="day-date" id="possibleDate">
+        Possible Places
+      </div>
+
+      <div class="day-title">
+        Florence
+      </div>
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Ponte Vecchio
+        </div>
+
+        <div class="activity-note" id="ponteNote">
+          Walk across Florence's famous bridge.
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?address=Ponte%20Vecchio%2C%20Florence%2C%20Italy"
+          target="_blank"
+          rel="noopener noreferrer">
+
+          Ponte Vecchio<br>
+          Florence, Italy
+
+        </a>
+
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-name">
+          Osteria Belle Donne
+        </div>
+
+        <div class="activity-note" id="osteriaNote">
+          Window to order a Spritz.
+        </div>
+
+        <a
+          class="activity-address"
+          href="https://maps.apple.com/?address=Via%20delle%20Belle%20Donne%2016%2FR%2C%2050123%20Florence%2C%20Italy"
+          target="_blank"
+          rel="noopener noreferrer">
+
           Via delle Belle Donne 16/R<br>
           50123 Florence<br>
           Italy
-        </a>
-      </p>
 
-      <p>
-        <span data-lang="en">
-          Window to order a Spritz.
-        </span>
-        <span data-lang="es">
-          Momento ideal para pedir un Spritz.
-        </span>
-      </p>
+        </a>
+
+      </div>
 
     </div>
 
-  </div>
 
-  <a class="back" href="index.html">
-    <span data-lang="en">← Back to Europe Trip</span>
-    <span data-lang="es">← Regresar al Viaje por Europa</span>
-  </a>
+    <!-- OCTOBER 29 -->
 
-</div>
+    <div class="day">
 
-<script>
-  function setLanguage(lang) {
-    document.querySelectorAll('[data-lang]').forEach(el => {
-      el.style.display =
-        el.getAttribute('data-lang') === lang ? 'inline' : 'none';
-    });
-  }
+      <div class="day-date">
+        Thursday · October 29
+      </div>
 
-  setLanguage('en');
-</script>
+      <div class="day-title">
+        Florence → Rome
+      </div>
+
+      <div class="activity">
+
+        <div class="activity-note" id="romeTrainNote">
+          Train time TBD.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer id="footer">
+    Europe Trip · Florence · 2026
+  </footer>
+
+
+  <script>
+
+    function setLanguage(language) {
+
+      const englishButton =
+        document.getElementById("englishButton");
+
+      const spanishButton =
+        document.getElementById("spanishButton");
+
+
+      if (language === "es") {
+
+        document.documentElement.lang = "es";
+
+        document.getElementById("backButton").textContent =
+          "← Volver al viaje";
+
+        document.getElementById("heroDate").textContent =
+          "26 – 29 de octubre de 2026";
+
+        document.getElementById("mainTitle").textContent =
+          "Florencia";
+
+        document.getElementById("hotelLabel").textContent =
+          "Dónde nos hospedamos";
+
+        document.getElementById("hotelTitle").textContent =
+          "Nuestro hotel";
+
+        document.getElementById("hotelNote").textContent =
+          "Haz clic en la dirección para abrirla en Apple Maps.";
+
+        document.getElementById("itineraryLabel").textContent =
+          "Itinerario";
+
+        document.getElementById("itineraryTitle").textContent =
+          "Florencia";
+
+        document.getElementById("day2Title").textContent =
+          "Excursión a Venecia";
+
+        document.getElementById("veniceNote").textContent =
+          "Excursión desde Florencia.";
+
+        document.getElementById("possibleDate").textContent =
+          "Posibles lugares";
+
+        document.getElementById("ponteNote").textContent =
+          "Caminar por el famoso puente de Florencia.";
+
+        document.getElementById("osteriaNote").textContent =
+          "Momento ideal para pedir un Spritz.";
+
+        document.getElementById("romeTrainNote").textContent =
+          "Hora del tren por confirmar.";
+
+        document.getElementById("footer").textContent =
+          "Viaje por Europa · Florencia · 2026";
+
+        englishButton.classList.remove("active");
+        spanishButton.classList.add("active");
+
+      } else {
+
+        document.documentElement.lang = "en";
+
+        document.getElementById("backButton").textContent =
+          "← Back to trip";
+
+        document.getElementById("heroDate").textContent =
+          "October 26 – 29, 2026";
+
+        document.getElementById("mainTitle").textContent =
+          "Florence";
+
+        document.getElementById("hotelLabel").textContent =
+          "Where We're Staying";
+
+        document.getElementById("hotelTitle").textContent =
+          "Our Hotel";
+
+        document.getElementById("hotelNote").textContent =
+          "Click the address to open it in Apple Maps.";
+
+        document.getElementById("itineraryLabel").textContent =
+          "Itinerary";
+
+        document.getElementById("itineraryTitle").textContent =
+          "Florence";
+
+        document.getElementById("day2Title").textContent =
+          "Venice Day Trip";
+
+        document.getElementById("veniceNote").textContent =
+          "Day trip from Florence.";
+
+        document.getElementById("possibleDate").textContent =
+          "Possible Places";
+
+        document.getElementById("ponteNote").textContent =
+          "Walk across Florence's famous bridge.";
+
+        document.getElementById("osteriaNote").textContent =
+          "Window to order a Spritz.";
+
+        document.getElementById("romeTrainNote").textContent =
+          "Train time TBD.";
+
+        document.getElementById("footer").textContent =
+          "Europe Trip · Florence · 2026";
+
+        englishButton.classList.add("active");
+        spanishButton.classList.remove("active");
+
+      }
+
+    }
+
+  </script>
 
 </body>
 </html>
