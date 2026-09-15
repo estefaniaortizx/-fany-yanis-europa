@@ -3,583 +3,1176 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Transportation | Europe Trip</title>
+  <title>Transportation · Europe Trip</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8f6f2;
       color: #333;
+      line-height: 1.6;
     }
 
-    header {
-      background: linear-gradient(135deg, #ff6b6b, #f7b267, #4ecdc4);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
+    .container {
+      width: min(1000px, calc(100% - 40px));
+      margin: auto;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 38px;
+    nav {
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    header p {
-      margin: 10px 0 20px;
-      font-size: 18px;
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .language {
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
     .language button {
       border: none;
-      background: white;
-      color: #333;
-      padding: 9px 15px;
-      margin: 3px;
-      border-radius: 20px;
+      background: transparent;
+      color: #999;
       cursor: pointer;
-      font-weight: bold;
+      font-size: 13px;
+      padding: 5px;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 25px 18px;
+    .language button.active {
+      color: #333;
+      font-weight: 700;
     }
 
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 22px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    .hero {
+      text-align: center;
+      padding: 70px 20px 60px;
     }
 
-    .date {
-      font-size: 20px;
-      font-weight: bold;
-      color: #e76f51;
-      margin-bottom: 15px;
+    .eyebrow {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(44px, 8vw, 68px);
+      font-weight: 500;
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+
+    .hero p {
+      color: #888;
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .section {
+      margin-bottom: 55px;
+    }
+
+    .section-label {
+      color: #8a7055;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: 34px;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .transport-list {
+      display: grid;
+      gap: 14px;
     }
 
     .transport {
-      background: #fff4e6;
-      border-left: 5px solid #f4a261;
-      padding: 18px;
-      border-radius: 10px;
-      margin-bottom: 15px;
+      background: white;
+      border: 1px solid #e5dfd7;
+      border-radius: 18px;
+      overflow: hidden;
     }
 
-    .transport:last-child {
-      margin-bottom: 0;
+    .transport-button {
+      width: 100%;
+      border: none;
+      background: white;
+      cursor: pointer;
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
     }
 
-    .route {
-      font-size: 21px;
-      font-weight: bold;
-      color: #e76f51;
-      margin-bottom: 10px;
+    .transport-button:hover {
+      background: #faf9f7;
     }
 
-    .confirmed {
-      display: inline-block;
-      background: #dff5e3;
-      color: #277a3d;
-      padding: 5px 10px;
-      border-radius: 15px;
+    .transport-main {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .transport-icon {
+      font-size: 22px;
+    }
+
+    .transport-title {
+      font-family: Georgia, serif;
+      font-size: 19px;
+    }
+
+    .transport-subtitle {
+      color: #888;
       font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 8px;
+      margin-top: 3px;
     }
 
-    .tbd {
-      background: #f0f8ff;
-      border-left-color: #4ecdc4;
+    .transport-arrow {
+      color: #999;
+      font-size: 20px;
+      transition: transform 0.2s;
     }
 
-    .tbd .route {
-      color: #2a9d8f;
+    .transport.open .transport-arrow {
+      transform: rotate(180deg);
+    }
+
+    .transport-details {
+      display: none;
+      background: #faf9f7;
+      border-top: 1px solid #eee;
+      padding: 22px;
+    }
+
+    .transport.open .transport-details {
+      display: block;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .detail small {
+      display: block;
+      color: #999;
+      font-size: 10px;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .detail strong {
+      font-size: 14px;
+      font-weight: 600;
     }
 
     .back {
       display: inline-block;
-      background: #e76f51;
-      color: white;
+      color: #8a7055;
       text-decoration: none;
-      padding: 12px 18px;
-      border-radius: 10px;
-      margin-top: 5px;
+      font-size: 13px;
+      margin-bottom: 50px;
     }
 
-    [data-lang="es"] {
-      display: none;
+    .back:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      border-top: 1px solid #e3ded7;
+      color: #999;
+      font-size: 13px;
+      padding: 30px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 650px) {
+      .hero {
+        padding-top: 50px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logo {
+        font-size: 17px;
+      }
+
+      .language button {
+        font-size: 11px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
+  <div id="website">
 
-  <h1>
-    <span data-lang="en">🚆 Transportation</span>
-    <span data-lang="es">🚆 Transporte</span>
-  </h1>
+    <nav class="container">
 
-  <p>
-    <span data-lang="en">Europe Trip · 2026</span>
-    <span data-lang="es">Viaje por Europa · 2026</span>
-  </p>
+      <div class="logo">
+        ✈️ Europe Trip
+      </div>
 
-  <div class="language">
-    <button onclick="setLanguage('en')">🇺🇸 English</button>
-    <button onclick="setLanguage('es')">🇲🇽 Español</button>
+      <div class="language">
+
+        <button
+          id="englishButton"
+          class="active"
+          onclick="setLanguage('en')">
+          🇺🇸 English
+        </button>
+
+        <span>|</span>
+
+        <button
+          id="spanishButton"
+          onclick="setLanguage('es')">
+          🇲🇽 Español
+        </button>
+
+      </div>
+
+    </nav>
+
+
+    <section class="hero container">
+
+      <div class="eyebrow" id="dateText">
+        October 18 – November 2, 2026
+      </div>
+
+      <h1 id="pageTitle">
+        Transportation
+      </h1>
+
+      <p id="pageSubtitle">
+        Flights and trains between our destinations
+      </p>
+
+    </section>
+
+
+    <section class="section container">
+
+      <a href="index.html" class="back" id="backLink">
+        ← Back to Europe Trip
+      </a>
+
+      <div class="section-label" id="routeLabel">
+        Our Route
+      </div>
+
+      <div class="section-title" id="routeTitle">
+        Flights & Trains
+      </div>
+
+
+      <div class="transport-list">
+
+
+        <!-- MADRID → BARCELONA -->
+
+        <div class="transport">
+
+          <button
+            class="transport-button"
+            onclick="toggleTransport(this)">
+
+            <div class="transport-main">
+
+              <div class="transport-icon">
+                ✈️
+              </div>
+
+              <div>
+
+                <div class="transport-title" id="madridBarcelonaTitle">
+                  Madrid → Barcelona
+                </div>
+
+                <div class="transport-subtitle">
+                  October 19, 2026
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="transport-arrow">
+              ⌄
+            </div>
+
+          </button>
+
+
+          <div class="transport-details">
+
+            <div class="detail-grid">
+
+              <div class="detail">
+                <small id="mbFlightLabel">Flight</small>
+                <strong>Iberia IB421</strong>
+              </div>
+
+              <div class="detail">
+                <small id="mbDepartureLabel">Departure</small>
+                <strong>6:00 PM · Madrid (MAD)</strong>
+              </div>
+
+              <div class="detail">
+                <small id="mbArrivalLabel">Arrival</small>
+                <strong>7:15 PM · Barcelona (BCN)</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- BARCELONA → PARIS -->
+
+        <div class="transport">
+
+          <button
+            class="transport-button"
+            onclick="toggleTransport(this)">
+
+            <div class="transport-main">
+
+              <div class="transport-icon">
+                ✈️
+              </div>
+
+              <div>
+
+                <div class="transport-title" id="barcelonaParisTitle">
+                  Barcelona → Paris
+                </div>
+
+                <div class="transport-subtitle">
+                  October 22, 2026
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="transport-arrow">
+              ⌄
+            </div>
+
+          </button>
+
+
+          <div class="transport-details">
+
+            <div class="detail-grid">
+
+              <div class="detail">
+                <small id="bpFlightLabel">Flight</small>
+                <strong>Vueling VY8004</strong>
+              </div>
+
+              <div class="detail">
+                <small id="bpDepartureLabel">Departure</small>
+                <strong>9:50 AM · Barcelona (BCN)</strong>
+              </div>
+
+              <div class="detail">
+                <small id="bpArrivalLabel">Arrival</small>
+                <strong>11:40 AM · Paris (CDG)</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PARIS → BRUSSELS -->
+
+        <div class="transport">
+
+          <button
+            class="transport-button"
+            onclick="toggleTransport(this)">
+
+            <div class="transport-main">
+
+              <div class="transport-icon">
+                🚆
+              </div>
+
+              <div>
+
+                <div class="transport-title" id="parisBrusselsTitle">
+                  Paris → Brussels
+                </div>
+
+                <div class="transport-subtitle">
+                  October 25, 2026
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="transport-arrow">
+              ⌄
+            </div>
+
+          </button>
+
+
+          <div class="transport-details">
+
+            <div class="detail-grid">
+
+              <div class="detail">
+                <small id="pbTrainLabel">Train</small>
+                <strong>Eurostar · Standard</strong>
+              </div>
+
+              <div class="detail">
+                <small id="pbDepartureLabel">Departure</small>
+                <strong>7:55 AM · Paris Gare du Nord</strong>
+              </div>
+
+              <div class="detail">
+                <small id="pbArrivalLabel">Arrival</small>
+                <strong>9:39 AM · Brussels Midi / Zuid</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- BRUSSELS → FLORENCE -->
+
+        <div class="transport">
+
+          <button
+            class="transport-button"
+            onclick="toggleTransport(this)">
+
+            <div class="transport-main">
+
+              <div class="transport-icon">
+                ✈️
+              </div>
+
+              <div>
+
+                <div class="transport-title" id="brusselsFlorenceTitle">
+                  Brussels → Florence
+                </div>
+
+                <div class="transport-subtitle">
+                  October 26, 2026
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="transport-arrow">
+              ⌄
+            </div>
+
+          </button>
+
+
+          <div class="transport-details">
+
+            <div class="detail-grid">
+
+              <div class="detail">
+                <small id="bfFlightLabel">Flight</small>
+                <strong>Brussels Airlines SN3139</strong>
+              </div>
+
+              <div class="detail">
+                <small id="bfDepartureLabel">Departure</small>
+                <strong>9:15 AM · Brussels</strong>
+              </div>
+
+              <div class="detail">
+                <small id="bfArrivalLabel">Arrival</small>
+                <strong>11:05 AM · Florence</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- FLORENCE → VENICE -->
+
+        <div class="transport">
+
+          <button
+            class="transport-button"
+            onclick="toggleTransport(this)">
+
+            <div class="transport-main">
+
+              <div class="transport-icon">
+                🚆
+              </div>
+
+              <div>
+
+                <div class="transport-title" id="florenceVeniceTitle">
+                  Florence → Venice
+                </div>
+
+                <div class="transport-subtitle">
+                  October 27, 2026 · Day Trip
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="transport-arrow">
+              ⌄
+            </div>
+
+          </button>
+
+
+          <div class="transport-details">
+
+            <div class="detail-grid">
+
+              <div class="detail">
+                <small id="fvDepartureLabel">Departure</small>
+                <strong>7:20 AM · Firenze S. M. Novella</strong>
+              </div>
+
+              <div class="detail">
+                <small id="fvArrivalLabel">Arrival</small>
+                <strong>9:34 AM · Venezia S. Lucia</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- VENICE → FLORENCE -->
+
+        <div class="transport">
+
+          <button
+            class="transport-button"
+            onclick="toggleTransport(this)">
+
+            <div class="transport-main">
+
+              <div class="transport-icon">
+                🚆
+              </div>
+
+              <div>
+
+                <div class="transport-title" id="veniceFlorenceTitle">
+                  Venice → Florence
+                </div>
+
+                <div class="transport-subtitle">
+                  October 27, 2026 · Return
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="transport-arrow">
+              ⌄
+            </div>
+
+          </button>
+
+
+          <div class="transport-details">
+
+            <div class="detail-grid">
+
+              <div class="detail">
+                <small id="vfDepartureLabel">Departure</small>
+                <strong>7:26 PM · Venezia S. Lucia</strong>
+              </div>
+
+              <div class="detail">
+                <small id="vfArrivalLabel">Arrival</small>
+                <strong>9:39 PM · Firenze S. M. Novella</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- FLORENCE → ROME -->
+
+        <div class="transport">
+
+          <button
+            class="transport-button"
+            onclick="toggleTransport(this)">
+
+            <div class="transport-main">
+
+              <div class="transport-icon">
+                🚆
+              </div>
+
+              <div>
+
+                <div class="transport-title" id="florenceRomeTitle">
+                  Florence → Rome
+                </div>
+
+                <div class="transport-subtitle">
+                  October 29, 2026
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="transport-arrow">
+              ⌄
+            </div>
+
+          </button>
+
+
+          <div class="transport-details">
+
+            <div class="detail-grid">
+
+              <div class="detail">
+                <small id="frTrainLabel">Train</small>
+                <strong id="tbdTrain">TBD</strong>
+              </div>
+
+              <div class="detail">
+                <small id="frDepartureLabel">Departure</small>
+                <strong>Florence</strong>
+              </div>
+
+              <div class="detail">
+                <small id="frArrivalLabel">Arrival</small>
+                <strong>Rome</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ROME → MADRID -->
+
+        <div class="transport">
+
+          <button
+            class="transport-button"
+            onclick="toggleTransport(this)">
+
+            <div class="transport-main">
+
+              <div class="transport-icon">
+                ✈️
+              </div>
+
+              <div>
+
+                <div class="transport-title" id="romeMadridTitle">
+                  Rome → Madrid
+                </div>
+
+                <div class="transport-subtitle">
+                  October 31, 2026
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="transport-arrow">
+              ⌄
+            </div>
+
+          </button>
+
+
+          <div class="transport-details">
+
+            <div class="detail-grid">
+
+              <div class="detail">
+                <small id="rmFlightLabel">Flight</small>
+                <strong>ITA Airways AZ58</strong>
+              </div>
+
+              <div class="detail">
+                <small id="rmDepartureLabel">Departure</small>
+                <strong>8:20 AM · Rome (FCO)</strong>
+              </div>
+
+              <div class="detail">
+                <small id="rmArrivalLabel">Arrival</small>
+                <strong>10:50 AM · Madrid (MAD)</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- FANY HOME -->
+
+        <div class="transport">
+
+          <button
+            class="transport-button"
+            onclick="toggleTransport(this)">
+
+            <div class="transport-main">
+
+              <div class="transport-icon">
+                ✈️
+              </div>
+
+              <div>
+
+                <div class="transport-title" id="fanyHomeTitle">
+                  Fany · Madrid → Philadelphia
+                </div>
+
+                <div class="transport-subtitle">
+                  November 2, 2026
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="transport-arrow">
+              ⌄
+            </div>
+
+          </button>
+
+
+          <div class="transport-details">
+
+            <div class="detail-grid">
+
+              <div class="detail">
+                <small id="fhFlightLabel">Flight</small>
+                <strong>AY3813</strong>
+              </div>
+
+              <div class="detail">
+                <small id="fhDepartureLabel">Departure</small>
+                <strong>1:15 PM · Madrid (MAD)</strong>
+              </div>
+
+              <div class="detail">
+                <small id="fhArrivalLabel">Arrival</small>
+                <strong>3:50 PM · Philadelphia (PHL)</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- YANIS HOME -->
+
+        <div class="transport">
+
+          <button
+            class="transport-button"
+            onclick="toggleTransport(this)">
+
+            <div class="transport-main">
+
+              <div class="transport-icon">
+                ✈️
+              </div>
+
+              <div>
+
+                <div class="transport-title" id="yanisHomeTitle">
+                  Yanis · Madrid → Mexico City
+                </div>
+
+                <div class="transport-subtitle">
+                  November 2, 2026
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="transport-arrow">
+              ⌄
+            </div>
+
+          </button>
+
+
+          <div class="transport-details">
+
+            <div class="detail-grid">
+
+              <div class="detail">
+                <small id="yhFlightLabel">Flight</small>
+                <strong>IB0311</strong>
+              </div>
+
+              <div class="detail">
+                <small id="yhDepartureLabel">Departure</small>
+                <strong>4:50 PM · Madrid (MAD)</strong>
+              </div>
+
+              <div class="detail">
+                <small id="yhArrivalLabel">Arrival</small>
+                <strong>10:10 PM · Mexico City (MEX)</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <footer id="footer">
+      Europe Trip · 2026
+    </footer>
+
   </div>
 
-</header>
 
-<div class="container">
+  <script>
 
+    function toggleTransport(button) {
+      button.parentElement.classList.toggle("open");
+    }
 
-  <!-- OCTOBER 18 -->
 
-  <div class="card">
+    function setLanguage(language) {
 
-    <div class="date">
-      <span data-lang="en">Sunday, October 18</span>
-      <span data-lang="es">Domingo 18 de octubre</span>
-    </div>
+      const englishButton =
+        document.getElementById("englishButton");
 
-    <div class="transport">
+      const spanishButton =
+        document.getElementById("spanishButton");
 
-      <div class="route">
-        ✈️ Philadelphia → Madrid
-      </div>
 
-      <div class="confirmed">
-        <span data-lang="en">Confirmed</span>
-        <span data-lang="es">Confirmado</span>
-      </div>
+      if (language === "es") {
 
-      <p><strong>British Airways BA1605</strong></p>
+        document.documentElement.lang = "es";
 
-      <p>
-        <strong>
-          <span data-lang="en">Departure:</span>
-          <span data-lang="es">Salida:</span>
-        </strong>
-        Philadelphia (PHL), Terminal A · 8:30 PM
-      </p>
+        document.getElementById("pageTitle").textContent =
+          "Transporte";
 
-      <p>
-        <strong>
-          <span data-lang="en">Arrival:</span>
-          <span data-lang="es">Llegada:</span>
-        </strong>
-        Madrid (MAD), Terminal 4S · 9:35 AM, October 19
-      </p>
+        document.getElementById("pageSubtitle").textContent =
+          "Vuelos y trenes entre nuestros destinos";
 
-    </div>
+        document.getElementById("backLink").textContent =
+          "← Volver a Viaje a Europa";
 
+        document.getElementById("routeLabel").textContent =
+          "Nuestra ruta";
 
-    <div class="transport">
+        document.getElementById("routeTitle").textContent =
+          "Vuelos y trenes";
 
-      <div class="route">
-        ✈️ Mexico City → Madrid
-      </div>
+        document.getElementById("madridBarcelonaTitle").textContent =
+          "Madrid → Barcelona";
 
-      <div class="confirmed">
-        <span data-lang="en">Confirmed</span>
-        <span data-lang="es">Confirmado</span>
-      </div>
+        document.getElementById("barcelonaParisTitle").textContent =
+          "Barcelona → París";
 
-      <p><strong>Iberia IB0308</strong></p>
+        document.getElementById("parisBrusselsTitle").textContent =
+          "París → Bruselas";
 
-      <p>
-        <strong>
-          <span data-lang="en">Departure:</span>
-          <span data-lang="es">Salida:</span>
-        </strong>
-        Mexico City (MEX), Terminal 1 · 7:00 PM
-      </p>
+        document.getElementById("brusselsFlorenceTitle").textContent =
+          "Bruselas → Florencia";
 
-      <p>
-        <strong>
-          <span data-lang="en">Arrival:</span>
-          <span data-lang="es">Llegada:</span>
-        </strong>
-        Madrid (MAD), Terminal 4S · 1:40 PM, October 19
-      </p>
+        document.getElementById("florenceVeniceTitle").textContent =
+          "Florencia → Venecia";
 
-    </div>
+        document.getElementById("veniceFlorenceTitle").textContent =
+          "Venecia → Florencia";
 
-  </div>
+        document.getElementById("florenceRomeTitle").textContent =
+          "Florencia → Roma";
 
+        document.getElementById("romeMadridTitle").textContent =
+          "Roma → Madrid";
 
-  <!-- OCTOBER 19 -->
+        document.getElementById("fanyHomeTitle").textContent =
+          "Fany · Madrid → Filadelfia";
 
-  <div class="card">
+        document.getElementById("yanisHomeTitle").textContent =
+          "Yanis · Madrid → Ciudad de México";
 
-    <div class="date">
-      <span data-lang="en">Monday, October 19</span>
-      <span data-lang="es">Lunes 19 de octubre</span>
-    </div>
 
-    <div class="transport">
+        const labels = [
+          "mbFlightLabel",
+          "bpFlightLabel",
+          "bfFlightLabel",
+          "rmFlightLabel",
+          "fhFlightLabel",
+          "yhFlightLabel"
+        ];
 
-      <div class="route">
-        ✈️ Madrid → Barcelona
-      </div>
+        labels.forEach(function(id) {
+          document.getElementById(id).textContent = "Vuelo";
+        });
 
-      <div class="confirmed">
-        <span data-lang="en">Confirmed</span>
-        <span data-lang="es">Confirmado</span>
-      </div>
 
-      <p><strong>Iberia IB421</strong></p>
+        const trainLabels = [
+          "pbTrainLabel",
+          "frTrainLabel"
+        ];
 
-      <p>6:00 PM → 7:15 PM</p>
+        trainLabels.forEach(function(id) {
+          document.getElementById(id).textContent = "Tren";
+        });
 
-    </div>
 
-  </div>
+        const departureLabels = [
+          "mbDepartureLabel",
+          "bpDepartureLabel",
+          "pbDepartureLabel",
+          "bfDepartureLabel",
+          "fvDepartureLabel",
+          "vfDepartureLabel",
+          "frDepartureLabel",
+          "rmDepartureLabel",
+          "fhDepartureLabel",
+          "yhDepartureLabel"
+        ];
+
+        departureLabels.forEach(function(id) {
+          document.getElementById(id).textContent = "Salida";
+        });
+
+
+        const arrivalLabels = [
+          "mbArrivalLabel",
+          "bpArrivalLabel",
+          "pbArrivalLabel",
+          "bfArrivalLabel",
+          "fvArrivalLabel",
+          "vfArrivalLabel",
+          "frArrivalLabel",
+          "rmArrivalLabel",
+          "fhArrivalLabel",
+          "yhArrivalLabel"
+        ];
+
+        arrivalLabels.forEach(function(id) {
+          document.getElementById(id).textContent = "Llegada";
+        });
+
+
+        document.getElementById("tbdTrain").textContent =
+          "Por confirmar";
+
+        englishButton.classList.remove("active");
+        spanishButton.classList.add("active");
 
-
-  <!-- OCTOBER 22 -->
-
-  <div class="card">
-
-    <div class="date">
-      <span data-lang="en">Thursday, October 22</span>
-      <span data-lang="es">Jueves 22 de octubre</span>
-    </div>
-
-    <div class="transport">
-
-      <div class="route">
-        ✈️ Barcelona → Paris
-      </div>
-
-      <div class="confirmed">
-        <span data-lang="en">Confirmed</span>
-        <span data-lang="es">Confirmado</span>
-      </div>
-
-      <p><strong>Vueling VY8004</strong></p>
-
-      <p>9:50 AM → 11:40 AM</p>
-
-    </div>
-
-  </div>
-
-
-  <!-- OCTOBER 25 -->
-
-  <div class="card">
-
-    <div class="date">
-      <span data-lang="en">Sunday, October 25</span>
-      <span data-lang="es">Domingo 25 de octubre</span>
-    </div>
-
-    <div class="transport">
-
-      <div class="route">
-        🚆 Paris → Brussels
-      </div>
-
-      <div class="confirmed">
-        <span data-lang="en">Confirmed</span>
-        <span data-lang="es">Confirmado</span>
-      </div>
-
-      <p><strong>Eurostar · Standard</strong></p>
-
-      <p>
-        <strong>
-          <span data-lang="en">Departure:</span>
-          <span data-lang="es">Salida:</span>
-        </strong>
-        Paris Gare du Nord · 7:55 AM
-      </p>
-
-      <p>
-        <strong>
-          <span data-lang="en">Arrival:</span>
-          <span data-lang="es">Llegada:</span>
-        </strong>
-        Brussels Midi / Zuid · 9:39 AM
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <!-- OCTOBER 26 -->
-
-  <div class="card">
-
-    <div class="date">
-      <span data-lang="en">Monday, October 26</span>
-      <span data-lang="es">Lunes 26 de octubre</span>
-    </div>
-
-    <div class="transport">
-
-      <div class="route">
-        ✈️ Brussels → Florence
-      </div>
-
-      <div class="confirmed">
-        <span data-lang="en">Confirmed</span>
-        <span data-lang="es">Confirmado</span>
-      </div>
-
-      <p><strong>Brussels Airlines SN3139</strong></p>
-
-      <p>9:15 AM → 11:05 AM</p>
-
-    </div>
-
-  </div>
-
-
-  <!-- OCTOBER 27 -->
-
-  <div class="card">
-
-    <div class="date">
-      <span data-lang="en">Tuesday, October 27</span>
-      <span data-lang="es">Martes 27 de octubre</span>
-    </div>
-
-    <div class="transport">
-
-      <div class="route">
-        🚆 Florence → Venice
-      </div>
-
-      <div class="confirmed">
-        <span data-lang="en">Confirmed</span>
-        <span data-lang="es">Confirmado</span>
-      </div>
-
-      <p>
-        <strong>
-          <span data-lang="en">Departure:</span>
-          <span data-lang="es">Salida:</span>
-        </strong>
-        Firenze S. M. Novella · 7:20 AM
-      </p>
-
-      <p>
-        <strong>
-          <span data-lang="en">Arrival:</span>
-          <span data-lang="es">Llegada:</span>
-        </strong>
-        Venezia S. Lucia · 9:34 AM
-      </p>
-
-    </div>
-
-
-    <div class="transport">
-
-      <div class="route">
-        🚆 Venice → Florence
-      </div>
-
-      <div class="confirmed">
-        <span data-lang="en">Confirmed</span>
-        <span data-lang="es">Confirmado</span>
-      </div>
-
-      <p>
-        <strong>
-          <span data-lang="en">Departure:</span>
-          <span data-lang="es">Salida:</span>
-        </strong>
-        Venezia S. Lucia · 7:26 PM
-      </p>
-
-      <p>
-        <strong>
-          <span data-lang="en">Arrival:</span>
-          <span data-lang="es">Llegada:</span>
-        </strong>
-        Firenze S. M. Novella · 9:39 PM
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <!-- OCTOBER 29 -->
-
-  <div class="card">
-
-    <div class="date">
-      <span data-lang="en">Thursday, October 29</span>
-      <span data-lang="es">Jueves 29 de octubre</span>
-    </div>
-
-    <div class="transport tbd">
-
-      <div class="route">
-        🚆 Florence → Rome
-      </div>
-
-      <p>
-        <strong>
-          <span data-lang="en">Train:</span>
-          <span data-lang="es">Tren:</span>
-        </strong>
-
-        <span data-lang="en">To be booked</span>
-        <span data-lang="es">Por reservar</span>
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <!-- OCTOBER 31 -->
-
-  <div class="card">
-
-    <div class="date">
-      <span data-lang="en">Saturday, October 31</span>
-      <span data-lang="es">Sábado 31 de octubre</span>
-    </div>
-
-    <div class="transport">
-
-      <div class="route">
-        ✈️ Rome → Madrid
-      </div>
-
-      <div class="confirmed">
-        <span data-lang="en">Confirmed</span>
-        <span data-lang="es">Confirmado</span>
-      </div>
-
-      <p><strong>ITA Airways AZ58</strong></p>
-
-      <p>8:20 AM → 10:50 AM</p>
-
-    </div>
-
-  </div>
-
-
-  <!-- NOVEMBER 2 -->
-
-  <div class="card">
-
-    <div class="date">
-      <span data-lang="en">Monday, November 2</span>
-      <span data-lang="es">Lunes 2 de noviembre</span>
-    </div>
-
-
-    <div class="transport">
-
-      <div class="route">
-        ✈️ Madrid → Philadelphia
-      </div>
-
-      <div class="confirmed">
-        <span data-lang="en">Confirmed</span>
-        <span data-lang="es">Confirmado</span>
-      </div>
-
-      <p><strong>American Airlines AY3813</strong></p>
-
-      <p>
-        <strong>
-          <span data-lang="en">Departure:</span>
-          <span data-lang="es">Salida:</span>
-        </strong>
-        Madrid (MAD), Terminal 4S · 1:15 PM
-      </p>
-
-      <p>
-        <strong>
-          <span data-lang="en">Arrival:</span>
-          <span data-lang="es">Llegada:</span>
-        </strong>
-        Philadelphia (PHL), Terminal A · 3:50 PM
-      </p>
-
-    </div>
-
-
-    <div class="transport">
-
-      <div class="route">
-        ✈️ Madrid → Mexico City
-      </div>
-
-      <div class="confirmed">
-        <span data-lang="en">Confirmed</span>
-        <span data-lang="es">Confirmado</span>
-      </div>
-
-      <p><strong>Iberia IB0311</strong></p>
-
-      <p>
-        <strong>
-          <span data-lang="en">Departure:</span>
-          <span data-lang="es">Salida:</span>
-        </strong>
-        Madrid (MAD), Terminal 4S · 4:50 PM
-      </p>
-
-      <p>
-        <strong>
-          <span data-lang="en">Arrival:</span>
-          <span data-lang="es">Llegada:</span>
-        </strong>
-        Mexico City (MEX), Terminal 1 · 10:10 PM
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <a class="back" href="index.html">
-    <span data-lang="en">← Back to Europe Trip</span>
-    <span data-lang="es">← Regresar al Viaje por Europa</span>
-  </a>
-
-</div>
-
-
-<script>
-
-  function setLanguage(lang) {
-
-    document.querySelectorAll("[data-lang]").forEach(function(element) {
-
-      if (element.getAttribute("data-lang") === lang) {
-        element.style.display = "inline";
       } else {
-        element.style.display = "none";
+
+        document.documentElement.lang = "en";
+
+        document.getElementById("pageTitle").textContent =
+          "Transportation";
+
+        document.getElementById("pageSubtitle").textContent =
+          "Flights and trains between our destinations";
+
+        document.getElementById("backLink").textContent =
+          "← Back to Europe Trip";
+
+        document.getElementById("routeLabel").textContent =
+          "Our Route";
+
+        document.getElementById("routeTitle").textContent =
+          "Flights & Trains";
+
+
+        document.getElementById("madridBarcelonaTitle").textContent =
+          "Madrid → Barcelona";
+
+        document.getElementById("barcelonaParisTitle").textContent =
+          "Barcelona → Paris";
+
+        document.getElementById("parisBrusselsTitle").textContent =
+          "Paris → Brussels";
+
+        document.getElementById("brusselsFlorenceTitle").textContent =
+          "Brussels → Florence";
+
+        document.getElementById("florenceVeniceTitle").textContent =
+          "Florence → Venice";
+
+        document.getElementById("veniceFlorenceTitle").textContent =
+          "Venice → Florence";
+
+        document.getElementById("florenceRomeTitle").textContent =
+          "Florence → Rome";
+
+        document.getElementById("romeMadridTitle").textContent =
+          "Rome → Madrid";
+
+        document.getElementById("fanyHomeTitle").textContent =
+          "Fany · Madrid → Philadelphia";
+
+        document.getElementById("yanisHomeTitle").textContent =
+          "Yanis · Madrid → Mexico City";
+
+
+        const flightLabels = [
+          "mbFlightLabel",
+          "bpFlightLabel",
+          "bfFlightLabel",
+          "rmFlightLabel",
+          "fhFlightLabel",
+          "yhFlightLabel"
+        ];
+
+        flightLabels.forEach(function(id) {
+          document.getElementById(id).textContent = "Flight";
+        });
+
+
+        const trainLabelsEnglish = [
+          "pbTrainLabel",
+          "frTrainLabel"
+        ];
+
+        trainLabelsEnglish.forEach(function(id) {
+          document.getElementById(id).textContent = "Train";
+        });
+
+
+        const departureLabelsEnglish = [
+          "mbDepartureLabel",
+          "bpDepartureLabel",
+          "pbDepartureLabel",
+          "bfDepartureLabel",
+          "fvDepartureLabel",
+          "vfDepartureLabel",
+          "frDepartureLabel",
+          "rmDepartureLabel",
+          "fhDepartureLabel",
+          "yhDepartureLabel"
+        ];
+
+        departureLabelsEnglish.forEach(function(id) {
+          document.getElementById(id).textContent = "Departure";
+        });
+
+
+        const arrivalLabelsEnglish = [
+          "mbArrivalLabel",
+          "bpArrivalLabel",
+          "pbArrivalLabel",
+          "bfArrivalLabel",
+          "fvArrivalLabel",
+          "vfArrivalLabel",
+          "frArrivalLabel",
+          "rmArrivalLabel",
+          "fhArrivalLabel",
+          "yhArrivalLabel"
+        ];
+
+        arrivalLabelsEnglish.forEach(function(id) {
+          document.getElementById(id).textContent = "Arrival";
+        });
+
+
+        document.getElementById("tbdTrain").textContent =
+          "TBD";
+
+        englishButton.classList.add("active");
+        spanishButton.classList.remove("active");
+
       }
 
-    });
+    }
 
-  }
-
-  setLanguage("en");
-
-</script>
+  </script>
 
 </body>
 </html>
